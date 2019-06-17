@@ -4,7 +4,7 @@
   <Version>1.0.0.0</Version>
   <ProviderName>Contoso</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="automl-excel"/>
+  <DisplayName DefaultValue="automl-excel-local"/>
   <Description DefaultValue="A template to get started."/>
   <IconUrl DefaultValue="https://localhost:8080/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:8080/assets/icon-80.png"/>

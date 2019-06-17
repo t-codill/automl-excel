@@ -7,7 +7,8 @@ const port = 8080
 app.get('/', (req, res) => res.send('empower every person and every organization on the planet to achieve more'))
 app.use(express.static('dist'))
 
-https.createServer({
+/*https.createServer({
     key: fs.readFileSync('local.key'),
     cert: fs.readFileSync('local.crt')
-}).listen(port, () => console.log(`Example app listening on port ${port}!`))
+})*/
+app.listen(port, () => console.log(`Example app listening on port ${port}!`))
