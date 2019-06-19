@@ -11,6 +11,14 @@ let isOfficeInitialized = false;
 
 const title = 'Contoso Task Pane Add-in';
 
+const authenticationService = {
+    async getToken(): Promise<string | undefined> {
+        const response = await fetch("https://localhost:3001", {mode: 'cors'});
+        const json = await response.json();
+        return json.accessToken;
+    }
+};
+
 const render = (Component) => {
     ReactDOM.render(
         <AppContainer>
@@ -21,7 +29,7 @@ const render = (Component) => {
 };
 
 /* Render application after Office initializes */
-Office.initialize = () => {
+Office.initialize = async () => {
     isOfficeInitialized = true;
     render(App);
 };
@@ -35,3 +43,9 @@ if ((module as any).hot) {
         render(NextApp);
     });
 }
+
+window.addEventListener('load', async () => {
+    console.log('awaiting token')
+    let token = await authenticationService.getToken();
+    console.log('token = ' + token)
+});

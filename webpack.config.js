@@ -30,7 +30,7 @@ module.exports = async (env, options)  => {
         {
           test: /\.tsx?$/,
           use: [
-              'react-hot-loader/webpack',
+              //'react-hot-loader/webpack',
               'ts-loader'
           ],
           exclude: /node_modules/
