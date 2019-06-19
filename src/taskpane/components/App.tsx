@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Button, ButtonType } from 'office-ui-fabric-react';
-import Header from './Header';
-import HeroList, { HeroListItem } from './HeroList';
-import Progress from './Progress';
+import { HeroListItem } from './HeroList';
+import { AuthenticationService } from "../AuthenticationService";
+import Train from './Train'
 
 export interface AppProps {
   title: string;
@@ -11,13 +11,16 @@ export interface AppProps {
 
 export interface AppState {
   listItems: HeroListItem[];
+  currentPage: string;
 }
 
 export default class App extends React.Component<AppProps, AppState> {
   constructor(props, context) {
     super(props, context);
+
     this.state = {
-      listItems: []
+      listItems: [],
+      currentPage: "use"
     };
   }
 
@@ -38,6 +41,12 @@ export default class App extends React.Component<AppProps, AppState> {
         }
       ]
     });
+  }
+
+  getToken = async () => {
+    console.log('getting token!');
+    let token = await AuthenticationService.getToken();
+    console.log('token = ' + token)
   }
 
   click = async () => {
@@ -62,21 +71,28 @@ export default class App extends React.Component<AppProps, AppState> {
     }
   }
 
-  render() {
-    const {
-      title,
-      isOfficeInitialized,
-    } = this.props;
+  setPage(page: string){
+    console.log('setting page to ' + page);
+    this.setState({
+      currentPage: page
+    });
+  }
 
-    if (!isOfficeInitialized) {
+  render() {
+
+    if(this.state.currentPage == "train"){
+      return (<Train setPage={this.setPage.bind(this)} />)
+    }else if(this.state.currentPage == "use"){
       return (
-        <Progress
-          title={title}
-          logo='assets/logo-filled.png'
-          message='Please sideload your addin to see app body.'
-        />
-      );
+        <div>
+          <p>Use model</p>
+          <Button className='ms-welcome__action' buttonType={ButtonType.hero} iconProps={{ iconName: 'ChevronRight' }} onClick={() => this.setPage("train")}>back to train</Button>
+        </div>
+      )
+    }else{
+      return (<p>Invalid page {this.state.currentPage}</p>)
     }
+    /*
 
     return (
       <div className='ms-welcome'>
@@ -84,8 +100,10 @@ export default class App extends React.Component<AppProps, AppState> {
         <HeroList message='Discover what Office Add-ins can do for you today!' items={this.state.listItems}>
           <p className='ms-font-l'>Modify the source files, then click <b>Run</b>.</p>
           <Button className='ms-welcome__action' buttonType={ButtonType.hero} iconProps={{ iconName: 'ChevronRight' }} onClick={this.click}>Run</Button>
+          <Button className='ms-welcome__action' buttonType={ButtonType.hero} iconProps={{ iconName: 'ChevronRight' }} onClick={this.getToken}>Get Token</Button>
         </HeroList>
       </div>
     );
+    */
   }
 }
