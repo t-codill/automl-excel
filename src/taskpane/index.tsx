@@ -4,20 +4,14 @@ import { AppContainer } from 'react-hot-loader';
 import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
+import { AuthenticationService } from "./AuthenticationService";
+
 
 initializeIcons();
 
 let isOfficeInitialized = false;
 
 const title = 'Contoso Task Pane Add-in';
-
-const authenticationService = {
-    async getToken(): Promise<string | undefined> {
-        const response = await fetch("https://localhost:3001", {mode: 'cors'});
-        const json = await response.json();
-        return json.accessToken;
-    }
-};
 
 const render = (Component) => {
     ReactDOM.render(
@@ -46,6 +40,6 @@ if ((module as any).hot) {
 
 window.addEventListener('load', async () => {
     console.log('awaiting token')
-    let token = await authenticationService.getToken();
+    let token = await AuthenticationService.getToken();
     console.log('token = ' + token)
 });

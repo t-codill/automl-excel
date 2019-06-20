@@ -9,6 +9,7 @@ export interface AppProps {
 
 export interface AppState {
   listItems: HeroListItem[];
+  debugText: string;
 }
 
 export default class App extends React.Component<AppProps, AppState> {
@@ -16,6 +17,7 @@ export default class App extends React.Component<AppProps, AppState> {
     super(props, context);
     this.state = {
       listItems: [],
+      debugText: 'none'
     };
   }
 
@@ -40,8 +42,15 @@ export default class App extends React.Component<AppProps, AppState> {
 
   getToken = async () => {
     console.log('getting token!');
+    this.setState({
+      debugText: "getting token"
+    })
     let token = await AuthenticationService.getToken();
     console.log('token = ' + token)
+    
+    this.setState({
+      debugText: "token = " + token
+    })
   }
 
   click = async () => {
@@ -72,8 +81,9 @@ export default class App extends React.Component<AppProps, AppState> {
     return (
       <div className='ms-welcome'>
         <p>Training UI</p>
+        <p>{this.state.debugText}</p>
         <Button className='ms-welcome__action' buttonType={ButtonType.hero} iconProps={{ iconName: 'ChevronRight' }} onClick={() => this.props.setPage("use")}>go to use model</Button>
-
+        <Button className='ms-welcome__action' buttonType={ButtonType.hero} iconProps={{ iconName: 'ChevronRight' }} onClick={this.getToken}>get token</Button>
       </div>
     );
   }

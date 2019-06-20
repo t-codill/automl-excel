@@ -1,9 +1,22 @@
-
+/*
 const authenticationService = {
     async getToken(): Promise<string | undefined> {
-        const response = await fetch("https://localhost:3001", {mode: 'cors'});
+        const response = await fetch("/token", {mode: 'cors'});
         const json = await response.json();
         return json.accessToken;
+    }
+};
+*/
+const authenticationService = {
+    async getToken(): Promise<string | undefined> {
+        let responsePromise = fetch("/token", {mode: 'cors'})
+        return responsePromise.then(async (response: Response) => {
+            const json = await response.json();
+            return json.accessToken;
+        }).catch(async (error) => {
+            console.log(JSON.stringify(error))
+            return undefined;
+        });
     }
 };
 
