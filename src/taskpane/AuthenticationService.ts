@@ -9,7 +9,7 @@ const authenticationService = {
 */
 const authenticationService = {
     async getToken(): Promise<string | undefined> {
-        let responsePromise = fetch("/token", {mode: 'cors'})
+        let responsePromise = fetch("/token")
         return responsePromise.then(async (response: Response) => {
             const json = await response.json();
             return json.accessToken;
