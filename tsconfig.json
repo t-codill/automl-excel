@@ -11,11 +11,15 @@
     "outDir": "dist",
     "allowUnusedLabels": false,
     "noImplicitReturns": true,
-    "noUnusedParameters": true,
+    "noUnusedParameters": false,
     "noUnusedLocals": true,
+    "esModuleInterop": true,
+    "allowJs": true,
     "lib": [
       "es7",
-      "dom"
+      "dom",
+      "es2015",
+      "es2017"
     ],
     "pretty": true,
     "typeRoots": [

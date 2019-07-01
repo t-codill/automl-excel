@@ -78,3 +78,48 @@
 b {
     font-weight: bold;
 }
+
+.ms-train__header {
+    position: relative;
+    top: 7px;
+    font-size: 15px;
+    font-family: "Arial";
+    /* font-weight: bold; */
+    color: white;
+}
+
+.ms-train__refresh {
+    text-align: right
+}
+
+.ms-train__refresh_text {
+    position: relative;
+    top: 7px;
+    margin-right: 15px;
+    font-size: 13px;
+    font-family: "Arial";
+    text-align: right
+}
+
+.ms-train__center {
+    padding-top: 15px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.ms-train__checkbox {
+    padding-top: 10px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    align-items: center;
+}
+
+.ms-train__header_block {
+    background-color: #0078d4;
+}

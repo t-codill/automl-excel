@@ -1,90 +1,85 @@
 import * as React from 'react';
-import { Button, ButtonType } from 'office-ui-fabric-react';
-import { HeroListItem } from './HeroList';
-import { AuthenticationService } from "../AuthenticationService";
+import { PrimaryButton, Checkbox, IChoiceGroupOption, ResponsiveMode, IDropdownOption } from 'office-ui-fabric-react';
+import { Dropdown, IDropdownStyles } from 'office-ui-fabric-react';
+import { ChoiceGroup } from 'office-ui-fabric-react'
+import { IconButton } from 'office-ui-fabric-react'
 
-export interface AppProps {
-  setPage: (page: string) => any;
-}
 
 export interface AppState {
-  listItems: HeroListItem[];
-  debugText: string;
+  selectedKey: string
+  headers: any[]
+  options: IDropdownOption[]
 }
 
-export default class App extends React.Component<AppProps, AppState> {
-  constructor(props, context) {
-    super(props, context);
-    this.state = {
-      listItems: [],
-      debugText: 'none'
+const dropdownStyles: Partial<IDropdownStyles> = {
+    dropdown: { width: 250 }
+};
+
+
+export default class Train extends React.Component<{}, AppState> {
+    constructor(props, context) {
+        super(props, context);
+        this.state = {
+            selectedKey: 'classification', 
+            headers: [],
+            options: []
+        };
+        this.updateHeader();
     };
-  }
 
-  componentDidMount() {
-    this.setState({
-      listItems: [
-        {
-          icon: 'Ribbon',
-          primaryText: 'Achieve more with Office integration'
-        },
-        {
-          icon: 'Unlock',
-          primaryText: 'Unlock features and functionality'
-        },
-        {
-          icon: 'Design',
-          primaryText: 'Create and visualize like a pro'
-        }
-      ]
-    });
-  }
+    updateHeader() {
+        //dropdown options should be updated whenever the excel sheet is updated
+        Excel.run(async context => {
+            var sheet = context.workbook.worksheets.getActiveWorksheet();
+            var range = sheet.getUsedRange();
+            range.load("values")
 
-  getToken = async () => {
-    console.log('getting token!');
-    this.setState({
-      debugText: "getting token"
-    })
-    let token = await AuthenticationService.getToken();
-    console.log('token = ' + token)
-    
-    this.setState({
-      debugText: "token = " + token
-    })
-  }
-
-  click = async () => {
-    try {
-      await Excel.run(async context => {
-        /**
-         * Insert your Excel code here
-         */
-        const range = context.workbook.getSelectedRange();
-
-        // Read the range address
-        range.load("address");
-
-        // Update the fill color
-        range.format.fill.color = "yellow";
-
-        await context.sync();
-        console.log(`The range address was ${range.address}.`);
-      });
-    } catch (error) {
-      console.error(error);
+            await context.sync();
+            this.setState ({
+                headers: range.values[0],
+                options: range.values[0].map(x => {
+                    return{'key': x, 'text': x};
+                })
+            })   
+            console.log(this.state.headers)
+        });
     }
-  }
 
-  render() {
+    render() {
+        const content = this.state.selectedKey === 'forecasting' 
+            ? <div> 
+                <Checkbox className = 'ms-train__checkbox' label = "Is the prediction based on time?" />
+            </div>
+            : null;
 
+        let buttonStyle = {
+            marginTop: '20px',
+            display: 'block',
+            marginLeft: 'auto', 
+            marginRight: 'auto'
+        }
 
-    return (
-      <div className='ms-welcome'>
-        <p>Training UI</p>
-        <p>{this.state.debugText}</p>
-        <Button className='ms-welcome__action' buttonType={ButtonType.hero} iconProps={{ iconName: 'ChevronRight' }} onClick={() => this.props.setPage("use")}>go to use model</Button>
-        <Button className='ms-welcome__action' buttonType={ButtonType.hero} iconProps={{ iconName: 'ChevronRight' }} onClick={this.getToken}>get token</Button>
-      </div>
-    );
-  }
+        return (
+            <div>
+                
+                <div className='ms-train__refresh'>
+                    <IconButton  size={5} iconProps={{ iconName: 'refresh'}} title="refresh" ariaLabel="refresh" onClick={this.updateHeader.bind(this)}/>
+                    <span className='ms-train__refresh_text'> refresh </span>
+                </div>
+                <Dropdown className='ms-train__center' placeholder="Select an option" label='What do you want to predict?' options={this.state.options} responsiveMode={ResponsiveMode.xLarge} styles={dropdownStyles} />
+                <ChoiceGroup className='ms-train__center' label='Select Type of Problem' onChange={this._onImageChoiceGroupChange.bind(this)} options={[
+                    {key: 'classification', text: 'Classification', imageSrc: '/assets/classification.png', selectedImageSrc: '/assets/classificationSelected.png', imageSize: { width: 60, height: 60}},
+                    {key: 'forecasting', text: 'Forecasting', imageSrc: '/assets/forecasting.png', selectedImageSrc: '/assets/forecastingSelected.png', imageSize: { width: 60, height: 60}}]}/>
+                { content }
+                <PrimaryButton style={buttonStyle} data-automation-id="train" allowDisabledFocus={true} text="train" />
+            </div>
+        );
+    }
+
+    //@ts-ignore
+    private _onImageChoiceGroupChange(ev: React.SyntheticEvent<HTMLElement>, option: IChoiceGroupOption): void {
+        this.setState({
+            selectedKey: option.key
+        });
+    }
 }
