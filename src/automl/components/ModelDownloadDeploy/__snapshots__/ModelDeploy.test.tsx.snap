@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Model Deploy should render with ChildRun Page 1`] = `
+<Fragment>
+  <CustomizedCompoundButton
+    disabled={false}
+    onClick={[Function]}
+    primary={true}
+    secondaryText="test-model-name"
+    style={
+      Object {
+        "boxSizing": "border-box",
+        "height": "80px",
+        "width": "48%",
+      }
+    }
+  >
+    Deploy Model
+  </CustomizedCompoundButton>
+</Fragment>
+`;
+
+exports[`Model Deploy should render with ParentRun Page 1`] = `
+<Fragment>
+  <CustomizedCompoundButton
+    disabled={false}
+    onClick={[Function]}
+    primary={true}
+    secondaryText="test-model-name"
+    style={
+      Object {
+        "boxSizing": "border-box",
+        "height": "80px",
+        "width": "48%",
+      }
+    }
+  >
+    Deploy Best Model
+  </CustomizedCompoundButton>
+</Fragment>
+`;

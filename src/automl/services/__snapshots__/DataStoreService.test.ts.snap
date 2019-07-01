@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataStoreService should get default if default store exist 1`] = `
+Object {
+  "_mockParameters": Array [
+    "00000000-0000-0000-0000-000000000000",
+    "testResource",
+    "testWorkSpace",
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "name": "store1",
+}
+`;
+
+exports[`DataStoreService should list 1`] = `
+Array [
+  Object {
+    "name": "store1",
+  },
+]
+`;

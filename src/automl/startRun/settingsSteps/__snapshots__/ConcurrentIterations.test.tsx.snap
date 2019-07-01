@@ -1,0 +1,71 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Concurrent Iterations should render with valid props 1`] = `
+<div
+  className="ms-Grid"
+  dir="ltr"
+>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <LabelWithCallout
+      htmlFor="maxConcurrentIterInput"
+      labelText="Max concurrent iterations"
+      required={false}
+    >
+      Maximum number of iterations that would be executed in parallel. This should be less than the number of cores on the compute target.
+    </LabelWithCallout>
+  </div>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <FormTextInput
+      ariaLabel="Please enter the max number of concurrent iterations here"
+      defaultFormValue="1"
+      field="maxConcurrentIterations"
+      placeholder="Concurrent Iterations"
+      type="number"
+      validators={
+        Array [
+          [Function],
+        ]
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`Concurrent Iterations should render with validation error undefined props 1`] = `
+<div
+  className="ms-Grid"
+  dir="ltr"
+>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <LabelWithCallout
+      htmlFor="maxConcurrentIterInput"
+      labelText="Max concurrent iterations"
+      required={false}
+    >
+      Maximum number of iterations that would be executed in parallel. This should be less than the number of cores on the compute target.
+    </LabelWithCallout>
+  </div>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <FormTextInput
+      ariaLabel="Please enter the max number of concurrent iterations here"
+      defaultFormValue="1"
+      field="maxConcurrentIterations"
+      placeholder="Concurrent Iterations"
+      type="number"
+      validators={
+        Array [
+          [Function],
+        ]
+      }
+    />
+  </div>
+</div>
+`;

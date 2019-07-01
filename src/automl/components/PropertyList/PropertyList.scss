@@ -1,0 +1,36 @@
+.propertyList {
+    .propertyListProp {
+        
+        font-weight: 600;
+        padding: 15px 10px 10px 10px;
+        user-select: text;
+    }
+
+    .propertyListValue {
+        
+        line-height: 2.29;
+        font-size: 14px;
+        font-style: normal;
+        font-stretch: normal;
+        letter-spacing: normal;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+        overflow: hidden;
+        padding: 10px;
+        text-align: right;
+        position: relative;
+        user-select: text;
+    }
+
+    .propertyListValue:hover {
+
+        text-overflow: unset;
+        white-space: normal;
+    }
+
+    .propertyListProp:hover {
+        
+        text-overflow: unset;
+        white-space: normal;
+    }
+}

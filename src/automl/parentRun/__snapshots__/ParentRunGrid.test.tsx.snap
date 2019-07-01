@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Parent Run Grid Classification Success should render graphs, run metrics and run summary in grid 1`] = `
+<div
+  className="ms-Grid"
+  dir="ltr"
+>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 ms-xl9"
+  >
+    <GridItem
+      title="Iteration Chart"
+    >
+      <ParentRunSkylineChart
+        childRunMetrics={Array []}
+        childRuns={Array []}
+        experimentName="foo"
+        onModelRegister={[MockFunction]}
+        run={Object {}}
+      />
+    </GridItem>
+    <GridItem
+      title="Iterations"
+    >
+      <ChildRunIterationTable
+        childRunMetrics={Array []}
+        childRuns={Array []}
+        experimentName="foo"
+        onModelRegister={[MockFunction]}
+        run={Object {}}
+      />
+    </GridItem>
+  </div>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 ms-xl3"
+  >
+    <GridItem
+      title="Run Summary"
+    >
+      <ParentRunSummary
+        run={Object {}}
+      />
+    </GridItem>
+    <GridItem
+      title="Run Settings"
+    >
+      <ParentSettings
+        run={Object {}}
+      />
+    </GridItem>
+  </div>
+</div>
+`;

@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`logSerializers advancedSettingsLogSerializer should ignore optional values 1`] = `
+"{
+  \\"jobType\\": \\"classification\\",
+  \\"column\\": 3,
+  \\"metric\\": \\"AUC_weighted\\",
+  \\"experimentTimeoutMinutes\\": 60,
+  \\"maxIteration\\": 15,
+  \\"experimentExitScore\\": null,
+  \\"maxConcurrent\\": 1,
+  \\"maxCores\\": 2,
+  \\"preprocess\\": true,
+  \\"nCrossValidations\\": 5,
+  \\"blacklistAlgos\\": null,
+  \\"validationSize\\": null,
+  \\"grainColumns\\": null,
+  \\"maxHorizon\\": null,
+  \\"timeSeriesColumn\\": null
+}"
+`;
+
+exports[`logSerializers advancedSettingsLogSerializer should serialize settings 1`] = `
+"{
+  \\"jobType\\": \\"classification\\",
+  \\"column\\": 3,
+  \\"metric\\": \\"AUC_weighted\\",
+  \\"experimentTimeoutMinutes\\": 60,
+  \\"maxIteration\\": 15,
+  \\"experimentExitScore\\": 0.99,
+  \\"maxConcurrent\\": 1,
+  \\"maxCores\\": 2,
+  \\"preprocess\\": true,
+  \\"nCrossValidations\\": 5,
+  \\"blacklistAlgos\\": [
+    \\"algo_1\\",
+    \\"algo_2\\"
+  ],
+  \\"validationSize\\": 0.2,
+  \\"timeSeriesColumn\\": 6,
+  \\"grainColumns\\": 2,
+  \\"maxHorizon\\": 10
+}"
+`;

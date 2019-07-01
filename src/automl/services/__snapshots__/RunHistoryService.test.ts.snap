@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RunHistoryService getChildRunMetrics should getChildRunMetrics 1`] = `
+Array [
+  Object {},
+  Object {},
+]
+`;
+
+exports[`RunHistoryService getRunList should getRunList 1`] = `
+Array [
+  Object {
+    "experimentName": "experiment1",
+    "runId": "AutoML_000",
+  },
+  Object {
+    "experimentName": "",
+    "runId": "AutoML_000",
+  },
+]
+`;
+
+exports[`RunHistoryService getRuns should getRunList 1`] = `
+Array [
+  Object {
+    "experimentName": "",
+    "runId": "AutoML_000",
+  },
+]
+`;
+
+exports[`RunHistoryService should getChildRuns 1`] = `
+Array [
+  Object {
+    "runId": "AutoML_000",
+  },
+]
+`;
+
+exports[`RunHistoryService should getExperiment 1`] = `
+Object {
+  "_mockParameters": Array [
+    "00000000-0000-0000-0000-000000000000",
+    "testResource",
+    "testWorkSpace",
+    "sampleExperimentName",
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "experimentId": "experimentId",
+}
+`;
+
+exports[`RunHistoryService should getRun 1`] = `
+Object {
+  "_mockParameters": Array [
+    "00000000-0000-0000-0000-000000000000",
+    "testResource",
+    "testWorkSpace",
+    "sampleExperimentName",
+    "00000000-0000-0000-0000-000000000000",
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "runId": "AutoML_000",
+}
+`;
+
+exports[`RunHistoryService should getRunMetrics 1`] = `
+Array [
+  Object {
+    "name": "metric1",
+  },
+]
+`;
+
+exports[`RunHistoryService should listExperiments 1`] = `
+Array [
+  Object {
+    "name": "experiment1",
+  },
+  Object {
+    "name": undefined,
+  },
+]
+`;
+
+exports[`RunHistoryService should update tags 1`] = `
+Object {
+  "_mockParameters": Array [
+    "00000000-0000-0000-0000-000000000000",
+    "testResource",
+    "testWorkSpace",
+    "Test",
+    "AutoML_000",
+    Object {
+      "abortSignal": Object {},
+      "createRunDto": Object {
+        "runId": "AutoML_000",
+        "tags": Object {
+          "iterations": "2",
+          "test tag": "test value",
+        },
+      },
+    },
+  ],
+  "runId": "AutoML_000",
+}
+`;

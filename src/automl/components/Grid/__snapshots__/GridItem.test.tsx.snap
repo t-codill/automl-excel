@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridItem should render with no title set 1`] = `
+<div
+  className="grid-item"
+>
+  <div
+    className="grid-item-header"
+  >
+    title
+  </div>
+  <div
+    className="grid-item-content"
+  />
+</div>
+`;
+
+exports[`GridItem should render with title set 1`] = `
+<div
+  className="grid-item"
+>
+  <div
+    className="grid-item-content"
+  />
+</div>
+`;

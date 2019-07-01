@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageLoadingSpinner should render 1`] = `
+<StyledSpinnerBase
+  className="page-loading-spinner"
+  label="Loading..."
+  size={3}
+/>
+`;
+
+exports[`PageLoadingSpinner should render with label 1`] = `
+<StyledSpinnerBase
+  className="page-loading-spinner"
+  label="label1"
+  size={3}
+/>
+`;

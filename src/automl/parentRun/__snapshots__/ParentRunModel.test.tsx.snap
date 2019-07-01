@@ -1,0 +1,113 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Parent Run Model should render with success run 1`] = `
+<Fragment>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <ModelDownload
+      experimentName="foo"
+      modelName="MaxAbsScaler, RandomForest"
+      modelUri="getModelUrl"
+      pageName="ParentRun"
+      run={
+        Object {
+          "createdUtc": 2019-02-01T08:20:00.000Z,
+          "endTimeUtc": 2019-02-01T08:25:00.000Z,
+          "experimentId": "exp",
+          "name": "AutoML_001",
+          "options": Object {
+            "generateDataContainerIdIfNotSpecified": true,
+          },
+          "parentRunId": "AutoML_000",
+          "properties": Object {
+            "class_labels": "",
+            "pipeline_id": "eda663ea8f36e6c07948c99bba9d1becb40991a5",
+            "primary_metric": "spearman_correlation",
+            "runTemplate": "automl_child",
+            "run_algorithm": "RandomForest",
+            "run_preprocessor": "MaxAbsScaler",
+            "run_template": "automl_child",
+            "score": "0.977770827248834",
+          },
+          "runId": "AutoML_001",
+          "score": 0.977770827248834,
+          "startTimeUtc": 2019-02-01T08:20:00.000Z,
+          "status": "Completed",
+        }
+      }
+    />
+    <ModelDeploy
+      experimentName="foo"
+      modelName="MaxAbsScaler, RandomForest"
+      modelUri="getModelUrl"
+      onModelRegister={[MockFunction]}
+      pageName="ParentRun"
+      parentRun={
+        Object {
+          "endTimeUtc": 2019-02-01T08:30:00.000Z,
+          "parentRunId": undefined,
+          "properties": Object {
+            "AMLSettingsJsonString": "{\\"primary_metric\\":\\"AUC_weighted\\",\\"data_script\\":null,\\"compute_target\\":\\"local\\",\\"n_cross_validations\\":3,\\"max_cores_per_iteration\\":1,\\"blacklist_algos\\":[],\\"exit_score\\":100,\\"name\\":\\"my_experiment\\",\\"task_type\\":\\"classification\\"}",
+          },
+          "runId": "AutoML_000",
+          "startTimeUtc": 2019-02-01T08:20:00.000Z,
+          "status": "Completed",
+          "tags": Object {
+            "iterations": "2",
+          },
+        }
+      }
+      run={
+        Object {
+          "createdUtc": 2019-02-01T08:20:00.000Z,
+          "endTimeUtc": 2019-02-01T08:25:00.000Z,
+          "experimentId": "exp",
+          "name": "AutoML_001",
+          "options": Object {
+            "generateDataContainerIdIfNotSpecified": true,
+          },
+          "parentRunId": "AutoML_000",
+          "properties": Object {
+            "class_labels": "",
+            "pipeline_id": "eda663ea8f36e6c07948c99bba9d1becb40991a5",
+            "primary_metric": "spearman_correlation",
+            "runTemplate": "automl_child",
+            "run_algorithm": "RandomForest",
+            "run_preprocessor": "MaxAbsScaler",
+            "run_template": "automl_child",
+            "score": "0.977770827248834",
+          },
+          "runId": "AutoML_001",
+          "score": 0.977770827248834,
+          "startTimeUtc": 2019-02-01T08:20:00.000Z,
+          "status": "Completed",
+        }
+      }
+    />
+  </div>
+  <div
+    style={
+      Object {
+        "marginBottom": "1em",
+        "textAlign": "right",
+      }
+    }
+  >
+    <StyledLinkBase
+      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-portal-experiments#deploy-model"
+      target="_blank"
+    >
+      Learn more about deploying models 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+  </div>
+</Fragment>
+`;

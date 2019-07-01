@@ -1,0 +1,7 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageRedirectLinkRender should render component 1`] = `
+<RedirectLink
+  to="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testResource/providers/Microsoft.MachineLearningServices/workspaces/testWorkSpace/?flight="
+/>
+`;

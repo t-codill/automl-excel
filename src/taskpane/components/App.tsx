@@ -10,7 +10,7 @@ import { AzureMachineLearningWorkspacesModels } from '@azure/arm-machinelearning
 import { Pivot, PivotItem, IconButton } from 'office-ui-fabric-react';
 
 
-import Train from './Train'
+//import Train from './Train'
 import { /*IAppContextProps,*/ appContextDefaults, AppContext } from './AppContext';
 
 const memoryHistory = createMemoryHistory();
@@ -34,6 +34,7 @@ export default class App extends React.Component<AppProps, AppState> {
     await this.updateToken();
     console.log('awaiting subscription service');
     let subscriptionList = await new SubscriptionService(this.appContext).listSubscriptions();
+    console.log('got list');
     this.setState({
       subscriptionList: subscriptionList
     });
@@ -44,6 +45,7 @@ export default class App extends React.Component<AppProps, AppState> {
     this.setState({
       workspaceList: workspaceList
     });
+    
   }
 
   constructor(props, context) {
@@ -182,7 +184,7 @@ export default class App extends React.Component<AppProps, AppState> {
         <Router history={memoryHistory}>
           <Navbar />
           <Switch>
-            <Route path="/train"><Train /></Route>
+            <Route path="/train"></Route>
             <Route path="/test"><p>test ux</p><Link to='/'>Back</Link></Route>
             <Route exact path='/'><p>main page</p><Link to='/train'>Train</Link><Link to='/test'>Test</Link></Route>
           </Switch>

@@ -1,0 +1,75 @@
+@import "./Themes.scss";
+
+.app-container,
+.app-header,
+.app-command-bar,
+.app-message-bar,
+.app-content-container {
+
+	@include primaryTextColor;
+}
+
+#automl {
+
+	.app-container,
+	.app-header,
+	.app-command-bar,
+	.app-message-bar,
+	.app-content-container {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.app-container {
+		height: 100%;
+	}
+
+	.app-header {
+		padding: 0 20px;
+	}
+
+	.app-command-bar {
+		padding: 0 10px;
+
+		.ms-CommandBar {
+			padding-left: 0;
+			border-bottom: solid 1px rgba(204, 204, 204, .8);
+		}
+	}
+
+	.app-message-bar {
+		padding: 0 10px;
+	}
+
+	.app-content-container {
+		padding: 10px;
+		flex: 1;
+	}
+
+	.app-content {
+		height: 100%;
+		overflow: auto;
+	}
+
+	.page-progress-indicator-container {
+		height: 1px;
+		padding: 0 10px;
+
+		.page-progress-indicator {
+			.ms-ProgressIndicator-itemProgress {
+				padding: 0;
+			}
+		}
+	}
+
+	.form-footer {
+		padding: 1em 0;
+		margin-top: 1.5em;
+		border-top: solid 1px rgba(204, 204, 204, .8);
+		width: 100%;
+
+		button.ms-Button {
+			margin-right: 2em;
+		}
+	}
+}

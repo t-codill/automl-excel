@@ -1,0 +1,40 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Preprocessing should render with classification 1`] = `
+<div
+  className="ms-Grid preprocessing-container"
+  dir="ltr"
+>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <LabelWithCallout
+      htmlFor="preprocessingCheck"
+      labelText="Preprocessing"
+      required={false}
+    >
+      Enable data preprocessing and automatic feature creation. 
+      <StyledLinkBase
+        className="ms-CalloutExample-link"
+        href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#data-pre-processing-and-featurization"
+        target="_blank"
+      >
+        Learn more
+        <StyledIconBase
+          iconName="NavigateExternalInline"
+        />
+      </StyledLinkBase>
+      .
+    </LabelWithCallout>
+  </div>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md5 ms-lg5 ms-xl5 preprocessing-checkbox"
+  >
+    <FormCheckBox
+      defaultFormValue={true}
+      disabled={false}
+      field="preprocessing"
+    />
+  </div>
+</div>
+`;

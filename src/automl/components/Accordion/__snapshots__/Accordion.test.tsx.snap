@@ -1,0 +1,85 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Accordion change props should trigger re-render 1`] = `
+<Fragment>
+  <AccordionItem
+    collapsed={false}
+    disabled={false}
+    element={<div />}
+    index={0}
+    key="0"
+    title="Item 1"
+    toggleCollapsed={[Function]}
+  />
+  <AccordionItem
+    collapsed={true}
+    disabled={false}
+    element={<div />}
+    index={1}
+    key="1"
+    title="Item 2"
+    toggleCollapsed={[Function]}
+  />
+  <AccordionItem
+    collapsed={true}
+    disabled={true}
+    element={<div />}
+    index={2}
+    key="2"
+    title="Item 3"
+    toggleCollapsed={[Function]}
+  />
+  <AccordionItem
+    collapsed={true}
+    disabled={true}
+    element={<div />}
+    index={3}
+    key="3"
+    title="Item 4"
+    toggleCollapsed={[Function]}
+  />
+</Fragment>
+`;
+
+exports[`Accordion should render 1`] = `
+<Fragment>
+  <AccordionItem
+    collapsed={false}
+    disabled={false}
+    element={<div />}
+    index={0}
+    key="0"
+    title="Item 1"
+    toggleCollapsed={[Function]}
+  />
+  <AccordionItem
+    collapsed={true}
+    disabled={false}
+    element={<div />}
+    index={1}
+    key="1"
+    title="Item 2"
+    toggleCollapsed={[Function]}
+  />
+  <AccordionItem
+    collapsed={true}
+    disabled={true}
+    element={<div />}
+    index={2}
+    key="2"
+    title="Item 3"
+    toggleCollapsed={[Function]}
+  />
+  <AccordionItem
+    collapsed={true}
+    disabled={true}
+    element={<div />}
+    index={3}
+    key="3"
+    title="Item 4"
+    toggleCollapsed={[Function]}
+  />
+</Fragment>
+`;
+
+exports[`Accordion should render empty list when the number of items is zero 1`] = `<Fragment />`;

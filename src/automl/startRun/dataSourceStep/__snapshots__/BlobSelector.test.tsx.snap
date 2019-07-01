@@ -1,0 +1,44 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlobSelector should render 1`] = `
+<Fragment>
+  <StyledLabelBase>
+    Select a CSV/TSV data file, or upload from your local computer
+  </StyledLabelBase>
+  <input
+    accept=".csv, .tsv"
+    hidden={true}
+    key="0"
+    onChange={[Function]}
+    type="file"
+  />
+  <div
+    className="data-source-grid-container"
+  >
+    <DataTable
+      columns={
+        Array [
+          Object {
+            "field": "name",
+          },
+        ]
+      }
+      commandItems={
+        Array [
+          Object {
+            "icon": "Upload",
+            "key": "upload",
+            "name": "Upload",
+            "onClick": [Function],
+          },
+        ]
+      }
+      enableShimmer={false}
+      items={Array []}
+      itemsPerPage={10}
+      selectCallback={[MockFunction]}
+      sortColumnFieldName="name"
+    />
+  </div>
+</Fragment>
+`;

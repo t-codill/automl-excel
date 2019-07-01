@@ -1,0 +1,109 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`VmSizeSelector should render with default to Standard_DS12_v2 1`] = `
+<FormDropdown
+  defaultFormValue="Standard_DS12_v2"
+  field="vmSize"
+  label="Select virtual machine size"
+  options={
+    Array [
+      Object {
+        "key": "foo",
+        "text": "FOO",
+      },
+      Object {
+        "key": "foo1",
+        "text": "FOO1 --- 2 vCPUs, ",
+      },
+      Object {
+        "key": "foo2",
+        "text": "FOO2 --- 4 vCPUs, 8 GB memory, ",
+      },
+      Object {
+        "key": "Standard_DS12_v2",
+        "text": "STANDARD_DS12_V2 --- 8 vCPUs, 16 GB memory, 32 GB storage",
+      },
+      Object {
+        "key": "foo3",
+        "text": "FOO3 --- 16 vCPUs, 32 GB memory, 64 GB storage",
+      },
+      Object {
+        "key": "foo3",
+        "text": "FOO3 --- 64 GB memory, 128 GB storage",
+      },
+      Object {
+        "key": "foo3",
+        "text": "FOO3 --- 256 GB storage",
+      },
+    ]
+  }
+  placeholder="Select virtual machine size..."
+  required={true}
+  validators={
+    Array [
+      [Function],
+    ]
+  }
+/>
+`;
+
+exports[`VmSizeSelector should render with default to first 1`] = `
+<FormDropdown
+  defaultFormValue=""
+  field="vmSize"
+  label="Select virtual machine size"
+  options={
+    Array [
+      Object {
+        "key": "",
+        "text": "",
+      },
+    ]
+  }
+  placeholder="Select virtual machine size..."
+  required={true}
+  validators={
+    Array [
+      [Function],
+    ]
+  }
+/>
+`;
+
+exports[`VmSizeSelector should show loader when vmSizes is empty 1`] = `
+<FormDropdown
+  field="vmSize"
+  label="Select virtual machine size"
+  options={Array []}
+  placeholder="Select virtual machine size..."
+  required={true}
+  validators={
+    Array [
+      [Function],
+    ]
+  }
+/>
+`;
+
+exports[`VmSizeSelector should show loader when vmSizes is undefined 1`] = `
+<StyledSpinnerBase
+  label="Loading Virtual Machine Sizes"
+  labelPosition="right"
+  size={2}
+/>
+`;
+
+exports[`VmSizeSelector should show loader when vmSizes' amlCompute is empty 1`] = `
+<FormDropdown
+  field="vmSize"
+  label="Select virtual machine size"
+  options={Array []}
+  placeholder="Select virtual machine size..."
+  required={true}
+  validators={
+    Array [
+      [Function],
+    ]
+  }
+/>
+`;

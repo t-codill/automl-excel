@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ErrorMessageBar dismissed should not render 1`] = `<Fragment />`;
+
+exports[`ErrorMessageBar should render 1`] = `
+<Fragment>
+  <StyledMessageBarBase
+    actions={<React.Fragment />}
+    dismissButtonAriaLabel="Close"
+    isMultiline={false}
+    messageBarType={1}
+    onDismiss={[Function]}
+  >
+    <div
+      className="error-message-text"
+    >
+      <div
+        className="error-content"
+        title="test message"
+      >
+         
+        test message
+      </div>
+    </div>
+  </StyledMessageBarBase>
+</Fragment>
+`;

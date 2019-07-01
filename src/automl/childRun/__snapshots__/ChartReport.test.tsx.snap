@@ -1,0 +1,199 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Chart Report Classification Failure should render no data message 1`] = `
+<StyledMessageBarBase>
+  No data for visualization
+</StyledMessageBarBase>
+`;
+
+exports[`Chart Report Classification Success should render accuracy charts and confusion matrix 1`] = `
+<GridWrapper
+  cols={
+    Object {
+      "lg": 8,
+      "md": 8,
+      "sm": 4,
+      "xs": 4,
+      "xxs": 4,
+    }
+  }
+  gridElementPropsList={
+    Array [
+      Object {
+        "className": "chart-element",
+        "element": <e
+          configOverride={
+            Object {
+              "useResizeHandler": true,
+            }
+          }
+          metric={Object {}}
+          theme="light"
+        />,
+        "height": 3,
+        "key": "prChart",
+        "title": "",
+        "width": 4,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "className": "chart-element",
+        "element": <e
+          configOverride={
+            Object {
+              "useResizeHandler": true,
+            }
+          }
+          metric={Object {}}
+          theme="light"
+        />,
+        "height": 3,
+        "key": "rocChart",
+        "title": "",
+        "width": 4,
+        "x": 4,
+        "y": 0,
+      },
+      Object {
+        "className": "chart-element",
+        "element": <e
+          configOverride={
+            Object {
+              "useResizeHandler": true,
+            }
+          }
+          metric={Object {}}
+          theme="light"
+        />,
+        "height": 3,
+        "key": "calChart",
+        "title": "",
+        "width": 4,
+        "x": 0,
+        "y": 3,
+      },
+      Object {
+        "className": "chart-element",
+        "element": <e
+          configOverride={
+            Object {
+              "useResizeHandler": true,
+            }
+          }
+          metric={Object {}}
+          theme="light"
+        />,
+        "height": 3,
+        "key": "liftChart",
+        "title": "",
+        "width": 4,
+        "x": 4,
+        "y": 3,
+      },
+      Object {
+        "className": "chart-element",
+        "element": <e
+          configOverride={
+            Object {
+              "useResizeHandler": true,
+            }
+          }
+          metric={Object {}}
+          theme="light"
+        />,
+        "height": 3,
+        "key": "gainsChart",
+        "title": "",
+        "width": 4,
+        "x": 0,
+        "y": 6,
+      },
+      Object {
+        "className": "chart-element",
+        "element": <e
+          configOverride={
+            Object {
+              "useResizeHandler": true,
+            }
+          }
+          metric={Object {}}
+          theme="light"
+        />,
+        "height": 3,
+        "key": "confMatChart",
+        "title": "",
+        "width": 4,
+        "x": 4,
+        "y": 6,
+      },
+    ]
+  }
+  margin={
+    Array [
+      0,
+      0,
+    ]
+  }
+/>
+`;
+
+exports[`Chart Report Regression Success should render residuals and predicted vs true chart 1`] = `
+<GridWrapper
+  cols={
+    Object {
+      "lg": 8,
+      "md": 8,
+      "sm": 4,
+      "xs": 4,
+      "xxs": 4,
+    }
+  }
+  gridElementPropsList={
+    Array [
+      Object {
+        "className": "chart-element",
+        "element": <e
+          configOverride={
+            Object {
+              "useResizeHandler": true,
+            }
+          }
+          metric={Object {}}
+          theme="light"
+        />,
+        "height": 3,
+        "key": "predTrueChart",
+        "title": "",
+        "width": 8,
+        "x": 0,
+        "y": 0,
+      },
+      Object {
+        "className": "chart-element",
+        "element": <e
+          configOverride={
+            Object {
+              "useResizeHandler": true,
+            }
+          }
+          metric={Object {}}
+          theme="light"
+        />,
+        "height": 3,
+        "key": "resChart",
+        "title": "",
+        "width": 8,
+        "x": 0,
+        "y": 3,
+      },
+    ]
+  }
+  margin={
+    Array [
+      0,
+      0,
+    ]
+  }
+/>
+`;

@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Form should render 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "mount": [Function],
+      "onUpdated": [MockFunction],
+      "unmount": [Function],
+    }
+  }
+>
+  <form
+    autoComplete="off"
+    noValidate={true}
+    onSubmit={[Function]}
+  />
+</ContextProvider>
+`;

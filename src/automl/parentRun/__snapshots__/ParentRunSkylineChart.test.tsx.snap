@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Parent Run Skyline Chart should render No Data when no run 1`] = `
+<StyledMessageBarBase>
+  No data for visualization
+</StyledMessageBarBase>
+`;
+
+exports[`Parent Run Skyline Chart should render chart when successful run 1`] = `
+<e
+  configOverride={
+    Object {
+      "config": Object {
+        "displayModeBar": false,
+      },
+      "layout": Object {
+        "margin": Object {
+          "b": 60,
+          "l": 60,
+          "r": 60,
+          "t": 40,
+        },
+      },
+      "useResizeHandler": true,
+    }
+  }
+  metric={
+    Object {
+      "metrics": Array [
+        Object {
+          "spearman_correlation": 0.877770827248834,
+        },
+      ],
+      "min": false,
+      "names": Array [
+        "MaxAbsScaler, RandomForest",
+        "MaxAbsScaler",
+        "<N/A>",
+        "MaxAbsScaler",
+        "<N/A>",
+      ],
+      "primaryMetricName": undefined,
+    }
+  }
+  theme="light"
+/>
+`;

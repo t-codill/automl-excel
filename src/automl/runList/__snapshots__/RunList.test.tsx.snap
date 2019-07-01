@@ -1,0 +1,139 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RunList should render 1`] = `
+<Fragment>
+  <div
+    className="run-filter-container"
+  >
+    <div
+      className="run-filter-action-container"
+    >
+      <RunListDateSelector
+        onDateChange={[Function]}
+      />
+    </div>
+    <div
+      className="run-filter-action-container"
+    >
+      <RunListExperimentSelector
+        experimentNames={
+          Array [
+            "experiment1",
+            "experiment2",
+          ]
+        }
+        isAllSelect={true}
+        onExperimentChange={[Function]}
+      />
+    </div>
+  </div>
+  <div
+    className="run-status-container"
+  >
+    <div
+      className="run-status-card-container"
+    >
+      <RunStatusCardContainer
+        onStatusFilterChange={[Function]}
+        runStatus={
+          Object {
+            "Completed": 0,
+            "Failed": 0,
+            "Others": 0,
+            "Running": 0,
+            "undefined": NaN,
+          }
+        }
+      />
+    </div>
+    <div
+      className="run-status-chart-container"
+    >
+      <e
+        configOverride={
+          Object {
+            "config": Object {
+              "displayModeBar": false,
+              "responsive": true,
+            },
+            "layout": Object {
+              "margin": Object {
+                "b": 30,
+                "l": 20,
+                "r": 20,
+                "t": 20,
+              },
+            },
+          }
+        }
+        metric={
+          Object {
+            "1970/01/01": Object {
+              "undefined": 2,
+            },
+          }
+        }
+        theme="light"
+      />
+    </div>
+  </div>
+  <DataTable
+    columns={
+      Array [
+        Object {
+          "field": "experimentName",
+          "header": "Experiment",
+          "maxWidth": 250,
+          "minWidth": 70,
+        },
+        Object {
+          "field": "runId",
+          "header": "Run Id",
+          "maxWidth": 350,
+          "minWidth": 70,
+          "render": [Function],
+        },
+        Object {
+          "field": "status",
+          "header": "Status",
+          "maxWidth": 80,
+          "minWidth": 80,
+        },
+        Object {
+          "field": "createdUtc",
+          "header": "Created",
+          "maxWidth": 200,
+          "minWidth": 80,
+        },
+        Object {
+          "field": "startTimeUtc",
+          "header": "Start Time",
+          "maxWidth": 200,
+          "minWidth": 80,
+        },
+        Object {
+          "field": "endTimeUtc",
+          "header": "End Time",
+          "maxWidth": 200,
+          "minWidth": 80,
+        },
+      ]
+    }
+    items={
+      Array [
+        Object {
+          "experimentName": "experiment1",
+          "runId": "run1",
+        },
+        Object {
+          "experimentName": "experiment2",
+          "runId": "run2",
+        },
+      ]
+    }
+    itemsPerPage={15}
+    sortColumnFieldName="createdUtc"
+    sortDescending={true}
+  />
+</Fragment>
+`;

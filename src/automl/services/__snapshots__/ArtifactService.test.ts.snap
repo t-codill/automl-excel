@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ArtifactService should getAllArtifacts 1`] = `
+Array [
+  Object {
+    "artifactId": "artifactId",
+    "container": "container",
+    "createdTime": 2019-01-01T00:00:00.000Z,
+    "etag": "etag",
+    "origin": "origin",
+    "path": "path",
+  },
+]
+`;
+
+exports[`ArtifactService should getAllArtifactsForRuns 1`] = `
+Array [
+  Array [
+    Object {
+      "artifactId": "artifactId",
+      "container": "container",
+      "createdTime": 2019-01-01T00:00:00.000Z,
+      "etag": "etag",
+      "origin": "origin",
+      "path": "path",
+    },
+  ],
+  Array [
+    Object {
+      "artifactId": "artifactId",
+      "container": "container",
+      "createdTime": 2019-01-01T00:00:00.000Z,
+      "etag": "etag",
+      "origin": "origin",
+      "path": "path",
+    },
+  ],
+]
+`;
+
+exports[`ArtifactService should getAllContents 1`] = `
+Array [
+  "sampleArtifactContent",
+]
+`;
+
+exports[`ArtifactService should tryGetArtifactUrl 1`] = `
+Object {
+  "_mockParameters": Array [
+    "00000000-0000-0000-0000-000000000000",
+    "testResource",
+    "testWorkSpace",
+    "sampleOrigin",
+    "sampleContainer",
+    "1.0",
+    Object {
+      "abortSignal": Object {},
+      "path": "samplePath",
+    },
+  ],
+  "container": "container",
+  "contentUri": "contentUri",
+  "origin": "origin",
+  "path": "path",
+}
+`;

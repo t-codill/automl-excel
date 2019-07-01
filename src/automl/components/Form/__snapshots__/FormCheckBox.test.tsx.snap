@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormCheckBox should render 1`] = `
+<StyledCheckboxBase
+  checked={true}
+  defaultFormValue={true}
+  field="preprocessing"
+  onChange={[Function]}
+/>
+`;

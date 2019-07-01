@@ -1,0 +1,274 @@
+{
+    "code": "ServiceError",
+    "statusCode": 500,
+    "request": {
+        "streamResponseBody": false,
+        "url": "https://eastus2euap.experiments.azureml.net/dataprep/v1.0/subscriptions/381b38e9-9840-4719-a5a0-61d9585e1e91/resourceGroups/Ke_Canary_US/providers/Microsoft.MachineLearningServices/workspaces/Ke_Canary_US_1031/profileJobs",
+        "method": "POST",
+        "headers": {
+            "_headersMap": {
+                "content-type": {
+                    "name": "content-type",
+                    "value": "application/json-patch+json; charset=utf-8"
+                },
+                "x-ms-command-name": {
+                    "name": "x-ms-command-name",
+                    "value": "@vienna/dataprep/0.0.1 ms-rest-js/0.1.0 OS/Win32"
+                }
+            }
+        },
+        "body": "{\"experimentName\":\"dataprep-profile\",\"computeTargetName\":\"mydsvm\",\"dataStoreName\":\"eddxdxdtelemenelelemehekdtdzdxejejefesduesejemdoeldtefeieedxdwdtemdt\",\"dataPath\":\"PlayaEvents2016,_1.6MB,_3.4k-rows.cleaned.2 - Copy.tsv\",\"topNSample\":10000}",
+        "withCredentials": false,
+        "abortSignal": {},
+        "timeout": 0,
+        "operationSpec": {
+            "httpMethod": "POST",
+            "path": "dataprep/v1.0/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.MachineLearningServices/workspaces/{workspaceName}/profileJobs",
+            "urlParameters": [
+                {
+                    "parameterPath": "subscriptionId",
+                    "mapper": {
+                        "required": true,
+                        "serializedName": "subscriptionId",
+                        "type": {
+                            "name": "String"
+                        }
+                    }
+                },
+                {
+                    "parameterPath": "resourceGroupName",
+                    "mapper": {
+                        "required": true,
+                        "serializedName": "resourceGroupName",
+                        "type": {
+                            "name": "String"
+                        }
+                    }
+                },
+                {
+                    "parameterPath": "workspaceName",
+                    "mapper": {
+                        "required": true,
+                        "serializedName": "workspaceName",
+                        "type": {
+                            "name": "String"
+                        }
+                    }
+                }
+            ],
+            "requestBody": {
+                "parameterPath": [
+                    "options",
+                    "dto"
+                ],
+                "mapper": {
+                    "serializedName": "ProfileJobDto",
+                    "type": {
+                        "name": "Composite",
+                        "className": "ProfileJobDto",
+                        "modelProperties": {
+                            "experimentName": {
+                                "serializedName": "experimentName",
+                                "type": {
+                                    "name": "String"
+                                }
+                            },
+                            "computeTargetName": {
+                                "serializedName": "computeTargetName",
+                                "type": {
+                                    "name": "String"
+                                }
+                            },
+                            "dataStoreName": {
+                                "serializedName": "dataStoreName",
+                                "type": {
+                                    "name": "String"
+                                }
+                            },
+                            "dataPath": {
+                                "serializedName": "dataPath",
+                                "type": {
+                                    "name": "String"
+                                }
+                            },
+                            "topNSample": {
+                                "serializedName": "topNSample",
+                                "type": {
+                                    "name": "Number"
+                                }
+                            },
+                            "runId": {
+                                "serializedName": "runId",
+                                "type": {
+                                    "name": "String"
+                                }
+                            },
+                            "profileResultPath": {
+                                "serializedName": "profileResultPath",
+                                "type": {
+                                    "name": "String"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "contentType": "application/json-patch+json; charset=utf-8",
+            "responses": {
+                "200": {
+                    "bodyMapper": {
+                        "serializedName": "ProfileJobDto",
+                        "type": {
+                            "name": "Composite",
+                            "className": "ProfileJobDto",
+                            "modelProperties": {
+                                "experimentName": {
+                                    "serializedName": "experimentName",
+                                    "type": {
+                                        "name": "String"
+                                    }
+                                },
+                                "computeTargetName": {
+                                    "serializedName": "computeTargetName",
+                                    "type": {
+                                        "name": "String"
+                                    }
+                                },
+                                "dataStoreName": {
+                                    "serializedName": "dataStoreName",
+                                    "type": {
+                                        "name": "String"
+                                    }
+                                },
+                                "dataPath": {
+                                    "serializedName": "dataPath",
+                                    "type": {
+                                        "name": "String"
+                                    }
+                                },
+                                "topNSample": {
+                                    "serializedName": "topNSample",
+                                    "type": {
+                                        "name": "Number"
+                                    }
+                                },
+                                "runId": {
+                                    "serializedName": "runId",
+                                    "type": {
+                                        "name": "String"
+                                    }
+                                },
+                                "profileResultPath": {
+                                    "serializedName": "profileResultPath",
+                                    "type": {
+                                        "name": "String"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                },
+                "default": {}
+            },
+            "serializer": {
+                "modelMappers": {
+                    "ProfileJobDto": {
+                        "serializedName": "ProfileJobDto",
+                        "type": {
+                            "name": "Composite",
+                            "className": "ProfileJobDto",
+                            "modelProperties": {
+                                "experimentName": {
+                                    "serializedName": "experimentName",
+                                    "type": {
+                                        "name": "String"
+                                    }
+                                },
+                                "computeTargetName": {
+                                    "serializedName": "computeTargetName",
+                                    "type": {
+                                        "name": "String"
+                                    }
+                                },
+                                "dataStoreName": {
+                                    "serializedName": "dataStoreName",
+                                    "type": {
+                                        "name": "String"
+                                    }
+                                },
+                                "dataPath": {
+                                    "serializedName": "dataPath",
+                                    "type": {
+                                        "name": "String"
+                                    }
+                                },
+                                "topNSample": {
+                                    "serializedName": "topNSample",
+                                    "type": {
+                                        "name": "Number"
+                                    }
+                                },
+                                "runId": {
+                                    "serializedName": "runId",
+                                    "type": {
+                                        "name": "String"
+                                    }
+                                },
+                                "profileResultPath": {
+                                    "serializedName": "profileResultPath",
+                                    "type": {
+                                        "name": "String"
+                                    }
+                                }
+                            }
+                        }
+                    },
+                    "MetaApiVersionResponse": {
+                        "serializedName": "MetaApiVersionResponse",
+                        "type": {
+                            "name": "Composite",
+                            "className": "MetaApiVersionResponse",
+                            "modelProperties": {
+                                "name": {
+                                    "serializedName": "name",
+                                    "type": {
+                                        "name": "String"
+                                    }
+                                },
+                                "version": {
+                                    "serializedName": "version",
+                                    "type": {
+                                        "name": "String"
+                                    }
+                                },
+                                "properties": {
+                                    "serializedName": "properties",
+                                    "type": {
+                                        "name": "Dictionary",
+                                        "value": {
+                                            "type": {
+                                                "name": "String"
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "response": {
+        "body": "{\n  \"error\": {\n    \"code\": \"ServiceError\",\n    \"message\": \"Received 400 from a service request\",\n    \"target\": \"POST https://eastus2euap.experiments.azureml.net/execution/v1.0/subscriptions/381b38e9-9840-4719-a5a0-61d9585e1e91/resourceGroups/Ke_Canary_US/providers/Microsoft.MachineLearningServices/workspaces/Ke_Canary_US_1031/experiments/dataprep-profile/snapshotrun?runId=dataprep_profile_1544724670261\",\n    \"details\": [\n      {\n        \"code\": \"BadRequest\",\n        \"message\": \"{\\n  \\\"error\\\": {\\n    \\\"code\\\": \\\"UserError\\\",\\n    \\\"message\\\": \\\"Compute target mydsvm in MLC does not contain an IP address.\\\",\\n    \\\"target\\\": null,\\n    \\\"details\\\": [],\\n    \\\"innerError\\\": null,\\n    \\\"debugInfo\\\": {\\n      \\\"type\\\": \\\"Microsoft.MachineLearning.Common.WebApi.Exceptions.BadRequestException\\\",\\n      \\\"message\\\": \\\"Compute target mydsvm in MLC does not contain an IP address.\\\",\\n      \\\"stackTrace\\\": \\\"   at Microsoft.MachineLearning.Execution.Services.TargetShellFactory.Create(StrategyState initialState) in /home/vsts/work/1/s/src/azureml-api/src/Execution/Services/TargetShell.cs:line 87\\\\n   at Microsoft.MachineLearning.Execution.Services.RemoteStrategy.StartRun(StrategyState state, ConfigurationManager configurationManager, RunDocument runDocument, Stream projectZipStream, RunToken runToken) in /home/vsts/work/1/s/src/azureml-api/src/Execution/Services/RemoteStrategy.cs:line 33\\\\n   at Microsoft.MachineLearning.Execution.EntryPoints.Api.Controllers.ExecutionController.StartRun(ConfigurationManager configurationManager, Guid subscriptionId, String resourceGroupName, String workspaceName, String experimentName, RunDefinition definition, Stream zipStream, RunId runId) in /home/vsts/work/1/s/src/azureml-api/src/Execution/EntryPoints/Api/Controllers/ExecutionController.cs:line 558\\\\n   at Microsoft.MachineLearning.Execution.EntryPoints.Api.Controllers.ExecutionController.StartRun(ConfigurationManager configurationManager, Guid subscriptionId, String resourceGroupName, String workspaceName, String experimentName, RunDefinition definition, Stream zipStream, RunId runId) in /home/vsts/work/1/s/src/azureml-api/src/Execution/EntryPoints/Api/Controllers/ExecutionController.cs:line 567\\\\n   at Microsoft.MachineLearning.Execution.EntryPoints.Api.Controllers.ExecutionController.StartSnapshotRun(Guid subscriptionId, String resourceGroupName, String workspaceName, String experimentName, RunDefinition definition, RunId runId) in /home/vsts/work/1/s/src/azureml-api/src/Execution/EntryPoints/Api/Controllers/ExecutionController.cs:line 222\\\\n   at lambda_method(Closure , Object )\\\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()\\\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()\\\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)\\\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()\\\\n   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()\\\",\\n      \\\"innerException\\\": null,\\n      \\\"data\\\": {},\\n      \\\"errorResponse\\\": null\\n    }\\n  },\\n  \\\"correlation\\\": {\\n    \\\"operation\\\": \\\"1f2da8958277a34ea993644d1bbd25be\\\",\\n    \\\"request\\\": \\\"9uLSlXMiw4g=\\\"\\n  }\\n}\",\n        \"target\": null\n      }\n    ],\n    \"innerError\": null,\n    \"debugInfo\": {\n      \"type\": \"Microsoft.MachineLearning.Common.Core.ServiceInvocationException\",\n      \"message\": \"Service invocation failed!\\r\\nRequest: POST https://eastus2euap.experiments.azureml.net/execution/v1.0/subscriptions/381b38e9-9840-4719-a5a0-61d9585e1e91/resourceGroups/Ke_Canary_US/providers/Microsoft.MachineLearningServices/workspaces/Ke_Canary_US_1031/experiments/dataprep-profile/snapshotrun?runId=dataprep_profile_1544724670261\\r\\nStatus Code: 400 BadRequest\\r\\nReason Phrase: Compute target mydsvm in MLC does not contain an IP address.\\r\\nResponse Body: {\\n  \\\"error\\\": {\\n    \\\"code\\\": \\\"UserError\\\",\\n    \\\"message\\\": \\\"Compute target mydsvm in MLC does not contain an IP address.\\\",\\n    \\\"target\\\": null,\\n    \\\"details\\\": [],\\n    \\\"innerError\\\": null,\\n    \\\"debugInfo\\\": {\\n      \\\"type\\\": \\\"Microsoft.MachineLearning.Common.WebApi.Exceptions.BadRequestException\\\",\\n      \\\"message\\\": \\\"Compute target mydsvm in MLC does not contain an IP address.\\\",\\n      \\\"stackTrace\\\": \\\"   at Microsoft.MachineLearning.Execution.Services.TargetShellFactory.Create(StrategyState initialState) in /home/vsts/work/1/s/src/azureml-api/src/Execution/Services/TargetShell.cs:line 87\\\\n   at Microsoft.MachineLearning.Execution.Services.RemoteStrategy.StartRun(StrategyState state, ConfigurationManager configurationManager, RunDocument runDocument, Stream projectZipStream, RunToken runToken) in /home/vsts/work/1/s/src/azureml-api/src/Execution/Services/RemoteStrategy.cs:line 33\\\\n   at Microsoft.MachineLearning.Execution.EntryPoints.Api.Controllers.ExecutionController.StartRun(ConfigurationManager configurationManager, Guid subscriptionId, String resourceGroupName, String workspaceName, String experimentName, RunDefinition definition, Stream zipStream, RunId runId) in /home/vsts/work/1/s/src/azureml-api/src/Execution/EntryPoints/Api/Controllers/ExecutionController.cs:line 558\\\\n   at Microsoft.MachineLearning.Execution.EntryPoints.Api.Controllers.ExecutionController.StartRun(ConfigurationManager configurationManager, Guid subscriptionId, String resourceGroupName, String workspaceName, String experimentName, RunDefinition definition, Stream zipStream, RunId runId) in /home/vsts/work/1/s/src/azureml-api/src/Execution/EntryPoints/Api/Controllers/ExecutionController.cs:line 567\\\\n   at Microsoft.MachineLearning.Execution.EntryPoints.Api.Controllers.ExecutionController.StartSnapshotRun(Guid subscriptionId, String resourceGroupName, String workspaceName, String experimentName, RunDefinition definition, RunId runId) in /home/vsts/work/1/s/src/azureml-api/src/Execution/EntryPoints/Api/Controllers/ExecutionController.cs:line 222\\\\n   at lambda_method(Closure , Object )\\\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()\\\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()\\\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)\\\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()\\\\n   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()\\\",\\n      \\\"innerException\\\": null,\\n      \\\"data\\\": {},\\n      \\\"errorResponse\\\": null\\n    }\\n  },\\n  \\\"correlation\\\": {\\n    \\\"operation\\\": \\\"1f2da8958277a34ea993644d1bbd25be\\\",\\n    \\\"request\\\": \\\"9uLSlXMiw4g=\\\"\\n  }\\n}\",\n      \"stackTrace\": \"   at Microsoft.MachineLearning.Common.WebApi.Client.ServiceInvoker._MakeRequest(UriBuilder builder, MethodDetails details, CancellationToken cancellationToken, Object[] parameters)\\n   at Polly.Policy.<>c__DisplayClass181_0`1.<<ExecuteAsyncInternal>b__0>d.MoveNext()\\n--- End of stack trace from previous location where exception was thrown ---\\n   at Polly.RetrySyntaxAsync.<>c__DisplayClass25_1.<<WaitAndRetryAsync>b__1>d.MoveNext()\\n--- End of stack trace from previous location where exception was thrown ---\\n   at Polly.Retry.RetryEngine.ImplementationAsync[TResult](Func`3 action, Context context, CancellationToken cancellationToken, IEnumerable`1 shouldRetryExceptionPredicates, IEnumerable`1 shouldRetryResultPredicates, Func`1 policyStateFactory, Boolean continueOnCapturedContext)\\n   at Polly.Retry.RetryEngine.ImplementationAsync[TResult](Func`3 action, Context context, CancellationToken cancellationToken, IEnumerable`1 shouldRetryExceptionPredicates, IEnumerable`1 shouldRetryResultPredicates, Func`1 policyStateFactory, Boolean continueOnCapturedContext)\\n   at Polly.Policy.ExecuteAsyncInternal[TResult](Func`3 action, Context context, CancellationToken cancellationToken, Boolean continueOnCapturedContext)\\n   at Microsoft.MachineLearning.Common.WebApi.Client.ServiceInvoker._Invoke[T](String methodId, Object[] parameters) in /home/vsts/work/1/s/src/azureml-api/src/Common/WebApi.Client/ServiceInvoker.cs:line 162\\n   at Microsoft.MachineLearning.DataPrep.Services.DataPrepExecutionService.StartSnapshotRun(WorkspaceMetadata workspace, String experimentName, String runId, Guid snapshotId, String computeTargetName, String pyEntryFileName, List`1 pyEntryArgs) in /home/vsts/work/1/s/src/azureml-api/src/DataPrep/Services/DataPrepExecutionService.cs:line 151\\n   at Microsoft.MachineLearning.DataPrep.Services.DataPrepExecutionService.StartProfileJob(ProfileJobDto dto) in /home/vsts/work/1/s/src/azureml-api/src/DataPrep/Services/DataPrepExecutionService.cs:line 53\\n   at Microsoft.MachineLearning.DataPrep.EntryPoints.ProfileJobController.Create(ProfileJobDto dto) in /home/vsts/work/1/s/src/azureml-api/src/DataPrep/EntryPoints/ProfileJobController.cs:line 34\\n   at lambda_method(Closure , Object )\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()\\n   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()\",\n      \"innerException\": null,\n      \"data\": {},\n      \"errorResponse\": {\n        \"error\": {\n          \"code\": \"UserError\",\n          \"message\": \"Compute target mydsvm in MLC does not contain an IP address.\",\n          \"target\": null,\n          \"details\": [],\n          \"innerError\": null,\n          \"debugInfo\": {\n            \"type\": \"Microsoft.MachineLearning.Common.WebApi.Exceptions.BadRequestException\",\n            \"message\": \"Compute target mydsvm in MLC does not contain an IP address.\",\n            \"stackTrace\": \"   at Microsoft.MachineLearning.Execution.Services.TargetShellFactory.Create(StrategyState initialState) in /home/vsts/work/1/s/src/azureml-api/src/Execution/Services/TargetShell.cs:line 87\\n   at Microsoft.MachineLearning.Execution.Services.RemoteStrategy.StartRun(StrategyState state, ConfigurationManager configurationManager, RunDocument runDocument, Stream projectZipStream, RunToken runToken) in /home/vsts/work/1/s/src/azureml-api/src/Execution/Services/RemoteStrategy.cs:line 33\\n   at Microsoft.MachineLearning.Execution.EntryPoints.Api.Controllers.ExecutionController.StartRun(ConfigurationManager configurationManager, Guid subscriptionId, String resourceGroupName, String workspaceName, String experimentName, RunDefinition definition, Stream zipStream, RunId runId) in /home/vsts/work/1/s/src/azureml-api/src/Execution/EntryPoints/Api/Controllers/ExecutionController.cs:line 558\\n   at Microsoft.MachineLearning.Execution.EntryPoints.Api.Controllers.ExecutionController.StartRun(ConfigurationManager configurationManager, Guid subscriptionId, String resourceGroupName, String workspaceName, String experimentName, RunDefinition definition, Stream zipStream, RunId runId) in /home/vsts/work/1/s/src/azureml-api/src/Execution/EntryPoints/Api/Controllers/ExecutionController.cs:line 567\\n   at Microsoft.MachineLearning.Execution.EntryPoints.Api.Controllers.ExecutionController.StartSnapshotRun(Guid subscriptionId, String resourceGroupName, String workspaceName, String experimentName, RunDefinition definition, RunId runId) in /home/vsts/work/1/s/src/azureml-api/src/Execution/EntryPoints/Api/Controllers/ExecutionController.cs:line 222\\n   at lambda_method(Closure , Object )\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeActionMethodAsync()\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeNextActionFilterAsync()\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Rethrow(ActionExecutedContext context)\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.Next(State& next, Scope& scope, Object& state, Boolean& isCompleted)\\n   at Microsoft.AspNetCore.Mvc.Internal.ControllerActionInvoker.InvokeInnerFilterAsync()\\n   at Microsoft.AspNetCore.Mvc.Internal.ResourceInvoker.InvokeNextExceptionFilterAsync()\",\n            \"innerException\": null,\n            \"data\": {},\n            \"errorResponse\": null\n          }\n        },\n        \"correlation\": {\n          \"operation\": \"1f2da8958277a34ea993644d1bbd25be\",\n          \"request\": \"9uLSlXMiw4g=\"\n        }\n      }\n    }\n  },\n  \"correlation\": {\n    \"operation\": \"1f2da8958277a34ea993644d1bbd25be\",\n    \"request\": \"1h+m3C+NbrM=\"\n  }\n}",
+        "headers": {
+            "_headersMap": {
+                "content-type": {
+                    "name": "content-type",
+                    "value": "application/json; charset=utf-8"
+                }
+            }
+        },
+        "status": 500
+    }
+}

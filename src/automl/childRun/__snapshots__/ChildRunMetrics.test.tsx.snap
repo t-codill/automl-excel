@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Child Run Metrics should render no data message when run failed with no metrics 1`] = `
+<StyledMessageBarBase>
+  No metrics
+</StyledMessageBarBase>
+`;
+
+exports[`Child Run Metrics should render scalar metrics 1`] = `
+<PropertyList
+  listElements={
+    Object {
+      "scalarMet1": "1",
+      "scalarMet2": "2",
+      "scalarMet3": "3",
+    }
+  }
+/>
+`;

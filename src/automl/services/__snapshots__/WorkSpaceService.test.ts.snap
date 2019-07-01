@@ -1,0 +1,103 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WorkSpaceService work space compute should create 1`] = `
+Object {
+  "_mockParameters": Array [
+    "testResource",
+    "testWorkSpace",
+    "sampleCompute",
+    Object {
+      "location": "eastus",
+      "properties": Object {
+        "computeType": "AmlCompute",
+        "properties": Object {
+          "scaleSettings": Object {
+            "maxNodeCount": 6,
+            "minNodeCount": 0,
+          },
+          "vmPriority": "Dedicated",
+          "vmSize": "sampleVmSize",
+        },
+      },
+    },
+    Object {
+      "abortSignal": Object {},
+      "timeout": 600000,
+    },
+  ],
+  "name": "sampleWorkSpaceCreated",
+}
+`;
+
+exports[`WorkSpaceService work space compute should list 1`] = `
+Array [
+  Object {
+    "id": "compute1",
+  },
+  Object {
+    "id": "compute2",
+  },
+]
+`;
+
+exports[`WorkSpaceService work space compute should listVmSizes 1`] = `
+Object {
+  "_mockParameters": Array [
+    "eastus",
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "amlCompute": Array [
+    Object {},
+  ],
+}
+`;
+
+exports[`WorkSpaceService work space compute should tryGet 1`] = `
+Object {
+  "_mockParameters": Array [
+    "testResource",
+    "testWorkSpace",
+    "sampleCompute",
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "name": "sampleWorkSpace",
+}
+`;
+
+exports[`WorkSpaceService work space work space should get 1`] = `
+Object {
+  "_mockParameters": Array [
+    "testResource",
+    "testWorkSpace",
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "name": "sampleWorkSpace",
+}
+`;
+
+exports[`WorkSpaceService work space work space should list 1`] = `
+Array [
+  Object {
+    "workspaceId": "workspaceId1",
+  },
+]
+`;
+
+exports[`WorkSpaceService work space work space should tryGetWorkspace 1`] = `
+Object {
+  "_mockParameters": Array [
+    "testResource",
+    "testWorkSpace",
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "name": "sampleWorkSpace",
+}
+`;

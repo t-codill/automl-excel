@@ -1,0 +1,263 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Run Status should render error message when child run failed 1`] = `
+<StyledMessageBarBase
+  className="run-status-bar"
+  isMultiline={true}
+  messageBarType={1}
+>
+  <div
+    className="run-status-text"
+  >
+    Run is 
+    <strong>
+      Failed
+    </strong>
+    .
+  </div>
+  <pre
+    className="error-content"
+  >
+    Test child run error message
+  </pre>
+</StyledMessageBarBase>
+`;
+
+exports[`Run Status should render error message when parent run failed 1`] = `
+<StyledMessageBarBase
+  className="run-status-bar"
+  isMultiline={true}
+  messageBarType={1}
+>
+  <div
+    className="run-status-text"
+  >
+    Run is 
+    <strong>
+      Failed
+    </strong>
+    .
+  </div>
+  <pre
+    className="error-content"
+  >
+    Test parent run error message
+  </pre>
+</StyledMessageBarBase>
+`;
+
+exports[`Run Status should render when run CancelRequested 1`] = `
+<StyledMessageBarBase
+  className="run-status-bar"
+  isMultiline={false}
+  messageBarType={0}
+>
+  <div
+    className="run-status-text"
+  >
+    Run is 
+    <strong>
+      CancelRequested
+    </strong>
+    .
+  </div>
+</StyledMessageBarBase>
+`;
+
+exports[`Run Status should render when run Canceled 1`] = `
+<StyledMessageBarBase
+  className="run-status-bar"
+  isMultiline={true}
+  messageBarType={1}
+>
+  <div
+    className="run-status-text"
+  >
+    Run is 
+    <strong>
+      Canceled
+    </strong>
+    .
+  </div>
+</StyledMessageBarBase>
+`;
+
+exports[`Run Status should render when run Completed 1`] = `
+<StyledMessageBarBase
+  className="run-status-bar"
+  isMultiline={false}
+  messageBarType={4}
+>
+  <div
+    className="run-status-text"
+  >
+    Run is 
+    <strong>
+      Completed
+    </strong>
+    .
+  </div>
+</StyledMessageBarBase>
+`;
+
+exports[`Run Status should render when run Failed 1`] = `
+<StyledMessageBarBase
+  className="run-status-bar"
+  isMultiline={true}
+  messageBarType={1}
+>
+  <div
+    className="run-status-text"
+  >
+    Run is 
+    <strong>
+      Failed
+    </strong>
+    .
+  </div>
+</StyledMessageBarBase>
+`;
+
+exports[`Run Status should render when run Finalizing 1`] = `
+<StyledMessageBarBase
+  className="run-status-bar"
+  isMultiline={false}
+  messageBarType={0}
+>
+  <div
+    className="run-status-text"
+  >
+    Run is 
+    <strong>
+      Finalizing
+    </strong>
+    .
+  </div>
+</StyledMessageBarBase>
+`;
+
+exports[`Run Status should render when run NotResponding 1`] = `
+<StyledMessageBarBase
+  className="run-status-bar"
+  isMultiline={false}
+  messageBarType={0}
+>
+  <div
+    className="run-status-text"
+  >
+    Run is 
+    <strong>
+      NotResponding
+    </strong>
+    .
+  </div>
+</StyledMessageBarBase>
+`;
+
+exports[`Run Status should render when run NotStarted 1`] = `
+<StyledMessageBarBase
+  className="run-status-bar"
+  isMultiline={false}
+  messageBarType={0}
+>
+  <div
+    className="run-status-text"
+  >
+    Run is 
+    <strong>
+      NotStarted
+    </strong>
+    .
+  </div>
+</StyledMessageBarBase>
+`;
+
+exports[`Run Status should render when run Preparing 1`] = `
+<StyledMessageBarBase
+  className="run-status-bar"
+  isMultiline={false}
+  messageBarType={0}
+>
+  <div
+    className="run-status-text"
+  >
+    Run is 
+    <strong>
+      Preparing
+    </strong>
+    .
+  </div>
+</StyledMessageBarBase>
+`;
+
+exports[`Run Status should render when run Provisioning 1`] = `
+<StyledMessageBarBase
+  className="run-status-bar"
+  isMultiline={false}
+  messageBarType={0}
+>
+  <div
+    className="run-status-text"
+  >
+    Run is 
+    <strong>
+      Provisioning
+    </strong>
+    .
+  </div>
+</StyledMessageBarBase>
+`;
+
+exports[`Run Status should render when run Queued 1`] = `
+<StyledMessageBarBase
+  className="run-status-bar"
+  isMultiline={false}
+  messageBarType={0}
+>
+  <div
+    className="run-status-text"
+  >
+    Run is 
+    <strong>
+      Queued
+    </strong>
+    .
+  </div>
+</StyledMessageBarBase>
+`;
+
+exports[`Run Status should render when run Running 1`] = `
+<StyledMessageBarBase
+  className="run-status-bar"
+  isMultiline={false}
+  messageBarType={0}
+>
+  <div
+    className="run-status-text"
+  >
+    Run is 
+    <strong>
+      Running
+    </strong>
+    .
+  </div>
+</StyledMessageBarBase>
+`;
+
+exports[`Run Status should render when run Starting 1`] = `
+<StyledMessageBarBase
+  className="run-status-bar"
+  isMultiline={false}
+  messageBarType={0}
+>
+  <div
+    className="run-status-text"
+  >
+    Run is 
+    <strong>
+      Starting
+    </strong>
+    .
+  </div>
+</StyledMessageBarBase>
+`;

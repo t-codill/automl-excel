@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Percentage Validation Input should render 1`] = `
+<div
+  className="ms-Grid"
+  dir="ltr"
+>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <LabelWithCallout
+      htmlFor="percentageOfValidationData"
+      labelText="% validation of data"
+      required={true}
+    >
+      Percentage of validation data
+    </LabelWithCallout>
+  </div>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <FormTextInput
+      ariaLabel="Please enter the number of percentage data"
+      defaultFormValue="20"
+      field="percentageValidation"
+      placeholder="Percentage Validation data"
+      type="number"
+      validators={
+        Array [
+          [Function],
+          [Function],
+        ]
+      }
+    />
+  </div>
+</div>
+`;

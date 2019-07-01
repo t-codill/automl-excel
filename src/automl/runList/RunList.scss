@@ -1,0 +1,22 @@
+.run-filter-container {
+    .run-filter-action-container {
+        width: 300px;
+        display: inline-block;
+        margin-left: 16px;
+    }
+}
+
+.run-status-container {
+    display: flex;
+    width: 100%;
+    padding-top: 1em;
+
+    .run-status-card-container {
+        width: 400px;
+        flex: 0 0 auto;
+    }
+
+    .run-status-chart-container {
+        flex: 1 0 auto;
+    }
+}

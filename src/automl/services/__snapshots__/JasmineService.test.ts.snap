@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JasmineService should cancelRun 1`] = `
+Object {
+  "_mockParameters": Array [
+    "00000000-0000-0000-0000-000000000000",
+    "testResource",
+    "testWorkSpace",
+    "sampleExperiment",
+    "AutoML_000",
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "_response": Object {
+    "headers": HttpHeaders {
+      "_headersMap": Object {},
+    },
+    "request": WebResource {
+      "abortSignal": undefined,
+      "body": undefined,
+      "formData": undefined,
+      "headers": HttpHeaders {
+        "_headersMap": Object {},
+      },
+      "method": "GET",
+      "onDownloadProgress": undefined,
+      "onUploadProgress": undefined,
+      "proxySettings": undefined,
+      "query": undefined,
+      "streamResponseBody": undefined,
+      "timeout": 0,
+      "url": "",
+      "withCredentials": false,
+    },
+    "status": 200,
+  },
+}
+`;
+
+exports[`JasmineService should continueRun 1`] = `
+Object {
+  "_mockParameters": Array [
+    "00000000-0000-0000-0000-000000000000",
+    "testResource",
+    "testWorkSpace",
+    "sampleExperiment",
+    "AutoML_000",
+    Object {
+      "abortSignal": Object {},
+      "updatedIterations": 100,
+    },
+  ],
+  "_response": Object {
+    "headers": HttpHeaders {
+      "_headersMap": Object {},
+    },
+    "request": WebResource {
+      "abortSignal": undefined,
+      "body": undefined,
+      "formData": undefined,
+      "headers": HttpHeaders {
+        "_headersMap": Object {},
+      },
+      "method": "GET",
+      "onDownloadProgress": undefined,
+      "onUploadProgress": undefined,
+      "proxySettings": undefined,
+      "query": undefined,
+      "streamResponseBody": undefined,
+      "timeout": 0,
+      "url": "",
+      "withCredentials": false,
+    },
+    "status": 200,
+  },
+}
+`;
+
+exports[`JasmineService should createRun 1`] = `"[\\"00000000-0000-0000-0000-000000000000\\",\\"testResource\\",\\"testWorkSpace\\",\\"sampleExperimentName\\",{\\"abortSignal\\":{},\\"timeout\\":120000,\\"createParentRunDto\\":{\\"numIterations\\":15,\\"metrics\\":[\\"AUC_weighted\\"],\\"primaryMetric\\":\\"AUC_weighted\\",\\"trainSplit\\":0,\\"maxTimeSeconds\\":3600,\\"acquisitionParameter\\":0,\\"numCrossValidation\\":5,\\"target\\":\\"sampleCompute\\",\\"rawAMLSettingsString\\":\\"\\\\\\"##JasmineServiceAmlSettings##'\\",\\"amlSettingsJsonString\\":\\"\\\\\\"##JasmineServiceAmlSettings##\\\\\\"\\",\\"dataPrepJsonString\\":\\"{\\\\\\\\\\\\\\"datastoreName\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"sampleDataStore\\\\\\\\\\\\\\",\\\\\\\\\\\\\\"dataPath\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"sampleFileName\\\\\\\\\\\\\\",\\\\\\\\\\\\\\"columnSeparator\\\\\\\\\\\\\\":\\\\\\\\\\\\\\",\\\\\\\\\\\\\\",\\\\\\\\\\\\\\"promoteHeader\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\"encoding\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"UTF8\\\\\\\\\\\\\\",\\\\\\\\\\\\\\"ignoreNewlineInQuotes\\\\\\\\\\\\\\":true,\\\\\\\\\\\\\\"skipRows\\\\\\\\\\\\\\":0,\\\\\\\\\\\\\\"features\\\\\\\\\\\\\\":[\\\\\\\\\\\\\\"feature1\\\\\\\\\\\\\\",\\\\\\\\\\\\\\"feature2\\\\\\\\\\\\\\"],\\\\\\\\\\\\\\"label\\\\\\\\\\\\\\":\\\\\\\\\\\\\\"1\\\\\\\\\\\\\\"}\\",\\"enableSubsampling\\":false}}]"`;
+
+exports[`JasmineService should startRun 1`] = `
+Object {
+  "_mockParameters": Array [
+    "00000000-0000-0000-0000-000000000000",
+    "testResource",
+    "testWorkSpace",
+    "sampleExperiment",
+    "AutoML_000",
+    Object {
+      "abortSignal": Object {},
+      "jsonDefinition": "\\"##JasmineServiceJsonDefinition##\\"",
+      "timeout": 120000,
+    },
+  ],
+  "runId": undefined,
+}
+`;

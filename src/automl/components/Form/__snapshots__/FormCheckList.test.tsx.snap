@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormCheckList should render 1`] = `
+<CheckList
+  field="blacklistAlgos"
+  items={
+    Array [
+      "",
+    ]
+  }
+  onChange={[Function]}
+/>
+`;

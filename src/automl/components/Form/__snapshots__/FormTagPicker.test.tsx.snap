@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormTagPicker should render 1`] = `
+<Fragment>
+  <StyledTagPickerWrapper
+    className=""
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    inputProps={
+      Object {
+        "id": "TagPickerId",
+        "placeholder": "test place holder",
+      }
+    }
+    onChange={[Function]}
+    onEmptyInputFocus={[Function]}
+    onRenderItem={[Function]}
+    onResolveSuggestions={[Function]}
+    selectedItems={Array []}
+    styles={
+      Object {
+        "input": Object {
+          "fontFamily": "inherit",
+          "fontSize": 12,
+          "fontStyle": "italic",
+          "height": 25,
+        },
+        "text": Object {
+          "margin": 0,
+          "maxHeight": 25,
+          "minHeight": 25,
+        },
+      }
+    }
+  />
+  <ValidationError />
+</Fragment>
+`;
+
+exports[`FormTagPicker should render validation error 1`] = `
+<Fragment>
+  <StyledTagPickerWrapper
+    className="tag-container"
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    inputProps={
+      Object {
+        "id": "TagPickerId",
+        "placeholder": "test place holder",
+      }
+    }
+    onChange={[Function]}
+    onEmptyInputFocus={[Function]}
+    onRenderItem={[Function]}
+    onResolveSuggestions={[Function]}
+    selectedItems={Array []}
+    styles={
+      Object {
+        "input": Object {
+          "fontFamily": "inherit",
+          "fontSize": 12,
+          "fontStyle": "italic",
+          "height": 25,
+        },
+        "text": Object {
+          "margin": 0,
+          "maxHeight": 25,
+          "minHeight": 25,
+        },
+      }
+    }
+  />
+  <ValidationError
+    text="Test Error"
+  />
+</Fragment>
+`;

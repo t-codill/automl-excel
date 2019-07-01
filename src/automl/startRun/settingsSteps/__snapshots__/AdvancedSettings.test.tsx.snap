@@ -1,0 +1,52 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdvancedSettings should render 1`] = `
+<Fragment>
+  <div
+    className="ms-md12 ms-lg8 ms-xl6 ms-xxl4"
+  >
+    <MetricSelector
+      jobType="classification"
+    />
+  </div>
+  <div
+    className="ms-md12 ms-lg8 ms-xl6 ms-xxl4"
+  >
+    <ExitCriteria
+      primaryMetric="accuracy"
+    />
+  </div>
+  <div
+    className="ms-md12 ms-lg8 ms-xl6 ms-xxl4"
+  >
+    <Preprocessing
+      jobType="classification"
+    />
+  </div>
+  <div
+    className="ms-md12 ms-lg8 ms-xl6 ms-xxl4"
+  >
+    <Validation
+      jobType="classification"
+    />
+  </div>
+  <div
+    className="ms-md12 ms-lg8 ms-xl6 ms-xxl4"
+  >
+    <ConcurrentStep
+      compute={
+        Object {
+          "computeType": "VirtualMachine",
+        }
+      }
+    />
+  </div>
+  <div
+    className="ms-md12 ms-lg8 ms-xl6 ms-xxl4"
+  >
+    <BlockedAlgorithms
+      jobType="classification"
+    />
+  </div>
+</Fragment>
+`;

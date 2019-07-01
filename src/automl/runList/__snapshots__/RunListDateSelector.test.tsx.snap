@@ -1,0 +1,31 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RunListDateSelector Initial Render should render date selector dropdown 1`] = `
+<Fragment>
+  <StyledWithResponsiveMode
+    onChange={[Function]}
+    options={
+      Array [
+        Object {
+          "key": "allDate",
+          "text": "All dates",
+        },
+        Object {
+          "key": "30days",
+          "text": "Last 30 days",
+        },
+        Object {
+          "key": "60days",
+          "text": "Last 60 days",
+        },
+        Object {
+          "key": "90days",
+          "text": "Last 90 days",
+        },
+      ]
+    }
+    placeholder="All Dates"
+    selectedKey="allDate"
+  />
+</Fragment>
+`;

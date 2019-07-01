@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JasmineServiceDataPrepSettings should getDataPrepSettings 1`] = `
+Object {
+  "columnSeparator": ",",
+  "dataPath": "sampleFile",
+  "datastoreName": "sampleDataStore",
+  "encoding": "UTF8",
+  "features": Array [
+    "sampleFeature1",
+    "sampleFeature2",
+  ],
+  "ignoreNewlineInQuotes": true,
+  "label": "sampleLabelColumn",
+  "promoteHeader": true,
+  "skipRows": 0,
+}
+`;

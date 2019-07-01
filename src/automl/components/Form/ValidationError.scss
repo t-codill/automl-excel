@@ -1,0 +1,6 @@
+@import "../../Themes.scss";
+
+.errorMessage {
+
+    @include validationErrorMessageColor;
+}

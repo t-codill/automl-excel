@@ -1,0 +1,7 @@
+@import "../../Themes.scss";
+
+.tag-container {
+
+    @include validationErrorBox;
+    border-width: 2px;
+}

@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Run Log Context Theme should render log content when dark theme 1`] = `
+<MonacoEditor
+  language="text"
+  options={
+    Object {
+      "automaticLayout": true,
+      "readOnly": true,
+    }
+  }
+  theme="vs-dark"
+  value="tryGetContent"
+/>
+`;
+
+exports[`Run Log Context Theme should render log content when valid content with light theme 1`] = `
+<MonacoEditor
+  language="text"
+  options={
+    Object {
+      "automaticLayout": true,
+      "readOnly": true,
+    }
+  }
+  theme="vs"
+  value="tryGetContent"
+/>
+`;

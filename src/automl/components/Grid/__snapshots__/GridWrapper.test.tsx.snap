@@ -1,0 +1,533 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GridWrapper should render 1`] = `
+<WidthProvider
+  cols={
+    Object {
+      "lg": 12,
+      "md": 10,
+      "sm": 6,
+      "xs": 4,
+      "xxs": 2,
+    }
+  }
+  measureBeforeMount={true}
+>
+  <div
+    className="grid-item"
+    data-grid={
+      Object {
+        "h": 5,
+        "i": "element1",
+        "static": true,
+        "w": 10,
+        "x": 0,
+        "y": 0,
+      }
+    }
+    key="element1"
+  >
+     
+    <div
+      className="grid-item-header"
+    >
+       
+      element1 section
+       
+    </div>
+    <div
+      className="grid-item-content"
+    >
+       
+      <div />
+       
+    </div>
+  </div>
+  <div
+    className="grid-item"
+    data-grid={
+      Object {
+        "h": 5,
+        "i": "element2",
+        "static": true,
+        "w": 10,
+        "x": 0,
+        "y": 1,
+      }
+    }
+    key="element2"
+  >
+     
+    <div
+      className="grid-item-header"
+    >
+       
+      element2 section
+       
+    </div>
+    <div
+      className="grid-item-content"
+    >
+       
+      <div />
+       
+    </div>
+  </div>
+</WidthProvider>
+`;
+
+exports[`GridWrapper should render elements with class name 1`] = `
+<WidthProvider
+  cols={
+    Object {
+      "lg": 12,
+      "md": 10,
+      "sm": 6,
+      "xs": 4,
+      "xxs": 2,
+    }
+  }
+  measureBeforeMount={true}
+>
+  <div
+    className="grid-item"
+    data-grid={
+      Object {
+        "h": 5,
+        "i": "element1",
+        "static": true,
+        "w": 10,
+        "x": 0,
+        "y": 0,
+      }
+    }
+    key="element1"
+  >
+     
+    <div
+      className="grid-item-header"
+    >
+       
+      element1 section
+       
+    </div>
+    <div
+      className="grid-item sm"
+    >
+       
+      <div />
+       
+    </div>
+  </div>
+  <div
+    className="grid-item"
+    data-grid={
+      Object {
+        "h": 5,
+        "i": "element2",
+        "static": true,
+        "w": 10,
+        "x": 0,
+        "y": 1,
+      }
+    }
+    key="element2"
+  >
+     
+    <div
+      className="grid-item-header"
+    >
+       
+      element2 section
+       
+    </div>
+    <div
+      className="grid-item sm"
+    >
+       
+      <div />
+       
+    </div>
+  </div>
+</WidthProvider>
+`;
+
+exports[`GridWrapper should render elements with no title  1`] = `
+<WidthProvider
+  cols={
+    Object {
+      "lg": 12,
+      "md": 10,
+      "sm": 6,
+      "xs": 4,
+      "xxs": 2,
+    }
+  }
+  measureBeforeMount={true}
+>
+  <div
+    className="grid-item"
+    data-grid={
+      Object {
+        "h": 5,
+        "i": "element1",
+        "static": true,
+        "w": 10,
+        "x": 0,
+        "y": 0,
+      }
+    }
+    key="element1"
+  >
+     
+    <div
+      className="grid-item-content"
+    >
+       
+      <div />
+       
+    </div>
+  </div>
+  <div
+    className="grid-item"
+    data-grid={
+      Object {
+        "h": 5,
+        "i": "element2",
+        "static": true,
+        "w": 10,
+        "x": 0,
+        "y": 1,
+      }
+    }
+    key="element2"
+  >
+     
+    <div
+      className="grid-item-content"
+    >
+       
+      <div />
+       
+    </div>
+  </div>
+</WidthProvider>
+`;
+
+exports[`GridWrapper should render with custom column sizes 1`] = `
+<WidthProvider
+  cols={
+    Object {
+      "lg": 24,
+      "md": 20,
+      "sm": 12,
+      "xs": 8,
+      "xxs": 4,
+    }
+  }
+  measureBeforeMount={true}
+>
+  <div
+    className="grid-item"
+    data-grid={
+      Object {
+        "h": 5,
+        "i": "element1",
+        "static": true,
+        "w": 10,
+        "x": 0,
+        "y": 0,
+      }
+    }
+    key="element1"
+  >
+     
+    <div
+      className="grid-item-header"
+    >
+       
+      element1 section
+       
+    </div>
+    <div
+      className="grid-item-content"
+    >
+       
+      <div />
+       
+    </div>
+  </div>
+  <div
+    className="grid-item"
+    data-grid={
+      Object {
+        "h": 5,
+        "i": "element2",
+        "static": true,
+        "w": 10,
+        "x": 0,
+        "y": 1,
+      }
+    }
+    key="element2"
+  >
+     
+    <div
+      className="grid-item-header"
+    >
+       
+      element2 section
+       
+    </div>
+    <div
+      className="grid-item-content"
+    >
+       
+      <div />
+       
+    </div>
+  </div>
+</WidthProvider>
+`;
+
+exports[`GridWrapper should render with specific margin 1`] = `
+<WidthProvider
+  cols={
+    Object {
+      "lg": 12,
+      "md": 10,
+      "sm": 6,
+      "xs": 4,
+      "xxs": 2,
+    }
+  }
+  margin={
+    Array [
+      5,
+      5,
+    ]
+  }
+  measureBeforeMount={true}
+>
+  <div
+    className="grid-item"
+    data-grid={
+      Object {
+        "h": 5,
+        "i": "element1",
+        "static": true,
+        "w": 10,
+        "x": 0,
+        "y": 0,
+      }
+    }
+    key="element1"
+  >
+     
+    <div
+      className="grid-item-header"
+    >
+       
+      element1 section
+       
+    </div>
+    <div
+      className="grid-item-content"
+    >
+       
+      <div />
+       
+    </div>
+  </div>
+  <div
+    className="grid-item"
+    data-grid={
+      Object {
+        "h": 5,
+        "i": "element2",
+        "static": true,
+        "w": 10,
+        "x": 0,
+        "y": 1,
+      }
+    }
+    key="element2"
+  >
+     
+    <div
+      className="grid-item-header"
+    >
+       
+      element2 section
+       
+    </div>
+    <div
+      className="grid-item-content"
+    >
+       
+      <div />
+       
+    </div>
+  </div>
+</WidthProvider>
+`;
+
+exports[`GridWrapper should render with specific margin and row height 1`] = `
+<WidthProvider
+  cols={
+    Object {
+      "lg": 12,
+      "md": 10,
+      "sm": 6,
+      "xs": 4,
+      "xxs": 2,
+    }
+  }
+  margin={
+    Array [
+      5,
+      5,
+    ]
+  }
+  measureBeforeMount={true}
+  rowHeight={15}
+>
+  <div
+    className="grid-item"
+    data-grid={
+      Object {
+        "h": 5,
+        "i": "element1",
+        "static": true,
+        "w": 10,
+        "x": 0,
+        "y": 0,
+      }
+    }
+    key="element1"
+  >
+     
+    <div
+      className="grid-item-header"
+    >
+       
+      element1 section
+       
+    </div>
+    <div
+      className="grid-item-content"
+    >
+       
+      <div />
+       
+    </div>
+  </div>
+  <div
+    className="grid-item"
+    data-grid={
+      Object {
+        "h": 5,
+        "i": "element2",
+        "static": true,
+        "w": 10,
+        "x": 0,
+        "y": 1,
+      }
+    }
+    key="element2"
+  >
+     
+    <div
+      className="grid-item-header"
+    >
+       
+      element2 section
+       
+    </div>
+    <div
+      className="grid-item-content"
+    >
+       
+      <div />
+       
+    </div>
+  </div>
+</WidthProvider>
+`;
+
+exports[`GridWrapper should render with specific row height 1`] = `
+<WidthProvider
+  cols={
+    Object {
+      "lg": 12,
+      "md": 10,
+      "sm": 6,
+      "xs": 4,
+      "xxs": 2,
+    }
+  }
+  measureBeforeMount={true}
+  rowHeight={15}
+>
+  <div
+    className="grid-item"
+    data-grid={
+      Object {
+        "h": 5,
+        "i": "element1",
+        "static": true,
+        "w": 10,
+        "x": 0,
+        "y": 0,
+      }
+    }
+    key="element1"
+  >
+     
+    <div
+      className="grid-item-header"
+    >
+       
+      element1 section
+       
+    </div>
+    <div
+      className="grid-item-content"
+    >
+       
+      <div />
+       
+    </div>
+  </div>
+  <div
+    className="grid-item"
+    data-grid={
+      Object {
+        "h": 5,
+        "i": "element2",
+        "static": true,
+        "w": 10,
+        "x": 0,
+        "y": 1,
+      }
+    }
+    key="element2"
+  >
+     
+    <div
+      className="grid-item-header"
+    >
+       
+      element2 section
+       
+    </div>
+    <div
+      className="grid-item-content"
+    >
+       
+      <div />
+       
+    </div>
+  </div>
+</WidthProvider>
+`;

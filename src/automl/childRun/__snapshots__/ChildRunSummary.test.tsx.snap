@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Child Run Summary should render success data with download link 1`] = `
+<PropertyList
+  listElements={
+    Object {
+      "Created": "Feb 1, 2019 7:20 PM",
+      "Duration": "00:00:30",
+      "Iteration": "0",
+      "Run Algorithm": "GradientBoosting",
+      "Run Id": "AutoML_003",
+      "Run Preprocessor": "StandardScalerWrapper",
+      "Status": "Completed",
+    }
+  }
+/>
+`;
+
+exports[`Child Run Summary should render success data without download link 1`] = `
+<PropertyList
+  listElements={
+    Object {
+      "Created": "Feb 1, 2019 7:20 PM",
+      "Duration": "00:00:30",
+      "Iteration": "9",
+      "Run Algorithm": "Ensemble",
+      "Run Id": "AutoML_001",
+      "Run Preprocessor": "rpp1",
+      "Status": "Completed",
+    }
+  }
+/>
+`;

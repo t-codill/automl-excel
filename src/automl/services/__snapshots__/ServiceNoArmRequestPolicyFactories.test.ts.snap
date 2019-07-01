@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ServiceNoArmRequestPolicyFactories should init 1`] = `
+Array [
+  Object {
+    "create": [Function],
+  },
+]
+`;
+
+exports[`ServiceNoArmRequestPolicyFactories should sendRequest 1`] = `
+ServiceNoArmRequestPolicy {
+  "_nextPolicy": Object {
+    "sendRequest": [MockFunction],
+  },
+  "_options": RequestPolicyOptions {
+    "_logger": undefined,
+  },
+  "logger": Logger {},
+}
+`;

@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`SettingsStep Invalid Props should render with undefined props 1`] = `
+<Form
+  onSubmit={[Function]}
+  onUpdated={[Function]}
+>
+  <div
+    className="start-run-step-content"
+  >
+    <div
+      className="ms-md12 ms-lg8 ms-xl6 ms-xxl4"
+    >
+      <jobTypeSelector
+        jobType="classification"
+      />
+    </div>
+    <div
+      className="ms-md12 ms-lg8 ms-xl6 ms-xxl4"
+    >
+      <TargetColumnSelector
+        columns={Array []}
+      />
+    </div>
+  </div>
+  <Accordion
+    exclusive={true}
+    items={
+      Array [
+        Object {
+          "collapsed": true,
+          "disabled": false,
+          "element": <AdvancedSettings
+            jobType="classification"
+            primaryMetric="accuracy"
+          />,
+          "title": "Advanced Settings",
+        },
+      ]
+    }
+  />
+  <div
+    className="form-footer"
+  >
+    <CustomizedDefaultButton
+      onClick={[MockFunction]}
+      text="Cancel"
+    />
+    <CustomizedPrimaryButton
+      disabled={true}
+      text="Start"
+      type="submit"
+    />
+  </div>
+</Form>
+`;
+
+exports[`SettingsStep Valid Props should render with valid props 1`] = `
+<Form
+  onSubmit={[Function]}
+  onUpdated={[Function]}
+>
+  <div
+    className="start-run-step-content"
+  >
+    <div
+      className="ms-md12 ms-lg8 ms-xl6 ms-xxl4"
+    >
+      <jobTypeSelector
+        jobType="classification"
+      />
+    </div>
+    <div
+      className="ms-md12 ms-lg8 ms-xl6 ms-xxl4"
+    >
+      <TargetColumnSelector
+        columns={
+          Array [
+            "A",
+            "B",
+            "C",
+          ]
+        }
+      />
+    </div>
+  </div>
+  <Accordion
+    exclusive={true}
+    items={
+      Array [
+        Object {
+          "collapsed": true,
+          "disabled": false,
+          "element": <AdvancedSettings
+            compute={
+              Object {
+                "computeType": "AmlCompute",
+              }
+            }
+            jobType="classification"
+            primaryMetric="accuracy"
+          />,
+          "title": "Advanced Settings",
+        },
+      ]
+    }
+  />
+  <div
+    className="form-footer"
+  >
+    <CustomizedDefaultButton
+      onClick={[MockFunction]}
+      text="Cancel"
+    />
+    <CustomizedPrimaryButton
+      disabled={false}
+      text="Start"
+      type="submit"
+    />
+  </div>
+</Form>
+`;

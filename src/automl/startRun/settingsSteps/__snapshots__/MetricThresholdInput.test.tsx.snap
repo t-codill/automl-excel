@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MetricThresholdInput should render 1`] = `
+<div
+  className="ms-Grid"
+  dir="ltr"
+>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <LabelWithCallout
+      htmlFor="metricThresholdInput"
+      labelText="Metric score threshold"
+      required={false}
+    >
+      When this threshold value will be reached for an iteration metric the training job will terminate. Keep in mind that meaningful models have correlation &gt; 0, otherwise they are as good as guessing the average Metric threshold should be between 
+      0
+       and 
+      1
+    </LabelWithCallout>
+  </div>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <FormTextInput
+      ariaLabel="Please enter metric score threshold here"
+      field="metricThreshold"
+      placeholder="Metric Score Threshold"
+      validators={
+        Array [
+          [Function],
+          [Function],
+          [Function],
+        ]
+      }
+    />
+  </div>
+</div>
+`;

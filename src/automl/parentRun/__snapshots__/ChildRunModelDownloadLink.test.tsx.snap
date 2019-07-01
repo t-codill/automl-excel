@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Child Run Model Download Link completed run should render link when downloading is false 1`] = `
+<StyledLinkBase
+  onClick={[Function]}
+>
+  <StyledIconBase
+    iconName="Download"
+  />
+   Download
+</StyledLinkBase>
+`;
+
+exports[`Child Run Model Download Link completed run should render spinner when downloading is true 1`] = `
+<StyledLinkBase
+  onClick={[Function]}
+>
+  <StyledIconBase
+    iconName="Download"
+  />
+   Download
+</StyledLinkBase>
+`;
+
+exports[`Child Run Model Download Link should not render anything when run failed 1`] = `<Fragment />`;

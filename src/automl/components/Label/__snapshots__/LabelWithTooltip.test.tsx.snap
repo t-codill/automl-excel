@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LabelWithTooltip should render 1`] = `
+<span
+  className="label-with-tooltip-outer"
+>
+  <StyledLabelBase
+    htmlFor="dropdownId"
+    required={true}
+  >
+    Test Label
+  </StyledLabelBase>
+  <StyledTooltipHostBase
+    closeDelay={500}
+    content="Test Tooltip"
+  >
+    <StyledIconBase
+      ariaLabel="Info"
+      className="label-wrapper-icon"
+      iconName="Info"
+    />
+  </StyledTooltipHostBase>
+</span>
+`;
+
+exports[`LabelWithTooltip should show 'Test Label' in tooltip on hover of 'icon button' 1`] = `
+<span
+  className="label-with-tooltip-outer"
+>
+  <StyledLabelBase
+    htmlFor="dropdownId"
+    required={true}
+  >
+    Test Label
+  </StyledLabelBase>
+  <StyledTooltipHostBase
+    closeDelay={500}
+    content="Test Tooltip"
+  >
+    <StyledIconBase
+      ariaLabel="Info"
+      className="label-wrapper-icon"
+      iconName="Info"
+    />
+  </StyledTooltipHostBase>
+</span>
+`;

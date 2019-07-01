@@ -1,0 +1,57 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`GrainColumnSelector should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="advancedSettingsGrainColumnSelector"
+    labelText="Series name column(s)"
+    required={false}
+  >
+    Select series name column(s) for time series. The selection may not include the target column.
+  </LabelWithCallout>
+  <FormTagPicker
+    field="grainColumns"
+    id="advancedSettingsGrainColumnSelector"
+    items={
+      Array [
+        "item1",
+        "item2",
+        "item3",
+      ]
+    }
+    placeholder="Select column(s)..."
+    validators={
+      Array [
+        [Function],
+        [Function],
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`GrainColumnSelector should render with empty list 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="advancedSettingsGrainColumnSelector"
+    labelText="Series name column(s)"
+    required={false}
+  >
+    Select series name column(s) for time series. The selection may not include the target column.
+  </LabelWithCallout>
+  <FormTagPicker
+    field="grainColumns"
+    id="advancedSettingsGrainColumnSelector"
+    items={Array []}
+    placeholder="Select column(s)..."
+    validators={
+      Array [
+        [Function],
+        [Function],
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;

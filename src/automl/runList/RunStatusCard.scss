@@ -1,0 +1,37 @@
+@import "../Themes.scss";
+
+.run-status-card {
+
+    @include primaryTextColor;
+    font-size: 20px;
+    border: 1px solid #0392cf;
+    padding: 1em .5em;
+    margin: 0 .5em 1em 0;
+    box-sizing: border-box;
+    text-align: center;
+    cursor: pointer;
+
+    .filter-tag {
+        text-decoration: underline;
+        color: #0392cf;
+        font-size: 13px;
+    }
+
+    &:hover {
+
+        @include runStatusCardHoverBackgroundColor;
+    }
+
+    &.active-card {
+        color: #ffffff;
+        background-color: #015cda;
+
+        &:hover {
+            background-color: #015cda;
+        }
+
+        .filter-tag {
+            color: #ffffff;
+        }
+    }
+}

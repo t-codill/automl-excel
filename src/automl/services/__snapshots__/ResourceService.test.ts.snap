@@ -1,0 +1,130 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ResourceService should createResourcesGroup 1`] = `
+Object {
+  "_mockParameters": Array [
+    "sampleResourceGroup",
+    Object {
+      "location": "eastus",
+    },
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "location": "eastus",
+}
+`;
+
+exports[`ResourceService should createWorkspace 1`] = `
+Object {
+  "_mockParameters": Array [
+    "sampleResourceGroup",
+    "sampleWorkSpace",
+    Object {
+      "properties": Object {
+        "mode": "Incremental",
+        "parameters": Object {},
+        "template": Object {
+          "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+          "contentVersion": "1.0.0.0",
+          "parameters": Object {},
+          "resources": Array [
+            Object {
+              "apiVersion": "2015-06-01",
+              "dependsOn": Array [],
+              "location": "eastus",
+              "name": "sampleworkspacek",
+              "properties": Object {
+                "accessPolicies": Array [],
+                "enabledForDeployment": "true",
+                "enabledForTemplateDeployment": "true",
+                "enabledForVolumeEncryption": "true",
+                "sku": Object {
+                  "family": "A",
+                  "name": "Standard",
+                },
+                "tenantId": "72f988bf-86f1-41af-91ab-2d7cd011db47",
+              },
+              "type": "Microsoft.KeyVault/vaults",
+            },
+            Object {
+              "apiVersion": "2016-12-01",
+              "dependsOn": Array [],
+              "kind": "Storage",
+              "location": "eastus",
+              "name": "sampleworkspaces",
+              "properties": Object {
+                "encryption": Object {
+                  "keySource": "Microsoft.Storage",
+                  "services": Object {
+                    "blob": Object {
+                      "enabled": "true",
+                    },
+                  },
+                },
+                "supportsHttpsTrafficOnly": true,
+              },
+              "sku": Object {
+                "name": "Standard_LRS",
+              },
+              "type": "Microsoft.Storage/storageAccounts",
+            },
+            Object {
+              "apiVersion": "2017-10-01",
+              "location": "eastus",
+              "name": "sampleworkspacer",
+              "properties": Object {
+                "adminUserEnabled": "true",
+              },
+              "sku": Object {
+                "name": "Standard",
+                "tier": "Standard",
+              },
+              "type": "Microsoft.ContainerRegistry/registries",
+            },
+            Object {
+              "apiVersion": "2015-05-01",
+              "kind": "web",
+              "location": "eastus",
+              "name": "sampleworkspacei",
+              "properties": Object {
+                "Application_Type": "web",
+              },
+              "type": "microsoft.insights/components",
+            },
+            Object {
+              "apiVersion": "2018-11-19",
+              "dependsOn": Array [
+                "[resourceId('Microsoft.KeyVault/vaults', 'sampleworkspacek')]",
+                "[resourceId('Microsoft.Storage/storageAccounts', 'sampleworkspaces')]",
+                "[resourceId('Microsoft.ContainerRegistry/registries', 'sampleworkspacer')]",
+                "[resourceId('microsoft.insights/components', 'sampleworkspacei')]",
+              ],
+              "identity": Object {
+                "type": "systemAssigned",
+              },
+              "location": "eastus",
+              "name": "sampleWorkSpace",
+              "properties": Object {
+                "applicationInsights": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sampleResourceGroup/providers/microsoft.insights/components/sampleworkspacei",
+                "containerRegistry": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sampleResourceGroup/providers/Microsoft.ContainerRegistry/registries/sampleworkspacer",
+                "friendlyName": "sampleWorkSpace",
+                "keyVault": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sampleResourceGroup/providers/Microsoft.KeyVault/vaults/sampleworkspacek",
+                "storageAccount": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sampleResourceGroup/providers/Microsoft.Storage/storageAccounts/sampleworkspaces",
+              },
+              "resources": Array [],
+              "type": "Microsoft.MachineLearningServices/workspaces",
+            },
+          ],
+          "variables": Object {},
+        },
+      },
+    },
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "id": "deploymentId",
+  "name": "deploymentName",
+}
+`;

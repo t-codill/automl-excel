@@ -1,0 +1,47 @@
+@import "../../Themes.scss";
+
+.accordion {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+
+  .header {
+    padding: 1em 0;
+    width: 100%;
+    transition: background-color .267s cubic-bezier(.445, .05, .55, .95) 0s;
+    transition-property: background-color;
+    transition-duration: .267s;
+    transition-timing-function: cubic-bezier(.445, .05, .55, .95);
+    transition-delay: 0s;
+    vertical-align: middle;
+    cursor: pointer;
+
+    &:hover {
+
+      @include primaryHoverBackgroundColor
+    }
+
+    .title {
+      padding-left: 12px;
+      font-size: 21px;
+      font-weight: 300;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      outline: 0;
+      user-select: none;
+    }
+  }
+
+  &.disabled .header {
+    color: rgb(166, 166, 166);
+  }
+
+  .content {
+    padding-left: 48px;
+    padding-bottom: 1em;
+  }
+
+  &.collapsed .content {
+    display: none;
+  }
+}

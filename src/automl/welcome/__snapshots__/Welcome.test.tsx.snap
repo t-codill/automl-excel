@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Welcome should render correctly 1`] = `
+<Fragment>
+  <section
+    className="get-started ms-fontSize-m"
+  >
+    <h3>
+      Getting Started
+    </h3>
+    <p>
+      Create your first experiment with automated machine learning to 
+      <br />
+      produce quality models with zero effort.
+    </p>
+    <p>
+      <CustomizedPrimaryButton
+        className="create-experiment-button"
+        onClick={[Function]}
+        text="Create experiment"
+      />
+    </p>
+  </section>
+  <section
+    className="whats-possible ms-fontSize-m"
+  >
+    <h3>
+      What's Possible with Automated Machine Learning
+    </h3>
+    <p>
+      Automate the process of algorithm selection, hyperparameter tuning, and best model selection 
+      <br />
+      with automated machine learning, and accelerate your productivity. Select your data and let 
+      <br />
+      automated ML do the rest to provide the best model from endless possible options.
+    </p>
+  </section>
+  <section
+    className="view-documents ms-fontSize-m"
+  >
+    <div>
+      <StyledIconBase
+        className="document-icon"
+        iconName="TextDocument"
+      />
+    </div>
+    <h4>
+      View Documentation
+    </h4>
+    <p>
+      Learn what is automated machine learning and how to use it.
+    </p>
+    <p>
+      <StyledLinkBase
+        href="https://aka.ms/automatedmluidocs"
+        target="_blank"
+      >
+        Learn more about our feature and capabilities here 
+        <StyledIconBase
+          iconName="NavigateExternalInline"
+        />
+      </StyledLinkBase>
+    </p>
+  </section>
+</Fragment>
+`;

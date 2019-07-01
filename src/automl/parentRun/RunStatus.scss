@@ -1,0 +1,11 @@
+.run-status-bar {
+    margin-bottom: 10px;
+
+    .error-content {
+        margin-top: 1em;
+        margin-bottom: 0;
+        max-height: 250px;
+        overflow: auto;
+        white-space: pre;
+    }
+}

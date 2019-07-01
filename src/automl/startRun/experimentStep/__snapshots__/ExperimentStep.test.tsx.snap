@@ -1,0 +1,122 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExperimentStep should render 1`] = `
+<Fragment>
+  <Form
+    onSubmit={[Function]}
+  >
+    <div
+      className="start-run-step-content"
+    >
+      <div
+        className="ms-md12 ms-lg8 ms-xl6 ms-xxl4"
+      >
+        <ExperimentNameInput
+          experimentNames={
+            Array [
+              "Experiment Name 1",
+              "Experiment Name 2",
+              "",
+            ]
+          }
+          onEditClick={[MockFunction]}
+          readonly={false}
+        />
+      </div>
+      <div
+        className="ms-md12 ms-lg8 ms-xl6 ms-xxl4"
+      >
+        <ComputeSelector
+          computes={
+            Array [
+              Object {
+                "id": "Test_ID",
+                "location": "eastus",
+                "name": "Test_Compute",
+              },
+            ]
+          }
+          onEditClick={[MockFunction]}
+          readonly={false}
+          refreshing={false}
+        />
+        <StyledLinkBase
+          id="linkCreateCompute"
+          onClick={[Function]}
+        >
+          <StyledIconBase
+            iconName="Devices3"
+            style={
+              Object {
+                "marginRight": 5,
+              }
+            }
+          />
+          <span>
+            Create a new compute
+          </span>
+        </StyledLinkBase>
+        <StyledLinkBase
+          id="linkRefreshCompute"
+          onClick={[Function]}
+        >
+          <StyledIconBase
+            iconName="Refresh"
+            style={
+              Object {
+                "marginLeft": 15,
+                "marginRight": 5,
+              }
+            }
+          />
+          <span>
+            Refresh Compute
+          </span>
+        </StyledLinkBase>
+      </div>
+    </div>
+    <div
+      className="form-footer"
+    >
+      <CustomizedDefaultButton
+        onClick={[Function]}
+        text="Cancel"
+      />
+      <CustomizedPrimaryButton
+        text="Next"
+        type="submit"
+      />
+    </div>
+  </Form>
+  <StyledWithResponsiveMode
+    dialogContentProps={
+      Object {
+        "subText": "Are you sure you want to cancel creating a new Experiment?",
+        "title": "Cancel New Experiment?",
+        "type": 0,
+      }
+    }
+    hidden={true}
+    modalProps={
+      Object {
+        "containerClassName": "ms-dialogMainOverride",
+        "isBlocking": false,
+        "subtitleAriaId": "cancelSubtextLabel",
+        "titleAriaId": "cancelDialogLabel",
+      }
+    }
+    onDismiss={[Function]}
+  >
+    <StyledDialogFooterBase>
+      <CustomizedPrimaryButton
+        onClick={[Function]}
+        text="Yes"
+      />
+      <CustomizedDefaultButton
+        onClick={[Function]}
+        text="No"
+      />
+    </StyledDialogFooterBase>
+  </StyledWithResponsiveMode>
+</Fragment>
+`;

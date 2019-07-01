@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DiscoveryService should get 1`] = `
+Object {
+  "_mockParameters": Array [
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "runhistory": "http://runhistory.com",
+}
+`;

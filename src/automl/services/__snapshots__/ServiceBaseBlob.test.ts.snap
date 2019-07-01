@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ServiceBaseBlob should error without blob endpoints 1`] = `[Error: Cannot read blob, blob is not supported for this storage account]`;
+
+exports[`ServiceBaseBlob should error without primary endpoints 1`] = `[Error: Cannot read blob, blob is not supported for this storage account]`;

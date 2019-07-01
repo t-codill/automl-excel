@@ -1,0 +1,18 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExitCriteria should render 1`] = `
+<div>
+  <LabelWithCallout
+    htmlFor="exitCriteria"
+    labelText="Exit criteria"
+    required={false}
+  >
+    Define criteria to terminate the training job: training job time OR max number of iterations OR metric score threshold (whichever is reached first).
+  </LabelWithCallout>
+  <trainingJobTimeInput />
+  <maxIterationInput />
+  <metricThresholdInput
+    primaryMetric="accuracy"
+  />
+</div>
+`;

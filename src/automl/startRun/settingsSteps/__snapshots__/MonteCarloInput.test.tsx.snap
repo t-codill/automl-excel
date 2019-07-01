@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cross Validation Input should render with valid props 1`] = `
+<Fragment>
+  <crossValidationNumberInput />
+  <percentageValidationInput />
+</Fragment>
+`;
+
+exports[`Cross Validation Input should render with validation error undefined props 1`] = `
+<Fragment>
+  <crossValidationNumberInput />
+  <percentageValidationInput />
+</Fragment>
+`;

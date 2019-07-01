@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComputeCreator should render 1`] = `
+<Fragment>
+  <StyledPanelBase
+    closeButtonAriaLabel="Close"
+    headerText="Create a New Compute"
+    isHiddenOnDismiss={true}
+    isOpen={true}
+    onDismiss={[Function]}
+    type={3}
+  >
+    <Form
+      onSubmit={[Function]}
+      onUpdated={[Function]}
+    >
+      <FormTextInput
+        ariaLabel="Please enter compute name here"
+        field="name"
+        label="Compute name"
+        placeholder="Compute name"
+        required={true}
+        validators={
+          Array [
+            [Function],
+            [Function],
+          ]
+        }
+      />
+      <VmSizeSelector
+        vmSizes={
+          Object {
+            "amlCompute": Array [],
+          }
+        }
+      />
+      <Accordion
+        exclusive={true}
+        items={
+          Array [
+            Object {
+              "collapsed": true,
+              "disabled": false,
+              "element": <React.Fragment>
+                <minNodeInput />
+                <MaxNodeInput
+                  minNodeCount="0"
+                />
+              </React.Fragment>,
+              "title": "Additional Settings",
+            },
+          ]
+        }
+      />
+      <div
+        className="form-footer"
+      >
+        <CustomizedDefaultButton
+          onClick={[Function]}
+          text="Cancel"
+        />
+        <CustomizedPrimaryButton
+          text="Create"
+          type="submit"
+        />
+      </div>
+    </Form>
+  </StyledPanelBase>
+</Fragment>
+`;

@@ -1,0 +1,26 @@
+.error-message-text {
+    margin-bottom: 1em;
+}
+
+.error-detail {
+    max-height: 250px;
+    overflow: auto;
+}
+
+.error-content {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.error-counter {
+    width: 18px;
+    height: 18px;
+    padding: 0;
+    margin: 0;
+    color: white;
+    text-align: center;
+    background-color: #a80000;
+    border: 1px solid pink;
+    border-radius: 12px;
+}

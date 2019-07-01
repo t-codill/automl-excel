@@ -1,0 +1,25 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataPrepService should start 1`] = `
+Object {
+  "_mockParameters": Array [
+    "00000000-0000-0000-0000-000000000000",
+    "testResource",
+    "testWorkSpace",
+    Object {
+      "abortSignal": Object {},
+      "dto": Object {
+        "computeTargetName": "computeTargetName",
+        "dataPath": "blobName",
+        "dataStoreName": "dataStoreName",
+        "experimentName": "experimentName",
+        "outputVersion": "2.0",
+        "topNSample": 10000,
+      },
+    },
+  ],
+  "dataPath": "dataPath",
+  "profileResultPath": "profileResultPath",
+  "runId": "runId",
+}
+`;

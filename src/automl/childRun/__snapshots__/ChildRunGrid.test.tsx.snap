@@ -1,0 +1,42 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Child Run Grid Classification Success should render graphs, run metrics and run summary in grid 1`] = `
+<div
+  className="ms-Grid"
+  dir="ltr"
+>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 ms-xl9"
+  >
+    <GridItem
+      title="Graphs"
+    >
+      <ChartReport
+        run={Object {}}
+        runMetrics={Object {}}
+      />
+    </GridItem>
+  </div>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 ms-xl3"
+  >
+    <GridItem
+      title="Run Summary"
+    >
+      <ChildRunSummary
+        experimentName="foo"
+        modelUri="test model Uri"
+        run={Object {}}
+      />
+    </GridItem>
+    <GridItem
+      title="Run Metrics"
+    >
+      <runMetrics
+        run={Object {}}
+        runMetrics={Object {}}
+      />
+    </GridItem>
+  </div>
+</div>
+`;

@@ -1,0 +1,53 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RunStatusCard Active Card should render 1`] = `
+<FocusZone
+  className=""
+  direction={2}
+  isCircularNavigation={false}
+  key="Failed"
+  onClick={[Function]}
+>
+  <div
+    className="run-status-card active-card"
+  >
+    <div>
+      Failed
+    </div>
+    <div>
+      123
+    </div>
+    <div
+      className="filter-tag"
+    >
+      Remove Filter
+    </div>
+  </div>
+</FocusZone>
+`;
+
+exports[`RunStatusCard Inactive Card should render 1`] = `
+<FocusZone
+  className=""
+  direction={2}
+  isCircularNavigation={false}
+  key="Failed"
+  onClick={[Function]}
+>
+  <div
+    className="run-status-card"
+  >
+    <div>
+      Failed
+    </div>
+    <div>
+      123
+    </div>
+    <div
+      className="filter-tag"
+    >
+      Filter
+    </div>
+  </div>
+</FocusZone>
+`;

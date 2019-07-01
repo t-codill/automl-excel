@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ValidationTypeSelector Initial Render should render date selector dropdown 1`] = `
+<div
+  className="ms-Grid"
+  dir="ltr"
+>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <LabelWithCallout
+      htmlFor="validationType"
+      labelText="Validation type"
+      required={false}
+    >
+      The type of validation, forecasting only supports K-fold cross validation
+    </LabelWithCallout>
+  </div>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <StyledWithResponsiveMode
+      ariaLabel="Validation type"
+      defaultSelectedKey={1}
+      disabled={false}
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "key": 1,
+            "text": "K-fold cross validation",
+          },
+          Object {
+            "key": 2,
+            "text": "Monte Carlo cross validation",
+          },
+        ]
+      }
+      placeholder="Select an validation type"
+    />
+  </div>
+</div>
+`;
+
+exports[`ValidationTypeSelector Initial Render should render forecasting 1`] = `
+<div
+  className="ms-Grid"
+  dir="ltr"
+>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <LabelWithCallout
+      htmlFor="validationType"
+      labelText="Validation type"
+      required={false}
+    >
+      The type of validation, forecasting only supports K-fold cross validation
+    </LabelWithCallout>
+  </div>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <StyledWithResponsiveMode
+      ariaLabel="Validation type"
+      defaultSelectedKey={1}
+      disabled={true}
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "key": 1,
+            "text": "K-fold cross validation",
+          },
+        ]
+      }
+      placeholder="Select an validation type"
+    />
+  </div>
+</div>
+`;
+
+exports[`ValidationTypeSelector Initial Render should render regression 1`] = `
+<div
+  className="ms-Grid"
+  dir="ltr"
+>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <LabelWithCallout
+      htmlFor="validationType"
+      labelText="Validation type"
+      required={false}
+    >
+      The type of validation, forecasting only supports K-fold cross validation
+    </LabelWithCallout>
+  </div>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <StyledWithResponsiveMode
+      ariaLabel="Validation type"
+      defaultSelectedKey={1}
+      disabled={false}
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "key": 1,
+            "text": "K-fold cross validation",
+          },
+          Object {
+            "key": 2,
+            "text": "Monte Carlo cross validation",
+          },
+        ]
+      }
+      placeholder="Select an validation type"
+    />
+  </div>
+</div>
+`;

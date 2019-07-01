@@ -1,3 +1,8 @@
+
+import { polyfill } from 'es6-promise'
+import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
+import 'abortcontroller-polyfill/dist/polyfill-patch-fetch'
+
 import 'office-ui-fabric-react/dist/css/fabric.min.css';
 import App from './components/App';
 import { AppContainer } from 'react-hot-loader';
@@ -6,6 +11,7 @@ import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { AuthenticationService } from "./AuthenticationService";
 
+polyfill();
 
 initializeIcons();
 

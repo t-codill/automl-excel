@@ -1,0 +1,355 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataTableCommandBar Component should render 1`] = `
+<StyledOverflowSetBase
+  className="commands has-filter"
+  items={
+    Array [
+      Object {
+        "class": "test",
+        "key": "search",
+        "onRender": [Function],
+      },
+    ]
+  }
+  onRenderItem={[Function]}
+  onRenderOverflowButton={[Function]}
+  overflowItems={Array []}
+/>
+`;
+
+exports[`DataTableCommandBar command items should render added items 1`] = `
+<div
+  class="ms-FocusZone css-50 ms-OverflowSet commands has-filter root-47"
+  data-focuszone-id="FocusZone1"
+  role="menubar"
+>
+  <div
+    class="ms-OverflowSet-item item-48"
+  >
+    <div
+      class="ms-SearchBox is-underlined searchBox root-51"
+    >
+      <div
+        aria-hidden="true"
+        class="ms-SearchBox-iconContainer iconContainer-52"
+      >
+        <i
+          class="ms-SearchBox-icon icon-57"
+          data-icon-name="Filter"
+          role="presentation"
+        >
+          
+        </i>
+      </div>
+      <input
+        aria-label="Search to filter items..."
+        autocomplete="off"
+        class="ms-SearchBox-field field-55"
+        id="SearchBox2"
+        placeholder="Search to filter items..."
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="ms-OverflowSet-item item-48"
+  >
+    <button
+      class="ms-Button ms-Button--default root-58"
+      data-is-focusable="true"
+      type="button"
+    >
+      <div
+        class="ms-Button-flexContainer flexContainer-59"
+      >
+        <div
+          class="ms-Button-textContainer textContainer-60"
+        >
+          <div
+            class="ms-Button-label label-62"
+            id="id__3"
+          >
+            name1
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>
+  <div
+    class="ms-OverflowSet-item item-48"
+  >
+    <button
+      class="ms-Button ms-Button--default root-58"
+      data-is-focusable="true"
+      type="button"
+    >
+      <div
+        class="ms-Button-flexContainer flexContainer-59"
+      >
+        <div
+          class="ms-Button-textContainer textContainer-60"
+        >
+          <div
+            class="ms-Button-label label-62"
+            id="id__6"
+          >
+            name2
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`DataTableCommandBar command items should render added items with filter disabled 1`] = `
+<div
+  class="ms-FocusZone css-50 ms-OverflowSet commands root-47"
+  data-focuszone-id="FocusZone9"
+  role="menubar"
+>
+  <div
+    class="ms-OverflowSet-item item-48"
+  >
+    <button
+      class="ms-Button ms-Button--default root-58"
+      data-is-focusable="true"
+      type="button"
+    >
+      <div
+        class="ms-Button-flexContainer flexContainer-59"
+      >
+        <div
+          class="ms-Button-textContainer textContainer-60"
+        >
+          <div
+            class="ms-Button-label label-62"
+            id="id__10"
+          >
+            name1
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>
+  <div
+    class="ms-OverflowSet-item item-48"
+  >
+    <button
+      class="ms-Button ms-Button--default root-58"
+      data-is-focusable="true"
+      type="button"
+    >
+      <div
+        class="ms-Button-flexContainer flexContainer-59"
+      >
+        <div
+          class="ms-Button-textContainer textContainer-60"
+        >
+          <div
+            class="ms-Button-label label-62"
+            id="id__13"
+          >
+            name2
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`DataTableCommandBar command items should render overflow items 1`] = `
+<div
+  class="ms-FocusZone css-50 ms-OverflowSet commands has-filter root-47"
+  data-focuszone-id="FocusZone16"
+  role="menubar"
+>
+  <div
+    class="ms-OverflowSet-item item-48"
+  >
+    <div
+      class="ms-SearchBox is-underlined searchBox root-51"
+    >
+      <div
+        aria-hidden="true"
+        class="ms-SearchBox-iconContainer iconContainer-52"
+      >
+        <i
+          class="ms-SearchBox-icon icon-57"
+          data-icon-name="Filter"
+          role="presentation"
+        >
+          
+        </i>
+      </div>
+      <input
+        aria-label="Search to filter items..."
+        autocomplete="off"
+        class="ms-SearchBox-field field-55"
+        id="SearchBox17"
+        placeholder="Search to filter items..."
+        value=""
+      />
+    </div>
+  </div>
+  <div
+    class="ms-OverflowSet-item item-48"
+  >
+    <button
+      class="ms-Button ms-Button--default root-58"
+      data-is-focusable="true"
+      type="button"
+    >
+      <div
+        class="ms-Button-flexContainer flexContainer-59"
+      >
+        <div
+          class="ms-Button-textContainer textContainer-60"
+        >
+          <div
+            class="ms-Button-label label-62"
+            id="id__18"
+          >
+            name1
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>
+  <div
+    class="ms-OverflowSet-item item-48"
+  >
+    <button
+      class="ms-Button ms-Button--default root-58"
+      data-is-focusable="true"
+      type="button"
+    >
+      <div
+        class="ms-Button-flexContainer flexContainer-59"
+      >
+        <div
+          class="ms-Button-textContainer textContainer-60"
+        >
+          <div
+            class="ms-Button-label label-62"
+            id="id__21"
+          >
+            name2
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>
+  <div
+    class="ms-OverflowSet-overflowButton overflowButton-49"
+  >
+    <button
+      class="ms-Button ms-Button--default root-58"
+      data-is-focusable="true"
+      type="button"
+    >
+      <div
+        class="ms-Button-flexContainer flexContainer-59"
+      >
+        <i
+          class="ms-Button-menuIcon menuIcon-66"
+          data-icon-name="More"
+          role="presentation"
+        >
+          
+        </i>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`DataTableCommandBar command items should render overflow items with filter disabled 1`] = `
+<div
+  class="ms-FocusZone css-50 ms-OverflowSet commands root-47"
+  data-focuszone-id="FocusZone27"
+  role="menubar"
+>
+  <div
+    class="ms-OverflowSet-item item-48"
+  >
+    <button
+      class="ms-Button ms-Button--default root-58"
+      data-is-focusable="true"
+      type="button"
+    >
+      <div
+        class="ms-Button-flexContainer flexContainer-59"
+      >
+        <div
+          class="ms-Button-textContainer textContainer-60"
+        >
+          <div
+            class="ms-Button-label label-62"
+            id="id__28"
+          >
+            name1
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>
+  <div
+    class="ms-OverflowSet-item item-48"
+  >
+    <button
+      class="ms-Button ms-Button--default root-58"
+      data-is-focusable="true"
+      type="button"
+    >
+      <div
+        class="ms-Button-flexContainer flexContainer-59"
+      >
+        <div
+          class="ms-Button-textContainer textContainer-60"
+        >
+          <div
+            class="ms-Button-label label-62"
+            id="id__31"
+          >
+            name2
+          </div>
+        </div>
+      </div>
+    </button>
+  </div>
+  <div
+    class="ms-OverflowSet-overflowButton overflowButton-49"
+  >
+    <button
+      class="ms-Button ms-Button--default root-58"
+      data-is-focusable="true"
+      type="button"
+    >
+      <div
+        class="ms-Button-flexContainer flexContainer-59"
+      >
+        <i
+          class="ms-Button-menuIcon menuIcon-66"
+          data-icon-name="More"
+          role="presentation"
+        >
+          
+        </i>
+      </div>
+    </button>
+  </div>
+</div>
+`;
+
+exports[`DataTableCommandBar filterBox should not render if hideFilter is set 1`] = `
+<StyledOverflowSetBase
+  className="commands"
+  items={Array []}
+  onRenderItem={[Function]}
+  onRenderOverflowButton={[Function]}
+  overflowItems={Array []}
+/>
+`;

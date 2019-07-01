@@ -16,11 +16,15 @@
     "esModuleInterop": true,
     "allowJs": true,
     "lib": [
+      "es5",
+      "dom"
+    ],/*
+    "lib": [
       "es7",
       "dom",
       "es2015",
       "es2017"
-    ],
+    ],*/
     "pretty": true,
     "typeRoots": [
       "node_modules/@types"

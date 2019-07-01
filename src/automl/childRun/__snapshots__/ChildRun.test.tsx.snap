@@ -1,0 +1,307 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Child run page should cancel run 1`] = `
+<Fragment>
+  <RunStatus
+    experimentName="experimentName"
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:20:30.000Z,
+        "parentRunId": "AutoML_000",
+        "properties": Object {
+          "iteration": "9",
+          "run_algorithm": "Ensemble",
+          "run_preprocessor": "rpp1",
+        },
+        "runId": "AutoML_001",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+      }
+    }
+  />
+  <ChildRunGrid
+    canceling={false}
+    experimentName="experimentName"
+    goBack={false}
+    goToLog={false}
+    hideCancelDialog={false}
+    onModelRegister={[Function]}
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:20:30.000Z,
+        "parentRunId": "AutoML_000",
+        "properties": Object {
+          "iteration": "9",
+          "run_algorithm": "Ensemble",
+          "run_preprocessor": "rpp1",
+        },
+        "runId": "AutoML_001",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+      }
+    }
+  />
+  <ConfirmationDialog
+    hidden={false}
+    onClose={[Function]}
+    onConfirm={[Function]}
+    subText="Are you sure you want to cancel run: AutoML_001"
+    title="Cancel Run?"
+  />
+</Fragment>
+`;
+
+exports[`Child run page should not cancel run when experiment name is undefined 1`] = `
+<Fragment>
+  <RunStatus
+    experimentName=""
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:20:30.000Z,
+        "parentRunId": "AutoML_000",
+        "properties": Object {
+          "iteration": "9",
+          "run_algorithm": "Ensemble",
+          "run_preprocessor": "rpp1",
+        },
+        "runId": "AutoML_001",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+      }
+    }
+  />
+  <ChildRunGrid
+    canceling={false}
+    experimentName=""
+    goBack={false}
+    goToLog={false}
+    hideCancelDialog={false}
+    onModelRegister={[Function]}
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:20:30.000Z,
+        "parentRunId": "AutoML_000",
+        "properties": Object {
+          "iteration": "9",
+          "run_algorithm": "Ensemble",
+          "run_preprocessor": "rpp1",
+        },
+        "runId": "AutoML_001",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+      }
+    }
+  />
+  <ConfirmationDialog
+    hidden={false}
+    onClose={[Function]}
+    onConfirm={[Function]}
+    subText="Are you sure you want to cancel run: AutoML_001"
+    title="Cancel Run?"
+  />
+</Fragment>
+`;
+
+exports[`Child run page should render grid and status bar without model url 1`] = `
+<Fragment>
+  <RunStatus
+    experimentName="experimentName"
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:20:30.000Z,
+        "parentRunId": "AutoML_000",
+        "properties": Object {
+          "iteration": "9",
+          "run_algorithm": "Ensemble",
+          "run_preprocessor": "rpp1",
+        },
+        "runId": "AutoML_001",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+      }
+    }
+  />
+  <ChildRunGrid
+    canceling={false}
+    experimentName="experimentName"
+    goBack={false}
+    goToLog={false}
+    hideCancelDialog={true}
+    onModelRegister={[Function]}
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:20:30.000Z,
+        "parentRunId": "AutoML_000",
+        "properties": Object {
+          "iteration": "9",
+          "run_algorithm": "Ensemble",
+          "run_preprocessor": "rpp1",
+        },
+        "runId": "AutoML_001",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+      }
+    }
+  />
+  <ConfirmationDialog
+    hidden={true}
+    onClose={[Function]}
+    onConfirm={[Function]}
+    subText="Are you sure you want to cancel run: AutoML_001"
+    title="Cancel Run?"
+  />
+</Fragment>
+`;
+
+exports[`Child run page should render grid when no run metrics 1`] = `
+<Fragment>
+  <RunStatus
+    experimentName="experimentName"
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:20:30.000Z,
+        "parentRunId": "AutoML_000",
+        "properties": Object {
+          "iteration": "9",
+          "run_algorithm": "Ensemble",
+          "run_preprocessor": "rpp1",
+        },
+        "runId": "AutoML_001",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+      }
+    }
+  />
+  <ChildRunGrid
+    canceling={false}
+    experimentName="experimentName"
+    goBack={false}
+    goToLog={false}
+    hideCancelDialog={true}
+    onModelRegister={[Function]}
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:20:30.000Z,
+        "parentRunId": "AutoML_000",
+        "properties": Object {
+          "iteration": "9",
+          "run_algorithm": "Ensemble",
+          "run_preprocessor": "rpp1",
+        },
+        "runId": "AutoML_001",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+      }
+    }
+  />
+  <ConfirmationDialog
+    hidden={true}
+    onClose={[Function]}
+    onConfirm={[Function]}
+    subText="Are you sure you want to cancel run: AutoML_001"
+    title="Cancel Run?"
+  />
+</Fragment>
+`;
+
+exports[`Child run page should render grid when run artifact contents are undefined 1`] = `
+<Fragment>
+  <RunStatus
+    experimentName="experimentName"
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:20:30.000Z,
+        "parentRunId": "AutoML_000",
+        "properties": Object {
+          "iteration": "9",
+          "run_algorithm": "Ensemble",
+          "run_preprocessor": "rpp1",
+        },
+        "runId": "AutoML_001",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+      }
+    }
+  />
+  <ChildRunGrid
+    canceling={false}
+    experimentName="experimentName"
+    goBack={false}
+    goToLog={false}
+    hideCancelDialog={true}
+    onModelRegister={[Function]}
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:20:30.000Z,
+        "parentRunId": "AutoML_000",
+        "properties": Object {
+          "iteration": "9",
+          "run_algorithm": "Ensemble",
+          "run_preprocessor": "rpp1",
+        },
+        "runId": "AutoML_001",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+      }
+    }
+  />
+  <ConfirmationDialog
+    hidden={true}
+    onClose={[Function]}
+    onConfirm={[Function]}
+    subText="Are you sure you want to cancel run: AutoML_001"
+    title="Cancel Run?"
+  />
+</Fragment>
+`;
+
+exports[`Child run page should render grid with model url 1`] = `
+<Fragment>
+  <RunStatus
+    experimentName="experimentName"
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:20:30.000Z,
+        "parentRunId": "AutoML_000",
+        "properties": Object {
+          "iteration": "9",
+          "run_algorithm": "Ensemble",
+          "run_preprocessor": "rpp1",
+        },
+        "runId": "AutoML_001",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+      }
+    }
+  />
+  <ChildRunGrid
+    canceling={false}
+    experimentName="experimentName"
+    goBack={false}
+    goToLog={false}
+    hideCancelDialog={true}
+    onModelRegister={[Function]}
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:20:30.000Z,
+        "parentRunId": "AutoML_000",
+        "properties": Object {
+          "iteration": "9",
+          "run_algorithm": "Ensemble",
+          "run_preprocessor": "rpp1",
+        },
+        "runId": "AutoML_001",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+      }
+    }
+  />
+  <ConfirmationDialog
+    hidden={true}
+    onClose={[Function]}
+    onConfirm={[Function]}
+    subText="Are you sure you want to cancel run: AutoML_001"
+    title="Cancel Run?"
+  />
+</Fragment>
+`;

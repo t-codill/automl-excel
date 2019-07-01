@@ -1,0 +1,241 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Child Run Iteration Table should render 'No Data' when no childRuns 1`] = `
+<StyledMessageBarBase>
+  No data for visualization
+</StyledMessageBarBase>
+`;
+
+exports[`Child Run Iteration Table should render child run iteration table when successful parent run 1`] = `
+<DataTable
+  columns={
+    Array [
+      Object {
+        "field": "iteration",
+        "header": "Iteration",
+        "maxWidth": 60,
+        "minWidth": 50,
+      },
+      Object {
+        "field": "run_name",
+        "header": "Name",
+        "maxWidth": 240,
+        "minWidth": 100,
+        "render": [Function],
+      },
+      Object {
+        "field": "score",
+        "header": "Primary Metric",
+        "maxWidth": 140,
+        "minWidth": 80,
+        "nanAsMax": false,
+      },
+      Object {
+        "field": "status",
+        "header": "Status",
+        "maxWidth": 80,
+        "minWidth": 80,
+      },
+      Object {
+        "field": "createdUtc",
+        "header": "Created",
+        "maxWidth": 150,
+        "minWidth": 80,
+      },
+      Object {
+        "field": "duration",
+        "header": "Duration",
+        "maxWidth": 80,
+        "minWidth": 80,
+      },
+      Object {
+        "field": "iteration",
+        "header": "Model",
+        "maxWidth": 80,
+        "minWidth": 60,
+        "render": [Function],
+      },
+    ]
+  }
+  enableShimmer={false}
+  items={
+    Array [
+      Object {
+        "createdUtc": 2019-02-01T08:20:00.000Z,
+        "duration": "00:05:00",
+        "experimentId": "exp",
+        "iteration": NaN,
+        "parentRunId": "AutoML_000",
+        "runId": "AutoML_001",
+        "run_name": "MaxAbsScaler, RandomForest",
+        "score": 0.977770827248834,
+        "status": "Completed",
+      },
+      Object {
+        "createdUtc": 2019-02-01T08:20:00.000Z,
+        "duration": "00:05:00",
+        "experimentId": undefined,
+        "iteration": NaN,
+        "parentRunId": "AutoML_000",
+        "runId": "AutoML_002",
+        "run_name": "MaxAbsScaler",
+        "score": 0.877770827248834,
+        "status": "Completed",
+      },
+      Object {
+        "createdUtc": 2019-02-01T08:20:00.000Z,
+        "duration": "00:05:00",
+        "experimentId": undefined,
+        "iteration": NaN,
+        "parentRunId": "AutoML_000",
+        "runId": "AutoML_003",
+        "run_name": "<N/A>",
+        "score": NaN,
+        "status": "Canceled",
+      },
+      Object {
+        "createdUtc": 2019-02-01T08:20:00.000Z,
+        "duration": "00:05:00",
+        "experimentId": undefined,
+        "iteration": NaN,
+        "parentRunId": "AutoML_000",
+        "runId": "AutoML_004",
+        "run_name": "MaxAbsScaler",
+        "score": 0.827770827248834,
+        "status": "Completed",
+      },
+      Object {
+        "createdUtc": 2019-02-01T08:20:00.000Z,
+        "duration": "00:05:00",
+        "experimentId": undefined,
+        "iteration": undefined,
+        "parentRunId": "AutoML_000",
+        "runId": "AutoML_005",
+        "run_name": "<N/A>",
+        "score": NaN,
+        "status": "Completed",
+      },
+    ]
+  }
+  shimmerLines={5}
+  sortColumnFieldName="score"
+  sortDescending={true}
+/>
+`;
+
+exports[`Child Run Iteration Table should render primary metric if defined 1`] = `
+<DataTable
+  columns={
+    Array [
+      Object {
+        "field": "iteration",
+        "header": "Iteration",
+        "maxWidth": 60,
+        "minWidth": 50,
+      },
+      Object {
+        "field": "run_name",
+        "header": "Name",
+        "maxWidth": 240,
+        "minWidth": 100,
+        "render": [Function],
+      },
+      Object {
+        "field": "score",
+        "header": "pm",
+        "maxWidth": 140,
+        "minWidth": 80,
+        "nanAsMax": false,
+      },
+      Object {
+        "field": "status",
+        "header": "Status",
+        "maxWidth": 80,
+        "minWidth": 80,
+      },
+      Object {
+        "field": "createdUtc",
+        "header": "Created",
+        "maxWidth": 150,
+        "minWidth": 80,
+      },
+      Object {
+        "field": "duration",
+        "header": "Duration",
+        "maxWidth": 80,
+        "minWidth": 80,
+      },
+      Object {
+        "field": "iteration",
+        "header": "Model",
+        "maxWidth": 80,
+        "minWidth": 60,
+        "render": [Function],
+      },
+    ]
+  }
+  enableShimmer={false}
+  items={
+    Array [
+      Object {
+        "createdUtc": 2019-02-01T08:20:00.000Z,
+        "duration": "00:05:00",
+        "experimentId": "exp",
+        "iteration": NaN,
+        "parentRunId": "AutoML_000",
+        "runId": "AutoML_001",
+        "run_name": "MaxAbsScaler, RandomForest",
+        "score": 0.977770827248834,
+        "status": "Completed",
+      },
+      Object {
+        "createdUtc": 2019-02-01T08:20:00.000Z,
+        "duration": "00:05:00",
+        "experimentId": undefined,
+        "iteration": NaN,
+        "parentRunId": "AutoML_000",
+        "runId": "AutoML_002",
+        "run_name": "MaxAbsScaler",
+        "score": 0.877770827248834,
+        "status": "Completed",
+      },
+      Object {
+        "createdUtc": 2019-02-01T08:20:00.000Z,
+        "duration": "00:05:00",
+        "experimentId": undefined,
+        "iteration": NaN,
+        "parentRunId": "AutoML_000",
+        "runId": "AutoML_003",
+        "run_name": "<N/A>",
+        "score": NaN,
+        "status": "Canceled",
+      },
+      Object {
+        "createdUtc": 2019-02-01T08:20:00.000Z,
+        "duration": "00:05:00",
+        "experimentId": undefined,
+        "iteration": NaN,
+        "parentRunId": "AutoML_000",
+        "runId": "AutoML_004",
+        "run_name": "MaxAbsScaler",
+        "score": 0.827770827248834,
+        "status": "Completed",
+      },
+      Object {
+        "createdUtc": 2019-02-01T08:20:00.000Z,
+        "duration": "00:05:00",
+        "experimentId": undefined,
+        "iteration": undefined,
+        "parentRunId": "AutoML_000",
+        "runId": "AutoML_005",
+        "run_name": "<N/A>",
+        "score": NaN,
+        "status": "Completed",
+      },
+    ]
+  }
+  shimmerLines={5}
+  sortColumnFieldName="score"
+  sortDescending={true}
+/>
+`;

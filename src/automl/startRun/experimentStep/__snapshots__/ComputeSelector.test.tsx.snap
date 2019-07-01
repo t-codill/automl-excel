@@ -1,0 +1,6299 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Compute Selector For compute type: 'AKS' With provisioningState: 'Canceled' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AKS' With provisioningState: 'Canceled' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AKS' With provisioningState: 'Creating' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AKS' With provisioningState: 'Creating' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AKS' With provisioningState: 'Deleting' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AKS' With provisioningState: 'Deleting' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AKS' With provisioningState: 'Failed' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AKS' With provisioningState: 'Failed' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AKS' With provisioningState: 'Succeeded' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AKS' With provisioningState: 'Succeeded' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AKS' With provisioningState: 'Unknown' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AKS' With provisioningState: 'Unknown' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AKS' With provisioningState: 'Updating' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AKS' With provisioningState: 'Updating' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AKS' With provisioningState: 'undefined' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AKS' With provisioningState: 'undefined' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AmlCompute' With provisioningState: 'Canceled' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Canceled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "ComputeId2",
+          "text": "Compute2 (Canceled) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute No ID (Canceled) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute unusable (Canceled) (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AmlCompute' With provisioningState: 'Canceled' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Canceled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "ComputeId2",
+          "text": "Compute2 (Canceled) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute No ID (Canceled) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute unusable (Canceled) (profiling enabled)",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AmlCompute' With provisioningState: 'Creating' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Creating)",
+        },
+        Object {
+          "disabled": true,
+          "key": "ComputeId2",
+          "text": "Compute2 (Creating) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute No ID (Creating) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute unusable (Creating) (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AmlCompute' With provisioningState: 'Creating' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Creating)",
+        },
+        Object {
+          "disabled": true,
+          "key": "ComputeId2",
+          "text": "Compute2 (Creating) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute No ID (Creating) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute unusable (Creating) (profiling enabled)",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AmlCompute' With provisioningState: 'Deleting' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Deleting)",
+        },
+        Object {
+          "disabled": true,
+          "key": "ComputeId2",
+          "text": "Compute2 (Deleting) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute No ID (Deleting) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute unusable (Deleting) (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AmlCompute' With provisioningState: 'Deleting' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Deleting)",
+        },
+        Object {
+          "disabled": true,
+          "key": "ComputeId2",
+          "text": "Compute2 (Deleting) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute No ID (Deleting) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute unusable (Deleting) (profiling enabled)",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AmlCompute' With provisioningState: 'Failed' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Failed)",
+        },
+        Object {
+          "disabled": true,
+          "key": "ComputeId2",
+          "text": "Compute2 (Failed) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute No ID (Failed) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute unusable (Failed) (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AmlCompute' With provisioningState: 'Failed' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Failed)",
+        },
+        Object {
+          "disabled": true,
+          "key": "ComputeId2",
+          "text": "Compute2 (Failed) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute No ID (Failed) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute unusable (Failed) (profiling enabled)",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AmlCompute' With provisioningState: 'Succeeded' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "ComputeId1",
+          "text": "Compute1",
+        },
+        Object {
+          "disabled": false,
+          "key": "ComputeId2",
+          "text": "Compute2 (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "",
+          "text": "Compute No ID (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute unusable (Unusable) (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AmlCompute' With provisioningState: 'Succeeded' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "ComputeId1",
+          "text": "Compute1",
+        },
+        Object {
+          "disabled": false,
+          "key": "ComputeId2",
+          "text": "Compute2 (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "",
+          "text": "Compute No ID (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute unusable (Unusable) (profiling enabled)",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AmlCompute' With provisioningState: 'Unknown' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Unknown)",
+        },
+        Object {
+          "disabled": true,
+          "key": "ComputeId2",
+          "text": "Compute2 (Unknown) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute No ID (Unknown) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute unusable (Unknown) (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AmlCompute' With provisioningState: 'Unknown' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Unknown)",
+        },
+        Object {
+          "disabled": true,
+          "key": "ComputeId2",
+          "text": "Compute2 (Unknown) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute No ID (Unknown) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute unusable (Unknown) (profiling enabled)",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AmlCompute' With provisioningState: 'Updating' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Updating)",
+        },
+        Object {
+          "disabled": true,
+          "key": "ComputeId2",
+          "text": "Compute2 (Updating) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute No ID (Updating) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute unusable (Updating) (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AmlCompute' With provisioningState: 'Updating' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Updating)",
+        },
+        Object {
+          "disabled": true,
+          "key": "ComputeId2",
+          "text": "Compute2 (Updating) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute No ID (Updating) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute unusable (Updating) (profiling enabled)",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AmlCompute' With provisioningState: 'undefined' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Unknown)",
+        },
+        Object {
+          "disabled": true,
+          "key": "ComputeId2",
+          "text": "Compute2 (Unknown) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute No ID (Unknown) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute unusable (Unknown) (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'AmlCompute' With provisioningState: 'undefined' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Unknown)",
+        },
+        Object {
+          "disabled": true,
+          "key": "ComputeId2",
+          "text": "Compute2 (Unknown) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute No ID (Unknown) (profiling enabled)",
+        },
+        Object {
+          "disabled": true,
+          "key": "",
+          "text": "Compute unusable (Unknown) (profiling enabled)",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Compute' With provisioningState: 'Canceled' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Compute' With provisioningState: 'Canceled' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Compute' With provisioningState: 'Creating' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Compute' With provisioningState: 'Creating' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Compute' With provisioningState: 'Deleting' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Compute' With provisioningState: 'Deleting' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Compute' With provisioningState: 'Failed' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Compute' With provisioningState: 'Failed' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Compute' With provisioningState: 'Succeeded' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Compute' With provisioningState: 'Succeeded' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Compute' With provisioningState: 'Unknown' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Compute' With provisioningState: 'Unknown' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Compute' With provisioningState: 'Updating' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Compute' With provisioningState: 'Updating' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Compute' With provisioningState: 'undefined' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Compute' With provisioningState: 'undefined' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataFactory' With provisioningState: 'Canceled' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataFactory' With provisioningState: 'Canceled' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataFactory' With provisioningState: 'Creating' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataFactory' With provisioningState: 'Creating' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataFactory' With provisioningState: 'Deleting' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataFactory' With provisioningState: 'Deleting' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataFactory' With provisioningState: 'Failed' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataFactory' With provisioningState: 'Failed' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataFactory' With provisioningState: 'Succeeded' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataFactory' With provisioningState: 'Succeeded' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataFactory' With provisioningState: 'Unknown' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataFactory' With provisioningState: 'Unknown' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataFactory' With provisioningState: 'Updating' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataFactory' With provisioningState: 'Updating' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataFactory' With provisioningState: 'undefined' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataFactory' With provisioningState: 'undefined' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataLakeAnalytics' With provisioningState: 'Canceled' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataLakeAnalytics' With provisioningState: 'Canceled' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataLakeAnalytics' With provisioningState: 'Creating' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataLakeAnalytics' With provisioningState: 'Creating' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataLakeAnalytics' With provisioningState: 'Deleting' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataLakeAnalytics' With provisioningState: 'Deleting' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataLakeAnalytics' With provisioningState: 'Failed' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataLakeAnalytics' With provisioningState: 'Failed' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataLakeAnalytics' With provisioningState: 'Succeeded' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataLakeAnalytics' With provisioningState: 'Succeeded' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataLakeAnalytics' With provisioningState: 'Unknown' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataLakeAnalytics' With provisioningState: 'Unknown' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataLakeAnalytics' With provisioningState: 'Updating' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataLakeAnalytics' With provisioningState: 'Updating' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataLakeAnalytics' With provisioningState: 'undefined' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'DataLakeAnalytics' With provisioningState: 'undefined' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Databricks' With provisioningState: 'Canceled' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Databricks' With provisioningState: 'Canceled' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Databricks' With provisioningState: 'Creating' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Databricks' With provisioningState: 'Creating' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Databricks' With provisioningState: 'Deleting' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Databricks' With provisioningState: 'Deleting' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Databricks' With provisioningState: 'Failed' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Databricks' With provisioningState: 'Failed' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Databricks' With provisioningState: 'Succeeded' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Databricks' With provisioningState: 'Succeeded' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Databricks' With provisioningState: 'Unknown' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Databricks' With provisioningState: 'Unknown' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Databricks' With provisioningState: 'Updating' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Databricks' With provisioningState: 'Updating' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Databricks' With provisioningState: 'undefined' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'Databricks' With provisioningState: 'undefined' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'HDInsight' With provisioningState: 'Canceled' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'HDInsight' With provisioningState: 'Canceled' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'HDInsight' With provisioningState: 'Creating' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'HDInsight' With provisioningState: 'Creating' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'HDInsight' With provisioningState: 'Deleting' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'HDInsight' With provisioningState: 'Deleting' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'HDInsight' With provisioningState: 'Failed' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'HDInsight' With provisioningState: 'Failed' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'HDInsight' With provisioningState: 'Succeeded' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'HDInsight' With provisioningState: 'Succeeded' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'HDInsight' With provisioningState: 'Unknown' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'HDInsight' With provisioningState: 'Unknown' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'HDInsight' With provisioningState: 'Updating' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'HDInsight' With provisioningState: 'Updating' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'HDInsight' With provisioningState: 'undefined' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'HDInsight' With provisioningState: 'undefined' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'VirtualMachine' With provisioningState: 'Canceled' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Canceled) (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'VirtualMachine' With provisioningState: 'Canceled' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Canceled) (profiling enabled)",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'VirtualMachine' With provisioningState: 'Creating' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Creating) (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'VirtualMachine' With provisioningState: 'Creating' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Creating) (profiling enabled)",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'VirtualMachine' With provisioningState: 'Deleting' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Deleting) (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'VirtualMachine' With provisioningState: 'Deleting' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Deleting) (profiling enabled)",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'VirtualMachine' With provisioningState: 'Failed' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Failed) (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'VirtualMachine' With provisioningState: 'Failed' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Failed) (profiling enabled)",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'VirtualMachine' With provisioningState: 'Succeeded' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "ComputeId1",
+          "text": "Compute1 (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'VirtualMachine' With provisioningState: 'Succeeded' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "ComputeId1",
+          "text": "Compute1 (profiling enabled)",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'VirtualMachine' With provisioningState: 'Unknown' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Unknown) (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'VirtualMachine' With provisioningState: 'Unknown' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Unknown) (profiling enabled)",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'VirtualMachine' With provisioningState: 'Updating' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Updating) (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'VirtualMachine' With provisioningState: 'Updating' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Updating) (profiling enabled)",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'VirtualMachine' With provisioningState: 'undefined' Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Unknown) (profiling enabled)",
+        },
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For compute type: 'VirtualMachine' With provisioningState: 'undefined' should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": true,
+          "key": "ComputeId1",
+          "text": "Compute1 (Unknown) (profiling enabled)",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For empty options Add a new compute and it should get selected in the dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={
+      Array [
+        Object {
+          "disabled": false,
+          "key": "NewComputeId1",
+          "text": "NewCompute1",
+        },
+      ]
+    }
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`Compute Selector For empty options should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;

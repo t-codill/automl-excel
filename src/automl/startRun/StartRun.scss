@@ -1,0 +1,11 @@
+.data-source-grid-container {
+    overflow: auto;
+}
+.start-run-step-content {
+    input:read-only, .disabled {
+        cursor: pointer;
+    }
+}
+.hidden_step {
+    display: none;
+}

@@ -1,0 +1,75 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TimeSeriesColumnSelector should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="settingsStepsTimeColumnSelector"
+    labelText="Time column"
+    required={true}
+  >
+    The column which holds the timestamp for time series data
+  </LabelWithCallout>
+  <FormDropdown
+    field="timeSeriesColumn"
+    id="settingsStepsTimeColumnSelector"
+    options={
+      Array [
+        Object {
+          "key": "column1",
+          "text": "column1",
+        },
+        Object {
+          "key": "column2",
+          "text": "column2",
+        },
+      ]
+    }
+    placeholder="Select a time column..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+        [Function],
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`TimeSeriesColumnSelector should render error message 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="settingsStepsTimeColumnSelector"
+    labelText="Time column"
+    required={true}
+  >
+    The column which holds the timestamp for time series data
+  </LabelWithCallout>
+  <FormDropdown
+    field="timeSeriesColumn"
+    id="settingsStepsTimeColumnSelector"
+    options={
+      Array [
+        Object {
+          "key": "column1",
+          "text": "column1",
+        },
+        Object {
+          "key": "column2",
+          "text": "column2",
+        },
+      ]
+    }
+    placeholder="Select a time column..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+        [Function],
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;

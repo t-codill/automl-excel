@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MinNodeInput should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="minNode"
+    labelText="Minimum number of nodes"
+    required={true}
+  >
+    Using 0 (Zero) as minimal number of nodes will enable the compute to have no allocation and therefore no cost when not in use, however data profiling will not work on such compute since it takes time to profile the data. To enable data profiling the minimal number of nodes must be at least 1.
+  </LabelWithCallout>
+  <FormTextInput
+    ariaLabel="Please enter min node count of AML compute, leave 0 will allow system to recycle all node after train finished to avoid charge"
+    defaultFormValue="0"
+    field="minNodeCount"
+    placeholder="Min node"
+    validators={
+      Array [
+        [Function],
+        [Function],
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;

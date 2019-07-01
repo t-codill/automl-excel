@@ -1,0 +1,169 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlobPreviewer With Profiling Callout should render 1`] = `
+<div>
+  <span
+    className="profilePivotItem"
+  >
+    <span
+      className="Profile"
+    >
+       Profile 
+    </span>
+  </span>
+  <Callout
+    className="pivotCallout"
+    directionalHint={2}
+    hidden={true}
+    onClick={[Function]}
+    onDismiss={[Function]}
+    setInitialFocus={true}
+    target={null}
+  >
+    <div
+      className="pivotCalloutInner"
+    >
+      Data profiling is only available for compute targets which are already running (min nodes &gt; 0). To enable data profiling, select a compute which is marked as “profiling enabled”, or create a new compute with min nodes &gt; 0
+    </div>
+  </Callout>
+</div>
+`;
+
+exports[`BlobPreviewer should render 1`] = `
+<Fragment>
+  <StyledToggleBase
+    className="header-toggle"
+    defaultChecked={true}
+    inlineLabel={true}
+    label="Use first row as header"
+    offText="No"
+    onChange={[Function]}
+    onText="Yes"
+  />
+  <StyledPivotBase
+    headersOnly={true}
+    linkFormat={1}
+    onLinkClick={[Function]}
+    selectedKey="Preview"
+  >
+    <PivotItem
+      headerText="Preview"
+      itemKey="Preview"
+    />
+    <PivotItem
+      headerText="Profile"
+      itemKey="Profile"
+      onRenderItemLink={[Function]}
+    />
+  </StyledPivotBase>
+  <div
+    id="divPreview"
+  >
+    <DataTable
+      columns={
+        Array [
+          Object {
+            "field": "a",
+            "minWidth": 150,
+          },
+          Object {
+            "field": "b",
+            "minWidth": 150,
+          },
+          Object {
+            "field": "c",
+            "minWidth": 150,
+          },
+        ]
+      }
+      enableShimmer={false}
+      items={
+        Array [
+          Object {
+            "a": "1-1",
+            "b": "1-2",
+            "c": "1-3",
+          },
+          Object {
+            "a": "2-1",
+            "b": "2-2",
+            "c": "2-3",
+          },
+          Object {
+            "a": "3-1",
+            "b": "3-2",
+            "c": "3-3",
+          },
+        ]
+      }
+      itemsPerPage={5}
+      noSorting={true}
+      toggleProps={
+        Object {
+          "defaultState": true,
+          "offText": "Ignored",
+          "onColumnSelectorChanged": [MockFunction],
+          "onText": "Included",
+        }
+      }
+    />
+  </div>
+  <div
+    id="divProfiling"
+    style={
+      Object {
+        "display": "none",
+      }
+    }
+  >
+    <DataProfiling
+      blob={
+        Object {
+          "deleted": false,
+          "name": "sampleBlob",
+          "properties": Object {
+            "contentLength": 1000,
+            "etag": "sampleEtag",
+            "lastModified": 2019-01-01T00:00:00.000Z,
+          },
+          "snapshot": "sampleSnapShot",
+        }
+      }
+      compute={
+        Object {
+          "id": "id",
+        }
+      }
+      dataStoreName=""
+      previewData={
+        Object {
+          "data": Array [
+            Object {
+              "a": "1-1",
+              "b": "1-2",
+              "c": "1-3",
+            },
+            Object {
+              "a": "2-1",
+              "b": "2-2",
+              "c": "2-3",
+            },
+            Object {
+              "a": "3-1",
+              "b": "3-2",
+              "c": "3-3",
+            },
+          ],
+          "delimiter": ",",
+          "hasHeader": true,
+          "header": Array [
+            "a",
+            "b",
+            "c",
+          ],
+        }
+      }
+    />
+  </div>
+</Fragment>
+`;

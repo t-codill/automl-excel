@@ -1,0 +1,34 @@
+
+.combo-box {
+  // font-size: 14px;
+  .error-placeholder {
+    visibility: hidden;
+    margin-top: 5px;
+  }
+
+  .ms-ComboBox-CaretDown-button {
+    display: flex; 
+    padding-left: 0;  
+    font-size: 12px;
+    .ms-Button-icon{
+        height: 23px;
+        margin-left: 11px;
+    }    
+  }
+
+  &.as-search-box {
+    .ms-ComboBox-CaretDown-button {
+      display: none;
+    }
+  }
+}
+.ms-ComboBox-option {
+  .ms-Button-flexContainer > span {
+    display: inline-block;
+    width: 100%;
+  }
+
+  .match {
+    background-color: white;
+  }
+}

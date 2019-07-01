@@ -1,0 +1,11 @@
+.ms-List {
+    &.checkList {
+        border: 2px solid lightgray;
+        padding: "2px";
+    }
+}
+.ms-Grid {
+    &.checkListItem {
+        padding: 5px;
+    }
+}

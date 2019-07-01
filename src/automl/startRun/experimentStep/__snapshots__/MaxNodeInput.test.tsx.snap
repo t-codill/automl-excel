@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MaxNodeInput should render 1`] = `
+<FormTextInput
+  ariaLabel="Please enter max node count of AML compute"
+  defaultFormValue="6"
+  field="maxNodeCount"
+  label="Maximum number of nodes"
+  placeholder="Max node"
+  required={true}
+  validators={
+    Array [
+      [Function],
+      [Function],
+      [Function],
+    ]
+  }
+/>
+`;

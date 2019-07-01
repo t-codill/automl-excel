@@ -1,0 +1,32 @@
+@import "../Themes.scss";
+
+.get-started {
+
+    @include primaryTextColor;
+    border-bottom: solid 1px rgba(204, 204, 204, .8);
+    padding: 10px;
+    margin-bottom: 20px;
+
+    .create-experiment-button {
+
+        height: 40px;
+        margin-top: 20px;
+        margin-bottom: 20px;
+    }
+}
+
+.whats-possible {
+
+    @include primaryTextColor;
+    padding: 10px;
+}
+
+.view-documents {
+
+    @include primaryTextColor;
+    padding: 10px;
+
+    .document-icon {
+        font-size: 40px;
+    }
+}

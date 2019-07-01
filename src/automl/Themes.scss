@@ -1,0 +1,50 @@
+@mixin primaryTextColor {
+    .light & {
+        color: #000000;
+    }
+
+    .dark & {
+        color: #ffffff;
+    }
+}
+
+@mixin primaryHoverBackgroundColor {
+    .light & {
+        background-color: rgb(244, 244, 244);
+    }
+
+    .dark & {
+        background-color: #808080;
+    }
+}
+
+@mixin runStatusCardHoverBackgroundColor {
+    .light & {
+        background-color: rgba(0, 137, 250, .08);
+    }
+
+    .dark & {
+        background-color: rgba(104, 102, 100, .2);
+    }
+}
+
+@mixin validationErrorMessageColor {
+    .light & {
+        color: #e00b1c;
+    }
+
+    .dark & {
+        color: #ff5f5f;
+    }
+}
+
+@mixin validationErrorBox {
+    .light & {
+        border-color: #e00b1c;
+
+    }
+
+    .dark & {
+        border-color: #ff5f5f;
+    }
+}

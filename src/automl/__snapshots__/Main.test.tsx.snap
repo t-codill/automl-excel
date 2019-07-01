@@ -1,0 +1,156 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Main Loaded Buttons no buttons 1`] = `
+<section
+  className="app-command-bar"
+>
+  <StyledCommandBarBase
+    farItems={
+      Array [
+        Object {
+          "iconProps": Object {
+            "iconName": "Checkbox",
+          },
+          "key": "button 3",
+          "text": "text 3",
+        },
+      ]
+    }
+    items={
+      Array [
+        Object {
+          "iconProps": Object {
+            "iconName": "Back",
+          },
+          "key": "button 1",
+          "text": "text 1",
+        },
+      ]
+    }
+    overflowItems={
+      Array [
+        Object {
+          "iconProps": Object {
+            "iconName": "Refresh",
+          },
+          "key": "button 2",
+          "text": "text 2",
+        },
+      ]
+    }
+  />
+</section>
+`;
+
+exports[`Main Loaded should load 1`] = `
+<ContextProvider
+  value={
+    Object {
+      "buttons": Array [],
+      "clearErrors": [Function],
+      "deleted": false,
+      "discoverUrls": Object {
+        "history": "http://runhistory.com",
+      },
+      "errors": Array [],
+      "farButtons": Array [],
+      "flight": WorkspaceFlight {
+        "flight": Object {},
+      },
+      "getToken": [Function],
+      "header": undefined,
+      "loadingCount": 0,
+      "location": "",
+      "logger": Logger {},
+      "onError": [Function],
+      "overflowButtons": Array [],
+      "pageName": "",
+      "resourceGroupName": "testResource",
+      "setHeader": [Function],
+      "setLoading": [Function],
+      "setNavigationBarButtons": [Function],
+      "setPageName": [Function],
+      "subscriptionId": "00000000-0000-0000-0000-000000000000",
+      "theme": "light",
+      "workspaceName": "testWorkSpace",
+    }
+  }
+>
+  <div
+    className="app-container"
+  >
+    <header
+      className="app-header"
+    >
+      <h2 />
+      <FeedbackLink />
+    </header>
+    <div
+      className="page-progress-indicator-container"
+    />
+    <section
+      className="app-message-bar"
+    />
+    <section
+      className="app-content-container"
+    >
+      <div
+        className="app-content"
+      >
+        <Switch>
+          <Route
+            exact={true}
+            path="/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.MachineLearningServices/workspaces/:workspaceName/"
+            render={[Function]}
+          />
+          <Route
+            exact={true}
+            path="/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.MachineLearningServices/workspaces/:workspaceName/Welcome"
+            render={[Function]}
+          />
+          <Route
+            exact={true}
+            path="/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.MachineLearningServices/workspaces/:workspaceName/experiments/:experimentName/parentrun/:runId"
+            render={[Function]}
+          />
+          <Route
+            exact={true}
+            path="/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.MachineLearningServices/workspaces/:workspaceName/logs/:experimentName/LogDetails/:runType/:runId"
+            render={[Function]}
+          />
+          <Route
+            exact={true}
+            path="/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.MachineLearningServices/workspaces/:workspaceName/experiments/:experimentName/childrun/:runId"
+            render={[Function]}
+          />
+          <Route
+            exact={true}
+            path="/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.MachineLearningServices/workspaces/:workspaceName/startRun"
+            render={[Function]}
+          />
+          <Route
+            exact={true}
+            path="/"
+            render={[Function]}
+          />
+        </Switch>
+      </div>
+    </section>
+  </div>
+</ContextProvider>
+`;
+
+exports[`Main Loading should set delete if no workspace found 1`] = `
+<div
+  className="app-container"
+>
+  <header
+    className="app-header"
+  >
+    <h2>
+      Not Found
+    </h2>
+    <FeedbackLink />
+  </header>
+</div>
+`;

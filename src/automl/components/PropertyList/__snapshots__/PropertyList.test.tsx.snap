@@ -1,0 +1,277 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PropertyList should render 1`] = `
+<StyledWithViewportComponent
+  checkboxVisibility={2}
+  className="propertyList"
+  columns={
+    Array [
+      Object {
+        "className": "propertyListProp",
+        "fieldName": "key",
+        "isResizable": false,
+        "key": "key",
+        "maxWidth": 200,
+        "minWidth": 20,
+        "name": "key",
+      },
+      Object {
+        "className": "propertyListValue",
+        "fieldName": "value",
+        "isResizable": false,
+        "key": "value",
+        "minWidth": 100,
+        "name": "value",
+      },
+    ]
+  }
+  isHeaderVisible={false}
+  items={
+    Array [
+      Object {
+        "key": "Alabama",
+        "value": "Montgomery",
+      },
+      Object {
+        "key": "Alaska",
+        "value": "Juneau",
+      },
+      Object {
+        "key": "Arizona",
+        "value": "Phoenix",
+      },
+      Object {
+        "key": "Arkansas",
+        "value": "Little Rock",
+      },
+      Object {
+        "key": "California",
+        "value": "Sacramento",
+      },
+      Object {
+        "key": "Colorado",
+        "value": "Denver",
+      },
+      Object {
+        "key": "Connecticut",
+        "value": "Hartford",
+      },
+      Object {
+        "key": "Delaware",
+        "value": "Dover",
+      },
+      Object {
+        "key": "Florida",
+        "value": "Tallahassee",
+      },
+      Object {
+        "key": "Georgia",
+        "value": "Atlanta",
+      },
+      Object {
+        "key": "Hawaii",
+        "value": "Honolulu",
+      },
+      Object {
+        "key": "Idaho",
+        "value": "Boise",
+      },
+      Object {
+        "key": "Illinois",
+        "value": "Springfield",
+      },
+      Object {
+        "key": "Indiana",
+        "value": "Indianapolis",
+      },
+      Object {
+        "key": "Iowa",
+        "value": "Des Moines",
+      },
+      Object {
+        "key": "Kansas",
+        "value": "Topeka",
+      },
+      Object {
+        "key": "Kentucky",
+        "value": "Frankfort",
+      },
+      Object {
+        "key": "Louisiana",
+        "value": "Baton Rouge",
+      },
+      Object {
+        "key": "Maine",
+        "value": "Augusta",
+      },
+      Object {
+        "key": "Maryland",
+        "value": "Annapolis",
+      },
+      Object {
+        "key": "Massachusetts",
+        "value": "Boston",
+      },
+      Object {
+        "key": "Michigan",
+        "value": "Lansing",
+      },
+      Object {
+        "key": "Minnesota",
+        "value": "St.Paul",
+      },
+      Object {
+        "key": "Mississippi",
+        "value": "Jackson",
+      },
+      Object {
+        "key": "Missouri",
+        "value": "Jefferson City",
+      },
+      Object {
+        "key": "Montana",
+        "value": "Helena",
+      },
+      Object {
+        "key": "Nebraska",
+        "value": "Lincoln",
+      },
+      Object {
+        "key": "Nevada",
+        "value": "Carson City",
+      },
+      Object {
+        "key": "NewHampshire",
+        "value": "Concord",
+      },
+      Object {
+        "key": "NewJersey",
+        "value": "Trenton",
+      },
+      Object {
+        "key": "NewMexico",
+        "value": "Santa Fe",
+      },
+      Object {
+        "key": "NewYork",
+        "value": "Albany",
+      },
+      Object {
+        "key": "NorthCarolina",
+        "value": "Raleigh",
+      },
+      Object {
+        "key": "NorthDakota",
+        "value": "Bismarck",
+      },
+      Object {
+        "key": "Ohio",
+        "value": "Columbus",
+      },
+      Object {
+        "key": "Oklahoma",
+        "value": "Oklahoma City",
+      },
+      Object {
+        "key": "Oregon",
+        "value": "Salem",
+      },
+      Object {
+        "key": "Pennsylvania",
+        "value": "Harrisburg",
+      },
+      Object {
+        "key": "RhodeIsland",
+        "value": "Providence",
+      },
+      Object {
+        "key": "SouthCarolina",
+        "value": "Columbia",
+      },
+      Object {
+        "key": "SouthDakota",
+        "value": "Pierre",
+      },
+      Object {
+        "key": "Tennessee",
+        "value": "Nashville",
+      },
+      Object {
+        "key": "Texas",
+        "value": "Austin",
+      },
+      Object {
+        "key": "Utah",
+        "value": "Salt Lake City",
+      },
+      Object {
+        "key": "Vermont",
+        "value": "Montpelier",
+      },
+      Object {
+        "key": "Virginia",
+        "value": "Richmond",
+      },
+      Object {
+        "key": "Washington",
+        "value": "Olympia",
+      },
+      Object {
+        "key": "WestVirginia",
+        "value": "Charleston",
+      },
+      Object {
+        "key": "Wisconsin",
+        "value": "Madison",
+      },
+      Object {
+        "key": "Wyoming",
+        "value": "Cheyenne",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`PropertyList should render list values 1`] = `
+<StyledWithViewportComponent
+  checkboxVisibility={2}
+  className="propertyList"
+  columns={
+    Array [
+      Object {
+        "className": "propertyListProp",
+        "fieldName": "key",
+        "isResizable": false,
+        "key": "key",
+        "maxWidth": 200,
+        "minWidth": 20,
+        "name": "key",
+      },
+      Object {
+        "className": "propertyListValue",
+        "fieldName": "value",
+        "isResizable": false,
+        "key": "value",
+        "minWidth": 100,
+        "name": "value",
+      },
+    ]
+  }
+  isHeaderVisible={false}
+  items={
+    Array [
+      Object {
+        "key": "colors",
+        "value": "red, green, blue",
+      },
+    ]
+  }
+/>
+`;
+
+exports[`PropertyList should render no data when list is empty 1`] = `
+<StyledMessageBarBase>
+  No data
+</StyledMessageBarBase>
+`;

@@ -1,0 +1,30 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Feedback Link should render link to send feedback 1`] = `
+<StyledLinkBase
+  href="https://social.msdn.microsoft.com/Forums/en-US/newthread?category=undefined&forum=AzureMachineLearningService&Subject=[Automated%20ML][UI]"
+  style={
+    Object {
+      "fontSize": 12,
+      "position": "fixed",
+      "right": 20,
+      "top": 30,
+    }
+  }
+  target="_blank"
+>
+  <StyledIconBase
+    iconName="Feedback"
+    style={
+      Object {
+        "marginRight": 5,
+      }
+    }
+  />
+  <span
+    className="ms-hiddenMdDown"
+  >
+    We'd love to get your feedback!
+  </span>
+</StyledLinkBase>
+`;

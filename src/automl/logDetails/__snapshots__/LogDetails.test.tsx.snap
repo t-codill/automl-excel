@@ -1,0 +1,279 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LogDetails render should render empty message if get all artifacts returns empty 1`] = `
+<StyledMessageBarBase>
+  No logs are found.
+</StyledMessageBarBase>
+`;
+
+exports[`LogDetails render should render with both run and setup run logs 1`] = `
+<div
+  className="log-details-container"
+>
+  <div
+    className="log-dropdown-container"
+  >
+    <StyledWithResponsiveMode
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "itemType": 2,
+            "key": "header-azureml-logs/60_control_log.txt",
+            "text": "azureml-logs",
+          },
+          Object {
+            "data": Object {
+              "container": "",
+              "logName": "60_control_log.txt",
+              "origin": "",
+              "path": "azureml-logs/60_control_log.txt",
+              "prefix": "",
+            },
+            "key": "azureml-logs/60_control_log.txt",
+            "text": "-> 60_control_log.txt",
+            "title": "60_control_log.txt",
+          },
+          Object {
+            "data": Object {
+              "container": "",
+              "logName": "80_driver_log.txt",
+              "origin": "",
+              "path": "azureml-logs/80_driver_log.txt",
+              "prefix": "",
+            },
+            "key": "azureml-logs/80_driver_log.txt",
+            "text": "-> 80_driver_log.txt",
+            "title": "80_driver_log.txt",
+          },
+          Object {
+            "data": Object {
+              "container": "",
+              "logName": "log.log",
+              "origin": "",
+              "path": "log.log",
+              "prefix": "",
+            },
+            "key": "log.log",
+            "text": "-> log.log",
+            "title": "log.log",
+          },
+          Object {
+            "itemType": 2,
+            "key": "header-azureml-logs/60_control_log.txt",
+            "text": "azureml-logs",
+          },
+          Object {
+            "data": Object {
+              "container": "",
+              "logName": "setup_60_control_log.txt",
+              "origin": "",
+              "path": "azureml-logs/60_control_log.txt",
+              "prefix": "setup_",
+            },
+            "key": "azureml-logs/60_control_log.txt",
+            "text": "-> setup_60_control_log.txt",
+            "title": "setup_60_control_log.txt",
+          },
+          Object {
+            "data": Object {
+              "container": "",
+              "logName": "setup_80_driver_log.txt",
+              "origin": "",
+              "path": "azureml-logs/80_driver_log.txt",
+              "prefix": "setup_",
+            },
+            "key": "azureml-logs/80_driver_log.txt",
+            "text": "-> setup_80_driver_log.txt",
+            "title": "setup_80_driver_log.txt",
+          },
+          Object {
+            "data": Object {
+              "container": "",
+              "logName": "setup_log.log",
+              "origin": "",
+              "path": "log.log",
+              "prefix": "setup_",
+            },
+            "key": "log.log",
+            "text": "-> setup_log.log",
+            "title": "setup_log.log",
+          },
+        ]
+      }
+      selectedKey="azureml-logs/60_control_log.txt"
+    />
+  </div>
+  <div
+    className="log-content-container"
+  >
+    <RunLogContent
+      key="azureml-logs/60_control_log.txt"
+      refreshTimestamp={0}
+      runLog={
+        Object {
+          "container": "",
+          "logName": "60_control_log.txt",
+          "origin": "",
+          "path": "azureml-logs/60_control_log.txt",
+          "prefix": "",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`LogDetails render should render with only run logs 1`] = `
+<div
+  className="log-details-container"
+>
+  <div
+    className="log-dropdown-container"
+  >
+    <StyledWithResponsiveMode
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "itemType": 2,
+            "key": "header-azureml-logs/60_control_log.txt",
+            "text": "azureml-logs",
+          },
+          Object {
+            "data": Object {
+              "container": "",
+              "logName": "60_control_log.txt",
+              "origin": "",
+              "path": "azureml-logs/60_control_log.txt",
+              "prefix": "",
+            },
+            "key": "azureml-logs/60_control_log.txt",
+            "text": "-> 60_control_log.txt",
+            "title": "60_control_log.txt",
+          },
+          Object {
+            "data": Object {
+              "container": "",
+              "logName": "80_driver_log.txt",
+              "origin": "",
+              "path": "azureml-logs/80_driver_log.txt",
+              "prefix": "",
+            },
+            "key": "azureml-logs/80_driver_log.txt",
+            "text": "-> 80_driver_log.txt",
+            "title": "80_driver_log.txt",
+          },
+          Object {
+            "data": Object {
+              "container": "",
+              "logName": "log.log",
+              "origin": "",
+              "path": "log.log",
+              "prefix": "",
+            },
+            "key": "log.log",
+            "text": "-> log.log",
+            "title": "log.log",
+          },
+        ]
+      }
+      selectedKey="azureml-logs/60_control_log.txt"
+    />
+  </div>
+  <div
+    className="log-content-container"
+  >
+    <RunLogContent
+      key="azureml-logs/60_control_log.txt"
+      refreshTimestamp={0}
+      runLog={
+        Object {
+          "container": "",
+          "logName": "60_control_log.txt",
+          "origin": "",
+          "path": "azureml-logs/60_control_log.txt",
+          "prefix": "",
+        }
+      }
+    />
+  </div>
+</div>
+`;
+
+exports[`LogDetails render should render with only setup run logs 1`] = `
+<div
+  className="log-details-container"
+>
+  <div
+    className="log-dropdown-container"
+  >
+    <StyledWithResponsiveMode
+      onChange={[Function]}
+      options={
+        Array [
+          Object {
+            "itemType": 2,
+            "key": "header-azureml-logs/60_control_log.txt",
+            "text": "azureml-logs",
+          },
+          Object {
+            "data": Object {
+              "container": "",
+              "logName": "setup_60_control_log.txt",
+              "origin": "",
+              "path": "azureml-logs/60_control_log.txt",
+              "prefix": "setup_",
+            },
+            "key": "azureml-logs/60_control_log.txt",
+            "text": "-> setup_60_control_log.txt",
+            "title": "setup_60_control_log.txt",
+          },
+          Object {
+            "data": Object {
+              "container": "",
+              "logName": "setup_80_driver_log.txt",
+              "origin": "",
+              "path": "azureml-logs/80_driver_log.txt",
+              "prefix": "setup_",
+            },
+            "key": "azureml-logs/80_driver_log.txt",
+            "text": "-> setup_80_driver_log.txt",
+            "title": "setup_80_driver_log.txt",
+          },
+          Object {
+            "data": Object {
+              "container": "",
+              "logName": "setup_log.log",
+              "origin": "",
+              "path": "log.log",
+              "prefix": "setup_",
+            },
+            "key": "log.log",
+            "text": "-> setup_log.log",
+            "title": "setup_log.log",
+          },
+        ]
+      }
+      selectedKey="azureml-logs/60_control_log.txt"
+    />
+  </div>
+  <div
+    className="log-content-container"
+  >
+    <RunLogContent
+      key="azureml-logs/60_control_log.txt"
+      refreshTimestamp={0}
+      runLog={
+        Object {
+          "container": "",
+          "logName": "setup_60_control_log.txt",
+          "origin": "",
+          "path": "azureml-logs/60_control_log.txt",
+          "prefix": "setup_",
+        }
+      }
+    />
+  </div>
+</div>
+`;

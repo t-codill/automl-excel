@@ -1,0 +1,35 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Max Cores should render  1`] = `
+<div
+  className="ms-Grid"
+  dir="ltr"
+>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <LabelWithCallout
+      htmlFor="maxCoresInput"
+      labelText="Max cores per iteration"
+      required={false}
+    >
+      Maximum number of threads to use for a given training iteration.
+    </LabelWithCallout>
+  </div>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <FormTextInput
+      ariaLabel="Please enter the max number of cores here"
+      field="maxCores"
+      placeholder="Max cores per iteration"
+      type="number"
+      validators={
+        Array [
+          [Function],
+        ]
+      }
+    />
+  </div>
+</div>
+`;

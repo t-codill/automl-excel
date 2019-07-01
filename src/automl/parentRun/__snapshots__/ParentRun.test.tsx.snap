@@ -1,0 +1,520 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Parent Run cancel run should not cancel if experiment name is undefined 1`] = `
+<Fragment>
+  <RunStatus
+    experimentName="Test"
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:30:00.000Z,
+        "parentRunId": undefined,
+        "properties": Object {
+          "AMLSettingsJsonString": "{\\"primary_metric\\":\\"AUC_weighted\\",\\"data_script\\":null,\\"compute_target\\":\\"local\\",\\"n_cross_validations\\":3,\\"max_cores_per_iteration\\":1,\\"blacklist_algos\\":[],\\"exit_score\\":100,\\"name\\":\\"my_experiment\\",\\"task_type\\":\\"classification\\"}",
+        },
+        "runId": "AutoML_000",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+        "tags": Object {
+          "iterations": "2",
+        },
+      }
+    }
+  />
+  <ParentRunGrid
+    canceling={false}
+    experimentName=""
+    goBack={false}
+    goToLog={false}
+    hideCancelDialog={false}
+    onModelRegister={[Function]}
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:30:00.000Z,
+        "parentRunId": undefined,
+        "properties": Object {
+          "AMLSettingsJsonString": "{\\"primary_metric\\":\\"AUC_weighted\\",\\"data_script\\":null,\\"compute_target\\":\\"local\\",\\"n_cross_validations\\":3,\\"max_cores_per_iteration\\":1,\\"blacklist_algos\\":[],\\"exit_score\\":100,\\"name\\":\\"my_experiment\\",\\"task_type\\":\\"classification\\"}",
+        },
+        "runId": "AutoML_000",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+        "tags": Object {
+          "iterations": "2",
+        },
+      }
+    }
+  />
+  <ConfirmationDialog
+    hidden={false}
+    onClose={[Function]}
+    onConfirm={[Function]}
+    subText="Are you sure you want to cancel run: AutoML_000"
+    title="Cancel Run?"
+  />
+</Fragment>
+`;
+
+exports[`Parent Run cancel run should not remove cancel dialog if JOS call fails 1`] = `
+<Fragment>
+  <RunStatus
+    experimentName="Test"
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:30:00.000Z,
+        "parentRunId": undefined,
+        "properties": Object {
+          "AMLSettingsJsonString": "{\\"primary_metric\\":\\"AUC_weighted\\",\\"data_script\\":null,\\"compute_target\\":\\"local\\",\\"n_cross_validations\\":3,\\"max_cores_per_iteration\\":1,\\"blacklist_algos\\":[],\\"exit_score\\":100,\\"name\\":\\"my_experiment\\",\\"task_type\\":\\"classification\\"}",
+        },
+        "runId": "AutoML_000",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+        "tags": Object {
+          "iterations": "2",
+        },
+      }
+    }
+  />
+  <ParentRunGrid
+    canceling={false}
+    experimentName="Test"
+    goBack={false}
+    goToLog={false}
+    hideCancelDialog={false}
+    onModelRegister={[Function]}
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:30:00.000Z,
+        "parentRunId": undefined,
+        "properties": Object {
+          "AMLSettingsJsonString": "{\\"primary_metric\\":\\"AUC_weighted\\",\\"data_script\\":null,\\"compute_target\\":\\"local\\",\\"n_cross_validations\\":3,\\"max_cores_per_iteration\\":1,\\"blacklist_algos\\":[],\\"exit_score\\":100,\\"name\\":\\"my_experiment\\",\\"task_type\\":\\"classification\\"}",
+        },
+        "runId": "AutoML_000",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+        "tags": Object {
+          "iterations": "2",
+        },
+      }
+    }
+  />
+  <ConfirmationDialog
+    hidden={false}
+    onClose={[Function]}
+    onConfirm={[Function]}
+    subText="Are you sure you want to cancel run: AutoML_000"
+    title="Cancel Run?"
+  />
+</Fragment>
+`;
+
+exports[`Parent Run cancel run should successfully cancel 1`] = `
+<Fragment>
+  <RunStatus
+    experimentName="Test"
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:30:00.000Z,
+        "parentRunId": undefined,
+        "properties": Object {
+          "AMLSettingsJsonString": "{\\"primary_metric\\":\\"AUC_weighted\\",\\"data_script\\":null,\\"compute_target\\":\\"local\\",\\"n_cross_validations\\":3,\\"max_cores_per_iteration\\":1,\\"blacklist_algos\\":[],\\"exit_score\\":100,\\"name\\":\\"my_experiment\\",\\"task_type\\":\\"classification\\"}",
+        },
+        "runId": "AutoML_000",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+        "tags": Object {
+          "iterations": "2",
+        },
+      }
+    }
+  />
+  <ParentRunGrid
+    canceling={false}
+    experimentName="Test"
+    goBack={false}
+    goToLog={false}
+    hideCancelDialog={false}
+    onModelRegister={[Function]}
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:30:00.000Z,
+        "parentRunId": undefined,
+        "properties": Object {
+          "AMLSettingsJsonString": "{\\"primary_metric\\":\\"AUC_weighted\\",\\"data_script\\":null,\\"compute_target\\":\\"local\\",\\"n_cross_validations\\":3,\\"max_cores_per_iteration\\":1,\\"blacklist_algos\\":[],\\"exit_score\\":100,\\"name\\":\\"my_experiment\\",\\"task_type\\":\\"classification\\"}",
+        },
+        "runId": "AutoML_000",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+        "tags": Object {
+          "iterations": "2",
+        },
+      }
+    }
+  />
+  <ConfirmationDialog
+    hidden={false}
+    onClose={[Function]}
+    onConfirm={[Function]}
+    subText="Are you sure you want to cancel run: AutoML_000"
+    title="Cancel Run?"
+  />
+</Fragment>
+`;
+
+exports[`Parent Run should not setup logs render without setup run id 1`] = `
+<Fragment>
+  <RunStatus
+    experimentName="Test"
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:30:00.000Z,
+        "parentRunId": undefined,
+        "properties": Object {
+          "AMLSettingsJsonString": "{\\"primary_metric\\":\\"AUC_weighted\\",\\"data_script\\":null,\\"compute_target\\":\\"local\\",\\"n_cross_validations\\":3,\\"max_cores_per_iteration\\":1,\\"blacklist_algos\\":[],\\"exit_score\\":100,\\"name\\":\\"my_experiment\\",\\"task_type\\":\\"classification\\"}",
+        },
+        "runId": "AutoML_000",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+        "tags": Object {
+          "iterations": "2",
+        },
+      }
+    }
+  />
+  <ParentRunGrid
+    canceling={false}
+    experimentName="Test"
+    goBack={false}
+    goToLog={false}
+    hideCancelDialog={true}
+    onModelRegister={[Function]}
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:30:00.000Z,
+        "parentRunId": undefined,
+        "properties": Object {
+          "AMLSettingsJsonString": "{\\"primary_metric\\":\\"AUC_weighted\\",\\"data_script\\":null,\\"compute_target\\":\\"local\\",\\"n_cross_validations\\":3,\\"max_cores_per_iteration\\":1,\\"blacklist_algos\\":[],\\"exit_score\\":100,\\"name\\":\\"my_experiment\\",\\"task_type\\":\\"classification\\"}",
+        },
+        "runId": "AutoML_000",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+        "tags": Object {
+          "iterations": "2",
+        },
+      }
+    }
+  />
+  <ConfirmationDialog
+    hidden={true}
+    onClose={[Function]}
+    onConfirm={[Function]}
+    subText="Are you sure you want to cancel run: AutoML_000"
+    title="Cancel Run?"
+  />
+</Fragment>
+`;
+
+exports[`Parent Run should render grid when child runs are undefined 1`] = `
+<Fragment>
+  <RunStatus
+    experimentName="Test"
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:30:00.000Z,
+        "parentRunId": undefined,
+        "properties": Object {
+          "AMLSettingsJsonString": "{\\"primary_metric\\":\\"AUC_weighted\\",\\"data_script\\":null,\\"compute_target\\":\\"local\\",\\"n_cross_validations\\":3,\\"max_cores_per_iteration\\":1,\\"blacklist_algos\\":[],\\"exit_score\\":100,\\"name\\":\\"my_experiment\\",\\"task_type\\":\\"classification\\"}",
+        },
+        "runId": "AutoML_000",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+        "tags": Object {
+          "iterations": "2",
+        },
+      }
+    }
+  />
+  <ParentRunGrid
+    canceling={false}
+    experimentName="Test"
+    goBack={false}
+    goToLog={false}
+    hideCancelDialog={true}
+    onModelRegister={[Function]}
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:30:00.000Z,
+        "parentRunId": undefined,
+        "properties": Object {
+          "AMLSettingsJsonString": "{\\"primary_metric\\":\\"AUC_weighted\\",\\"data_script\\":null,\\"compute_target\\":\\"local\\",\\"n_cross_validations\\":3,\\"max_cores_per_iteration\\":1,\\"blacklist_algos\\":[],\\"exit_score\\":100,\\"name\\":\\"my_experiment\\",\\"task_type\\":\\"classification\\"}",
+        },
+        "runId": "AutoML_000",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+        "tags": Object {
+          "iterations": "2",
+        },
+      }
+    }
+  />
+  <ConfirmationDialog
+    hidden={true}
+    onClose={[Function]}
+    onConfirm={[Function]}
+    subText="Are you sure you want to cancel run: AutoML_000"
+    title="Cancel Run?"
+  />
+</Fragment>
+`;
+
+exports[`Parent Run should render grid when run has no properties 1`] = `
+<Fragment>
+  <RunStatus
+    experimentName="Test"
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:30:00.000Z,
+        "parentRunId": undefined,
+        "properties": undefined,
+        "runId": "AutoML_000",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+        "tags": Object {
+          "iterations": "2",
+        },
+      }
+    }
+  />
+  <ParentRunGrid
+    canceling={false}
+    experimentName="Test"
+    goBack={false}
+    goToLog={false}
+    hideCancelDialog={true}
+    onModelRegister={[Function]}
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:30:00.000Z,
+        "parentRunId": undefined,
+        "properties": undefined,
+        "runId": "AutoML_000",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+        "tags": Object {
+          "iterations": "2",
+        },
+      }
+    }
+  />
+  <ConfirmationDialog
+    hidden={true}
+    onClose={[Function]}
+    onConfirm={[Function]}
+    subText="Are you sure you want to cancel run: AutoML_000"
+    title="Cancel Run?"
+  />
+</Fragment>
+`;
+
+exports[`Parent Run should render parent run grid with success run 1`] = `
+<Fragment>
+  <RunStatus
+    experimentName="Test"
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:30:00.000Z,
+        "parentRunId": undefined,
+        "properties": Object {
+          "AMLSettingsJsonString": "{\\"primary_metric\\":\\"AUC_weighted\\",\\"data_script\\":null,\\"compute_target\\":\\"local\\",\\"n_cross_validations\\":3,\\"max_cores_per_iteration\\":1,\\"blacklist_algos\\":[],\\"exit_score\\":100,\\"name\\":\\"my_experiment\\",\\"task_type\\":\\"classification\\"}",
+        },
+        "runId": "AutoML_000",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+        "tags": Object {
+          "iterations": "2",
+        },
+      }
+    }
+  />
+  <ParentRunGrid
+    canceling={false}
+    childRuns={
+      Array [
+        Object {
+          "createdUtc": 2019-02-01T08:20:00.000Z,
+          "endTimeUtc": 2019-02-01T08:25:00.000Z,
+          "experimentId": "exp",
+          "name": "AutoML_001",
+          "options": Object {
+            "generateDataContainerIdIfNotSpecified": true,
+          },
+          "parentRunId": "AutoML_000",
+          "properties": Object {
+            "class_labels": "",
+            "pipeline_id": "eda663ea8f36e6c07948c99bba9d1becb40991a5",
+            "primary_metric": "spearman_correlation",
+            "runTemplate": "automl_child",
+            "run_algorithm": "RandomForest",
+            "run_preprocessor": "MaxAbsScaler",
+            "run_template": "automl_child",
+            "score": "0.977770827248834",
+          },
+          "runId": "AutoML_001",
+          "startTimeUtc": 2019-02-01T08:20:00.000Z,
+          "status": "Completed",
+        },
+        Object {
+          "createdUtc": 2019-02-01T08:20:00.000Z,
+          "endTimeUtc": 2019-02-01T08:25:00.000Z,
+          "name": "AutoML_002",
+          "options": Object {
+            "generateDataContainerIdIfNotSpecified": true,
+          },
+          "parentRunId": "AutoML_000",
+          "properties": Object {
+            "class_labels": "",
+            "pipeline_id": "eda663ea8f36e6c07948c99bba9d1becb40991a5",
+            "primary_metric": "spearman_correlation",
+            "runTemplate": "automl_child",
+            "run_preprocessor": "MaxAbsScaler",
+            "run_template": "automl_child",
+            "score": "0.877770827248834",
+          },
+          "runId": "AutoML_002",
+          "startTimeUtc": 2019-02-01T08:20:00.000Z,
+          "status": "Completed",
+        },
+        Object {
+          "createdUtc": 2019-02-01T08:20:00.000Z,
+          "endTimeUtc": 2019-02-01T08:25:00.000Z,
+          "name": "AutoML_003",
+          "options": Object {
+            "generateDataContainerIdIfNotSpecified": true,
+          },
+          "parentRunId": "AutoML_000",
+          "properties": Object {
+            "class_labels": "",
+            "pipeline_id": "eda663ea8f36e6c07948c99bba9d1becb40991a5",
+            "primary_metric": "spearman_correlation",
+            "runTemplate": "automl_child",
+            "run_template": "automl_child",
+            "score": "0.877770827248834",
+          },
+          "runId": "AutoML_003",
+          "startTimeUtc": 2019-02-01T08:20:00.000Z,
+          "status": "Canceled",
+        },
+        Object {
+          "createdUtc": 2019-02-01T08:20:00.000Z,
+          "endTimeUtc": 2019-02-01T08:25:00.000Z,
+          "name": "AutoML_004",
+          "options": Object {
+            "generateDataContainerIdIfNotSpecified": true,
+          },
+          "parentRunId": "AutoML_000",
+          "properties": Object {
+            "class_labels": "",
+            "pipeline_id": "eda663ea8f36e6c07948c99bba9d1becb40991a5",
+            "primary_metric": "spearman_correlation",
+            "runTemplate": "automl_child",
+            "run_algorithm": "MaxAbsScaler",
+            "run_template": "automl_child",
+            "score": "0.827770827248834",
+          },
+          "runId": "AutoML_004",
+          "startTimeUtc": 2019-02-01T08:20:00.000Z,
+          "status": "Completed",
+        },
+        Object {
+          "createdUtc": 2019-02-01T08:20:00.000Z,
+          "endTimeUtc": 2019-02-01T08:25:00.000Z,
+          "name": "AutoML_005",
+          "options": Object {
+            "generateDataContainerIdIfNotSpecified": true,
+          },
+          "parentRunId": "AutoML_000",
+          "runId": "AutoML_005",
+          "startTimeUtc": 2019-02-01T08:20:00.000Z,
+          "status": "Completed",
+        },
+      ]
+    }
+    experimentName="Test"
+    goBack={false}
+    goToLog={false}
+    hideCancelDialog={true}
+    onModelRegister={[Function]}
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:30:00.000Z,
+        "parentRunId": undefined,
+        "properties": Object {
+          "AMLSettingsJsonString": "{\\"primary_metric\\":\\"AUC_weighted\\",\\"data_script\\":null,\\"compute_target\\":\\"local\\",\\"n_cross_validations\\":3,\\"max_cores_per_iteration\\":1,\\"blacklist_algos\\":[],\\"exit_score\\":100,\\"name\\":\\"my_experiment\\",\\"task_type\\":\\"classification\\"}",
+        },
+        "runId": "AutoML_000",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+        "tags": Object {
+          "iterations": "2",
+        },
+      }
+    }
+  />
+  <ConfirmationDialog
+    hidden={true}
+    onClose={[Function]}
+    onConfirm={[Function]}
+    subText="Are you sure you want to cancel run: AutoML_000"
+    title="Cancel Run?"
+  />
+</Fragment>
+`;
+
+exports[`Parent Run should return if child run 1`] = `
+<Fragment>
+  <RunStatus
+    experimentName="Test"
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:20:30.000Z,
+        "parentRunId": "AutoML_000",
+        "properties": Object {
+          "iteration": "9",
+          "run_algorithm": "Ensemble",
+          "run_preprocessor": "rpp1",
+        },
+        "runId": "AutoML_001",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+      }
+    }
+  />
+  <ParentRunGrid
+    canceling={false}
+    experimentName="Test"
+    goBack={false}
+    goToLog={false}
+    hideCancelDialog={true}
+    onModelRegister={[Function]}
+    run={
+      Object {
+        "endTimeUtc": 2019-02-01T08:20:30.000Z,
+        "parentRunId": "AutoML_000",
+        "properties": Object {
+          "iteration": "9",
+          "run_algorithm": "Ensemble",
+          "run_preprocessor": "rpp1",
+        },
+        "runId": "AutoML_001",
+        "startTimeUtc": 2019-02-01T08:20:00.000Z,
+        "status": "Completed",
+      }
+    }
+  />
+  <ConfirmationDialog
+    hidden={true}
+    onClose={[Function]}
+    onConfirm={[Function]}
+    subText="Are you sure you want to cancel run: AutoML_001"
+    title="Cancel Run?"
+  />
+</Fragment>
+`;

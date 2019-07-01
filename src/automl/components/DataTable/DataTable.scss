@@ -1,0 +1,16 @@
+.dataTable
+{
+    .commands {
+        &.has-filter {
+
+            .ms-OverflowSet-item:first-of-type,
+            .searchBox {
+                flex-grow: 1;
+            }
+        }
+    }
+
+    &.has-callback .ms-DetailsRow-fields {
+        cursor: pointer;
+    }
+}

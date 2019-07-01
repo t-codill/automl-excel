@@ -1,0 +1,144 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JasmineServiceJsonDefinition should generate pip dependencies for candidate: 1`] = `
+Object {
+  "pip": Array [
+    "--extra-index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Candidate/604C89A437BA41BD942B4F46D9A3591D",
+    "azureml-train-automl>1.0.0.0",
+  ],
+}
+`;
+
+exports[`JasmineServiceJsonDefinition should generate pip dependencies for default sdkVersion 1`] = `
+Array [
+  "python=3.6.2",
+  Object {
+    "pip": Array [
+      "azureml-train-automl==1.0.43",
+    ],
+  },
+  "numpy",
+  "py-xgboost<=0.80",
+]
+`;
+
+exports[`JasmineServiceJsonDefinition should generate pip dependencies for master: 1`] = `
+Object {
+  "pip": Array [
+    "--extra-index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/master/588E708E0DF342C4A80BD954289657CF",
+    "--extra-index-url https://dataprepdownloads.azureedge.net/pypi/weekly-rc-932B96D048E011E8B56608/latest/",
+    "azureml-train-automl<0.1.50.0",
+  ],
+}
+`;
+
+exports[`JasmineServiceJsonDefinition should generate pip dependencies for preview: 1`] = `
+Object {
+  "pip": Array [
+    "--extra-index-url https://azuremlsdktestpypi.azureedge.net/sdk-release/Preview/E7501C02541B433786111FE8E140CAA1",
+    "azureml-train-automl>1.0.0.0",
+  ],
+}
+`;
+
+exports[`JasmineServiceJsonDefinition should generate: 1`] = `
+Object {
+  "Configuration": Object {
+    "amlcompute": Object {
+      "clusterMaxNodeCount": 1,
+      "name": null,
+      "retainCluster": false,
+      "vmPriority": null,
+      "vmSize": null,
+    },
+    "arguments": Array [],
+    "autoPrepareEnvironment": true,
+    "communicator": "None",
+    "dataReferences": Object {},
+    "environment": Object {
+      "databricks": Object {
+        "eggLibraries": Array [],
+        "jarLibraries": Array [],
+        "mavenLibraries": Array [],
+        "pypiLibraries": Array [],
+        "rcranLibraries": Array [],
+      },
+      "docker": Object {
+        "arguments": Array [],
+        "baseImage": "mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04",
+        "baseImageRegistry": Object {
+          "address": null,
+          "password": null,
+          "username": null,
+        },
+        "enabled": false,
+        "gpuSupport": false,
+        "sharedVolumes": true,
+        "shmSize": "1g",
+      },
+      "environmentVariables": Object {
+        "EXAMPLE_ENV_VAR": "EXAMPLE_VALUE",
+      },
+      "python": Object {
+        "condaDependencies": Object {
+          "dependencies": Array [
+            "python=3.6.2",
+            Object {
+              "pip": Array [
+                "azureml-train-automl==1.0.43",
+              ],
+            },
+            "numpy",
+            "py-xgboost<=0.80",
+          ],
+          "name": "project_environment",
+        },
+        "interpreterPath": "python",
+        "userManagedDependencies": false,
+      },
+      "spark": Object {
+        "packages": Array [
+          Object {
+            "artifact": "mmlspark_2.11",
+            "group": "com.microsoft.ml.spark",
+            "version": "0.12",
+          },
+        ],
+        "precachePackages": true,
+        "repositories": Array [
+          "https://mmlspark.azureedge.net/maven",
+        ],
+      },
+    },
+    "framework": "python",
+    "hdi": Object {
+      "yarnDeployMode": "cluster",
+    },
+    "history": Object {
+      "directoriesToWatch": Array [
+        "logs",
+      ],
+      "outputCollection": true,
+      "snapshotProject": true,
+    },
+    "maxRunDurationSeconds": null,
+    "mpi": Object {
+      "processCountPerNode": 1,
+    },
+    "nodeCount": 1,
+    "script": "train.py",
+    "sourceDirectoryDataStore": null,
+    "spark": Object {
+      "configuration": Object {
+        "spark.app.name": "Azure ML Experiment",
+        "spark.yarn.maxAppAttempts": 1,
+      },
+    },
+    "target": "sampleCompute",
+    "tensorflow": Object {
+      "parameterServerCount": 1,
+      "workerCount": 1,
+    },
+  },
+}
+`;

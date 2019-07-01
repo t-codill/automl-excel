@@ -1,0 +1,41 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AdvancedSetting should init as expected 1`] = `
+AdvancedSetting {
+  "blacklistAlgos": Array [],
+  "column": "foo",
+  "experimentExitScore": 0.8,
+  "experimentTimeoutMinutes": 30,
+  "grainColumns": Array [],
+  "jobType": "regression",
+  "maxConcurrent": 3,
+  "maxCores": 2,
+  "maxHorizon": null,
+  "maxIteration": 50,
+  "metric": "average_precision_score_weighted",
+  "nCrossValidations": 5,
+  "preprocess": false,
+  "timeSeriesColumn": null,
+  "validationSize": null,
+}
+`;
+
+exports[`AdvancedSetting should init default value 1`] = `
+AdvancedSetting {
+  "blacklistAlgos": Array [],
+  "column": "",
+  "experimentExitScore": null,
+  "experimentTimeoutMinutes": 60,
+  "grainColumns": Array [],
+  "jobType": "classification",
+  "maxConcurrent": 1,
+  "maxCores": -1,
+  "maxHorizon": null,
+  "maxIteration": 100,
+  "metric": "accuracy",
+  "nCrossValidations": 5,
+  "preprocess": true,
+  "timeSeriesColumn": null,
+  "validationSize": null,
+}
+`;

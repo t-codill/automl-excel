@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ExperimentNameInput With options should render 1`] = `
+<Fragment>
+  <FormComboBox
+    buttonIconProps={
+      Object {
+        "iconName": "ChevronDown",
+      }
+    }
+    field="experimentName"
+    id="experimentNameInput"
+    label="Experiment name"
+    onClick={[Function]}
+    options={
+      Array [
+        Object {
+          "key": "text1, text2",
+          "text": "text1, text2",
+        },
+      ]
+    }
+    placeholder="Enter experiment name or select"
+    required={true}
+    validators={
+      Array [
+        [Function],
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`ExperimentNameInput Without options should render 1`] = `
+<Fragment>
+  <FormComboBox
+    buttonIconProps={
+      Object {
+        "iconName": "ChevronDown",
+      }
+    }
+    field="experimentName"
+    id="experimentNameInput"
+    label="Experiment name"
+    onClick={[Function]}
+    options={Array []}
+    placeholder="Enter experiment name or select"
+    required={true}
+    validators={
+      Array [
+        [Function],
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;

@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StorageContainerSelector should render 1`] = `
+<div
+  className="data-source-grid-container"
+>
+  <StyledLabelBase>
+    Select the storage container of your data
+  </StyledLabelBase>
+  <DataTable
+    columns={
+      Array [
+        Object {
+          "field": "name",
+        },
+        Object {
+          "field": "type",
+        },
+      ]
+    }
+    enableShimmer={false}
+    items={
+      Array [
+        Object {
+          "name": "sampleContainer",
+        },
+      ]
+    }
+    itemsPerPage={10}
+    selectCallback={[MockFunction]}
+    sortColumnFieldName="name"
+  />
+</div>
+`;

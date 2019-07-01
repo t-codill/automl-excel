@@ -1,0 +1,123 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`JobTypeSelector should render with classification types 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="settingsStepsJobType"
+    labelText="Prediction Task"
+    required={true}
+  >
+    The type of machine learning problem you are trying to solve. Automated machine learning supports task types of classification, regression, and forecasting.
+  </LabelWithCallout>
+  <FormDropdown
+    defaultFormValue="classification"
+    field="jobType"
+    id="settingsStepsJobType"
+    initialSelectedKey="classification"
+    options={
+      Array [
+        Object {
+          "key": "classification",
+          "text": "Classification",
+        },
+        Object {
+          "key": "regression",
+          "text": "Regression",
+        },
+        Object {
+          "key": "forecasting",
+          "text": "Forecasting",
+        },
+      ]
+    }
+    placeholder="Select a prediction task..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`JobTypeSelector should render with regression types 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="settingsStepsJobType"
+    labelText="Prediction Task"
+    required={true}
+  >
+    The type of machine learning problem you are trying to solve. Automated machine learning supports task types of classification, regression, and forecasting.
+  </LabelWithCallout>
+  <FormDropdown
+    defaultFormValue="regression"
+    field="jobType"
+    id="settingsStepsJobType"
+    initialSelectedKey="classification"
+    options={
+      Array [
+        Object {
+          "key": "classification",
+          "text": "Classification",
+        },
+        Object {
+          "key": "regression",
+          "text": "Regression",
+        },
+        Object {
+          "key": "forecasting",
+          "text": "Forecasting",
+        },
+      ]
+    }
+    placeholder="Select a prediction task..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`JobTypeSelector should render with undefined props 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="settingsStepsJobType"
+    labelText="Prediction Task"
+    required={true}
+  >
+    The type of machine learning problem you are trying to solve. Automated machine learning supports task types of classification, regression, and forecasting.
+  </LabelWithCallout>
+  <FormDropdown
+    field="jobType"
+    id="settingsStepsJobType"
+    initialSelectedKey="classification"
+    options={
+      Array [
+        Object {
+          "key": "classification",
+          "text": "Classification",
+        },
+        Object {
+          "key": "regression",
+          "text": "Regression",
+        },
+        Object {
+          "key": "forecasting",
+          "text": "Forecasting",
+        },
+      ]
+    }
+    placeholder="Select a prediction task..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;

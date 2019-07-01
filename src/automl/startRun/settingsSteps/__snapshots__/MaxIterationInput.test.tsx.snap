@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MaxIterationInput should render 1`] = `
+<div
+  className="ms-Grid"
+  dir="ltr"
+>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <LabelWithCallout
+      htmlFor="maxIterationInput"
+      labelText="Max number of iterations"
+      required={false}
+    >
+      Max number of pipelines (algorithm and hyperparameters) to try.
+    </LabelWithCallout>
+  </div>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <FormTextInput
+      ariaLabel="Please enter training job time here"
+      defaultFormValue="100"
+      field="maxIteration"
+      placeholder="Max number of iteration"
+      validators={
+        Array [
+          [Function],
+          [Function],
+          [Function],
+        ]
+      }
+    />
+  </div>
+</div>
+`;

@@ -1,0 +1,69 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataProfiling 1.render without data store name 1`] = `
+<pageLoadingSpinner
+  label="Waiting for data store creation"
+/>
+`;
+
+exports[`DataProfiling 2.start profiling and cancel by return undefined 1`] = `
+<pageLoadingSpinner
+  label="Starting"
+/>
+`;
+
+exports[`DataProfiling 3.start profiling 1`] = `
+<pageLoadingSpinner
+  label="Starting"
+/>
+`;
+
+exports[`DataProfiling 4.1.Should not proceeded if get run return nothing 1`] = `
+<pageLoadingSpinner
+  label="Starting"
+/>
+`;
+
+exports[`DataProfiling 4.2.Should not proceeded if get run no status 1`] = `
+<pageLoadingSpinner
+  label="Starting"
+/>
+`;
+
+exports[`DataProfiling 4.Waiting for profile finish 1`] = `
+<pageLoadingSpinner
+  label="Running"
+/>
+`;
+
+exports[`DataProfiling download failed should give error message 1`] = `
+<StyledMessageBarBase
+  messageBarType={1}
+>
+  Failed to retrieve profiling result.
+</StyledMessageBarBase>
+`;
+
+exports[`DataProfiling failed run should give error message 1`] = `
+<StyledMessageBarBase
+  messageBarType={1}
+>
+  Test Error
+</StyledMessageBarBase>
+`;
+
+exports[`DataProfiling failed run should show failed without error message 1`] = `
+<StyledMessageBarBase
+  messageBarType={1}
+>
+  Failed
+</StyledMessageBarBase>
+`;
+
+exports[`DataProfiling no run id should return error 1`] = `
+<StyledMessageBarBase
+  messageBarType={1}
+>
+  Failed to retrieve profiling result.
+</StyledMessageBarBase>
+`;

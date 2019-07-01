@@ -1,0 +1,34 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Model Download should render when no runName or uri 1`] = `
+<CustomizedCompoundButton
+  disabled={true}
+  onClick={[Function]}
+  style={
+    Object {
+      "boxSizing": "border-box",
+      "height": "80px",
+      "width": "48%",
+    }
+  }
+>
+  Download Best Model
+</CustomizedCompoundButton>
+`;
+
+exports[`Model Download should render with runName and uri 1`] = `
+<CustomizedCompoundButton
+  disabled={false}
+  onClick={[Function]}
+  secondaryText="Test"
+  style={
+    Object {
+      "boxSizing": "border-box",
+      "height": "80px",
+      "width": "48%",
+    }
+  }
+>
+  Download Best Model
+</CustomizedCompoundButton>
+`;

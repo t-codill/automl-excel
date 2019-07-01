@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataTableToggle should render 1`] = `
+<span>
+  <StyledToggleBase
+    defaultChecked={true}
+    label="toggle"
+    offText="offText"
+    onChange={[Function]}
+    onText="onText"
+  />
+</span>
+`;

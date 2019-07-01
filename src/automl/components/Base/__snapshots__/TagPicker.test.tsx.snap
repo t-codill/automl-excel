@@ -1,0 +1,198 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TagPicker should render 1`] = `
+<div
+  className="ms-BasePicker"
+  onBlur={[Function]}
+  onKeyDown={[Function]}
+>
+  <FocusZone
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    direction={2}
+    isCircularNavigation={false}
+    isInnerZoneKeystroke={[Function]}
+  >
+    <SelectionZone
+      isMultiSelectEnabled={true}
+      isSelectedOnFocus={true}
+      selection={
+        Selection {
+          "_anchoredIndex": 0,
+          "_canSelectItem": [Function],
+          "_changeEventSuppressionCount": 0,
+          "_exemptedCount": 0,
+          "_exemptedIndices": Object {},
+          "_getKey": [Function],
+          "_isModal": false,
+          "_items": Array [],
+          "_keyToIndexMap": Object {},
+          "_onSelectionChanged": [Function],
+          "_selectedItems": null,
+          "_unselectableCount": 0,
+          "_unselectableIndices": Object {},
+          "count": 0,
+          "mode": 2,
+        }
+      }
+      selectionMode={2}
+    >
+      <div
+        className="ms-BasePicker-text pickerText_de6ce0eb"
+      >
+        <Autofill
+          aria-autocomplete="both"
+          aria-controls=" "
+          aria-expanded={false}
+          aria-haspopup="true"
+          autoCapitalize="off"
+          autoComplete="off"
+          className="ms-BasePicker-input pickerInput_de6ce0eb"
+          componentRef={
+            Object {
+              "current": null,
+            }
+          }
+          enableAutofillOnKeyPress={
+            Array [
+              40,
+              38,
+            ]
+          }
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onInputValueChange={[Function]}
+          role="combobox"
+          spellCheck={false}
+          suggestedDisplayValue=""
+        />
+      </div>
+    </SelectionZone>
+  </FocusZone>
+</div>
+`;
+
+exports[`TagPicker should render item and suggestion 1`] = `
+<Styled
+  enableTagFocusInDisabledPicker={true}
+  index={0}
+  item={
+    Object {
+      "key": "Test Key",
+      "name": "Test Name",
+    }
+  }
+>
+  Test Name
+</Styled>
+`;
+
+exports[`TagPicker should render item and suggestion 2`] = `
+<Styled>
+  Test Tag Name
+</Styled>
+`;
+
+exports[`TagPicker should trigger update 1`] = `
+<div
+  className="ms-BasePicker"
+  onBlur={[Function]}
+  onKeyDown={[Function]}
+>
+  <FocusZone
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    direction={2}
+    isCircularNavigation={false}
+    isInnerZoneKeystroke={[Function]}
+  >
+    <SelectionZone
+      isMultiSelectEnabled={true}
+      isSelectedOnFocus={true}
+      selection={
+        Selection {
+          "_anchoredIndex": 0,
+          "_canSelectItem": [Function],
+          "_changeEventSuppressionCount": 0,
+          "_exemptedCount": 0,
+          "_exemptedIndices": Object {},
+          "_getKey": [Function],
+          "_isModal": false,
+          "_items": Array [],
+          "_keyToIndexMap": Object {},
+          "_onSelectionChanged": [Function],
+          "_selectedItems": null,
+          "_unselectableCount": 0,
+          "_unselectableIndices": Object {},
+          "count": 0,
+          "mode": 2,
+        }
+      }
+      selectionMode={2}
+    >
+      <div
+        className="ms-BasePicker-text pickerText_de6ce0eb inputFocused_de6ce0eb"
+      >
+        <Autofill
+          aria-autocomplete="both"
+          aria-controls="suggestion-list-id__3 "
+          aria-expanded={true}
+          aria-haspopup="true"
+          aria-owns="suggestion-list-id__3"
+          autoCapitalize="off"
+          autoComplete="off"
+          className="ms-BasePicker-input pickerInput_de6ce0eb"
+          componentRef={
+            Object {
+              "current": null,
+            }
+          }
+          enableAutofillOnKeyPress={
+            Array [
+              40,
+              38,
+            ]
+          }
+          onBlur={[Function]}
+          onFocus={[Function]}
+          onInputValueChange={[Function]}
+          role="combobox"
+          spellCheck={false}
+          suggestedDisplayValue=""
+        />
+      </div>
+    </SelectionZone>
+  </FocusZone>
+  <Callout
+    directionalHint={4}
+    directionalHintForRTL={6}
+    gapSpace={5}
+    isBeakVisible={false}
+    onDismiss={[Function]}
+  >
+    <StyledSuggestions
+      componentRef={
+        Object {
+          "current": null,
+        }
+      }
+      isMostRecentlyUsedVisible={false}
+      isSearching={false}
+      moreSuggestionsAvailable={false}
+      onGetMoreResults={[Function]}
+      onRenderSuggestion={[Function]}
+      onSuggestionClick={[Function]}
+      onSuggestionRemove={[Function]}
+      refocusSuggestions={[Function]}
+      suggestions={Array []}
+      suggestionsListId="suggestion-list-id__3"
+    />
+  </Callout>
+</div>
+`;

@@ -1,0 +1,298 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Model Deploy Panel Model is generated Validate Render should render correctly 1`] = `
+<Fragment>
+  <StyledPanelBase
+    closeButtonAriaLabel="Close"
+    isHiddenOnDismiss={true}
+    isOpen={true}
+    onDismiss={[MockFunction]}
+    onRenderHeader={[Function]}
+    type={3}
+  >
+    <ol
+      className="workflow"
+    >
+      <li>
+        <h3
+          className="workflow-title"
+        >
+          Register Model
+        </h3>
+        <p
+          className="workflow-description"
+        >
+          First step in deployment is to register the model in Azure machine learning service model registry. Once registered, use the scoring script and the environment script files below to deploy.
+        </p>
+        <div>
+          Model has been registered
+        </div>
+      </li>
+      <li>
+        <h3
+          className="workflow-title"
+        >
+          Download Scoring Script
+        </h3>
+        <p
+          className="workflow-description"
+        >
+          The scoring script is required to generate the image for deployment. It contains the code to do the predictions on input data.
+        </p>
+        <StyledLinkBase
+          disabled={false}
+          key="scoring"
+          onClick={[Function]}
+        >
+          Download Scoring Script
+        </StyledLinkBase>
+      </li>
+      <li>
+        <h3
+          className="workflow-title"
+        >
+          Download Environment Script
+        </h3>
+        <p
+          className="workflow-description"
+        >
+          The environment script is required to generate the image for deployment. It contains the Conda dependencies required to run the web service.
+        </p>
+        <StyledLinkBase
+          disabled={false}
+          key="environment"
+          onClick={[Function]}
+        >
+          Download Environment Script
+        </StyledLinkBase>
+      </li>
+      <li>
+        <h3
+          className="workflow-title"
+        >
+          Deploy Model
+        </h3>
+        <p
+          className="workflow-description"
+        >
+          After the model is registered and you have downloaded the scoring and the environment scripts, you can deploy the model.
+        </p>
+        <StyledLinkBase
+          href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-portal-experiments#deploy-model"
+          key="help"
+          target="_blank"
+        >
+          Learn more about deploying models 
+          <StyledIconBase
+            iconName="NavigateExternalInline"
+          />
+        </StyledLinkBase>
+      </li>
+    </ol>
+  </StyledPanelBase>
+</Fragment>
+`;
+
+exports[`Model Deploy Panel Model is generated should show spinning during registering 1`] = `
+<Fragment>
+  <StyledPanelBase
+    closeButtonAriaLabel="Close"
+    isHiddenOnDismiss={true}
+    isOpen={true}
+    onDismiss={[MockFunction]}
+    onRenderHeader={[Function]}
+    type={3}
+  >
+    <ol
+      className="workflow"
+    >
+      <li>
+        <h3
+          className="workflow-title"
+        >
+          Register Model
+        </h3>
+        <p
+          className="workflow-description"
+        >
+          First step in deployment is to register the model in Azure machine learning service model registry. Once registered, use the scoring script and the environment script files below to deploy.
+        </p>
+        <StyledProgressIndicatorBase
+          description="Registering Model..."
+        />
+      </li>
+      <li>
+        <h3
+          className="workflow-title"
+        >
+          Download Scoring Script
+        </h3>
+        <p
+          className="workflow-description"
+        >
+          The scoring script is required to generate the image for deployment. It contains the code to do the predictions on input data.
+        </p>
+        <StyledLinkBase
+          disabled={false}
+          key="scoring"
+          onClick={[Function]}
+        >
+          Download Scoring Script
+        </StyledLinkBase>
+      </li>
+      <li>
+        <h3
+          className="workflow-title"
+        >
+          Download Environment Script
+        </h3>
+        <p
+          className="workflow-description"
+        >
+          The environment script is required to generate the image for deployment. It contains the Conda dependencies required to run the web service.
+        </p>
+        <StyledLinkBase
+          disabled={false}
+          key="environment"
+          onClick={[Function]}
+        >
+          Download Environment Script
+        </StyledLinkBase>
+      </li>
+      <li>
+        <h3
+          className="workflow-title"
+        >
+          Deploy Model
+        </h3>
+        <p
+          className="workflow-description"
+        >
+          After the model is registered and you have downloaded the scoring and the environment scripts, you can deploy the model.
+        </p>
+        <StyledLinkBase
+          href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-portal-experiments#deploy-model"
+          key="help"
+          target="_blank"
+        >
+          Learn more about deploying models 
+          <StyledIconBase
+            iconName="NavigateExternalInline"
+          />
+        </StyledLinkBase>
+      </li>
+    </ol>
+  </StyledPanelBase>
+</Fragment>
+`;
+
+exports[`Model Deploy Panel Model is not generated Should render header 1`] = `
+<div
+  className="panel-header"
+  style={
+    Object {
+      "color": undefined,
+    }
+  }
+>
+  <h2>
+    Deploy Model
+  </h2>
+</div>
+`;
+
+exports[`Model Deploy Panel Model is not generated Should render register model 1`] = `
+<Fragment>
+  <StyledPanelBase
+    closeButtonAriaLabel="Close"
+    isHiddenOnDismiss={true}
+    isOpen={true}
+    onDismiss={[MockFunction]}
+    onRenderHeader={[Function]}
+    type={3}
+  >
+    <ol
+      className="workflow"
+    >
+      <li>
+        <h3
+          className="workflow-title"
+        >
+          Register Model
+        </h3>
+        <p
+          className="workflow-description"
+        >
+          First step in deployment is to register the model in Azure machine learning service model registry. Once registered, use the scoring script and the environment script files below to deploy.
+        </p>
+        <StyledLinkBase
+          key="register"
+          onClick={[Function]}
+        >
+          Register Model
+        </StyledLinkBase>
+      </li>
+      <li>
+        <h3
+          className="workflow-title"
+        >
+          Download Scoring Script
+        </h3>
+        <p
+          className="workflow-description"
+        >
+          The scoring script is required to generate the image for deployment. It contains the code to do the predictions on input data.
+        </p>
+        <StyledLinkBase
+          disabled={true}
+          key="scoring"
+          onClick={[Function]}
+        >
+          Download Scoring Script
+        </StyledLinkBase>
+      </li>
+      <li>
+        <h3
+          className="workflow-title"
+        >
+          Download Environment Script
+        </h3>
+        <p
+          className="workflow-description"
+        >
+          The environment script is required to generate the image for deployment. It contains the Conda dependencies required to run the web service.
+        </p>
+        <StyledLinkBase
+          disabled={true}
+          key="environment"
+          onClick={[Function]}
+        >
+          Download Environment Script
+        </StyledLinkBase>
+      </li>
+      <li>
+        <h3
+          className="workflow-title"
+        >
+          Deploy Model
+        </h3>
+        <p
+          className="workflow-description"
+        >
+          After the model is registered and you have downloaded the scoring and the environment scripts, you can deploy the model.
+        </p>
+        <StyledLinkBase
+          href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-portal-experiments#deploy-model"
+          key="help"
+          target="_blank"
+        >
+          Learn more about deploying models 
+          <StyledIconBase
+            iconName="NavigateExternalInline"
+          />
+        </StyledLinkBase>
+      </li>
+    </ol>
+  </StyledPanelBase>
+</Fragment>
+`;

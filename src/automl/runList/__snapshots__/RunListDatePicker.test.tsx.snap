@@ -1,0 +1,66 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RunListDatePicker Verify DatePicker should render date picker 1`] = `
+<StyledDatePickerBase
+  ariaLabel="Select a date"
+  firstDayOfWeek={0}
+  onSelectDate={[Function]}
+  placeholder="Select a date..."
+  strings={
+    Object {
+      "closeButtonAriaLabel": "Close date picker",
+      "days": Array [
+        "Sunday",
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday",
+        "Saturday",
+      ],
+      "goToToday": "Go to today",
+      "months": Array [
+        "January",
+        "February",
+        "March",
+        "April",
+        "May",
+        "June",
+        "July",
+        "August",
+        "September",
+        "October",
+        "November",
+        "December",
+      ],
+      "nextMonthAriaLabel": "Go to next month",
+      "nextYearAriaLabel": "Go to next year",
+      "prevMonthAriaLabel": "Go to previous month",
+      "prevYearAriaLabel": "Go to previous year",
+      "shortDays": Array [
+        "S",
+        "M",
+        "T",
+        "W",
+        "T",
+        "F",
+        "S",
+      ],
+      "shortMonths": Array [
+        "Jan",
+        "Feb",
+        "Mar",
+        "Apr",
+        "May",
+        "Jun",
+        "Jul",
+        "Aug",
+        "Sep",
+        "Oct",
+        "Nov",
+        "Dec",
+      ],
+    }
+  }
+/>
+`;

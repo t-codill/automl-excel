@@ -1,0 +1,291 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MetricSelector should render when different from previous props 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="settingsStepsMetric"
+    labelText="Primary metric"
+    required={true}
+  >
+    Select the type of metric that the machine learning algorithm will be measure by. Each training job type has a different set of metrics to choose from. 
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics"
+      target="_blank"
+    >
+      Learn more 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+    .
+  </LabelWithCallout>
+  <FormDropdown
+    defaultFormValue="accuracy"
+    field="metric"
+    id="settingsStepsMetric"
+    initialSelectedKey="accuracy"
+    key="settingsStepsMetric-accuracy"
+    options={
+      Array [
+        Object {
+          "key": "accuracy",
+          "text": "accuracy",
+          "title": "Accuracy",
+        },
+        Object {
+          "key": "AUC_weighted",
+          "text": "AUC_weighted",
+          "title": "Weighted Area Under The Curve",
+        },
+        Object {
+          "key": "norm_macro_recall",
+          "text": "norm_macro_recall",
+          "title": "Normed Macro Recall",
+        },
+        Object {
+          "key": "average_precision_score_weighted",
+          "text": "average_precision_score_weighted",
+          "title": "Weighted Average Precision",
+        },
+        Object {
+          "key": "precision_score_weighted",
+          "text": "precision_score_weighted",
+          "title": "Weighted Precision",
+        },
+      ]
+    }
+    placeholder="Select a metric..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`MetricSelector should render with classification type props 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="settingsStepsMetric"
+    labelText="Primary metric"
+    required={true}
+  >
+    Select the type of metric that the machine learning algorithm will be measure by. Each training job type has a different set of metrics to choose from. 
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics"
+      target="_blank"
+    >
+      Learn more 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+    .
+  </LabelWithCallout>
+  <FormDropdown
+    defaultFormValue="accuracy"
+    field="metric"
+    id="settingsStepsMetric"
+    initialSelectedKey="accuracy"
+    key="settingsStepsMetric-accuracy"
+    options={
+      Array [
+        Object {
+          "key": "accuracy",
+          "text": "accuracy",
+          "title": "Accuracy",
+        },
+        Object {
+          "key": "AUC_weighted",
+          "text": "AUC_weighted",
+          "title": "Weighted Area Under The Curve",
+        },
+        Object {
+          "key": "norm_macro_recall",
+          "text": "norm_macro_recall",
+          "title": "Normed Macro Recall",
+        },
+        Object {
+          "key": "average_precision_score_weighted",
+          "text": "average_precision_score_weighted",
+          "title": "Weighted Average Precision",
+        },
+        Object {
+          "key": "precision_score_weighted",
+          "text": "precision_score_weighted",
+          "title": "Weighted Precision",
+        },
+      ]
+    }
+    placeholder="Select a metric..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`MetricSelector should render with forecasting type props 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="settingsStepsMetric"
+    labelText="Primary metric"
+    required={true}
+  >
+    Select the type of metric that the machine learning algorithm will be measure by. Each training job type has a different set of metrics to choose from. 
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics"
+      target="_blank"
+    >
+      Learn more 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+    .
+  </LabelWithCallout>
+  <FormDropdown
+    defaultFormValue="spearman_correlation"
+    field="metric"
+    id="settingsStepsMetric"
+    initialSelectedKey="spearman_correlation"
+    key="settingsStepsMetric-spearman_correlation"
+    options={
+      Array [
+        Object {
+          "key": "spearman_correlation",
+          "text": "spearman_correlation",
+          "title": "Spearman Correlation",
+        },
+        Object {
+          "key": "normalized_root_mean_squared_error",
+          "text": "normalized_root_mean_squared_error",
+          "title": "Normalized Root Mean Squared Error",
+        },
+        Object {
+          "key": "r2_score",
+          "text": "r2_score",
+          "title": "R2 Score",
+        },
+        Object {
+          "key": "normalized_mean_absolute_error",
+          "text": "normalized_mean_absolute_error",
+          "title": "Normalized Median Absolute Error",
+        },
+      ]
+    }
+    placeholder="Select a metric..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`MetricSelector should render with regression type props 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="settingsStepsMetric"
+    labelText="Primary metric"
+    required={true}
+  >
+    Select the type of metric that the machine learning algorithm will be measure by. Each training job type has a different set of metrics to choose from. 
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics"
+      target="_blank"
+    >
+      Learn more 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+    .
+  </LabelWithCallout>
+  <FormDropdown
+    defaultFormValue="spearman_correlation"
+    field="metric"
+    id="settingsStepsMetric"
+    initialSelectedKey="spearman_correlation"
+    key="settingsStepsMetric-spearman_correlation"
+    options={
+      Array [
+        Object {
+          "key": "spearman_correlation",
+          "text": "spearman_correlation",
+          "title": "Spearman Correlation",
+        },
+        Object {
+          "key": "normalized_root_mean_squared_error",
+          "text": "normalized_root_mean_squared_error",
+          "title": "Normalized Root Mean Squared Error",
+        },
+        Object {
+          "key": "r2_score",
+          "text": "r2_score",
+          "title": "R2 Score",
+        },
+        Object {
+          "key": "normalized_mean_absolute_error",
+          "text": "normalized_mean_absolute_error",
+          "title": "Normalized Median Absolute Error",
+        },
+      ]
+    }
+    placeholder="Select a metric..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`MetricSelector should render with undefined props 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="settingsStepsMetric"
+    labelText="Primary metric"
+    required={true}
+  >
+    Select the type of metric that the machine learning algorithm will be measure by. Each training job type has a different set of metrics to choose from. 
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics"
+      target="_blank"
+    >
+      Learn more 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+    .
+  </LabelWithCallout>
+  <FormDropdown
+    field="metric"
+    id="settingsStepsMetric"
+    key="settingsStepsMetric-undefined"
+    options={Array []}
+    placeholder="Select a metric..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;

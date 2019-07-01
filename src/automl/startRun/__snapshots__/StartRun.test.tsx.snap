@@ -1,0 +1,162 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StartRun should change status should render 1`] = `
+<Fragment>
+  <ExperimentStep
+    onCancel={[Function]}
+    onEditClick={[Function]}
+    onNext={[Function]}
+    readOnly={false}
+  />
+</Fragment>
+`;
+
+exports[`StartRun start run flow DataSource Step should render 1`] = `
+<Fragment>
+  <ExperimentStep
+    compute={
+      Object {
+        "id": "sampleCompute",
+      }
+    }
+    experimentName="experimentName"
+    onCancel={[Function]}
+    onEditClick={[Function]}
+    onNext={[Function]}
+    readOnly={true}
+  />
+  <div
+    id="divDataSourceStep"
+  >
+    <DataSourceStep
+      compute={
+        Object {
+          "id": "sampleCompute",
+        }
+      }
+      defaultStorageAccountData={
+        Object {
+          "defaultAccountName": "account",
+          "defaultContainerName": "defaultContainer",
+        }
+      }
+      onDataSourceChanged={[Function]}
+      onFeatureSelectionChanged={[Function]}
+    />
+  </div>
+</Fragment>
+`;
+
+exports[`StartRun start run flow Settings Step should render 1`] = `
+<Fragment>
+  <ExperimentStep
+    compute={
+      Object {
+        "id": "sampleCompute",
+      }
+    }
+    experimentName="experimentName"
+    onCancel={[Function]}
+    onEditClick={[Function]}
+    onNext={[Function]}
+    readOnly={true}
+  />
+  <div
+    id="divDataSourceStep"
+  >
+    <DataSourceStep
+      account={
+        Object {
+          "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sampleResourceGroup/Microsoft.Storage/storageAccounts/sampleStorageAccounts",
+          "location": "eastus",
+          "name": "sampleStorageAccount",
+          "primaryEndpoints": Object {
+            "blob": "https://blob.samplestorageaccount.com",
+          },
+        }
+      }
+      blob={
+        Object {
+          "deleted": false,
+          "name": "sampleBlob",
+          "properties": Object {
+            "contentLength": 1000,
+            "etag": "sampleEtag",
+            "lastModified": 2019-01-01T00:00:00.000Z,
+          },
+          "snapshot": "sampleSnapShot",
+        }
+      }
+      compute={
+        Object {
+          "id": "sampleCompute",
+        }
+      }
+      container={
+        Object {
+          "name": "sampleContainer",
+        }
+      }
+      dataStoreName="dataStoreName"
+      defaultStorageAccountData={
+        Object {
+          "defaultAccountName": "account",
+          "defaultContainerName": "defaultContainer",
+        }
+      }
+      onDataSourceChanged={[Function]}
+      onFeatureSelectionChanged={[Function]}
+      previewData={
+        Object {
+          "data": Array [
+            Object {
+              "a": "1-1",
+              "b": "1-2",
+              "c": "1-3",
+            },
+            Object {
+              "a": "2-1",
+              "b": "2-2",
+              "c": "2-3",
+            },
+            Object {
+              "a": "3-1",
+              "b": "3-2",
+              "c": "3-3",
+            },
+          ],
+          "delimiter": ",",
+          "hasHeader": true,
+          "header": Array [
+            "a",
+            "b",
+            "c",
+          ],
+        }
+      }
+      sasToken="sasToken"
+    />
+  </div>
+  <div>
+    <SettingsStep
+      blobHeader={
+        Array [
+          "a",
+          "b",
+          "c",
+        ]
+      }
+      dataStoreName="dataStoreName"
+      onCancel={[Function]}
+      onStart={[Function]}
+      selectedFeatures={
+        Set {
+          "b",
+          "c",
+          "a",
+        }
+      }
+    />
+  </div>
+</Fragment>
+`;

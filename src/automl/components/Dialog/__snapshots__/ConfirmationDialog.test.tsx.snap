@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ConfirmationDialog should render 1`] = `
+<StyledWithResponsiveMode
+  dialogContentProps={
+    Object {
+      "subText": "Test SubText",
+      "title": "Test Title",
+      "type": 0,
+    }
+  }
+  hidden={false}
+  modalProps={
+    Object {
+      "containerClassName": "ms-dialogMainOverride",
+      "isBlocking": false,
+    }
+  }
+  onDismiss={[Function]}
+>
+  <StyledDialogFooterBase>
+    <CustomizedPrimaryButton
+      onClick={[Function]}
+      text="Yes"
+    />
+    <CustomizedDefaultButton
+      onClick={[Function]}
+      text="No"
+    />
+  </StyledDialogFooterBase>
+</StyledWithResponsiveMode>
+`;

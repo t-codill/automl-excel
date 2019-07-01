@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RedirectLink Link should render clicked 1`] = `
+<Redirect
+  push={true}
+  to="#"
+/>
+`;
+
+exports[`RedirectLink should render component 1`] = `
+<StyledLinkBase
+  onClick={[Function]}
+/>
+`;

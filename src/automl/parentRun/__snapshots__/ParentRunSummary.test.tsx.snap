@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Parent Run Summary should not render iteration tags when undefined 1`] = `
+<PropertyList
+  listElements={
+    Object {
+      "Best Pipeline": undefined,
+      "Exit Score": 100,
+      "Experiment Name": "my_experiment",
+      "History Name": undefined,
+      "Iteration": undefined,
+      "Preprocessing Steps": undefined,
+      "Run Id": "AutoML_000",
+      "Status": "Completed",
+      "Task Type": "classification",
+    }
+  }
+/>
+`;
+
+exports[`Parent Run Summary should render Run Summary table when successful run 1`] = `
+<PropertyList
+  listElements={
+    Object {
+      "Best Pipeline": undefined,
+      "Exit Score": 100,
+      "Experiment Name": "my_experiment",
+      "History Name": undefined,
+      "Iteration": "2",
+      "Preprocessing Steps": undefined,
+      "Run Id": "AutoML_000",
+      "Status": "Completed",
+      "Task Type": "classification",
+    }
+  }
+/>
+`;
+
+exports[`Parent Run Summary should render empty Run Summary table when no aml settings json 1`] = `
+<PropertyList
+  listElements={Object {}}
+/>
+`;

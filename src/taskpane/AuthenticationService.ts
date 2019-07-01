@@ -7,9 +7,9 @@ const authenticationService = {
     }
 };
 */
-import {polyfill} from 'es6-promise'
+//import {polyfill} from 'es6-promise'
 
-polyfill();
+//polyfill();
 //@ts-ignore
 import isomorphicFetch from 'isomorphic-fetch'
 

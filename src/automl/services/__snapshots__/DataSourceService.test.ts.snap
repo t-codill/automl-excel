@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataSourceService should listBlob 1`] = `
+Array [
+  Object {
+    "deleted": false,
+    "name": "sampleBlob",
+    "properties": Object {
+      "contentLength": 1000,
+      "etag": "sampleEtag",
+      "lastModified": 2019-01-01T00:00:00.000Z,
+    },
+    "snapshot": "sampleSnapShot",
+  },
+  Object {
+    "deleted": false,
+    "name": "sampleBlob",
+    "properties": Object {
+      "contentLength": 1000,
+      "etag": "sampleEtag",
+      "lastModified": 2019-01-01T00:00:00.000Z,
+    },
+    "snapshot": "sampleSnapShot",
+  },
+]
+`;

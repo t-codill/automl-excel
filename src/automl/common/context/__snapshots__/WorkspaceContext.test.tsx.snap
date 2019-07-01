@@ -1,0 +1,24 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`WorkspaceContext should read default context 1`] = `
+Object {
+  "clearErrors": [Function],
+  "discoverUrls": Object {},
+  "flight": WorkspaceFlight {
+    "flight": Object {},
+  },
+  "getToken": [Function],
+  "location": "",
+  "logger": Logger {},
+  "onError": [Function],
+  "pageName": "",
+  "resourceGroupName": "",
+  "setHeader": [Function],
+  "setLoading": [Function],
+  "setNavigationBarButtons": [Function],
+  "setPageName": [Function],
+  "subscriptionId": "",
+  "theme": "",
+  "workspaceName": "",
+}
+`;

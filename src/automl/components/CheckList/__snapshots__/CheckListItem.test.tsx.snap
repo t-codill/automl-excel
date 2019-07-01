@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckListItem should render nothing if item is undefined 1`] = `
+<Fragment>
+  <div
+    className="ms-Grid checkListItem"
+    dir="ltr"
+  >
+    <div
+      className="ms-Grid-col"
+    >
+      <StyledCheckboxBase
+        className="listItemCheckbox"
+        onChange={[Function]}
+      />
+    </div>
+    <div
+      className="ms-Grid-col"
+    />
+  </div>
+</Fragment>
+`;

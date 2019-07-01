@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TrainingJobTimeInput should render 1`] = `
+<div
+  className="ms-Grid"
+  dir="ltr"
+>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <LabelWithCallout
+      htmlFor="trainingJobInput"
+      labelText="Training job time (minutes)"
+      required={false}
+    >
+      The maximum training time in minutes for each run.
+    </LabelWithCallout>
+  </div>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <FormTextInput
+      ariaLabel="Please enter training job time here"
+      defaultFormValue="60"
+      field="trainingJobTime"
+      placeholder="Training job time (minutes)"
+      validators={
+        Array [
+          [Function],
+          [Function],
+        ]
+      }
+    />
+  </div>
+</div>
+`;

@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Concurrent Iterations should render with validation error undefined props 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="concurrency"
+    labelText="Concurrency"
+    required={false}
+  >
+    Define limitations for multi tasking jobs
+  </LabelWithCallout>
+  <concurrentIterations />
+  <maxCores />
+</Fragment>
+`;

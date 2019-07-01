@@ -1,0 +1,127 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlockBlobService preview blob with header 1`] = `
+Object {
+  "data": Array [
+    Object {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "4",
+      "e": "5",
+    },
+    Object {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "4",
+      "e": "5",
+    },
+    Object {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "4",
+      "e": "5",
+    },
+    Object {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "4",
+      "e": "5",
+    },
+    Object {
+      "a": "1",
+      "b": "2",
+      "c": "3",
+      "d": "4",
+      "e": "5",
+    },
+  ],
+  "delimiter": ",",
+  "hasHeader": true,
+  "header": Array [
+    "a",
+    "b",
+    "c",
+    "d",
+    "e",
+  ],
+}
+`;
+
+exports[`BlockBlobService preview blob without content length 1`] = `
+Object {
+  "data": Array [],
+  "delimiter": ",",
+  "hasHeader": true,
+  "header": Array [],
+}
+`;
+
+exports[`BlockBlobService preview blob without data 1`] = `
+Object {
+  "data": Array [],
+  "delimiter": ",",
+  "hasHeader": false,
+  "header": Array [],
+}
+`;
+
+exports[`BlockBlobService preview blob without header 1`] = `
+Object {
+  "data": Array [
+    Object {
+      "Column1": "a",
+      "Column2": "b",
+      "Column3": "c",
+      "Column4": "d",
+      "Column5": "e",
+    },
+    Object {
+      "Column1": "1",
+      "Column2": "2",
+      "Column3": "3",
+      "Column4": "4",
+      "Column5": "5",
+    },
+    Object {
+      "Column1": "1",
+      "Column2": "2",
+      "Column3": "3",
+      "Column4": "4",
+      "Column5": "5",
+    },
+    Object {
+      "Column1": "1",
+      "Column2": "2",
+      "Column3": "3",
+      "Column4": "4",
+      "Column5": "5",
+    },
+    Object {
+      "Column1": "1",
+      "Column2": "2",
+      "Column3": "3",
+      "Column4": "4",
+      "Column5": "5",
+    },
+  ],
+  "delimiter": ",",
+  "hasHeader": false,
+  "header": Array [
+    "Column1",
+    "Column2",
+    "Column3",
+    "Column4",
+    "Column5",
+  ],
+}
+`;
+
+exports[`BlockBlobService should upload blob 1`] = `
+Object {
+  "requestId": "requestId",
+}
+`;

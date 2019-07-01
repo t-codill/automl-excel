@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`AccessService should getAccess 1`] = `
+Array [
+  Object {
+    "actions": Array [
+      "*",
+    ],
+    "dataActions": Array [],
+    "notActions": Array [
+      "Microsoft.Authorization/*/Delete",
+      "Microsoft.Authorization/*/Write",
+      "Microsoft.Authorization/elevateAccess/Action",
+      "Microsoft.Blueprint/blueprintAssignments/write",
+      "Microsoft.Blueprint/blueprintAssignments/delete",
+    ],
+    "notDataActions": Array [],
+  },
+  Object {
+    "actions": Array [
+      "*",
+    ],
+    "dataActions": Array [],
+    "notActions": Array [],
+    "notDataActions": Array [],
+  },
+  Object {
+    "actions": Array [
+      "*/read",
+    ],
+    "dataActions": Array [],
+    "notActions": Array [],
+    "notDataActions": Array [],
+  },
+]
+`;

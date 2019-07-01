@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormContext should be able to take value 1`] = `
+<div>
+  <div>
+    {"mount":function() {
+          return "mount input";
+        },"unmount":function() {
+          return "unmount input";
+        },"onUpdated":function() {
+          return "onUpdated func";
+        }}
+  </div>
+</div>
+`;
+
+exports[`FormContext should render with default value 1`] = `
+<div>
+  <div>
+    {}
+  </div>
+</div>
+`;

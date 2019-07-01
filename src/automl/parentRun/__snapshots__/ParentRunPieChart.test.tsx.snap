@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataProfiling render with data 1`] = `
+<e
+  metric={
+    Object {
+      "labels": Array [
+        "Completed",
+        "Failed",
+      ],
+      "values": Array [
+        1,
+        1,
+      ],
+    }
+  }
+  theme="light"
+/>
+`;

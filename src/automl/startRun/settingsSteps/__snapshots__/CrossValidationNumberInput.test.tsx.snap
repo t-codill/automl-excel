@@ -1,0 +1,48 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cross Validation Number Input should render 1`] = `
+<div
+  className="ms-Grid"
+  dir="ltr"
+>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <LabelWithCallout
+      htmlFor="numberOfCrossValidations"
+      labelText="Number of Cross Validations"
+      required={true}
+    >
+      The number of cross validations to use to assess the results (metrics) of the model. 
+      <StyledLinkBase
+        className="ms-CalloutExample-link"
+        href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#cross-validation-split-options"
+        target="_blank"
+      >
+        Learn more 
+        <StyledIconBase
+          iconName="NavigateExternalInline"
+        />
+      </StyledLinkBase>
+      .
+    </LabelWithCallout>
+  </div>
+  <div
+    className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+  >
+    <FormTextInput
+      ariaLabel="Please enter the number of cross validation"
+      defaultFormValue="5"
+      field="crossValidationNumber"
+      placeholder="Number of Cross Validations"
+      type="number"
+      validators={
+        Array [
+          [Function],
+          [Function],
+        ]
+      }
+    />
+  </div>
+</div>
+`;

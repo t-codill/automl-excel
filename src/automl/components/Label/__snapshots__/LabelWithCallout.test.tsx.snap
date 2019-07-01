@@ -1,0 +1,132 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`LabelWithCallout after tooltip button clicked should hide callout when onDismiss is triggered 1`] = `
+<Fragment>
+  <span
+    className="label-with-callout-outer"
+  >
+    <StyledLabelBase
+      htmlFor="dropdownId"
+      required={true}
+    >
+      Test Label
+    </StyledLabelBase>
+    <div
+      className="ms-CustomRenderExample-labelIconArea"
+    >
+      <CustomizedIconButton
+        ariaLabel="Info"
+        iconProps={
+          Object {
+            "iconName": "Info",
+          }
+        }
+        onClick={[Function]}
+        title="Click for Info"
+      />
+    </div>
+  </span>
+</Fragment>
+`;
+
+exports[`LabelWithCallout after tooltip button clicked should hide callout when tooltip button is clicked second time 1`] = `
+<Fragment>
+  <span
+    className="label-with-callout-outer"
+  >
+    <StyledLabelBase
+      htmlFor="dropdownId"
+      required={true}
+    >
+      Test Label
+    </StyledLabelBase>
+    <div
+      className="ms-CustomRenderExample-labelIconArea"
+    >
+      <CustomizedIconButton
+        ariaLabel="Info"
+        iconProps={
+          Object {
+            "iconName": "Info",
+          }
+        }
+        onClick={[Function]}
+        title="Click for Info"
+      />
+    </div>
+  </span>
+</Fragment>
+`;
+
+exports[`LabelWithCallout after tooltip button clicked should render callout 1`] = `
+<Fragment>
+  <span
+    className="label-with-callout-outer"
+  >
+    <StyledLabelBase
+      htmlFor="dropdownId"
+      required={true}
+    >
+      Test Label
+    </StyledLabelBase>
+    <div
+      className="ms-CustomRenderExample-labelIconArea"
+    >
+      <CustomizedIconButton
+        ariaLabel="Info"
+        iconProps={
+          Object {
+            "iconName": "Info",
+          }
+        }
+        onClick={[Function]}
+        title="Click for Info"
+      />
+    </div>
+    <Callout
+      className="label-with-callout"
+      directionalHint={2}
+      onDismiss={[Function]}
+      setInitialFocus={true}
+      target={null}
+    >
+      <div
+        className="label-with-callout-inner"
+      >
+        <div>
+          Test callout message
+        </div>
+      </div>
+    </Callout>
+  </span>
+</Fragment>
+`;
+
+exports[`LabelWithCallout should render 1`] = `
+<Fragment>
+  <span
+    className="label-with-callout-outer"
+  >
+    <StyledLabelBase
+      htmlFor="dropdownId"
+      required={true}
+    >
+      Test Label
+    </StyledLabelBase>
+    <div
+      className="ms-CustomRenderExample-labelIconArea"
+    >
+      <CustomizedIconButton
+        ariaLabel="Info"
+        iconProps={
+          Object {
+            "iconName": "Info",
+          }
+        }
+        onClick={[Function]}
+        title="Click for Info"
+      />
+    </div>
+  </span>
+</Fragment>
+`;

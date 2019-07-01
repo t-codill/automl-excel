@@ -1,0 +1,47 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StorageAccountSelector should render 1`] = `
+<div
+  className="data-source-grid-container"
+>
+  <StyledLabelBase>
+    Select an Azure blob storage account for your data
+  </StyledLabelBase>
+  <DataTable
+    columns={
+      Array [
+        Object {
+          "field": "name",
+        },
+        Object {
+          "field": "kind",
+        },
+      ]
+    }
+    enableShimmer={false}
+    items={
+      Array [
+        Object {
+          "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sampleResourceGroup/Microsoft.Storage/storageAccounts/sampleStorageAccounts",
+          "location": "eastus",
+          "name": "sampleStorageAccount",
+          "primaryEndpoints": Object {
+            "blob": "https://blob.samplestorageaccount.com",
+          },
+        },
+        Object {
+          "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sampleResourceGroup/Microsoft.Storage/storageAccounts/sampleStorageAccounts",
+          "location": "eastus",
+          "name": "sampleStorageAccount",
+          "primaryEndpoints": Object {
+            "blob": "https://blob.samplestorageaccount.com",
+          },
+        },
+      ]
+    }
+    itemsPerPage={10}
+    selectCallback={[Function]}
+    sortColumnFieldName="name"
+  />
+</div>
+`;

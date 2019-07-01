@@ -1,0 +1,38 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormDropdown should render 1`] = `
+<ComboBox
+  allowFreeform={false}
+  comboBoxOptionStyles={
+    Object {
+      "root": Object {
+        "minHeight": 20,
+        "paddingBottom": 0,
+        "paddingTop": 0,
+      },
+    }
+  }
+  field="experimentName"
+  id="DropdownId"
+  label="test label"
+  onOptionSelection={[Function]}
+  options={
+    Array [
+      Object {
+        "key": "key1",
+        "text": "text1",
+      },
+      Object {
+        "key": "key2",
+        "text": "text2",
+      },
+      Object {
+        "key": "key3",
+        "text": "text3",
+      },
+    ]
+  }
+  placeholder="test place holder"
+  required={true}
+/>
+`;

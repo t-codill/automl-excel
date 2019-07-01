@@ -1,0 +1,102 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`StorageService getSasToken should 1`] = `
+Object {
+  "_mockParameters": Array [
+    "sampleResourceGroup",
+    "sampleStorageAccount",
+    Object {
+      "permissions": "rdwlacup",
+      "protocols": "https",
+      "resourceTypes": "sco",
+      "services": "b",
+      "sharedAccessExpiryTime": "1971-01-01T00:00:00.000Z",
+    },
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "accountSasToken": "sampleToken",
+}
+`;
+
+exports[`StorageService listContainer should 1`] = `
+Object {
+  "_mockParameters": Array [
+    "sampleResourceGroup",
+    "sampleStorageAccount",
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "value": Array [
+    Object {
+      "_mockParameters": Array [
+        "testResourceGroup",
+        "testAccount",
+        Object {
+          "abortSignal": Object {},
+        },
+      ],
+      "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sampleResourceGroup/Microsoft.Storage/storageAccounts/sampleStorageAccounts",
+      "location": "eastus",
+      "name": "sampleStorageAccount",
+      "primaryEndpoints": Object {
+        "blob": "https://blob.samplestorageaccount.com",
+      },
+    },
+  ],
+}
+`;
+
+exports[`StorageService should getAccount 1`] = `
+Object {
+  "_mockParameters": Array [
+    "testResourceGroup",
+    "testAccount",
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sampleResourceGroup/Microsoft.Storage/storageAccounts/sampleStorageAccounts",
+  "location": "eastus",
+  "name": "sampleStorageAccount",
+  "primaryEndpoints": Object {
+    "blob": "https://blob.samplestorageaccount.com",
+  },
+}
+`;
+
+exports[`StorageService should getContainer 1`] = `
+Object {
+  "_mockParameters": Array [
+    "sampleResourceGroup",
+    "sampleAccount",
+    "sampleContainer",
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "name": "sampleContainer",
+}
+`;
+
+exports[`StorageService should listAccount 1`] = `
+Array [
+  Object {
+    "_mockParameters": Array [
+      "testResourceGroup",
+      "testAccount",
+      Object {
+        "abortSignal": Object {},
+      },
+    ],
+    "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/sampleResourceGroup/Microsoft.Storage/storageAccounts/sampleStorageAccounts",
+    "location": "eastus",
+    "name": "sampleStorageAccount",
+    "primaryEndpoints": Object {
+      "blob": "https://blob.samplestorageaccount.com",
+    },
+  },
+]
+`;

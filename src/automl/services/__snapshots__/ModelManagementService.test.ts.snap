@@ -1,0 +1,54 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ModelManagementService should createAsset 1`] = `
+Object {
+  "_mockParameters": Array [
+    "1.0",
+    "00000000-0000-0000-0000-000000000000",
+    "testResource",
+    "testWorkSpace",
+    Object {
+      "abortSignal": Object {},
+      "asset": Object {
+        "artifacts": Array [
+          Object {
+            "prefix": "/dummy",
+          },
+        ],
+        "description": "test description",
+        "name": "test",
+      },
+    },
+  ],
+  "id": "id",
+  "mimeType": "mimeType",
+  "name": "name",
+  "url": "http://www.dummyurl.com/dummy",
+}
+`;
+
+exports[`ModelManagementService should registerModel 1`] = `
+Object {
+  "_mockParameters": Array [
+    Object {
+      "description": "test description",
+      "experimentName": "runId",
+      "mimeType": "test mime type",
+      "name": "test",
+      "runId": "experimentName",
+      "url": "aml://asset/test url",
+    },
+    "1.0",
+    "00000000-0000-0000-0000-000000000000",
+    "testResource",
+    "testWorkSpace",
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "id": "id",
+  "mimeType": "mimeType",
+  "name": "name",
+  "url": "http://www.dummyurl.com/dummy",
+}
+`;

@@ -1,0 +1,47 @@
+@import "./Themes.scss";
+
+$input-margin-bottom: 1em;
+
+// override ui-fabric style
+#automl {
+	form {
+		.ms-TextField {
+			margin-bottom: $input-margin-bottom;
+		}
+
+		.ms-Dropdown-container {
+			margin-bottom: $input-margin-bottom;
+		}
+	}
+
+	.ms-Dropdown-items {
+		max-height: 300px;
+	}
+
+	.ms-CommandBar {
+		background-color: transparent;
+	}
+
+	.ms-Button--commandBar:not(:hover) {
+		background-color: transparent;
+	}
+
+	.hidden-input .ms-TextField-fieldGroup {
+		display: none;
+	}
+
+	.ms-MessageBar-innerText {
+		width: 100%;
+	}
+
+	.ms-Link:hover {
+		text-decoration: underline;
+	}
+}
+
+.ms-Pagination-pageNumber {
+
+	@include primaryTextColor;
+
+	border: 1px solid transparent;
+}

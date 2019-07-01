@@ -1,0 +1,10 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BlobUpload should render 1`] = `
+<PopupProgressIndicator
+  description="Uploading sample.csv to azure storage."
+  onDismiss={[MockFunction]}
+  percentComplete={0}
+  title="Uploading dataset"
+/>
+`;

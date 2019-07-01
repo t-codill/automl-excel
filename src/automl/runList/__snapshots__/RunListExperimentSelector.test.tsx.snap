@@ -1,0 +1,268 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RunListExperimentSelector Initial Render should render date selector dropdown 1`] = `
+<Fragment>
+  <StyledWithResponsiveMode
+    calloutProps={
+      Object {
+        "className": "experiment-selector-callout",
+      }
+    }
+    multiSelect={true}
+    onChange={[Function]}
+    onRenderOption={[Function]}
+    onRenderTitle={[Function]}
+    options={
+      Array [
+        Object {
+          "itemType": 2,
+          "key": "allOption",
+          "text": "Select All",
+        },
+        Object {
+          "itemType": 1,
+          "key": "divider",
+          "text": "-",
+        },
+        Object {
+          "key": "a",
+          "text": "a",
+        },
+        Object {
+          "key": "b",
+          "text": "b",
+        },
+        Object {
+          "key": "c",
+          "text": "c",
+        },
+        Object {
+          "key": "d",
+          "text": "d",
+        },
+        Object {
+          "key": "e",
+          "text": "e",
+        },
+      ]
+    }
+    placeholder="Select Experiments"
+    selectedKeys={
+      Array [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`RunListExperimentSelector Initial Render should render default option 1`] = `<React.Fragment />`;
+
+exports[`RunListExperimentSelector Initial Render should render experiment option 1`] = `null`;
+
+exports[`RunListExperimentSelector Initial Render should render toggle option 1`] = `
+<StyledToggleBase
+  checked={true}
+  inlineLabel={true}
+  label="Select All Experiment"
+  onChange={[Function]}
+/>
+`;
+
+exports[`RunListExperimentSelector Initial Render should render undefined option 1`] = `<React.Fragment />`;
+
+exports[`RunListExperimentSelector Initial Render should render with undefined experiment names 1`] = `
+<Fragment>
+  <StyledWithResponsiveMode
+    calloutProps={
+      Object {
+        "className": "experiment-selector-callout",
+      }
+    }
+    multiSelect={true}
+    onChange={[Function]}
+    onRenderOption={[Function]}
+    onRenderTitle={[Function]}
+    options={Array []}
+    placeholder="Select Experiments"
+    selectedKeys={Array []}
+  />
+</Fragment>
+`;
+
+exports[`RunListExperimentSelector Validate Render Title should call onRenderTitle with select all option 1`] = `
+<Fragment>
+  <StyledWithResponsiveMode
+    calloutProps={
+      Object {
+        "className": "experiment-selector-callout",
+      }
+    }
+    multiSelect={true}
+    onChange={[Function]}
+    onRenderOption={[Function]}
+    onRenderTitle={[Function]}
+    options={
+      Array [
+        Object {
+          "itemType": 2,
+          "key": "allOption",
+          "text": "Select All",
+        },
+        Object {
+          "itemType": 1,
+          "key": "divider",
+          "text": "-",
+        },
+        Object {
+          "key": "a",
+          "text": "a",
+        },
+        Object {
+          "key": "b",
+          "text": "b",
+        },
+        Object {
+          "key": "c",
+          "text": "c",
+        },
+        Object {
+          "key": "d",
+          "text": "d",
+        },
+        Object {
+          "key": "e",
+          "text": "e",
+        },
+      ]
+    }
+    placeholder="Select Experiments"
+    selectedKeys={
+      Array [
+        "a",
+        "b",
+        "c",
+        "d",
+        "e",
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`RunListExperimentSelector Validate Render Title should call onRenderTitle with select one option 1`] = `
+<Fragment>
+  <StyledWithResponsiveMode
+    calloutProps={
+      Object {
+        "className": "experiment-selector-callout",
+      }
+    }
+    multiSelect={true}
+    onChange={[Function]}
+    onRenderOption={[Function]}
+    onRenderTitle={[Function]}
+    options={
+      Array [
+        Object {
+          "itemType": 2,
+          "key": "allOption",
+          "text": "Select All",
+        },
+        Object {
+          "itemType": 1,
+          "key": "divider",
+          "text": "-",
+        },
+        Object {
+          "key": "a",
+          "text": "a",
+        },
+        Object {
+          "key": "b",
+          "text": "b",
+        },
+        Object {
+          "key": "c",
+          "text": "c",
+        },
+        Object {
+          "key": "d",
+          "text": "d",
+        },
+        Object {
+          "key": "e",
+          "text": "e",
+        },
+      ]
+    }
+    placeholder="Select Experiments"
+    selectedKeys={
+      Array [
+        "a",
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`RunListExperimentSelector Validate Render Title should call onRenderTitle with select two options 1`] = `
+<Fragment>
+  <StyledWithResponsiveMode
+    calloutProps={
+      Object {
+        "className": "experiment-selector-callout",
+      }
+    }
+    multiSelect={true}
+    onChange={[Function]}
+    onRenderOption={[Function]}
+    onRenderTitle={[Function]}
+    options={
+      Array [
+        Object {
+          "itemType": 2,
+          "key": "allOption",
+          "text": "Select All",
+        },
+        Object {
+          "itemType": 1,
+          "key": "divider",
+          "text": "-",
+        },
+        Object {
+          "key": "a",
+          "text": "a",
+        },
+        Object {
+          "key": "b",
+          "text": "b",
+        },
+        Object {
+          "key": "c",
+          "text": "c",
+        },
+        Object {
+          "key": "d",
+          "text": "d",
+        },
+        Object {
+          "key": "e",
+          "text": "e",
+        },
+      ]
+    }
+    placeholder="Select Experiments"
+    selectedKeys={
+      Array [
+        "a",
+        "b",
+      ]
+    }
+  />
+</Fragment>
+`;

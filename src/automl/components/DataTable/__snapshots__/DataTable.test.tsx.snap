@@ -1,0 +1,511 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`DataTable Pagination should render for item count greater than page count 1`] = `
+<StyledPaginationBase
+  firstPageAriaLabel="first page"
+  format="buttons"
+  itemsPerPage={1}
+  lastPageAriaLabel="last page"
+  nextPageAriaLabel="next page"
+  onPageChange={[Function]}
+  pageAriaLabel="page"
+  pageCount={3}
+  previousPageAriaLabel="previous page"
+  selectedAriaLabel="selected"
+  selectedPageIndex={0}
+  totalItemCount={3}
+/>
+`;
+
+exports[`DataTable Toggle should render 1`] = `
+<DataTableToggle
+  columnName="boolean"
+  toggleProps={
+    Object {
+      "defaultState": true,
+      "label": "toggle",
+      "offText": "offText",
+      "onColumnSelectorChanged": [MockFunction],
+      "onText": "onText",
+    }
+  }
+/>
+`;
+
+exports[`DataTable columns should render 1`] = `
+<React.Fragment>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+      content="Yes"
+    >
+      Yes
+    </StyledTooltipHostBase>
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+      content="value1"
+    >
+      value1
+    </StyledTooltipHostBase>
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+    />
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+    />
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+      content="12312"
+    >
+      12312
+    </StyledTooltipHostBase>
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+      content="[object Object]"
+    >
+      [object Object]
+    </StyledTooltipHostBase>
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+      content="2/11/2019, 4:45:00 PM"
+    >
+      2/11/2019, 4:45:00 PM
+    </StyledTooltipHostBase>
+  </div>
+  <div>
+    <div>
+      this is custom render
+    </div>
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+      content="No"
+    >
+      No
+    </StyledTooltipHostBase>
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+      content="value2"
+    >
+      value2
+    </StyledTooltipHostBase>
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+    />
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+    />
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+      content="NaN"
+    >
+      NaN
+    </StyledTooltipHostBase>
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+      content="[object Object]"
+    >
+      [object Object]
+    </StyledTooltipHostBase>
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+      content="2/18/2019, 2:45:00 AM"
+    >
+      2/18/2019, 2:45:00 AM
+    </StyledTooltipHostBase>
+  </div>
+  <div>
+    <div>
+      this is custom render
+    </div>
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+      content="No"
+    >
+      No
+    </StyledTooltipHostBase>
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+      content="value3"
+    >
+      value3
+    </StyledTooltipHostBase>
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+    />
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+    />
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+      content="431431"
+    >
+      431431
+    </StyledTooltipHostBase>
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+      content="[object Object]"
+    >
+      [object Object]
+    </StyledTooltipHostBase>
+  </div>
+  <div>
+    <StyledTooltipHostBase
+      calloutProps={
+        Object {
+          "gapSpace": 0,
+        }
+      }
+      content="2/17/2019, 2:45:00 AM"
+    >
+      2/17/2019, 2:45:00 AM
+    </StyledTooltipHostBase>
+  </div>
+  <div>
+    <div>
+      this is custom render
+    </div>
+  </div>
+</React.Fragment>
+`;
+
+exports[`DataTable should render 1`] = `
+<div
+  className="dataTable "
+>
+  <DataTableCommandBar
+    onFilterBoxTextChanged={[Function]}
+  />
+  <StyledShimmeredDetailsListBase
+    checkboxVisibility={2}
+    columns={
+      Array [
+        Object {
+          "columnActionsMode": 1,
+          "data": Object {
+            "field": "boolean",
+            "header": "test boolean header",
+            "headerIconName": "arrow",
+            "maxWidth": 123,
+            "minWidth": 12,
+          },
+          "fieldName": "boolean",
+          "iconName": "arrow",
+          "isResizable": true,
+          "isSorted": undefined,
+          "isSortedDescending": true,
+          "key": "column0",
+          "maxWidth": 123,
+          "minWidth": 12,
+          "name": "test boolean header",
+          "onColumnClick": [Function],
+        },
+        Object {
+          "columnActionsMode": 1,
+          "data": Object {
+            "field": "string",
+          },
+          "fieldName": "string",
+          "iconName": undefined,
+          "isResizable": true,
+          "isSorted": undefined,
+          "isSortedDescending": true,
+          "key": "column1",
+          "maxWidth": undefined,
+          "minWidth": 200,
+          "name": "string",
+          "onColumnClick": [Function],
+        },
+        Object {
+          "columnActionsMode": 1,
+          "data": Object {
+            "field": "undefined",
+          },
+          "fieldName": "undefined",
+          "iconName": undefined,
+          "isResizable": true,
+          "isSorted": undefined,
+          "isSortedDescending": true,
+          "key": "column2",
+          "maxWidth": undefined,
+          "minWidth": 200,
+          "name": "undefined",
+          "onColumnClick": [Function],
+        },
+        Object {
+          "columnActionsMode": 1,
+          "data": Object {
+            "field": "null",
+          },
+          "fieldName": "null",
+          "iconName": undefined,
+          "isResizable": true,
+          "isSorted": undefined,
+          "isSortedDescending": true,
+          "key": "column3",
+          "maxWidth": undefined,
+          "minWidth": 200,
+          "name": "null",
+          "onColumnClick": [Function],
+        },
+        Object {
+          "columnActionsMode": 1,
+          "data": Object {
+            "field": "number",
+          },
+          "fieldName": "number",
+          "iconName": undefined,
+          "isResizable": true,
+          "isSorted": undefined,
+          "isSortedDescending": true,
+          "key": "column4",
+          "maxWidth": undefined,
+          "minWidth": 200,
+          "name": "number",
+          "onColumnClick": [Function],
+        },
+        Object {
+          "columnActionsMode": 1,
+          "data": Object {
+            "field": "object",
+          },
+          "fieldName": "object",
+          "iconName": undefined,
+          "isResizable": true,
+          "isSorted": undefined,
+          "isSortedDescending": true,
+          "key": "column5",
+          "maxWidth": undefined,
+          "minWidth": 200,
+          "name": "object",
+          "onColumnClick": [Function],
+        },
+        Object {
+          "columnActionsMode": 1,
+          "data": Object {
+            "field": "date",
+          },
+          "fieldName": "date",
+          "iconName": undefined,
+          "isResizable": true,
+          "isSorted": undefined,
+          "isSortedDescending": true,
+          "key": "column6",
+          "maxWidth": undefined,
+          "minWidth": 200,
+          "name": "date",
+          "onColumnClick": [Function],
+        },
+        Object {
+          "columnActionsMode": 1,
+          "data": Object {
+            "field": "object",
+            "header": "custom renderer",
+            "render": [Function],
+          },
+          "fieldName": "object",
+          "iconName": undefined,
+          "isResizable": true,
+          "isSorted": undefined,
+          "isSortedDescending": true,
+          "key": "column7",
+          "maxWidth": undefined,
+          "minWidth": 200,
+          "name": "custom renderer",
+          "onColumnClick": [Function],
+        },
+      ]
+    }
+    constrainMode={1}
+    enterModalSelectionOnTouch={false}
+    isHeaderVisible={true}
+    items={
+      Array [
+        Object {
+          "boolean": true,
+          "date": 2019-02-11T05:45:00.000Z,
+          "null": null,
+          "number": 12312,
+          "object": Object {
+            "a": 1,
+            "b": "b",
+            "c": null,
+          },
+          "string": "value1",
+          "undefined": undefined,
+        },
+        Object {
+          "boolean": false,
+          "date": 2019-02-17T15:45:00.000Z,
+          "null": null,
+          "number": NaN,
+          "object": Object {
+            "a": 2,
+            "b": "b2",
+            "c": null,
+          },
+          "string": "value2",
+          "undefined": undefined,
+        },
+        Object {
+          "boolean": false,
+          "date": 2019-02-16T15:45:00.000Z,
+          "null": null,
+          "number": 431431,
+          "object": Object {
+            "a": 3,
+            "b": "b3",
+            "c": null,
+          },
+          "string": "value3",
+          "undefined": undefined,
+        },
+      ]
+    }
+    layoutMode={1}
+    onItemInvoked={[Function]}
+    onRenderItemColumn={[Function]}
+    onShouldVirtualize={[Function]}
+    selection={
+      Selection {
+        "_anchoredIndex": 0,
+        "_canSelectItem": [Function],
+        "_changeEventSuppressionCount": 0,
+        "_exemptedCount": 0,
+        "_exemptedIndices": Object {},
+        "_getKey": [Function],
+        "_isModal": false,
+        "_items": Array [],
+        "_keyToIndexMap": Object {},
+        "_onSelectionChanged": [Function],
+        "_selectedItems": null,
+        "_unselectableCount": 0,
+        "_unselectableIndices": Object {},
+        "count": 0,
+        "mode": 2,
+      }
+    }
+    selectionMode={1}
+    selectionPreservedOnEmptyClick={true}
+    setKey="set"
+    shimmerLines={10}
+  />
+</div>
+`;

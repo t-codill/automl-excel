@@ -1,0 +1,1067 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ComboBox should display 'Loading...' as placeholder message when loading 1`] = `
+<CustomizedComboBox
+  allowFreeform={true}
+  autoComplete="on"
+  buttonIconProps={
+    Object {
+      "iconName": "ChevronDown",
+    }
+  }
+  calloutProps={
+    Object {
+      "directionalHint": 4,
+      "directionalHintFixed": true,
+      "id": "combobox-callout-15",
+    }
+  }
+  componentRef={
+    Object {
+      "current": null,
+    }
+  }
+  label="test label"
+  onChange={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onPendingValueChanged={[Function]}
+  options={
+    Array [
+      Object {
+        "key": "key1",
+        "text": "text1",
+      },
+      Object {
+        "key": "key2",
+        "text": "text2",
+      },
+      Object {
+        "key": "key3",
+        "text": "text3",
+      },
+    ]
+  }
+  placeholder="Loading..."
+  styles={
+    Object {
+      "optionsContainerWrapper": Object {
+        "maxHeight": 400,
+      },
+    }
+  }
+  useComboBoxAsMenuWidth={true}
+/>
+`;
+
+exports[`ComboBox should handle custom text input as existing option 1`] = `
+<div
+  className="combo-box user-input-box "
+  id="comboBoxId"
+>
+  <CustomizedComboBox
+    allowFreeform={true}
+    autoComplete="on"
+    buttonIconProps={
+      Object {
+        "iconName": "ChevronDown",
+      }
+    }
+    calloutProps={
+      Object {
+        "directionalHint": 4,
+        "directionalHintFixed": true,
+        "id": "combobox-callout-10",
+      }
+    }
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    label="test label"
+    onChange={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onPendingValueChanged={[Function]}
+    options={
+      Array [
+        Object {
+          "data": "<span><span class=\\"match\\">text1</span></span>",
+          "key": "key1",
+          "text": "text1",
+        },
+      ]
+    }
+    placeholder="test place holder"
+    styles={
+      Object {
+        "optionsContainerWrapper": Object {
+          "maxHeight": 400,
+        },
+      }
+    }
+    useComboBoxAsMenuWidth={true}
+  />
+</div>
+`;
+
+exports[`ComboBox should handle custom text input as new option 1`] = `
+<div
+  className="combo-box user-input-box "
+  id="comboBoxId"
+>
+  <CustomizedComboBox
+    allowFreeform={true}
+    autoComplete="on"
+    buttonIconProps={
+      Object {
+        "iconName": "ChevronDown",
+      }
+    }
+    calloutProps={
+      Object {
+        "directionalHint": 4,
+        "directionalHintFixed": true,
+        "id": "combobox-callout-9",
+      }
+    }
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    label="test label"
+    onChange={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onPendingValueChanged={[Function]}
+    options={Array []}
+    placeholder="test place holder"
+    styles={
+      Object {
+        "optionsContainerWrapper": Object {
+          "maxHeight": 400,
+        },
+      }
+    }
+    useComboBoxAsMenuWidth={true}
+  />
+</div>
+`;
+
+exports[`ComboBox should handle custom text input when input is undefined 1`] = `
+<div
+  className="combo-box user-input-box "
+  id="comboBoxId"
+>
+  <CustomizedComboBox
+    allowFreeform={true}
+    autoComplete="on"
+    buttonIconProps={
+      Object {
+        "iconName": "ChevronDown",
+      }
+    }
+    calloutProps={
+      Object {
+        "directionalHint": 4,
+        "directionalHintFixed": true,
+        "id": "combobox-callout-11",
+      }
+    }
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    label="test label"
+    onChange={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onPendingValueChanged={[Function]}
+    options={
+      Array [
+        Object {
+          "key": "key1",
+          "text": "text1",
+        },
+        Object {
+          "key": "key2",
+          "text": "text2",
+        },
+        Object {
+          "key": "key3",
+          "text": "text3",
+        },
+      ]
+    }
+    placeholder="test place holder"
+    styles={
+      Object {
+        "optionsContainerWrapper": Object {
+          "maxHeight": 400,
+        },
+      }
+    }
+    useComboBoxAsMenuWidth={true}
+  />
+</div>
+`;
+
+exports[`ComboBox should handle header option type 1`] = `
+<CustomizedComboBox
+  allowFreeform={true}
+  autoComplete="on"
+  buttonIconProps={
+    Object {
+      "iconName": "ChevronDown",
+    }
+  }
+  calloutProps={
+    Object {
+      "directionalHint": 4,
+      "directionalHintFixed": true,
+      "id": "combobox-callout-18",
+    }
+  }
+  componentRef={
+    Object {
+      "current": null,
+    }
+  }
+  label="test label"
+  onChange={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onPendingValueChanged={[Function]}
+  options={Array []}
+  placeholder="test place holder"
+  selectedKey="key1"
+  styles={
+    Object {
+      "optionsContainerWrapper": Object {
+        "maxHeight": 400,
+      },
+    }
+  }
+  useComboBoxAsMenuWidth={true}
+/>
+`;
+
+exports[`ComboBox should handle onClick and focus 1`] = `
+<div
+  className="combo-box user-input-box "
+  id="comboBoxId"
+>
+  <CustomizedComboBox
+    allowFreeform={true}
+    autoComplete="on"
+    buttonIconProps={
+      Object {
+        "iconName": "ChevronDown",
+      }
+    }
+    calloutProps={
+      Object {
+        "directionalHint": 4,
+        "directionalHintFixed": true,
+        "id": "combobox-callout-22",
+      }
+    }
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    label="test label"
+    onChange={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onPendingValueChanged={[Function]}
+    options={
+      Array [
+        Object {
+          "key": "key1",
+          "text": "text1",
+        },
+        Object {
+          "key": "key2",
+          "text": "text2",
+        },
+        Object {
+          "key": "key3",
+          "text": "text3",
+        },
+      ]
+    }
+    placeholder="test place holder"
+    styles={
+      Object {
+        "optionsContainerWrapper": Object {
+          "maxHeight": 400,
+        },
+      }
+    }
+    useComboBoxAsMenuWidth={true}
+  />
+</div>
+`;
+
+exports[`ComboBox should handle onClick with no callback 1`] = `
+<div
+  className="combo-box user-input-box "
+  id="comboBoxId"
+>
+  <CustomizedComboBox
+    allowFreeform={true}
+    autoComplete="on"
+    buttonIconProps={
+      Object {
+        "iconName": "ChevronDown",
+      }
+    }
+    calloutProps={
+      Object {
+        "directionalHint": 4,
+        "directionalHintFixed": true,
+        "id": "combobox-callout-8",
+      }
+    }
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    label="test label"
+    onChange={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onPendingValueChanged={[Function]}
+    options={
+      Array [
+        Object {
+          "key": "key1",
+          "text": "text1",
+        },
+        Object {
+          "key": "key2",
+          "text": "text2",
+        },
+        Object {
+          "key": "key3",
+          "text": "text3",
+        },
+      ]
+    }
+    placeholder="test place holder"
+    styles={
+      Object {
+        "optionsContainerWrapper": Object {
+          "maxHeight": 400,
+        },
+      }
+    }
+    useComboBoxAsMenuWidth={true}
+  />
+</div>
+`;
+
+exports[`ComboBox should open when focusOnInitially set 1`] = `
+<CustomizedComboBox
+  allowFreeform={true}
+  autoComplete="on"
+  buttonIconProps={
+    Object {
+      "iconName": "ChevronDown",
+    }
+  }
+  calloutProps={
+    Object {
+      "directionalHint": 4,
+      "directionalHintFixed": true,
+      "id": "combobox-callout-7",
+    }
+  }
+  componentRef={
+    Object {
+      "current": null,
+    }
+  }
+  label="test label"
+  onChange={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onPendingValueChanged={[Function]}
+  options={
+    Array [
+      Object {
+        "key": "key1",
+        "text": "text1",
+      },
+      Object {
+        "key": "key2",
+        "text": "text2",
+      },
+      Object {
+        "key": "key3",
+        "text": "text3",
+      },
+    ]
+  }
+  placeholder="test place holder"
+  styles={
+    Object {
+      "optionsContainerWrapper": Object {
+        "maxHeight": 400,
+      },
+    }
+  }
+  useComboBoxAsMenuWidth={true}
+/>
+`;
+
+exports[`ComboBox should remove headers with no selected options beneath them 1`] = `
+<CustomizedComboBox
+  allowFreeform={true}
+  autoComplete="on"
+  buttonIconProps={
+    Object {
+      "iconName": "ChevronDown",
+    }
+  }
+  calloutProps={
+    Object {
+      "directionalHint": 4,
+      "directionalHintFixed": true,
+      "id": "combobox-callout-19",
+    }
+  }
+  componentRef={
+    Object {
+      "current": null,
+    }
+  }
+  label="test label"
+  onChange={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onPendingValueChanged={[Function]}
+  options={Array []}
+  placeholder="test place holder"
+  selectedKey="key1"
+  styles={
+    Object {
+      "optionsContainerWrapper": Object {
+        "maxHeight": 400,
+      },
+    }
+  }
+  useComboBoxAsMenuWidth={true}
+/>
+`;
+
+exports[`ComboBox should render 1`] = `
+<div
+  className="combo-box user-input-box "
+  id="comboBoxId"
+>
+  <CustomizedComboBox
+    allowFreeform={true}
+    autoComplete="on"
+    buttonIconProps={
+      Object {
+        "iconName": "ChevronDown",
+      }
+    }
+    calloutProps={
+      Object {
+        "directionalHint": 4,
+        "directionalHintFixed": true,
+        "id": "combobox-callout-1",
+      }
+    }
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    label="test label"
+    onChange={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onPendingValueChanged={[Function]}
+    options={
+      Array [
+        Object {
+          "key": "key1",
+          "text": "text1",
+        },
+        Object {
+          "key": "key2",
+          "text": "text2",
+        },
+        Object {
+          "key": "key3",
+          "text": "text3",
+        },
+      ]
+    }
+    placeholder="test place holder"
+    styles={
+      Object {
+        "optionsContainerWrapper": Object {
+          "maxHeight": 400,
+        },
+      }
+    }
+    useComboBoxAsMenuWidth={true}
+  />
+</div>
+`;
+
+exports[`ComboBox should render with initial selected key if set 1`] = `
+<CustomizedComboBox
+  allowFreeform={true}
+  autoComplete="on"
+  buttonIconProps={
+    Object {
+      "iconName": "ChevronDown",
+    }
+  }
+  calloutProps={
+    Object {
+      "directionalHint": 4,
+      "directionalHintFixed": true,
+      "id": "combobox-callout-17",
+    }
+  }
+  componentRef={
+    Object {
+      "current": null,
+    }
+  }
+  label="test label"
+  onChange={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onPendingValueChanged={[Function]}
+  options={
+    Array [
+      Object {
+        "key": "key1",
+        "text": "text1",
+      },
+      Object {
+        "key": "key2",
+        "text": "text2",
+      },
+      Object {
+        "key": "key3",
+        "text": "text3",
+      },
+    ]
+  }
+  placeholder="test place holder"
+  selectedKey="key1"
+  styles={
+    Object {
+      "optionsContainerWrapper": Object {
+        "maxHeight": 400,
+      },
+    }
+  }
+  useComboBoxAsMenuWidth={true}
+/>
+`;
+
+exports[`ComboBox should render with no options 1`] = `
+<div
+  className="combo-box user-input-box "
+  id="comboBoxId"
+>
+  <CustomizedComboBox
+    allowFreeform={true}
+    autoComplete="on"
+    buttonIconProps={
+      Object {
+        "iconName": "ChevronDown",
+      }
+    }
+    calloutProps={
+      Object {
+        "directionalHint": 4,
+        "directionalHintFixed": true,
+        "id": "combobox-callout-4",
+      }
+    }
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    label="test label"
+    onChange={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onPendingValueChanged={[Function]}
+    options={Array []}
+    placeholder="test place holder"
+    styles={
+      Object {
+        "optionsContainerWrapper": Object {
+          "maxHeight": 400,
+        },
+      }
+    }
+    useComboBoxAsMenuWidth={true}
+  />
+</div>
+`;
+
+exports[`ComboBox should render with no placeholder text and no id 1`] = `
+<div
+  className="combo-box user-input-box "
+  id=""
+>
+  <CustomizedComboBox
+    allowFreeform={true}
+    autoComplete="on"
+    buttonIconProps={
+      Object {
+        "iconName": "ChevronDown",
+      }
+    }
+    calloutProps={
+      Object {
+        "directionalHint": 4,
+        "directionalHintFixed": true,
+        "id": "combobox-callout-2",
+      }
+    }
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    label="test label"
+    onChange={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onPendingValueChanged={[Function]}
+    options={
+      Array [
+        Object {
+          "key": "key1",
+          "text": "text1",
+        },
+        Object {
+          "key": "key2",
+          "text": "text2",
+        },
+        Object {
+          "key": "key3",
+          "text": "text3",
+        },
+      ]
+    }
+    placeholder="Select or search by name"
+    styles={
+      Object {
+        "optionsContainerWrapper": Object {
+          "maxHeight": 400,
+        },
+      }
+    }
+    useComboBoxAsMenuWidth={true}
+  />
+</div>
+`;
+
+exports[`ComboBox should render with updated errorMessage props 1`] = `
+<div
+  className="combo-box user-input-box "
+  id="comboBoxId"
+>
+  <CustomizedComboBox
+    allowFreeform={true}
+    autoComplete="on"
+    buttonIconProps={
+      Object {
+        "iconName": "ChevronDown",
+      }
+    }
+    calloutProps={
+      Object {
+        "directionalHint": 4,
+        "directionalHintFixed": true,
+        "id": "combobox-callout-3",
+      }
+    }
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    label="test label"
+    onChange={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onPendingValueChanged={[Function]}
+    options={
+      Array [
+        Object {
+          "key": "key1",
+          "text": "text1",
+        },
+        Object {
+          "key": "key2",
+          "text": "text2",
+        },
+        Object {
+          "key": "key3",
+          "text": "text3",
+        },
+      ]
+    }
+    placeholder="test place holder"
+    styles={
+      Object {
+        "optionsContainerWrapper": Object {
+          "maxHeight": 400,
+        },
+      }
+    }
+    useComboBoxAsMenuWidth={true}
+  />
+</div>
+`;
+
+exports[`ComboBox should render with updated errorMessage props 2`] = `
+<div
+  className="combo-box user-input-box "
+  id="comboBoxId"
+>
+  <CustomizedComboBox
+    allowFreeform={true}
+    autoComplete="on"
+    buttonIconProps={
+      Object {
+        "iconName": "ChevronDown",
+      }
+    }
+    calloutProps={
+      Object {
+        "directionalHint": 4,
+        "directionalHintFixed": true,
+        "id": "combobox-callout-3",
+      }
+    }
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    errorMessage="some new error!"
+    label="test label"
+    onChange={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onPendingValueChanged={[Function]}
+    options={
+      Array [
+        Object {
+          "key": "key1",
+          "text": "text1",
+        },
+        Object {
+          "key": "key2",
+          "text": "text2",
+        },
+        Object {
+          "key": "key3",
+          "text": "text3",
+        },
+      ]
+    }
+    placeholder="test place holder"
+    styles={
+      Object {
+        "optionsContainerWrapper": Object {
+          "maxHeight": 400,
+        },
+      }
+    }
+    useComboBoxAsMenuWidth={true}
+  />
+</div>
+`;
+
+exports[`ComboBox should return option if it's not a header 1`] = `
+<CustomizedComboBox
+  allowFreeform={true}
+  autoComplete="on"
+  buttonIconProps={
+    Object {
+      "iconName": "ChevronDown",
+    }
+  }
+  calloutProps={
+    Object {
+      "directionalHint": 4,
+      "directionalHintFixed": true,
+      "id": "combobox-callout-20",
+    }
+  }
+  componentRef={
+    Object {
+      "current": null,
+    }
+  }
+  label="test label"
+  onChange={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onPendingValueChanged={[Function]}
+  options={
+    Array [
+      Object {
+        "itemType": 2,
+        "key": "newHeader",
+        "text": "--",
+      },
+      Object {
+        "data": "<span><span class=\\"match\\">belowHeader</span></span>",
+        "key": "belowHeader",
+        "text": "belowHeader",
+      },
+    ]
+  }
+  placeholder="test place holder"
+  selectedKey="key1"
+  styles={
+    Object {
+      "optionsContainerWrapper": Object {
+        "maxHeight": 400,
+      },
+    }
+  }
+  useComboBoxAsMenuWidth={true}
+/>
+`;
+
+exports[`ComboBox should select option as typed 1`] = `
+<div
+  className="combo-box user-input-box "
+  id="comboBoxId"
+>
+  <CustomizedComboBox
+    allowFreeform={true}
+    autoComplete="on"
+    buttonIconProps={
+      Object {
+        "iconName": "ChevronDown",
+      }
+    }
+    calloutProps={
+      Object {
+        "directionalHint": 4,
+        "directionalHintFixed": true,
+        "id": "combobox-callout-5",
+      }
+    }
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    label="test label"
+    onChange={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onPendingValueChanged={[Function]}
+    options={Array []}
+    placeholder="test place holder"
+    styles={
+      Object {
+        "optionsContainerWrapper": Object {
+          "maxHeight": 400,
+        },
+      }
+    }
+    useComboBoxAsMenuWidth={true}
+  />
+</div>
+`;
+
+exports[`ComboBox should update options on props change 1`] = `
+<div
+  className="combo-box user-input-box "
+  id="comboBoxId"
+>
+  <CustomizedComboBox
+    allowFreeform={true}
+    autoComplete="on"
+    buttonIconProps={
+      Object {
+        "iconName": "ChevronDown",
+      }
+    }
+    calloutProps={
+      Object {
+        "directionalHint": 4,
+        "directionalHintFixed": true,
+        "id": "combobox-callout-6",
+      }
+    }
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    label="test label"
+    onChange={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onPendingValueChanged={[Function]}
+    options={
+      Array [
+        Object {
+          "key": "key1",
+          "text": "text1",
+        },
+        Object {
+          "key": "key2",
+          "text": "text2",
+        },
+        Object {
+          "key": "key3",
+          "text": "text3",
+        },
+      ]
+    }
+    placeholder="test place holder"
+    styles={
+      Object {
+        "optionsContainerWrapper": Object {
+          "maxHeight": 400,
+        },
+      }
+    }
+    useComboBoxAsMenuWidth={true}
+  />
+</div>
+`;
+
+exports[`ComboBox should update options on props change 2`] = `
+<div
+  className="combo-box user-input-box "
+  id="comboBoxId"
+>
+  <CustomizedComboBox
+    allowFreeform={true}
+    autoComplete="on"
+    buttonIconProps={
+      Object {
+        "iconName": "ChevronDown",
+      }
+    }
+    calloutProps={
+      Object {
+        "directionalHint": 4,
+        "directionalHintFixed": true,
+        "id": "combobox-callout-6",
+      }
+    }
+    componentRef={
+      Object {
+        "current": null,
+      }
+    }
+    label="test label"
+    onChange={[Function]}
+    onClick={[Function]}
+    onFocus={[Function]}
+    onPendingValueChanged={[Function]}
+    options={
+      Array [
+        Object {
+          "key": "newKey1",
+          "text": "newTex1",
+        },
+        Object {
+          "key": "newKey2",
+          "text": "newText2",
+        },
+        Object {
+          "key": "newKey3",
+          "text": "newText3",
+        },
+      ]
+    }
+    placeholder="test place holder"
+    styles={
+      Object {
+        "optionsContainerWrapper": Object {
+          "maxHeight": 400,
+        },
+      }
+    }
+    useComboBoxAsMenuWidth={true}
+  />
+</div>
+`;
+
+exports[`ComboBox should use as-search-box css class if asSearchBox is set 1`] = `
+<CustomizedComboBox
+  allowFreeform={true}
+  autoComplete="on"
+  buttonIconProps={
+    Object {
+      "iconName": "ChevronDown",
+    }
+  }
+  calloutProps={
+    Object {
+      "directionalHint": 4,
+      "directionalHintFixed": true,
+      "id": "combobox-callout-16",
+    }
+  }
+  componentRef={
+    Object {
+      "current": null,
+    }
+  }
+  label="test label"
+  onChange={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onPendingValueChanged={[Function]}
+  options={
+    Array [
+      Object {
+        "key": "key1",
+        "text": "text1",
+      },
+      Object {
+        "key": "key2",
+        "text": "text2",
+      },
+      Object {
+        "key": "key3",
+        "text": "text3",
+      },
+    ]
+  }
+  placeholder="test place holder"
+  styles={
+    Object {
+      "optionsContainerWrapper": Object {
+        "maxHeight": 400,
+      },
+    }
+  }
+  useComboBoxAsMenuWidth={true}
+/>
+`;

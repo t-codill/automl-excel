@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormTextInput should render 1`] = `
+<StyledTextFieldBase
+  field="experimentName"
+  id="TextFieldId"
+  label="test label"
+  onChange={[Function]}
+  placeholder="test place holder"
+  required={true}
+/>
+`;

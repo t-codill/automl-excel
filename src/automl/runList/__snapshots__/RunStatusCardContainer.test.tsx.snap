@@ -1,0 +1,83 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`RunStatusCard Invalid Props should match snapshot 1`] = `
+<FocusZone
+  className="ms-Grid"
+  direction={2}
+  isCircularNavigation={false}
+>
+  <RunStatusCard
+    className="ms-Grid-col ms-sm6 ms-md6 ms-lg6 ms-xl6 ms-xxl6 ms-xxxl6"
+    handleStatusFilterChange={[Function]}
+    isActive={false}
+    key="Running"
+    runStatusCount={0}
+    runStatusLabel="Running"
+  />
+  <RunStatusCard
+    className="ms-Grid-col ms-sm6 ms-md6 ms-lg6 ms-xl6 ms-xxl6 ms-xxxl6"
+    handleStatusFilterChange={[Function]}
+    isActive={false}
+    key="Completed"
+    runStatusCount={0}
+    runStatusLabel="Completed"
+  />
+  <RunStatusCard
+    className="ms-Grid-col ms-sm6 ms-md6 ms-lg6 ms-xl6 ms-xxl6 ms-xxxl6"
+    handleStatusFilterChange={[Function]}
+    isActive={false}
+    key="Failed"
+    runStatusCount={0}
+    runStatusLabel="Failed"
+  />
+  <RunStatusCard
+    className="ms-Grid-col ms-sm6 ms-md6 ms-lg6 ms-xl6 ms-xxl6 ms-xxxl6"
+    handleStatusFilterChange={[Function]}
+    isActive={false}
+    key="Others"
+    runStatusCount={0}
+    runStatusLabel="Others"
+  />
+</FocusZone>
+`;
+
+exports[`RunStatusCard Valid Props should match snapshot 1`] = `
+<FocusZone
+  className="ms-Grid"
+  direction={2}
+  isCircularNavigation={false}
+>
+  <RunStatusCard
+    className="ms-Grid-col ms-sm6 ms-md6 ms-lg6 ms-xl6 ms-xxl6 ms-xxxl6"
+    handleStatusFilterChange={[Function]}
+    isActive={false}
+    key="Running"
+    runStatusCount={8}
+    runStatusLabel="Running"
+  />
+  <RunStatusCard
+    className="ms-Grid-col ms-sm6 ms-md6 ms-lg6 ms-xl6 ms-xxl6 ms-xxxl6"
+    handleStatusFilterChange={[Function]}
+    isActive={false}
+    key="Completed"
+    runStatusCount={17}
+    runStatusLabel="Completed"
+  />
+  <RunStatusCard
+    className="ms-Grid-col ms-sm6 ms-md6 ms-lg6 ms-xl6 ms-xxl6 ms-xxxl6"
+    handleStatusFilterChange={[Function]}
+    isActive={false}
+    key="Failed"
+    runStatusCount={47}
+    runStatusLabel="Failed"
+  />
+  <RunStatusCard
+    className="ms-Grid-col ms-sm6 ms-md6 ms-lg6 ms-xl6 ms-xxl6 ms-xxxl6"
+    handleStatusFilterChange={[Function]}
+    isActive={false}
+    key="Others"
+    runStatusCount={16}
+    runStatusLabel="Others"
+  />
+</FocusZone>
+`;

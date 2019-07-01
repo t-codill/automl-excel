@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`PageRedirectRender should render component with noPush disabled 1`] = `
+<Redirect
+  push={true}
+  to="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testResource/providers/Microsoft.MachineLearningServices/workspaces/testWorkSpace/?flight="
+/>
+`;
+
+exports[`PageRedirectRender should render component with noPush enabled 1`] = `
+<Redirect
+  push={false}
+  to="/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testResource/providers/Microsoft.MachineLearningServices/workspaces/testWorkSpace/?flight="
+/>
+`;

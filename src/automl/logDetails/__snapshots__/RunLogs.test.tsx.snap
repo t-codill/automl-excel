@@ -1,0 +1,133 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Run Logs should render with setup run id 1`] = `
+<Fragment>
+  <StyledLinkBase
+    onClick={[Function]}
+  >
+    Download all
+  </StyledLinkBase>
+  <StyledPivotBase>
+    <PivotItem
+      headerText="path1"
+      key="path1"
+    >
+      <StyledLabelBase>
+        <RunLogContent
+          runLog={
+            Object {
+              "container": "container1",
+              "logName": "path1",
+              "origin": "origin1",
+              "path": "path1",
+              "prefix": "",
+            }
+          }
+        />
+      </StyledLabelBase>
+    </PivotItem>
+    <PivotItem
+      headerText="path2"
+      key="path2"
+    >
+      <StyledLabelBase>
+        <RunLogContent
+          runLog={
+            Object {
+              "container": "container2",
+              "logName": "path2",
+              "origin": "origin2",
+              "path": "path2",
+              "prefix": "",
+            }
+          }
+        />
+      </StyledLabelBase>
+    </PivotItem>
+    <PivotItem
+      headerText="setup_path1"
+      key="setup_path1"
+    >
+      <StyledLabelBase>
+        <RunLogContent
+          runLog={
+            Object {
+              "container": "container1",
+              "logName": "setup_path1",
+              "origin": "origin1",
+              "path": "path1",
+              "prefix": "setup_",
+            }
+          }
+        />
+      </StyledLabelBase>
+    </PivotItem>
+    <PivotItem
+      headerText="setup_path2"
+      key="setup_path2"
+    >
+      <StyledLabelBase>
+        <RunLogContent
+          runLog={
+            Object {
+              "container": "container2",
+              "logName": "setup_path2",
+              "origin": "origin2",
+              "path": "path2",
+              "prefix": "setup_",
+            }
+          }
+        />
+      </StyledLabelBase>
+    </PivotItem>
+  </StyledPivotBase>
+</Fragment>
+`;
+
+exports[`Run Logs should render without setup run id 1`] = `
+<Fragment>
+  <StyledLinkBase
+    onClick={[Function]}
+  >
+    Download all
+  </StyledLinkBase>
+  <StyledPivotBase>
+    <PivotItem
+      headerText="path1"
+      key="path1"
+    >
+      <StyledLabelBase>
+        <RunLogContent
+          runLog={
+            Object {
+              "container": "container1",
+              "logName": "path1",
+              "origin": "origin1",
+              "path": "path1",
+              "prefix": "",
+            }
+          }
+        />
+      </StyledLabelBase>
+    </PivotItem>
+    <PivotItem
+      headerText="path2"
+      key="path2"
+    >
+      <StyledLabelBase>
+        <RunLogContent
+          runLog={
+            Object {
+              "container": "container2",
+              "logName": "path2",
+              "origin": "origin2",
+              "path": "path2",
+              "prefix": "",
+            }
+          }
+        />
+      </StyledLabelBase>
+    </PivotItem>
+  </StyledPivotBase>
+</Fragment>
+`;

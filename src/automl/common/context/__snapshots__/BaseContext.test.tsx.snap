@@ -1,0 +1,14 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseContext should read default context 1`] = `
+Object {
+  "flight": WorkspaceFlight {
+    "flight": Object {},
+  },
+  "getToken": [Function],
+  "logger": Logger {},
+  "pageName": "",
+  "setPageName": [Function],
+  "theme": "light",
+}
+`;

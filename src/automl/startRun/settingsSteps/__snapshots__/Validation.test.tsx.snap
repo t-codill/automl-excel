@@ -1,0 +1,21 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Cross Validation Input should render with valid props 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="validation"
+    labelText="Validation"
+    required={false}
+  >
+    Choose validation type
+  </LabelWithCallout>
+  <div>
+    <ValidationTypeSelector
+      jobType="classification"
+      onChange={[Function]}
+      validationType={1}
+    />
+    <crossValidationNumberInput />
+  </div>
+</Fragment>
+`;

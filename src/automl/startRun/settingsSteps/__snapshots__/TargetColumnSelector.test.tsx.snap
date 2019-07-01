@@ -1,0 +1,100 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`TargetColumnSelector Filter should filter correct results 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="settingsStepsTargetColumnSelector"
+    labelText="Target column"
+    required={true}
+  >
+    This is what the model will be trained to predict.
+  </LabelWithCallout>
+  <FormDropdown
+    field="column"
+    id="settingsStepsTargetColumnSelector"
+    options={
+      Array [
+        Object {
+          "key": "A",
+          "text": "A",
+        },
+        Object {
+          "key": "B",
+          "text": "B",
+        },
+        Object {
+          "key": "C",
+          "text": "C",
+        },
+      ]
+    }
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`TargetColumnSelector should render with undefined props 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="settingsStepsTargetColumnSelector"
+    labelText="Target column"
+    required={true}
+  >
+    This is what the model will be trained to predict.
+  </LabelWithCallout>
+  <FormDropdown
+    field="column"
+    id="settingsStepsTargetColumnSelector"
+    options={Array []}
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
+exports[`TargetColumnSelector should render with valid props 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="settingsStepsTargetColumnSelector"
+    labelText="Target column"
+    required={true}
+  >
+    This is what the model will be trained to predict.
+  </LabelWithCallout>
+  <FormDropdown
+    field="column"
+    id="settingsStepsTargetColumnSelector"
+    options={
+      Array [
+        Object {
+          "key": "A",
+          "text": "A",
+        },
+        Object {
+          "key": "B",
+          "text": "B",
+        },
+        Object {
+          "key": "C",
+          "text": "C",
+        },
+      ]
+    }
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;

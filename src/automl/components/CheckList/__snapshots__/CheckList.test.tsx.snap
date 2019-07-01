@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CheckList should  render list item 1`] = `
+<CheckListItem
+  item="Item0"
+  onChange={[Function]}
+/>
+`;
+
+exports[`CheckList should render empty list when the number of items is zero 1`] = `
+<Fragment>
+  <List
+    className="checkList"
+    defaultValue={Array []}
+    items={Array []}
+    onRenderCell={[Function]}
+    renderedWindowsAhead={2}
+    renderedWindowsBehind={2}
+    startIndex={0}
+  />
+  <ValidationError />
+</Fragment>
+`;
+
+exports[`CheckList should render list with a checkbox for each item in items 1`] = `
+<Fragment>
+  <List
+    className="checkList"
+    defaultValue={Array []}
+    items={
+      Array [
+        "Item0",
+        "Item1",
+        "Item2",
+        "Item3",
+        "Item4",
+        "Item5",
+        "Item6",
+        "Item7",
+        "Item8",
+        "Item9",
+      ]
+    }
+    onRenderCell={[Function]}
+    renderedWindowsAhead={2}
+    renderedWindowsBehind={2}
+    startIndex={0}
+  />
+  <ValidationError />
+</Fragment>
+`;

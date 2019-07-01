@@ -1,0 +1,115 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`BaseRoute should render component 1`] = `
+<NotFound
+  param1="param1"
+  param2="param2"
+/>
+`;
+
+exports[`BaseRoute should render route 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Route
+    exact={true}
+    path="/"
+    render={[Function]}
+  />
+</Router>
+`;
+
+exports[`DefaultRoute should render component 1`] = `
+<NotFound
+  param1="param1"
+  param2="param2"
+/>
+`;
+
+exports[`DefaultRoute should render route 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Route
+    exact={false}
+    path="/"
+    render={[Function]}
+  />
+</Router>
+`;
+
+exports[`PageRoute should render component 1`] = `
+<ParentRun
+  experimentName="experimentName"
+  runId="runId"
+/>
+`;
+
+exports[`PageRoute should render route 1`] = `
+<Router
+  history={
+    Object {
+      "action": "POP",
+      "block": [Function],
+      "createHref": [Function],
+      "go": [Function],
+      "goBack": [Function],
+      "goForward": [Function],
+      "length": 1,
+      "listen": [Function],
+      "location": Object {
+        "hash": "",
+        "pathname": "/",
+        "search": "",
+        "state": undefined,
+      },
+      "push": [Function],
+      "replace": [Function],
+    }
+  }
+>
+  <Route
+    exact={true}
+    path="/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.MachineLearningServices/workspaces/:workspaceName/experiments/:experimentName/parentrun/:runId"
+    render={[Function]}
+  />
+</Router>
+`;

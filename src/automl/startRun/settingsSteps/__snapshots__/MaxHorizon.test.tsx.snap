@@ -1,0 +1,36 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`MaxHorizon should render 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="settingsStepsMaxHorizon"
+    labelText="Forecast Horizon"
+    required={true}
+  >
+    Forecasting expects periodic data (e.g. daily, weekly).  Horizon is how many periods forward you would like to forecast.  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-auto-train-forecast#configure-experiment"
+      target="_blank"
+    >
+      Learn more about forecast horizon 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+  </LabelWithCallout>
+  <FormTextInput
+    ariaLabel="Please enter forecast horizon"
+    field="maxHorizon"
+    id="settingsStepsMaxHorizon"
+    placeholder="Forecast horizon"
+    validators={
+      Array [
+        [Function],
+        [Function],
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
