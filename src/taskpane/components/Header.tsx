@@ -15,9 +15,9 @@ export default class Header extends React.Component<HeaderProps> {
         } = this.props;
 
         return (
-            <section className='ms-welcome__header ms-bgColor-neutralLighter ms-u-fadeIn500'>
-                <img width='90' height='90' src={logo} alt={title} title={title} />
-                <h1 className='ms-fontSize-su ms-fontWeight-light ms-fontColor-neutralPrimary'>{message}</h1>
+            <section className='ms-welcome__header ms-bgColor-neutral ms-u-fadeIn500'>
+                <img width='100' height='100' src={logo} alt={title} title={title} />
+                <h1 className='ms-fontSize-40px ms-fontColor-blue'><b>{message}</b></h1>
             </section>
         );
     }

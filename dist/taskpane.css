@@ -9,6 +9,8 @@
      height: 100%;
      margin: 0;
      padding: 0;
+     font-family: az_ea_font,"Segoe UI",az_font,system-ui,-apple-system,BlinkMacSystemFont,Roboto,Oxygen,Ubuntu,Cantarell,"Open Sans","Helvetica Neue",sans-serif;
+     text-align: center;
  }
  
  ul {
@@ -42,9 +44,9 @@
  }
  
  .ms-welcome__main > h2 {
-     width: 100%;
-     text-align: center;
- }
+    width: 100%;
+    text-align: center;
+}
  
  .ms-welcome__features {
      list-style-type: none;

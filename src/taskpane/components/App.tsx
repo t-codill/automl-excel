@@ -1,8 +1,17 @@
 import * as React from 'react';
-import { Button, ButtonType } from 'office-ui-fabric-react';
-import Header from './Header';
-import HeroList, { HeroListItem } from './HeroList';
-import Progress from './Progress';
+// import { ButtonType, PrimaryButton } from 'office-ui-fabric-react';
+// import Header from './Header';
+// import HeroList, { HeroListItem } from './HeroList';
+import HeroList, {HeroListItem} from './HeroList';
+ import Progress from './Progress';
+//import ShowExistingModels from './ShowExistingModels';
+import {Link, Switch, Route, Router} from 'react-router-dom';
+import {createMemoryHistory} from 'history';
+// import Header from './Header';
+import ShowExistingModels from './ShowExistingModels';
+import Welcome from './Welcome';
+
+const memoryHistory = createMemoryHistory();
 
 export interface AppProps {
   title: string;
@@ -11,8 +20,9 @@ export interface AppProps {
 
 export interface AppState {
   listItems: HeroListItem[];
+  
 }
-
+// interface for changing state - 
 export default class App extends React.Component<AppProps, AppState> {
   constructor(props, context) {
     super(props, context);
@@ -24,18 +34,6 @@ export default class App extends React.Component<AppProps, AppState> {
   componentDidMount() {
     this.setState({
       listItems: [
-        {
-          icon: 'Ribbon',
-          primaryText: 'Achieve more with Office integration'
-        },
-        {
-          icon: 'Unlock',
-          primaryText: 'Unlock features and functionality'
-        },
-        {
-          icon: 'Design',
-          primaryText: 'Create and visualize like a pro'
-        }
       ]
     });
   }
@@ -52,8 +50,8 @@ export default class App extends React.Component<AppProps, AppState> {
         range.load("address");
 
         // Update the fill color
-        range.format.fill.color = "yellow";
-
+    //    range.format.fill.color = "green";
+   
         await context.sync();
         console.log(`The range address was ${range.address}.`);
       });
@@ -61,6 +59,10 @@ export default class App extends React.Component<AppProps, AppState> {
       console.error(error);
     }
   }
+
+  
+
+
 
   render() {
     const {
@@ -76,16 +78,43 @@ export default class App extends React.Component<AppProps, AppState> {
           message='Please sideload your addin to see app body.'
         />
       );
+      
     }
 
+   
+
     return (
-      <div className='ms-welcome'>
-        <Header logo='assets/logo-filled.png' title={this.props.title} message='Welcome' />
-        <HeroList message='Discover what Office Add-ins can do for you today!' items={this.state.listItems}>
-          <p className='ms-font-l'>Modify the source files, then click <b>Run</b>.</p>
-          <Button className='ms-welcome__action' buttonType={ButtonType.hero} iconProps={{ iconName: 'ChevronRight' }} onClick={this.click}>Run</Button>
-        </HeroList>
-      </div>
+      <Router history = {memoryHistory}>
+    <Switch>
+    {/* <Header logo='assets/azuremachinelearninglogo.png' title={this.props.title} message='Azure Machine Learning' /> */}
+      <Route path = "/train"><p>train ux</p><Link to="/">Back</Link></Route>
+      <Route path = "/test"><p>test ux</p><ShowExistingModels /><Link to="/">Back</Link></Route>
+      <Route path = "/welcome"><p></p><Welcome /><Link to="/">Back</Link></Route>
+      <Route path = "/showexistingmodels"><p>Show Existing Models</p><ShowExistingModels /><Link to="/">Back</Link></Route>
+      <Route exact path = '/'><p>intro</p><Link to="/train">Back</Link><Link to='/test'>Test</Link><Link to ="/welcome">Welcome</Link><Link to ="/showexistingmodels">Show Existing Models</Link></Route>
+      <HeroList message='' items={this.state.listItems}>
+      </HeroList>
+      </Switch>
+    </Router>
+    //   <div className='ms-welcome'>
+      
+    //     <Header logo='assets/azuremachinelearninglogo.png' title={this.props.title} message='Azure Machine Learning' />
+      
+    //   {/* <Link to = "/ShowExistingModels"><PrimaryButton className='ms-welcome__action' buttonType={ButtonType.hero} iconProps={{ iconName: 'ChevronRight' }}  */}
+    //   {/* onClick={this.click}>Create New Model</PrimaryButton></Link> */}
+    //       <p className='ms-font-l'></p>
+    //       <Link to = "/ShowExistingModels"><PrimaryButton className='ms-welcome__action' buttonType={ButtonType.hero} iconProps={{ iconName: 'ChevronRight' }}
+    //  onClick={this.click}>Create New Model</PrimaryButton></Link> 
+    //       <p className='ms-font-l'></p>
+    //       <h1>test</h1>
+        
+    //       <HeroList message='' items={this.state.listItems}>
+    //     </HeroList>
+ 
+    //   </div>
+      
     );
   }
-}
+  
+
+ }
