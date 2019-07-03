@@ -12,6 +12,8 @@ import { Pivot, PivotItem, IconButton } from 'office-ui-fabric-react';
 
 //import Train from './Train'
 import { /*IAppContextProps,*/ appContextDefaults, AppContext } from './AppContext';
+//import Train from './Train';
+import Test from './Test';
 
 const memoryHistory = createMemoryHistory();
 
@@ -125,7 +127,7 @@ export default class App extends React.Component<AppProps, AppState> {
       }else{
         subList = [];
         this.state.subscriptionList.forEach((subscription: SubscriptionModels.Subscription) => {
-          subList.push(<p>{subscription.displayName} - {subscription.id} - {subscription.subscriptionId}</p>);
+          subList.push(<p key={subscription.id}>{subscription.displayName} - {subscription.id} - {subscription.subscriptionId}</p>);
         });
       }
 
@@ -135,7 +137,7 @@ export default class App extends React.Component<AppProps, AppState> {
       }else{
         workspaceList = []
         this.state.workspaceList.forEach((workspace: AzureMachineLearningWorkspacesModels.Workspace) => {
-          workspaceList.push(<p>{workspace.name} - {workspace.friendlyName}</p>);
+          workspaceList.push(<p key={workspace.id}>{workspace.name} - {workspace.friendlyName}</p>);
         });
       }
 
@@ -152,19 +154,25 @@ export default class App extends React.Component<AppProps, AppState> {
     let RenderPage = renderPage.bind(this)({});
 
     let Navbar = withRouter((props) => {
-      const titles = {
-        '/train': 'Create and Train New Model',
-        '/test': 'Use and Evaluate Existing Model'
+      const data = {
+        '/train': {
+          title: 'Create and Train New Model',
+          index: 0
+        },
+        '/test': {
+          title: 'Use and Evaluate Existing Model',
+          index: 1
+        }
       }
 
-      if(['/train', '/test'].includes(props.location.pathname)){
+      if(data.hasOwnProperty(props.location.pathname)){
         return (
           <div >
             <div style={{position: 'relative', height: 32, textAlign: 'center'}} className="ms-train__header_block">
               <Link style={{position: 'absolute'}} to="/"><IconButton style={{color: 'white', display: 'inline-block'}} iconProps={{ iconName: 'ChromeBack'}} title="back" ariaLabel="back"/></Link>
-              <span className='ms-train__header'>{titles[props.location.pathname]}</span>
+              <span className='ms-train__header'>{data[props.location.pathname].title}</span>
             </div>
-            <Pivot style={{textAlign: 'center'}}>
+            <Pivot defaultSelectedIndex={data[props.location.pathname].index} style={{textAlign: 'center'}}>
               <PivotItem headerText="Train Model">
                 <Redirect to="/train"></Redirect>
               </PivotItem>
@@ -184,8 +192,8 @@ export default class App extends React.Component<AppProps, AppState> {
         <Router history={memoryHistory}>
           <Navbar />
           <Switch>
-            <Route path="/train"></Route>
-            <Route path="/test"><p>test ux</p><Link to='/'>Back</Link></Route>
+            <Route path="/train"><p>Train</p></Route>
+            <Route path="/test"><Test /></Route>
             <Route exact path='/'><p>main page</p><Link to='/train'>Train</Link><Link to='/test'>Test</Link></Route>
           </Switch>
         </Router>
