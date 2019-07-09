@@ -4,12 +4,11 @@ import * as React from 'react';
 // import HeroList, { HeroListItem } from './HeroList';
 import HeroList, {HeroListItem} from './HeroList';
  import Progress from './Progress';
-//import ShowExistingModels from './ShowExistingModels';
 import {Link, Switch, Route, Router} from 'react-router-dom';
 import {createMemoryHistory} from 'history';
-// import Header from './Header';
 import ShowExistingModels from './ShowExistingModels';
 import Welcome from './Welcome';
+import CreateNewModel from './CreateNewModel';
 
 const memoryHistory = createMemoryHistory();
 
@@ -89,30 +88,16 @@ export default class App extends React.Component<AppProps, AppState> {
     {/* <Header logo='assets/azuremachinelearninglogo.png' title={this.props.title} message='Azure Machine Learning' /> */}
       <Route path = "/train"><p>train ux</p><Link to="/">Back</Link></Route>
       <Route path = "/test"><p>test ux</p><ShowExistingModels /><Link to="/">Back</Link></Route>
-      <Route path = "/welcome"><p></p><Welcome /><Link to="/">Back</Link></Route>
-      <Route path = "/showexistingmodels"><p>Show Existing Models</p><ShowExistingModels /><Link to="/">Back</Link></Route>
+      <Route path = "/welcome"><p>welcome</p><Welcome /><Link to = "/CreateNewModel"><p>CreateNewModel</p></Link><Link to="/ShowExistingModels"><p>ShowExistingModels</p></Link></Route> 
+      <Route path = "/CreateNewModel"><p>createnewmodel<CreateNewModel /></p><Link to="/">Back</Link></Route>
+      <Route path = "/ShowExistingModels"><p>Show Existing Models</p><ShowExistingModels /><Link to="/">Back</Link></Route>
       <Route exact path = '/'><p>intro</p><Link to="/train">Back</Link><Link to='/test'>Test</Link><Link to ="/welcome">Welcome</Link><Link to ="/showexistingmodels">Show Existing Models</Link></Route>
+      
       <HeroList message='' items={this.state.listItems}>
       </HeroList>
       </Switch>
     </Router>
-    //   <div className='ms-welcome'>
-      
-    //     <Header logo='assets/azuremachinelearninglogo.png' title={this.props.title} message='Azure Machine Learning' />
-      
-    //   {/* <Link to = "/ShowExistingModels"><PrimaryButton className='ms-welcome__action' buttonType={ButtonType.hero} iconProps={{ iconName: 'ChevronRight' }}  */}
-    //   {/* onClick={this.click}>Create New Model</PrimaryButton></Link> */}
-    //       <p className='ms-font-l'></p>
-    //       <Link to = "/ShowExistingModels"><PrimaryButton className='ms-welcome__action' buttonType={ButtonType.hero} iconProps={{ iconName: 'ChevronRight' }}
-    //  onClick={this.click}>Create New Model</PrimaryButton></Link> 
-    //       <p className='ms-font-l'></p>
-    //       <h1>test</h1>
-        
-    //       <HeroList message='' items={this.state.listItems}>
-    //     </HeroList>
- 
-    //   </div>
-      
+  
     );
   }
   

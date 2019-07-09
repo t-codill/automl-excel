@@ -4,6 +4,7 @@ const CopyWebpackPlugin = require("copy-webpack-plugin");
 //const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
+const path = require('path');
 
 module.exports = async (env, options)  => {
   const dev = options.mode === "development";
@@ -82,11 +83,12 @@ module.exports = async (env, options)  => {
     ],
     devServer: {
       headers: {
-        "Access-Control-Allow-Origin": "*"
+      "Access-Control-Allow-Origin": "*"
       },
+      contentBase: path.join(__dirname, 'dist'),
       //https: await devCerts.getHttpsServerOptions(),
-      port: 3000
-    }
+      port: 8080
+      }
   };
 
   return config;

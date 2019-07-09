@@ -1,5 +1,6 @@
 import * as React from 'react';
 import { Dropdown, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
+import { PrimaryButton } from 'office-ui-fabric-react';
 
 
     interface SEMProps {
@@ -60,7 +61,9 @@ export default class ShowExistingModels extends React.Component<SEMProps, SEMSta
 
       
         <h3> Input Field</h3>
+        <h4>MVP - All data selected.</h4>
         <h3> Output Field</h3>
+        <PrimaryButton> Generate Prediction </PrimaryButton>
             </div>
         );
 
