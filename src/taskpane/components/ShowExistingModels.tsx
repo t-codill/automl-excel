@@ -1,7 +1,8 @@
 import * as React from 'react';
 import { Dropdown, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
-import { PrimaryButton } from 'office-ui-fabric-react';
-
+import { PrimaryButton, ButtonType } from 'office-ui-fabric-react';
+import CreateNewModel from './CreateNewModel';
+import {Link, Route} from 'react-router-dom';
 
     interface SEMProps {
     }
@@ -63,7 +64,7 @@ export default class ShowExistingModels extends React.Component<SEMProps, SEMSta
         <h3> Input Field</h3>
         <h4>MVP - All data selected.</h4>
         <h3> Output Field</h3>
-        <PrimaryButton> Generate Prediction </PrimaryButton>
+        <Route Path = "/ShowExistingModels"><PrimaryButton className = 'ms-welcome__action' buttonType = {ButtonType.hero} onClick = {this.click}><Link to = "/CreateNewModel"><CreateNewModel />Generate Prediction</Link> </PrimaryButton></Route>
             </div>
         );
 
