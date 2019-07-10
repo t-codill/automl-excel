@@ -55,13 +55,13 @@ module.exports = async (env, options)  => {
       //new CleanWebpackPlugin(),
       new CopyWebpackPlugin([
         {
-          to: "taskpane.css",
+          to: "taskpane/taskpane.css",
           from: "./src/taskpane/taskpane.css"
         }
       ]),
       //new ExtractTextPlugin('[name].[hash].css'),
       new HtmlWebpackPlugin({
-        filename: "taskpane.html",
+        filename: "taskpane/index.html",
           template: './src/taskpane/taskpane.html',
           chunks: ['taskpane', 'vendor', 'polyfills']
       }),
@@ -87,7 +87,10 @@ module.exports = async (env, options)  => {
       },
       contentBase: path.join(__dirname, 'dist'),
       //https: await devCerts.getHttpsServerOptions(),
-      port: 8080
+      port: 8080,
+      historyApiFallback: {
+        index: 'taskpane/index.html'
+      }
     }
   };
 

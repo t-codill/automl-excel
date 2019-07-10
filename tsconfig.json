@@ -31,7 +31,11 @@
     ]
   },
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "src/automl/Main.tsx",
+    "src/automl/components/*",
+    "src/automl/logDetails/LogDetails.test.tsx",
+    "src/automl/runList/RunList.test.tsx"
   ],
   "compileOnSave": false,
   "buildOnSave": false

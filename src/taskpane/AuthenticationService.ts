@@ -50,7 +50,6 @@ const authenticationService = {
             return json.accessToken;
             */
            let json = JSON.parse(response);
-           console.log(json)
            return json.accessToken;
         }).catch(async (error) => {
             console.log(JSON.stringify(error))

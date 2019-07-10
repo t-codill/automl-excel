@@ -1,34 +1,68 @@
 import * as React from 'react';
-import { PrimaryButton, Checkbox, IChoiceGroupOption, ResponsiveMode, IDropdownOption } from 'office-ui-fabric-react';
-import { Dropdown, IDropdownStyles } from 'office-ui-fabric-react';
-import { ChoiceGroup } from 'office-ui-fabric-react'
-import { IconButton } from 'office-ui-fabric-react'
+import '../taskpane.css'
+import { ResponsiveMode } from 'office-ui-fabric-react';
+import { Dropdown, IDropdownStyles, IDropdownOption } from 'office-ui-fabric-react';
+import { ChoiceGroup, IChoiceGroupOption, IChoiceGroupStyles } from 'office-ui-fabric-react'
+import { PrimaryButton, IconButton, IButtonStyles } from 'office-ui-fabric-react'
+import { TextField,  Stack, IStackProps } from 'office-ui-fabric-react'
 
+export interface AppProps {
+}
 
 export interface AppState {
-  selectedKey: string
-  headers: any[]
-  options: IDropdownOption[]
+    algorithm: string
+    headers: any[]
+    options: IDropdownOption[]
 }
 
 const dropdownStyles: Partial<IDropdownStyles> = {
-    dropdown: { width: 250 }
+    dropdown: { width: '90%' },
+    root: { textAlign: 'center', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center',
+            paddingTop: '5px', 
+            paddingBottom: '6px' },
+    label: { fontFamily: "Segoe UI",
+             fontWeight: '600' }
 };
 
+const columnProps: Partial<IStackProps> = {
+    styles: { root: { width: '90%', 
+                      textAlign: 'center', 
+                      marginLeft: 'auto', 
+                      marginRight: 'auto'}
+            }
+}
 
-export default class Train extends React.Component<{}, AppState> {
+const choiceGroupStyle: Partial<IChoiceGroupStyles> = {
+    root: { textAlign: 'center', 
+            display: 'flex', 
+            flexDirection: 'column', 
+            alignItems: 'center',
+            paddingTop: '5px' },
+    label: { fontFamily: "Segoe UI",
+             fontWeight: '600' }
+}
+
+const trainButtonStyles: Partial<IButtonStyles> = {
+    root: { marginTop: '20px',
+            display: 'block',
+            marginLeft: 'auto', 
+            marginRight: 'auto' }
+}
+
+export default class Train extends React.Component<AppProps, AppState> {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            selectedKey: 'classification', 
+            algorithm: 'classification', 
             headers: [],
             options: []
         };
-        this.updateHeader();
     };
 
     updateHeader() {
-        //dropdown options should be updated whenever the excel sheet is updated
         Excel.run(async context => {
             var sheet = context.workbook.worksheets.getActiveWorksheet();
             var range = sheet.getUsedRange();
@@ -45,41 +79,42 @@ export default class Train extends React.Component<{}, AppState> {
         });
     }
 
-    render() {
-        const content = this.state.selectedKey === 'forecasting' 
-            ? <div> 
-                <Checkbox className = 'ms-train__checkbox' label = "Is the prediction based on time?" />
-            </div>
-            : null;
-
-        let buttonStyle = {
-            marginTop: '20px',
-            display: 'block',
-            marginLeft: 'auto', 
-            marginRight: 'auto'
-        }
-
-        return (
-            <div>
-                
-                <div className='ms-train__refresh'>
-                    <IconButton  size={5} iconProps={{ iconName: 'refresh'}} title="refresh" ariaLabel="refresh" onClick={this.updateHeader.bind(this)}/>
-                    <span className='ms-train__refresh_text'> refresh </span>
-                </div>
-                <Dropdown className='ms-train__center' placeholder="Select an option" label='What do you want to predict?' options={this.state.options} responsiveMode={ResponsiveMode.xLarge} styles={dropdownStyles} />
-                <ChoiceGroup className='ms-train__center' label='Select Type of Problem' onChange={this._onImageChoiceGroupChange.bind(this)} options={[
-                    {key: 'classification', text: 'Classification', imageSrc: '/assets/classification.png', selectedImageSrc: '/assets/classificationSelected.png', imageSize: { width: 60, height: 60}},
-                    {key: 'forecasting', text: 'Forecasting', imageSrc: '/assets/forecasting.png', selectedImageSrc: '/assets/forecastingSelected.png', imageSize: { width: 60, height: 60}}]}/>
-                { content }
-                <PrimaryButton style={buttonStyle} data-automation-id="train" allowDisabledFocus={true} text="train" />
-            </div>
-        );
-    }
-
     //@ts-ignore
     private _onImageChoiceGroupChange(ev: React.SyntheticEvent<HTMLElement>, option: IChoiceGroupOption): void {
         this.setState({
-            selectedKey: option.key
+            algorithm: option.key
         });
+    }
+
+    private _getErrorMessage(value: string): string {
+        var n = Math.floor(Number(value));
+        return value === '' || (String(n) === value && n >= 0) ? '' : 'Input must be a positive integer';
+    }
+    
+    render() {
+        const forecastContent = this.state.algorithm === 'forecasting' 
+            ?   <div>
+                    <Dropdown placeholder="Select the time column" label='Which column holds the timestamps?' options={this.state.options} responsiveMode={ResponsiveMode.xLarge} styles={dropdownStyles} />
+                    <Stack {...columnProps}>
+                       <TextField label="How many periods forward are you forecasting?" onGetErrorMessage={this._getErrorMessage}/>
+                    </Stack>
+                </div>
+            :   null;
+
+        return (
+            <div>
+                <div className='ms-train__refresh'>
+                    <IconButton  size={5} iconProps={{ iconName: 'refresh'}} title="refresh" ariaLabel="refresh" /*onClick={this.updateHeader.bind(this)}*//>
+                    <span className='ms-train__refresh_text'> Refresh </span>
+                </div>
+                <Dropdown placeholder="Select the output column" label='What do you want to predict?' options={this.state.options} responsiveMode={ResponsiveMode.xLarge} styles={dropdownStyles} />
+                <ChoiceGroup label='Select Type of Problem' onChange={this._onImageChoiceGroupChange.bind(this)} styles={choiceGroupStyle} options={[
+                    {key: 'classification', text: 'Classification', imageSrc: '/assets/classification.png', selectedImageSrc: '/assets/classificationSelected.png', imageSize: { width: 40, height: 40}},
+                    {key: 'regression', text: 'Regression', imageSrc: '/assets/regression.png', selectedImageSrc: '/assets/regressionSelected.png', imageSize: { width: 40, height: 40}},
+                    {key: 'forecasting', text: 'Forecasting', imageSrc: '/assets/forecasting.png', selectedImageSrc: '/assets/forecastingSelected.png', imageSize: { width: 40, height: 40}}]}/>
+                { forecastContent }
+                <PrimaryButton styles={trainButtonStyles} data-automation-id="train" allowDisabledFocus={true} text="Train" />
+            </div>
+        );
     }
 }

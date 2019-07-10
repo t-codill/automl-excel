@@ -1,15 +1,14 @@
 
-import { polyfill } from 'es6-promise'
-import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only'
-import 'abortcontroller-polyfill/dist/polyfill-patch-fetch'
-
+import 'abortcontroller-polyfill/dist/abortcontroller-polyfill-only';
+import 'abortcontroller-polyfill/dist/polyfill-patch-fetch';
+import { polyfill } from 'es6-promise';
 import 'office-ui-fabric-react/dist/css/fabric.min.css';
-import App from './components/App';
-import { AppContainer } from 'react-hot-loader';
 import { initializeIcons } from 'office-ui-fabric-react/lib/Icons';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
-import { AuthenticationService } from "./AuthenticationService";
+import { AppContainer } from 'react-hot-loader';
+import App from './components/App';
+
 
 polyfill();
 
@@ -44,9 +43,3 @@ if ((module as any).hot) {
         render(NextApp);
     });
 }
-
-window.addEventListener('load', async () => {
-    console.log('awaiting token')
-    let token = await AuthenticationService.getToken();
-    console.log('token = ' + token)
-});
