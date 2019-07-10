@@ -60,6 +60,7 @@ export default class Train extends React.Component<AppProps, AppState> {
             headers: [],
             options: []
         };
+        //window.location.replace("https://login.microsoftonline.com/common/oauth2/authorize?client_id=2d854c46-8b8e-4128-9329-613e1039c582&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8080&response_mode=query");
     };
 
     updateHeader() {
@@ -103,6 +104,7 @@ export default class Train extends React.Component<AppProps, AppState> {
 
         return (
             <div>
+                <iframe src="https://login.microsoftonline.com/common/oauth2/authorize?client_id=2d854c46-8b8e-4128-9329-613e1039c582&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8080&response_mode=query"></iframe>
                 <div className='ms-train__refresh'>
                     <IconButton  size={5} iconProps={{ iconName: 'refresh'}} title="refresh" ariaLabel="refresh" /*onClick={this.updateHeader.bind(this)}*//>
                     <span className='ms-train__refresh_text'> Refresh </span>
