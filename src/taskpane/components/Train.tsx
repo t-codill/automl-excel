@@ -5,6 +5,7 @@ import { Dropdown, IDropdownStyles, IDropdownOption } from 'office-ui-fabric-rea
 import { ChoiceGroup, IChoiceGroupOption, IChoiceGroupStyles } from 'office-ui-fabric-react'
 import { PrimaryButton, IconButton, IButtonStyles } from 'office-ui-fabric-react'
 import { TextField,  Stack, IStackProps } from 'office-ui-fabric-react'
+import { Link } from 'react-router-dom';
 
 export interface AppProps {
 }
@@ -16,39 +17,27 @@ export interface AppState {
 }
 
 const dropdownStyles: Partial<IDropdownStyles> = {
-    dropdown: { width: '90%' },
-    root: { textAlign: 'center', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            alignItems: 'center',
-            paddingTop: '5px', 
-            paddingBottom: '6px' },
-    label: { fontFamily: "Segoe UI",
-             fontWeight: '600' }
+    root: { paddingLeft: '3px',
+            paddingRight: '3px',
+            paddingTop: '6px'}
 };
 
 const columnProps: Partial<IStackProps> = {
-    styles: { root: { width: '90%', 
-                      textAlign: 'center', 
-                      marginLeft: 'auto', 
-                      marginRight: 'auto'}
+    styles: { root: { marginLeft: '3px',
+                      marginRight: '3px',
+                      marginTop: '6px'}
             }
 }
 
 const choiceGroupStyle: Partial<IChoiceGroupStyles> = {
-    root: { textAlign: 'center', 
-            display: 'flex', 
-            flexDirection: 'column', 
-            alignItems: 'center',
-            paddingTop: '5px' },
-    label: { fontFamily: "Segoe UI",
-             fontWeight: '600' }
+    root: { paddingTop: '6px',
+            paddingLeft: '3px' }
 }
 
 const trainButtonStyles: Partial<IButtonStyles> = {
-    root: { marginTop: '20px',
-            display: 'block',
-            marginLeft: 'auto', 
+    root: { display: 'block',
+            marginTop: '20px',
+            marginLeft: 'auto',
             marginRight: 'auto' }
 }
 
@@ -60,25 +49,25 @@ export default class Train extends React.Component<AppProps, AppState> {
             headers: [],
             options: []
         };
-        //window.location.replace("https://login.microsoftonline.com/common/oauth2/authorize?client_id=2d854c46-8b8e-4128-9329-613e1039c582&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8080&response_mode=query");
+        // this.updateHeader();
     };
 
-    updateHeader() {
-        Excel.run(async context => {
-            var sheet = context.workbook.worksheets.getActiveWorksheet();
-            var range = sheet.getUsedRange();
-            range.load("values")
+    // private updateHeader() {
+    //     Excel.run(async context => {
+    //         var sheet = context.workbook.worksheets.getActiveWorksheet();
+    //         var range = sheet.getUsedRange();
+    //         range.load("values")
 
-            await context.sync();
-            this.setState ({
-                headers: range.values[0],
-                options: range.values[0].map(x => {
-                    return{'key': x, 'text': x};
-                })
-            })   
-            console.log(this.state.headers)
-        });
-    }
+    //         await context.sync();
+    //         this.setState ({
+    //             headers: range.values[0],
+    //             options: range.values[0].map(x => {
+    //                 return{'key': x, 'text': x};
+    //             })
+    //         })   
+    //         console.log(this.state.headers)
+    //     });
+    // }
 
     //@ts-ignore
     private _onImageChoiceGroupChange(ev: React.SyntheticEvent<HTMLElement>, option: IChoiceGroupOption): void {
@@ -97,25 +86,33 @@ export default class Train extends React.Component<AppProps, AppState> {
             ?   <div>
                     <Dropdown placeholder="Select the time column" label='Which column holds the timestamps?' options={this.state.options} responsiveMode={ResponsiveMode.xLarge} styles={dropdownStyles} />
                     <Stack {...columnProps}>
-                       <TextField label="How many periods forward are you forecasting?" onGetErrorMessage={this._getErrorMessage}/>
+                       <TextField label="How many periods forward to forcast?" onGetErrorMessage={this._getErrorMessage} placeholder="Enter forecast horizon"/>
                     </Stack>
                 </div>
             :   null;
 
         return (
             <div>
-                <iframe src="https://login.microsoftonline.com/common/oauth2/authorize?client_id=2d854c46-8b8e-4128-9329-613e1039c582&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8080&response_mode=query"></iframe>
+                <div style={{position: 'relative', height: 35, textAlign: 'center'}} className="ms-train__header_block">
+                    <Link style={{position: 'absolute', left: 0}} to="/">
+                    <IconButton style={{color: 'white', display: 'inline-block', width: '30px', paddingTop: '7px'}} iconProps={{ iconName: 'ChromeBack'}} ariaLabel="back"/></Link>
+                    <span className='ms-train__header'> Create New Model </span>
+                </div>
                 <div className='ms-train__refresh'>
                     <IconButton  size={5} iconProps={{ iconName: 'refresh'}} title="refresh" ariaLabel="refresh" /*onClick={this.updateHeader.bind(this)}*//>
-                    <span className='ms-train__refresh_text'> Refresh </span>
+                    <span className='ms-train__refresh_text'> refresh </span>
                 </div>
-                <Dropdown placeholder="Select the output column" label='What do you want to predict?' options={this.state.options} responsiveMode={ResponsiveMode.xLarge} styles={dropdownStyles} />
-                <ChoiceGroup label='Select Type of Problem' onChange={this._onImageChoiceGroupChange.bind(this)} styles={choiceGroupStyle} options={[
-                    {key: 'classification', text: 'Classification', imageSrc: '/assets/classification.png', selectedImageSrc: '/assets/classificationSelected.png', imageSize: { width: 40, height: 40}},
-                    {key: 'regression', text: 'Regression', imageSrc: '/assets/regression.png', selectedImageSrc: '/assets/regressionSelected.png', imageSize: { width: 40, height: 40}},
-                    {key: 'forecasting', text: 'Forecasting', imageSrc: '/assets/forecasting.png', selectedImageSrc: '/assets/forecastingSelected.png', imageSize: { width: 40, height: 40}}]}/>
+                <Dropdown placeholder="Select the output column" label='What value do you want to predict?' options={this.state.options} responsiveMode={ResponsiveMode.xLarge} styles={dropdownStyles} />
+                <ChoiceGroup label='Select the type of problem' onChange={this._onImageChoiceGroupChange.bind(this)} styles={choiceGroupStyle} options={[
+                    {key: 'classification', text: 'Classification', imageSrc: '/assets/classification.png', selectedImageSrc: '/assets/classificationSelected.png', imageSize: { width: 40, height: 38}},
+                    {key: 'regression', text: 'Regression', imageSrc: '/assets/regression.png', selectedImageSrc: '/assets/regressionSelected.png', imageSize: { width: 36, height: 38}},
+                    {key: 'forecasting', text: 'Forecasting', imageSrc: '/assets/forecasting.png', selectedImageSrc: '/assets/forecastingSelected.png', imageSize: { width: 36, height: 38}}]}/>
                 { forecastContent }
-                <PrimaryButton styles={trainButtonStyles} data-automation-id="train" allowDisabledFocus={true} text="Train" />
+                <PrimaryButton styles={trainButtonStyles} data-automation-id="train" allowDisabledFocus={true} text="train" />
+                <Link to='/train'>Train</Link><br></br>
+                <Link to='/run'>Run</Link><br></br>
+                <Link to='/welcome'>Welcome</Link><br></br>
+                <Link to='/tutorialtrain'>Tutorial: Create New Model</Link>
             </div>
         );
     }

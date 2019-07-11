@@ -85,14 +85,11 @@ b {
 }
 
 .ms-train__header {
-    padding: 20px;
-    padding-bottom: 30px;
-    padding-top: 100px;
-    display: -webkit-flex;
-    display: flex;
-    -webkit-flex-direction: column;
-    flex-direction: column;
-    align-items: center;
+    position: relative;
+    top: 8px;
+    font-size: 15px;
+    font-family: "Arial";
+    color: white;
 }
 
 .ms-train__refresh {
