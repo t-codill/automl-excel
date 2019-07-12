@@ -90,7 +90,8 @@ module.exports = async (env, options)  => {
       port: 8080,
       historyApiFallback: {
         index: 'taskpane/index.html'
-      }
+      },
+      disableHostCheck: true
     }
   };
 

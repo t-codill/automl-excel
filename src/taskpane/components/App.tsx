@@ -10,7 +10,10 @@ import "office-ui-fabric-react/dist/css/fabric.css"
 import Train from './Train';
 import Welcome from './Welcome';
 import Run from './Run';
-import TutorialTrain from './TutorialTrain';
+import TutorialImportData from './TutorialImportData'
+import TutorialTrain1 from './TutorialTrain1';
+import TutorialTrain2 from './TutorialTrain2';
+import TutorialTraining from './TutorialTraining';
 
 export interface AppProps {
   title: string;
@@ -116,7 +119,10 @@ export default class App extends React.Component<AppProps, AppState> {
           <Switch>
             <Route path="/train" component={Train}></Route>
             <Route path="/run" component={Run}></Route>
-            <Route path="/tutorialtrain" component={TutorialTrain}></Route>
+            <Route path="/tutorialtrain1" component={TutorialTrain1}></Route>
+            <Route path="/tutorialtrain2" component={TutorialTrain2}></Route>
+            <Route path="/tutorialimportdata" component={TutorialImportData}></Route>
+            <Route path="/tutorialtraining" component={TutorialTraining}></Route>
             <Route exact path='/' component={Welcome}></Route>
           </Switch>
         </BrowserRouter>
