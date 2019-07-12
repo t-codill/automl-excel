@@ -94,6 +94,11 @@
     padding-top: 4px;
  }
 
+ .ms-training__Header {
+     text-align: left;
+     font-size: 20px;
+ }
+
  .ms-welcome__features {
      list-style-type: none;
      margin-top: 20px;
@@ -116,6 +121,10 @@
 .ms-Button.ms-Button--hero .ms-Button-label {
   color: #0078d7;
 }
+
+.ms-Button.ms-Button--applyModel .ms-Button-label {
+    color: #e4ab31;
+  }
 
 .ms-Button.ms-Button--hero:hover .ms-Button-label,
 .ms-Button.ms-Button--hero:focus .ms-Button-label{
