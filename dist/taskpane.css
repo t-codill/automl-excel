@@ -48,6 +48,25 @@
     text-align: center;
 }
  
+ .ms-model__analysis_keyStats {
+     color: white;
+     background-color: rgb(66, 130, 190);
+     text-align: left;
+     margin-top: 0px;
+     line-height: 4pt;
+     padding-top: 4px;
+     
+ }
+
+ .ms-model__analysis_barChart {
+    color: white;
+    background-color: rgb(128, 176, 221);
+    text-align: left;
+    margin-top: 0px;
+    line-height: 4pt;
+    padding-top: 4px;
+    
+}
  .ms-welcome__features {
      list-style-type: none;
      margin-top: 20px;

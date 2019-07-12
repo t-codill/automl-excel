@@ -5,7 +5,7 @@ import Header from "./Header";
     interface WelcomeProps {
     }
     interface WelcomeState {
-        names:Array<string>;
+  
     } 
 
 export default class Welcome extends React.Component<WelcomeProps, WelcomeState> {

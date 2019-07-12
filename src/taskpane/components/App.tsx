@@ -9,7 +9,9 @@ import {createMemoryHistory} from 'history';
 import ShowExistingModels from './ShowExistingModels';
 import Welcome from './Welcome';
 import CreateNewModel from './CreateNewModel';
-
+import { PrimaryButton } from 'office-ui-fabric-react';
+import Training from './Training';
+import ModelAnalysis from './ModelAnalysis';
 const memoryHistory = createMemoryHistory();
 
 export interface AppProps {
@@ -88,16 +90,43 @@ export default class App extends React.Component<AppProps, AppState> {
     {/* <Header logo='assets/azuremachinelearninglogo.png' title={this.props.title} message='Azure Machine Learning' /> */}
       <Route path = "/train"><p>train ux</p><Link to="/">Back</Link></Route>
       <Route path = "/test"><p>test ux</p><ShowExistingModels /><Link to="/">Back</Link></Route>
-      <Route path = "/welcome"><p>welcome</p><Welcome /><Link to = "/CreateNewModel"><p>CreateNewModel</p></Link><Link to="/ShowExistingModels"><p>ShowExistingModels</p></Link></Route> 
-      <Route path = "/CreateNewModel"><p>createnewmodel<CreateNewModel /></p><Link to="/">Back</Link></Route>
+      <Route path = "/welcome"><p>welcome</p><Welcome />
+          <Link to = "/CreateNewModel">
+           <PrimaryButton>
+              <p>CreateNewModel</p>
+           </PrimaryButton>
+           </Link>
+        
+
+
+          <Link to="/ShowExistingModels">
+           <PrimaryButton>
+              <p>ShowExistingModels</p>
+           </PrimaryButton>
+          </Link></Route> 
+      <Route path = "/CreateNewModel"><p>createnewmodel<CreateNewModel /></p>
+          <Link to="/Training">
+            <PrimaryButton>
+            <p> Training</p>
+            </PrimaryButton>
+            </Link></Route>
+      <Route path = "/Training"><p>Training </p><Training />
+      <Link to="/ModelAnalysis">
+            <PrimaryButton>
+            <p> Model Analysis</p>
+            </PrimaryButton>
+            </Link>
+       <Link to = "/">back</Link></Route>  
+       <Route path = "/ModelAnalysis"><ModelAnalysis /></Route>
       <Route path = "/ShowExistingModels"><p>Show Existing Models</p><ShowExistingModels /><Link to="/">Back</Link></Route>
-      <Route exact path = '/'><p>intro</p><Link to="/train">Back</Link><Link to='/test'>Test</Link><Link to ="/welcome">Welcome</Link><Link to ="/showexistingmodels">Show Existing Models</Link></Route>
-      
+      <Route exact path = '/'><p>intro</p><Link to="/train">Back</Link><Link to='/test'>Test</Link><Link to ="/welcome">Welcome</Link><Link to ="/showexistingmodels">Show Existing Models</Link>
+      <Link to ="/ModelAnalysis">Model Analysis</Link></Route>
       <HeroList message='' items={this.state.listItems}>
       </HeroList>
       </Switch>
     </Router>
   
+
     );
   }
   

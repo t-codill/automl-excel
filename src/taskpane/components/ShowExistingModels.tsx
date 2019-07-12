@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { Dropdown, IDropdownOption } from 'office-ui-fabric-react/lib/Dropdown';
-import { PrimaryButton, ButtonType } from 'office-ui-fabric-react';
-import CreateNewModel from './CreateNewModel';
-import {Link, Route} from 'react-router-dom';
+import { PrimaryButton } from 'office-ui-fabric-react';
+// import CreateNewModel from './CreateNewModel';
+import {Link} from 'react-router-dom';
 
     interface SEMProps {
     }
@@ -36,7 +36,7 @@ export default class ShowExistingModels extends React.Component<SEMProps, SEMSta
         }
       } 
 
-
+    
     render() {
         const { selectedItem } = this.state;
         return (
@@ -64,8 +64,15 @@ export default class ShowExistingModels extends React.Component<SEMProps, SEMSta
         <h3> Input Field</h3>
         <h4>MVP - All data selected.</h4>
         <h3> Output Field</h3>
-        <Route Path = "/ShowExistingModels"><PrimaryButton className = 'ms-welcome__action' buttonType = {ButtonType.hero} onClick = {this.click}><Link to = "/CreateNewModel"><CreateNewModel />Generate Prediction</Link> </PrimaryButton></Route>
+        <Link to = "/CreateNewModel">
+          <PrimaryButton>
+            <p> Generate Prediction </p>
+          </PrimaryButton>
+          </Link>
+        {/* <Route Path = "/ShowExistingModels"><PrimaryButton className = 'ms-welcome__action' buttonType = {ButtonType.hero} onClick = {this.click}><Link to = "/CreateNewModel"><CreateNewModel />Generate Prediction</Link> </PrimaryButton></Route> */}
             </div>
+    
+      
         );
 
     }
