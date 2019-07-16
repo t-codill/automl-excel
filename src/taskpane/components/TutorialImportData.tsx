@@ -3,6 +3,13 @@ import '../taskpane.css'
 import { IconButton, PrimaryButton, IButtonStyles } from 'office-ui-fabric-react'
 import { Link } from 'react-router-dom'
 
+const backButtonStyle: Partial<IButtonStyles> = {
+    root: { color: 'white', 
+            display: 'inline-block', 
+            width: '30px', 
+            paddingTop: '7px' }   
+}
+
 const nextButtonStyle: Partial<IButtonStyles> = {
     root: { display: 'block',
             marginTop: '20px',
@@ -64,6 +71,7 @@ export default class TutorialTrain extends React.Component {
             titanicTable.columns.getItemAt(5).getRange().numberFormat = [['0.00']];
             titanicTable.columns.getItemAt(1).getRange().format.horizontalAlignment = 'Right';
             titanicTable.columns.getItemAt(6).getRange().format.horizontalAlignment = 'Right';
+            titanicTable.getHeaderRowRange().format.horizontalAlignment = 'Left'
             titanicTable.getRange().format.autofitColumns();
             titanicTable.getRange().format.autofitRows();
 
@@ -75,14 +83,17 @@ export default class TutorialTrain extends React.Component {
 
         return (
             <div>
-                <div style={{position: 'relative', height: 35, textAlign: 'center'}} className="ms-train__header_block">
+                <div className="header">
                     <Link style={{position: 'absolute', left: 0}} to="/">
-                    <IconButton style={{color: 'white', display: 'inline-block', width: '30px', paddingTop: '7px'}} iconProps={{ iconName: 'ChromeBack'}} ariaLabel="back"/></Link>
-                    <span className='ms-train__header'> Tutorial: Prepare Data </span>
+                        <IconButton styles={backButtonStyle} iconProps={{ iconName: 'ChromeBack'}}/>
+                    </Link>
+                    <span className='header_text'> Tutorial: Prepare Data </span>
                 </div>
-                <p className='ms-tutorial__header'> Predicting survival of Titanic passangers </p>
-                <p className='ms-tutorial__text'> In this tutorial, we will create a machine learning model that predicts the survival of Tatanic passangers based on their passenger information (passanger class, sex, age, etc.). </p> 
-                <Link to='/tutorialTrain1'><PrimaryButton styles={nextButtonStyle} data-automation-id="next" allowDisabledFocus={true} text="next" /></Link>
+                <p className='tutorial_title'> Predicting Survival of Titanic Passangers </p>
+                <p className='tutorial_text'> In this tutorial, we will create a machine learning model that predicts the survival of Tatanic passangers based on their passenger information (passanger class, sex, age, etc.). </p> 
+                <Link to='/tutorialTrain1'>
+                    <PrimaryButton styles={nextButtonStyle} text="next" />
+                </Link>
             </div>
         );
     }

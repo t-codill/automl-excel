@@ -1,11 +1,34 @@
 import * as React from 'react';
-import { Dropdown, IDropdownOption, ResponsiveMode } from 'office-ui-fabric-react/lib/Dropdown';
+import { Dropdown, IDropdownStyles, ResponsiveMode } from 'office-ui-fabric-react/lib/Dropdown';
+import { PrimaryButton, IconButton, IButtonStyles } from 'office-ui-fabric-react';
+import { Link } from 'react-router-dom';
 
 interface SEMProps {
 }
+
 export interface SEMState {
     selectedItem?: { key: string | number | undefined };
 } 
+
+const backButtonStyle: Partial<IButtonStyles> = {
+    root: { color: 'white', 
+            display: 'inline-block', 
+            width: '30px', 
+            paddingTop: '7px' }   
+}
+
+const dropdownStyle: Partial<IDropdownStyles> = {
+    root: { paddingLeft: '3px',
+            paddingRight: '3px',
+            paddingTop: '6px'}
+};
+
+const buttonStyle: Partial<IButtonStyles> = {
+    root: { display: 'block',
+            marginTop: '20px',
+            marginLeft: 'auto',
+            marginRight: 'auto' }
+}
 
 export default class Run extends React.Component<SEMProps, SEMState> {
     public state: SEMState = {
@@ -17,40 +40,33 @@ export default class Run extends React.Component<SEMProps, SEMState> {
         const { selectedItem } = this.state;
 
         const options = [
-          { key: 'apple', text: 'Apple' },
-          { key: 'banana', text: 'Banana' },
-          { key: 'grape', text: 'Grape' },
-          { key: 'broccoli', text: 'Broccoli' },
-          { key: 'carrot', text: 'Carrot' },
-          { key: 'lettuce', text: 'Lettuce' }
+          { key: 'Titanic Passanger Survival', text: 'Titanic Passanger Survival' }
         ];
 
         return (
-          <div className = 'welcome center'>
-          
-            <h2>Show Existing Models.</h2>
-            
-            <Dropdown
-              label="Pre-Existing Model to Use"
-              selectedKey={selectedItem ? selectedItem.key : undefined}
-              onChange={this._onChange}
-              placeholder="Select an option"
-              options={options}
-              styles={{ dropdown: { width: 300 } }} responsiveMode={ResponsiveMode.xLarge}
-            />
-
-        
-            <h3> Input Field</h3>
-            <h3> Output Field</h3>
-            <p>{window.localStorage.getItem('test')}</p>
-          </div>
+            <div>          
+                <div style={{position: 'relative', height: 35, textAlign: 'center'}} className="header_block">
+                    <Link 
+                        style={{position: 'absolute', left: 0}} 
+                        to="/tutorialimportdata" >
+                    <IconButton styles={backButtonStyle} iconProps={{ iconName: 'ChromeBack'}} ariaLabel="back"/></Link>
+                    <span className='header_text'> Use Existing Model </span>
+                </div>
+                <div>
+                    <Dropdown
+                        label="Which model would you like to use?"
+                        selectedKey={selectedItem ? selectedItem.key : undefined}
+                        placeholder="Select model to use"
+                        options={options}
+                        styles={dropdownStyle}
+                        responsiveMode={ResponsiveMode.xLarge} />      
+                    <p className='text'> Input Field </p>
+                    <p className='text'> Output Field </p>
+                    <Link to = "/CreateNewModel">
+                        <PrimaryButton styles={buttonStyle} text="Generate Predictions" />
+                    </Link>
+                </div>
+            </div>
         );
-
     }
-
-
-private _onChange = (_event: React.FormEvent<HTMLDivElement>, item: IDropdownOption): void => {
-    console.log(`Selection change: ${item.text} ${item.selected ? 'selected' : 'unselected'}`);
-    this.setState({ selectedItem: item });
-  };
 }

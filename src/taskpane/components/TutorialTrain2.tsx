@@ -15,6 +15,13 @@ export interface AppState {
     options: IDropdownOption[]
 }
 
+const backButtonStyle: Partial<IButtonStyles> = {
+    root: { color: 'white', 
+            display: 'inline-block', 
+            width: '30px', 
+            paddingTop: '7px' }   
+}
+
 const dropdownStyle: Partial<IDropdownStyles> = {
     root: { paddingLeft: '3px',
             paddingRight: '3px',
@@ -46,13 +53,13 @@ export default class TutorialTrain2 extends React.Component<AppProps, AppState> 
         super(props, context);
         this.state = {
             algorithm: 'classification', 
-            options: [{ key: 'Passenger Class', text: 'Passenger Class' },
-            { key: 'Sex', text: 'Sex' },
-            { key: 'Age', text: 'Age' },
-            { key: 'Sibling/Spouse', text: 'Sibling/Spouse' },
-            { key: 'Parent/Child', text: 'Parent/Child' },
-            { key: 'lettFarePriceuce', text: 'FarePrice' },
-            { key: 'Port Embarkation', text: 'Port Embarkation' },
+            options: [{ key: 'Passenger Class', text: 'Passenger Class', disabled: true },
+            { key: 'Sex', text: 'Sex', disabled: true },
+            { key: 'Age', text: 'Age', disabled: true },
+            { key: 'Sibling/Spouse', text: 'Sibling/Spouse', disabled: true },
+            { key: 'Parent/Child', text: 'Parent/Child', disabled: true },
+            { key: 'lettFarePriceuce', text: 'FarePrice', disabled: true },
+            { key: 'Port Embarkation', text: 'Port Embarkation', disabled: true },
             { key: 'Survived', text: 'Survived' }]
         };
     };
@@ -70,39 +77,78 @@ export default class TutorialTrain2 extends React.Component<AppProps, AppState> 
     }
      
     render() {
+        // additional components (time series column, forecast horizon) for forecasting
         const forecastContent = this.state.algorithm === 'forecasting' 
             ?   <div>
-                    <Dropdown placeholder="Select the time column" label='Which column holds the timestamps?' options={this.state.options} responsiveMode={ResponsiveMode.xLarge} styles={dropdownStyle} />          
+                    <Dropdown 
+                        placeholder="Select the time column" 
+                        label='Which column holds the timestamps?' 
+                        options={this.state.options} 
+                        responsiveMode={ResponsiveMode.xLarge} 
+                        styles={dropdownStyle} />
                     <Stack {...columnProps}>
-                       <TextField label="How many periods forward are you forecasting?" onGetErrorMessage={this._getErrorMessage} placeholder='Enter forcast horizon'/>
+                        <TextField 
+                            label="How many periods forward to forcast?" 
+                            onGetErrorMessage={this._getErrorMessage} 
+                            placeholder="Enter forecast horizon"/>
                     </Stack>
                 </div>
             :   null;
 
         return (
             <div>
-                <div style={{position: 'relative', height: 35, textAlign: 'center'}} className="ms-train__header_block">
+                <div className="header">
                     <Link style={{position: 'absolute', left: 0}} to="/tutorialtrain1">
-                    <IconButton style={{color: 'white', display: 'inline-block', width: '30px', paddingTop: '7px'}} iconProps={{ iconName: 'ChromeBack'}} ariaLabel="back"/></Link>
-                    <span className='ms-train__header'> Tutorial: Create New Model </span>
+                        <IconButton styles={backButtonStyle} iconProps={{ iconName: 'ChromeBack'}}/>
+                    </Link>
+                    <span className='header_text'> Tutorial: Create New Model </span>
                 </div>
-                <Dropdown placeholder="Select the output column" label='What do you want to predict?' options={this.state.options} defaultSelectedKey='Survived' disabled={true} responsiveMode={ResponsiveMode.xLarge} styles={dropdownStyle} />
-                <p className='ms-tutorial__text'> In this step, we need to specify the <b> type of problem </b> for our model. There are three types of problems. </p>
-                <p className='ms-tutorial__text'> 1) <b>Classification models</b> are used to categorize data into multiple groups. <br></br>
+                <Dropdown 
+                    label='What value do you want to predict?' 
+                    options={this.state.options} 
+                    responsiveMode={ResponsiveMode.xLarge} 
+                    styles={dropdownStyle}/>
+                <p className='tutorial_text'> In this step, we need to specify the <b> type of problem </b> for our model. There are three types of problems. </p>
+                <p className='tutorial_text'> 1) <b>Classification models</b> are used to categorize data into multiple groups. <br></br>
                 ex) filtering reviews as positive, neutral, or negative. </p>
-                <p className='ms-tutorial__text'> 2) <b>Regression models</b> are used to predict a value. <br></br>
+                <p className='tutorial_text'> 2) <b>Regression models</b> are used to predict a value. <br></br>
                 ex) predicting automobile prices or sales deal revenue. </p>
-                <p className='ms-tutorial__text'> 3) <b>Forecasting models</b> use past observation to predict future observations. <br></br> 
+                <p className='tutorial_text'> 3) <b>Forecasting models</b> use past observation to predict future observations. <br></br> 
                 ex) predicting electricity consumption of a household over 2 years. </p>
-                <p className='ms-tutorial__text'> Our task is to predict whether passangers survived or not, so it would be a classification problem. </p>
-                <div className='ms-tutorial'>
-                    <ChoiceGroup label='Select the type of problem' onChange={this._onImageChoiceGroupChange.bind(this)} styles={choiceGroupStyle} options={[
-                        {key: 'classification', text: 'Classification', imageSrc: '/assets/classification.png', selectedImageSrc: '/assets/classificationSelected.png', imageSize: { width: 40, height: 38}},
-                        {key: 'regression', text: 'Regression', imageSrc: '/assets/regression.png', selectedImageSrc: '/assets/regressionSelected.png', imageSize: { width: 36, height: 38}},
-                        {key: 'forecasting', text: 'Forecasting', imageSrc: '/assets/forecasting.png', selectedImageSrc: '/assets/forecastingSelected.png', imageSize: { width: 36, height: 38}}]}/>
+                <p className='tutorial_text'> Our task is to predict whether passangers survived or not, so it would be a classification problem. </p>
+                <div className='tutorial-block'>
+                    <ChoiceGroup 
+                        label='Select the type of problem' 
+                        onChange={this._onImageChoiceGroupChange.bind(this)} 
+                        styles={choiceGroupStyle} 
+                        options={[
+                            { 
+                                key: 'classification', 
+                                text: 'Classification', 
+                                imageSrc: '/assets/classification.png', 
+                                selectedImageSrc: '/assets/classificationSelected.png', 
+                                imageSize: { width: 40, height: 38}
+                            },
+                            {
+                                key: 'regression', 
+                                text: 'Regression', 
+                                imageSrc: '/assets/regression.png', 
+                                selectedImageSrc: '/assets/regressionSelected.png', 
+                                imageSize: { width: 36, height: 38}
+                            },
+                            {
+                                key: 'forecasting', 
+                                text: 'Forecasting', 
+                                imageSrc: '/assets/forecasting.png', 
+                                selectedImageSrc: '/assets/forecastingSelected.png', 
+                                imageSize: { width: 36, height: 38}
+                            }
+                        ]}/>
                     { forecastContent }
                 </div>
-                <Link to='/tutorialtraining'><PrimaryButton styles={nextButtonStyle} data-automation-id="next" allowDisabledFocus={true} text="next" /></Link>
+                <Link to='/tutorialtraining'>
+                    <PrimaryButton styles={nextButtonStyle} text="next"/>
+                </Link>
             </div>
         );
     }

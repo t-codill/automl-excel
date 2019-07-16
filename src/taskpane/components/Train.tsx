@@ -1,11 +1,11 @@
-import * as React from 'react';
+import * as React from 'react'
 import '../taskpane.css'
-import { ResponsiveMode } from 'office-ui-fabric-react';
-import { Dropdown, IDropdownStyles, IDropdownOption } from 'office-ui-fabric-react';
+import { ResponsiveMode } from 'office-ui-fabric-react'
+import { Dropdown, IDropdownStyles, IDropdownOption } from 'office-ui-fabric-react'
 import { ChoiceGroup, IChoiceGroupOption, IChoiceGroupStyles } from 'office-ui-fabric-react'
 import { PrimaryButton, IconButton, IButtonStyles } from 'office-ui-fabric-react'
 import { TextField,  Stack, IStackProps } from 'office-ui-fabric-react'
-import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom'
 
 export interface AppProps {
 }
@@ -31,6 +31,13 @@ const columnProps: Partial<IStackProps> = {
 const choiceGroupStyle: Partial<IChoiceGroupStyles> = {
     root: { paddingTop: '6px',
             paddingLeft: '3px' }
+}
+
+const backButtonStyle: Partial<IButtonStyles> = {
+    root: { color: 'white', 
+            display: 'inline-block', 
+            width: '30px', 
+            paddingTop: '7px' }   
 }
 
 const trainButtonStyle: Partial<IButtonStyles> = {
@@ -62,57 +69,98 @@ export default class Train extends React.Component<AppProps, AppState> {
     //                 return{'key': x, 'text': x};
     //             })
     //         })   
-    //         console.log(this.state.headers)
     //     });
     // }
 
     //@ts-ignore
-    private _onImageChoiceGroupChange(ev: React.SyntheticEvent<HTMLElement>, option: IChoiceGroupOption): void {
+    private _onImageChoiceGroupChange(ev: React.SyntheticEvent<HTMLElement>, option: IChoiceGroupOption) {
         this.setState({
             algorithm: option.key
         });
     }
 
-    private _getErrorMessage(value: string): string {
+    private _getErrorMessage(value: string) {
         var n = Math.floor(Number(value));
         return value === '' || (String(n) === value && n >= 0) ? '' : 'Input must be a positive integer';
     }
     
     render() {
+        // additional components (time series column, forecast horizon) for forecasting
         const forecastContent = this.state.algorithm === 'forecasting' 
             ?   <div>
-                    <Dropdown placeholder="Select the time column" label='Which column holds the timestamps?' options={this.state.options} responsiveMode={ResponsiveMode.xLarge} styles={dropdownStyle} />
+                    <Dropdown 
+                        placeholder="Select the time column" 
+                        label='Which column holds the timestamps?' 
+                        options={this.state.options} 
+                        responsiveMode={ResponsiveMode.xLarge} 
+                        styles={dropdownStyle} />
                     <Stack {...columnProps}>
-                       <TextField label="How many periods forward to forcast?" onGetErrorMessage={this._getErrorMessage} placeholder="Enter forecast horizon"/>
+                        <TextField 
+                            label="How many periods forward to forcast?" 
+                            onGetErrorMessage={this._getErrorMessage} 
+                            placeholder="Enter forecast horizon"/>
                     </Stack>
                 </div>
             :   null;
 
         return (
             <div>
-                <div style={{position: 'relative', height: 35, textAlign: 'center'}} className="ms-train__header_block">
+                <div className="header">
                     <Link style={{position: 'absolute', left: 0}} to="/">
-                    <IconButton style={{color: 'white', display: 'inline-block', width: '30px', paddingTop: '7px'}} iconProps={{ iconName: 'ChromeBack'}} ariaLabel="back"/></Link>
-                    <span className='ms-train__header'> Create New Model </span>
+                        <IconButton styles={backButtonStyle} iconProps={{ iconName: 'ChromeBack'}}/> 
+                    </Link>
+                    <span className='header_text'> Create New Model </span>
                 </div>
-                <div className='ms-train__refresh'>
-                    <IconButton  size={5} iconProps={{ iconName: 'refresh'}} title="refresh" ariaLabel="refresh" /*onClick={this.updateHeader.bind(this)}*//>
-                    <span className='ms-train__refresh_text'> refresh </span>
+                <div className='refresh'>
+                    <IconButton  
+                        iconProps={{ iconName: 'refresh'}} 
+                        /*onClick={this.updateHeader.bind(this)}*//>
+                    <span className='refresh_text'> refresh </span>
                 </div>
-                <Dropdown placeholder="Select the output column" label='What value do you want to predict?' options={this.state.options} responsiveMode={ResponsiveMode.xLarge} styles={dropdownStyle} />
-                <ChoiceGroup label='Select the type of problem' onChange={this._onImageChoiceGroupChange.bind(this)} styles={choiceGroupStyle} options={[
-                    {key: 'classification', text: 'Classification', imageSrc: '/assets/classification.png', selectedImageSrc: '/assets/classificationSelected.png', imageSize: { width: 40, height: 38}},
-                    {key: 'regression', text: 'Regression', imageSrc: '/assets/regression.png', selectedImageSrc: '/assets/regressionSelected.png', imageSize: { width: 36, height: 38}},
-                    {key: 'forecasting', text: 'Forecasting', imageSrc: '/assets/forecasting.png', selectedImageSrc: '/assets/forecastingSelected.png', imageSize: { width: 36, height: 38}}]}/>
+                <Dropdown 
+                    placeholder="Select the output field" 
+                    label='What value do you want to predict?' 
+                    options={this.state.options} 
+                    responsiveMode={ResponsiveMode.xLarge} 
+                    styles={dropdownStyle} />
+                <ChoiceGroup 
+                    label='Select the type of problem' 
+                    onChange={this._onImageChoiceGroupChange.bind(this)} 
+                    styles={choiceGroupStyle} 
+                    options={[
+                        { 
+                            key: 'classification', 
+                            text: 'Classification', 
+                            imageSrc: '/assets/classification.png', 
+                            selectedImageSrc: '/assets/classificationSelected.png', 
+                            imageSize: { width: 40, height: 38}
+                        },
+                        {
+                            key: 'regression', 
+                            text: 'Regression', 
+                            imageSrc: '/assets/regression.png', 
+                            selectedImageSrc: '/assets/regressionSelected.png', 
+                            imageSize: { width: 36, height: 38}
+                        },
+                        {
+                            key: 'forecasting', 
+                            text: 'Forecasting', 
+                            imageSrc: '/assets/forecasting.png', 
+                            selectedImageSrc: '/assets/forecastingSelected.png', 
+                            imageSize: { width: 36, height: 38}
+                        }
+                    ]}/>
                 { forecastContent }
-                <PrimaryButton styles={trainButtonStyle} data-automation-id="train" allowDisabledFocus={true} text="train" />
+                <PrimaryButton styles={trainButtonStyle} text="train" />
+                
                 <Link to='/train'>Train</Link><br></br>
                 <Link to='/run'>Run</Link><br></br>
                 <Link to='/'>Welcome</Link><br></br>
                 <Link to='/tutorialimportdata'>Tutorial: Prepare Data</Link><br></br>
                 <Link to='/tutorialtrain1'>Tutorial1: Create New Model</Link><br></br>
                 <Link to='/tutorialtrain2'>Tutorial2: Create New Model</Link><br></br>
-                <Link to='/tutorialtraining'>Tutorial: Trainig in Progress</Link><br></br>
+                <Link to='/tutorialtraining'>Tutorial: Training in Progress</Link><br></br>
+                <Link to='/ModelAnalysis'>Model Analysis</Link><br></br>
             </div>
         );
     }

@@ -14,6 +14,7 @@ import TutorialImportData from './TutorialImportData'
 import TutorialTrain1 from './TutorialTrain1';
 import TutorialTrain2 from './TutorialTrain2';
 import TutorialTraining from './TutorialTraining';
+import ModelAnalysis from './ModelAnalysis';
 
 export interface AppProps {
   title: string;
@@ -123,6 +124,7 @@ export default class App extends React.Component<AppProps, AppState> {
             <Route path="/tutorialtrain2" component={TutorialTrain2}></Route>
             <Route path="/tutorialimportdata" component={TutorialImportData}></Route>
             <Route path="/tutorialtraining" component={TutorialTraining}></Route>
+            <Route path = "/ModelAnalysis" component={ModelAnalysis}></Route>
             <Route exact path='/' component={Welcome}></Route>
           </Switch>
         </BrowserRouter>

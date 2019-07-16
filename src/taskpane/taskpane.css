@@ -35,7 +35,14 @@ b {
     font-weight: bold;
 }
 
-.ms-train__header {
+.header {
+    position: relative;
+    height: 35px;
+    text-align: center;
+    background-color: #0078d4;
+}
+
+.header_text {
     position: relative;
     top: 8px;
     font-size: 15px;
@@ -43,24 +50,24 @@ b {
     color: white;
 }
 
-.ms-train__refresh {
+.refresh {
     text-align: right
 }
 
-.ms-train__refresh_text {
+.refresh_text {
     position: relative;
-    top: 7px;
-    margin-right: 15px;
+    top: 5px;
+    margin-right: 10px;
     font-size: 13px;
     font-family: "Arial";
     text-align: right
 }
 
-.ms-train__header_block {
+.header_block {
     background-color: #0078d4;
 }
 
-.ms-tutorial__text {
+.tutorial_text {
     margin-left: 5px;
     margin-right: 5px;
     font-family: 'Arial';
@@ -68,13 +75,81 @@ b {
     line-height: 1.4;
 }
 
-.ms-tutorial {
+.tutorial-block {
     background-color: #cae8ff;
 }
 
-.ms-tutorial__header {
+.tutorial_title {
     margin-left: 5px;
     font-family: 'Arial';
     font-size: 15px;
     font-weight: 600;
 }
+
+.text {
+    margin-left: 3px;
+    margin-right: 3px;
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    color: #2f2f2f;
+}
+
+.two_column_layout:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.column {
+    float: left;
+    width: 50%;
+}
+
+
+
+ 
+.ms-model__analysis_keyStats {
+    color: white;
+    background-color: rgb(66, 130, 190);
+     text-align: left;
+     margin-top: 0px;
+     line-height: 4pt;
+     padding-top: 1px;
+     
+ }
+
+ .ms-model__analysis_barChart {
+    color: white;
+     background-color: rgb(66, 130, 190);
+    text-align: left;
+    margin-top: 0px;
+    line-height: 4pt;
+    padding-top: 4px;
+    
+}
+
+ .ms-model__anlaysis_binaryClassification {
+     color: white;
+     background-color: rgb(66, 130, 190);
+     text-align: left;
+     margin-top: 0px;
+     line-height: 4pt;
+     padding-top: 4px;
+ }
+ .ms-model__analysis_actionItems {
+    color: white;
+    background-color: rgb(66, 130, 190);
+    text-align: middle;
+    margin-top: 0px;
+    line-height: 4pt;
+    padding-top: 4px;
+ }
+
+ .ms-model__analysis_applyModel {
+    color: white;
+    background-color: rgb(240, 161, 42);
+    text-align: middle;
+    margin-top: 0px;
+    line-height: 4pt;
+    padding-top: 4px;
+ }
