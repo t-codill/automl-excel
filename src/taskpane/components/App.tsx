@@ -12,6 +12,8 @@ import CreateNewModel from './CreateNewModel';
 import { PrimaryButton } from 'office-ui-fabric-react';
 import Training from './Training';
 import ModelAnalysis from './ModelAnalysis';
+import PickAModel from './PickAModel';
+import DataSelection from './DataSelection';
 const memoryHistory = createMemoryHistory();
 
 export interface AppProps {
@@ -110,18 +112,16 @@ export default class App extends React.Component<AppProps, AppState> {
             <p> Training</p>
             </PrimaryButton>
             </Link></Route>
-      <Route path = "/Training"><p>Training </p><Training />
-      <Link to="/ModelAnalysis">
-            <PrimaryButton>
-            <p> Model Analysis</p>
-            </PrimaryButton>
-            </Link>
+      <Route path = "/Training"><Training />
        <Link to = "/">back</Link></Route>  
        <Route path = "/ModelAnalysis"><ModelAnalysis /></Route>
       <Route path = "/ShowExistingModels"><p>Show Existing Models</p><ShowExistingModels /><Link to="/">Back</Link></Route>
-      <Route exact path = '/'><p>intro</p><Link to="/train">Back</Link><Link to='/test'>Test</Link><Link to ="/welcome">Welcome</Link><Link to ="/showexistingmodels">Show Existing Models</Link>
-      <Link to ="/ModelAnalysis">Model Analysis</Link></Route>
+      <Route path = "/PickAModel"><p><PickAModel /></p></Route>
+        <Route path = "/DataSelection"><p><DataSelection /></p></Route>
+      <Route exact path = '/'><p>intro</p><br></br><Link to="/train">Back</Link><br></br><Link to='/test'>Test</Link><br></br><Link to ="/welcome">Welcome</Link><br></br><Link to ="/showexistingmodels">Show Existing Models</Link>
+      <br></br><Link to ="/ModelAnalysis">Model Analysis</Link><br></br><Link to = "Training">Training</Link><br></br><Link to = "/PickAModel">PickAModel</Link><br></br><Link to = "/DataSelection">Data Selection</Link></Route>
       <HeroList message='' items={this.state.listItems}>
+     
       </HeroList>
       </Switch>
     </Router>
