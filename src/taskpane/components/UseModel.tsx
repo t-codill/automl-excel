@@ -20,7 +20,7 @@ const backButtonStyle: Partial<IButtonStyles> = {
 const dropdownStyle: Partial<IDropdownStyles> = {
     root: { paddingLeft: '3px',
             paddingRight: '3px',
-            paddingTop: '6px'}
+            paddingTop: '6px' }
 };
 
 const buttonStyle: Partial<IButtonStyles> = {
@@ -30,7 +30,7 @@ const buttonStyle: Partial<IButtonStyles> = {
             marginRight: 'auto' }
 }
 
-export default class Run extends React.Component<SEMProps, SEMState> {
+export default class UseModel extends React.Component<SEMProps, SEMState> {
     public state: SEMState = {
         selectedItem: undefined
       }; 
@@ -46,9 +46,7 @@ export default class Run extends React.Component<SEMProps, SEMState> {
         return (
             <div>          
                 <div style={{position: 'relative', height: 35, textAlign: 'center'}} className="header_block">
-                    <Link 
-                        style={{position: 'absolute', left: 0}} 
-                        to="/tutorialimportdata" >
+                    <Link style={{position: 'absolute', left: 0}} to="/" >
                     <IconButton styles={backButtonStyle} iconProps={{ iconName: 'ChromeBack'}} ariaLabel="back"/></Link>
                     <span className='header_text'> Use Existing Model </span>
                 </div>

@@ -1,5 +1,4 @@
 import * as React from 'react';
-import '../taskpane.css'
 import { ResponsiveMode, IconButton } from 'office-ui-fabric-react';
 import { Dropdown, IDropdownStyles, IDropdownOption } from 'office-ui-fabric-react';
 import { ChoiceGroup, IChoiceGroupOption, IChoiceGroupStyles } from 'office-ui-fabric-react'
@@ -11,8 +10,9 @@ export interface AppProps {
 }
 
 export interface AppState {
-    algorithm: string
+    isForecasting: boolean
     options: IDropdownOption[]
+    nextDisabled: boolean
 }
 
 const backButtonStyle: Partial<IButtonStyles> = {
@@ -25,20 +25,21 @@ const backButtonStyle: Partial<IButtonStyles> = {
 const dropdownStyle: Partial<IDropdownStyles> = {
     root: { paddingLeft: '3px',
             paddingRight: '3px',
-            paddingTop: '10px' }
+            paddingTop: '6px'}
 };
 
 const columnProps: Partial<IStackProps> = {
     styles: { root: { marginLeft: '3px',
                       marginRight: '3px',
-                      marginTop: '6px'}
+                      marginTop: '6px',
+                      paddingBottom: '10px'}
             }
 }
 
 const choiceGroupStyle: Partial<IChoiceGroupStyles> = {
-    root: { paddingTop: '6px',
+    root: { paddingTop: '4px',
             paddingLeft: '3px',
-            paddingBottom: '10px'}
+            paddingBottom: '4px' }
 }
 
 const nextButtonStyle: Partial<IButtonStyles> = {
@@ -48,27 +49,41 @@ const nextButtonStyle: Partial<IButtonStyles> = {
             marginRight: '5px' }
 }
 
-export default class TutorialTrain2 extends React.Component<AppProps, AppState> {
+export default class TypeOfProblem extends React.Component<AppProps, AppState> {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            algorithm: 'classification', 
-            options: [{ key: 'Passenger Class', text: 'Passenger Class', disabled: true },
-            { key: 'Sex', text: 'Sex', disabled: true },
-            { key: 'Age', text: 'Age', disabled: true },
-            { key: 'Sibling/Spouse', text: 'Sibling/Spouse', disabled: true },
-            { key: 'Parent/Child', text: 'Parent/Child', disabled: true },
-            { key: 'lettFarePriceuce', text: 'FarePrice', disabled: true },
-            { key: 'Port Embarkation', text: 'Port Embarkation', disabled: true },
+            isForecasting: false, 
+            nextDisabled: true,
+            options: [{ key: 'Passenger Class', text: 'Passenger Class' },
+            { key: 'Sex', text: 'Sex' },
+            { key: 'Age', text: 'Age' },
+            { key: 'Sibling/Spouse', text: 'Sibling/Spouse' },
+            { key: 'Parent/Child', text: 'Parent/Child' },
+            { key: 'lettFarePriceuce', text: 'FarePrice' },
+            { key: 'Port Embarkation', text: 'Port Embarkation' },
             { key: 'Survived', text: 'Survived' }]
         };
-    };
+    }
 
     //@ts-ignore
     private _onImageChoiceGroupChange(ev: React.SyntheticEvent<HTMLElement>, option: IChoiceGroupOption): void {
-        this.setState({
-            algorithm: option.key
-        });
+        if (option.key === 'classification') {
+            this.setState({
+                nextDisabled: false,
+                isForecasting: false
+            });
+        } else if (option.key === 'forecasting') {
+            this.setState({
+                nextDisabled: true,
+                isForecasting: true
+            })
+        } else {
+            this.setState({
+                nextDisabled: true,
+                isForecasting: false
+            })
+        }
     }
 
     private _getErrorMessage(value: string): string {
@@ -78,7 +93,7 @@ export default class TutorialTrain2 extends React.Component<AppProps, AppState> 
      
     render() {
         // additional components (time series column, forecast horizon) for forecasting
-        const forecastContent = this.state.algorithm === 'forecasting' 
+        const forecastContent = this.state.isForecasting
             ?   <div>
                     <Dropdown 
                         placeholder="Select the time column" 
@@ -98,15 +113,18 @@ export default class TutorialTrain2 extends React.Component<AppProps, AppState> 
         return (
             <div>
                 <div className="header">
-                    <Link style={{position: 'absolute', left: 0}} to="/tutorialtrain1">
+                    <Link style={{position: 'absolute', left: 0}} to="/tutorial/outputfield">
                         <IconButton styles={backButtonStyle} iconProps={{ iconName: 'ChromeBack'}}/>
                     </Link>
                     <span className='header_text'> Tutorial: Create New Model </span>
                 </div>
+                
                 <Dropdown 
                     label='What value do you want to predict?' 
                     options={this.state.options} 
                     responsiveMode={ResponsiveMode.xLarge} 
+                    defaultSelectedKey={'Survived'}
+                    disabled={true}
                     styles={dropdownStyle}/>
                 <p className='tutorial_text'> In this step, we need to specify the <b> type of problem </b> for our model. There are three types of problems. </p>
                 <p className='tutorial_text'> 1) <b>Classification models</b> are used to categorize data into multiple groups. <br></br>
@@ -116,6 +134,7 @@ export default class TutorialTrain2 extends React.Component<AppProps, AppState> 
                 <p className='tutorial_text'> 3) <b>Forecasting models</b> use past observation to predict future observations. <br></br> 
                 ex) predicting electricity consumption of a household over 2 years. </p>
                 <p className='tutorial_text'> Our task is to predict whether passangers survived or not, so it would be a classification problem. </p>
+                
                 <div className='tutorial-block'>
                     <ChoiceGroup 
                         label='Select the type of problem' 
@@ -146,8 +165,9 @@ export default class TutorialTrain2 extends React.Component<AppProps, AppState> 
                         ]}/>
                     { forecastContent }
                 </div>
-                <Link to='/tutorialtraining'>
-                    <PrimaryButton styles={nextButtonStyle} text="next"/>
+                
+                <Link to='/tutorial/modeltraining'>
+                    <PrimaryButton styles={nextButtonStyle} disabled={this.state.nextDisabled} text="next"/>
                 </Link>
             </div>
         );

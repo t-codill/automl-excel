@@ -7,13 +7,14 @@ import { WorkSpaceService } from '../../automl/services/WorkSpaceService';
 import { AuthenticationService } from "../AuthenticationService";
 import { AppContext, IAppContextProps, appContextDefaults } from './AppContext';
 import "office-ui-fabric-react/dist/css/fabric.css"
-import Train from './Train';
+import CreateModel from './createModel';
 import Welcome from './Welcome';
-import Run from './Run';
-import TutorialImportData from './TutorialImportData'
-import TutorialTrain1 from './TutorialTrain1';
-import TutorialTrain2 from './TutorialTrain2';
-import TutorialTraining from './TutorialTraining';
+import UseModel from './UseModel';
+import ModelTraining from './ModelTraining';
+import ImportData from './Tutorial/ImportData'
+import OutputField from './Tutorial/OutputField';
+import TypeOfProblem from './Tutorial/TypeOfProblem';
+import TutorialModelTraining from './Tutorial/ModelTraining';
 import ModelAnalysis from './ModelAnalysis';
 
 export interface AppProps {
@@ -118,12 +119,13 @@ export default class App extends React.Component<AppProps, AppState> {
         
         <BrowserRouter basename="/taskpane">
           <Switch>
-            <Route path="/train" component={Train}></Route>
-            <Route path="/run" component={Run}></Route>
-            <Route path="/tutorialtrain1" component={TutorialTrain1}></Route>
-            <Route path="/tutorialtrain2" component={TutorialTrain2}></Route>
-            <Route path="/tutorialimportdata" component={TutorialImportData}></Route>
-            <Route path="/tutorialtraining" component={TutorialTraining}></Route>
+            <Route path="/createmodel" component={CreateModel}></Route>
+            <Route path="/usemodel" component={UseModel}></Route>
+            <Route path="/modeltraining" component={ModelTraining}></Route>
+            <Route path="/tutorial/outputfield" component={OutputField}></Route>
+            <Route path="/tutorial/typeofproblem" component={TypeOfProblem}></Route>
+            <Route path="/tutorial/importdata" component={ImportData}></Route>
+            <Route path="/tutorial/modeltraining" component={TutorialModelTraining}></Route>
             <Route path = "/ModelAnalysis" component={ModelAnalysis}></Route>
             <Route exact path='/' component={Welcome}></Route>
           </Switch>

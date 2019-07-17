@@ -1,5 +1,4 @@
 import * as React from 'react';
-import '../taskpane.css'
 import { IconButton, PrimaryButton, IButtonStyles } from 'office-ui-fabric-react'
 import { Link } from 'react-router-dom'
 
@@ -17,7 +16,7 @@ const nextButtonStyle: Partial<IButtonStyles> = {
             marginRight: '5px' }
 }
 
-export default class TutorialTrain extends React.Component {
+export default class ImportData extends React.Component {
     constructor(props, context) {
         super(props, context);
         this._createTable();
@@ -91,7 +90,7 @@ export default class TutorialTrain extends React.Component {
                 </div>
                 <p className='tutorial_title'> Predicting Survival of Titanic Passangers </p>
                 <p className='tutorial_text'> In this tutorial, we will create a machine learning model that predicts the survival of Tatanic passangers based on their passenger information (passanger class, sex, age, etc.). </p> 
-                <Link to='/tutorialTrain1'>
+                <Link to='/tutorial/outputfield'>
                     <PrimaryButton styles={nextButtonStyle} text="next" />
                 </Link>
             </div>

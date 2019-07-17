@@ -1,5 +1,4 @@
 import * as React from 'react';
-import '../taskpane.css'
 import { IconButton, IButtonStyles } from 'office-ui-fabric-react';
 import { Link } from 'react-router-dom';
 
@@ -10,15 +9,15 @@ const backButtonStyle: Partial<IButtonStyles> = {
             paddingTop: '7px' }   
 }
 
-export default class Train extends React.Component {
+export default class ModelTraining extends React.Component {
 
     render() {
         return (
             <div>
                 <div style={{position: 'relative', height: 35, textAlign: 'center'}} className="header_block">
-                    <Link style={{position: 'absolute', left: 0}} to="/tutorialtrain2">
+                    <Link style={{position: 'absolute', left: 0}} to="/tutorial/typeofproblem">
                     <IconButton styles={backButtonStyle} iconProps={{ iconName: 'ChromeBack'}} ariaLabel="back"/></Link>
-                    <span className='header_text'> Tutorial: Training in progess </span>
+                    <span className='header_text'> Tutorial: Model Training </span>
                 </div>
                 <p className='ms-tutorial__text'> Training in progress page </p>
                 <p className='ms-tutorial__text'> TODO: provide status bar and short summary of model </p>

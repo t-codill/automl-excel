@@ -1,5 +1,4 @@
 import * as React from 'react';
-import '../taskpane.css'
 import { ResponsiveMode, IconButton } from 'office-ui-fabric-react';
 import { Dropdown, IDropdownStyles, IDropdownOption } from 'office-ui-fabric-react';
 import { PrimaryButton, IButtonStyles } from 'office-ui-fabric-react'
@@ -9,8 +8,8 @@ export interface AppProps {
 }
 
 export interface AppState {
-    outputColumn: string
     options: IDropdownOption[]
+    nextDisabled: boolean
 }
 
 const dropdownStyle: Partial<IDropdownStyles> = {
@@ -34,11 +33,11 @@ const nextButtonStyle: Partial<IButtonStyles> = {
             marginRight: '5px' }
 }
 
-export default class TutorialTrain1 extends React.Component<AppProps, AppState> {
+export default class OutputField extends React.Component<AppProps, AppState> {
     constructor(props, context) {
         super(props, context);
         this.state = {
-            outputColumn: '', 
+            nextDisabled: true,
             options: [{ key: 'Passenger Class', text: 'Passenger Class' },
             { key: 'Sex', text: 'Sex' },
             { key: 'Age', text: 'Age' },
@@ -52,16 +51,18 @@ export default class TutorialTrain1 extends React.Component<AppProps, AppState> 
     
     //@ts-ignore
     private _onDropDownChange(ev: React.SyntheticEvent<HTMLElement>, option: IDropDownOption): void {
-        this.setState({
-            outputColumn: option.key
-        });
+        if (option.key === 'Survived') {
+            this.setState({
+                nextDisabled: false
+            });
+        }
     }
 
     render() {
         return (
             <div>
                 <div className="header">
-                    <Link style={{position: 'absolute', left: 0}} to="/tutorialimportdata">
+                    <Link style={{position: 'absolute', left: 0}} to="/tutorial/importdata">
                         <IconButton styles={backButtonStyle} iconProps={{ iconName: 'ChromeBack'}}/>
                     </Link>
                     <span className='header_text'> Tutorial: Create New Model </span>
@@ -75,10 +76,10 @@ export default class TutorialTrain1 extends React.Component<AppProps, AppState> 
                         options={this.state.options} 
                         responsiveMode={ResponsiveMode.xLarge} 
                         onChange={this._onDropDownChange.bind(this)} 
-                        errorMessage={this.state.outputColumn !== 'Survived' ? 'Select the correct output column' : undefined} styles={dropdownStyle}/>
+                        styles={dropdownStyle}/>
                 </div>
-                <Link to='/tutorialTrain2'>
-                    <PrimaryButton styles={nextButtonStyle} text="next"/>
+                <Link to='/tutorial/typeofproblem'>
+                    <PrimaryButton styles={nextButtonStyle} disabled={this.state.nextDisabled} text="next"/>
                 </Link>
             </div>
         );
