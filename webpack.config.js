@@ -1,10 +1,11 @@
-//const devCerts = require("office-addin-dev-certs");
+const devCerts = require("office-addin-dev-certs");
 //const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 //const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
 const path = require('path');
+const fs = require('fs');
 
 module.exports = async (env, options)  => {
   const dev = options.mode === "development";
@@ -87,6 +88,12 @@ module.exports = async (env, options)  => {
       },
       contentBase: path.join(__dirname, 'dist'),
       //https: await devCerts.getHttpsServerOptions(),
+      /*
+      https: {
+        key: fs.readFileSync('local.key'),
+        cert: fs.readFileSync('local.crt')
+      },
+      */
       port: 8080,
       historyApiFallback: {
         index: 'taskpane/index.html'

@@ -14,7 +14,16 @@ import "office-ui-fabric-react/dist/css/fabric.css"
 import Train from './Train';
 import Welcome from './Welcome';
 import Run from './Run';
-
+import Login from './Login';
+import AuthHandler from './AuthHandler';
+import TopContributors from './TopContributors';
+import ModelAnalysis from './ModelAnalysis';
+import Training from './Training';
+import TutorialTrain1 from './TutorialTrain1';
+import TutorialTrain2 from './TutorialTrain2';
+import TutorialImportData from './TutorialImportData'
+import TutorialTraining from './TutorialTraining';
+import { DialogOpen } from './login/Dialog';
 
 //const memoryHistory = createMemoryHistory();
 
@@ -26,56 +35,16 @@ export interface AppProps {
 export interface AppState {
   listItems: HeroListItem[];
   token: string;
-  subscriptionList: SubscriptionModels.Subscription[];
-  workspaceList: AzureMachineLearningWorkspacesModels.Workspace[];
   appContext: IAppContextProps;
 }
 
 export default class App extends React.Component<AppProps, AppState> {
-
-  async updateData(){
-    await this.updateToken();
-    let subscriptionList = await new SubscriptionService(this.state.appContext.serviceBaseProps).listSubscriptions();
-    let subscriptionId = subscriptionList[0].subscriptionId;
-
-    let serviceBaseProps = {
-      ...this.state.appContext.serviceBaseProps,
-      subscriptionId: subscriptionId
-    }
-    
-    this.setState({
-      subscriptionList: subscriptionList,
-      appContext: {
-        ...this.state.appContext,
-        serviceBaseProps: serviceBaseProps
-      }
-    });
-    let workspaceList = await new WorkSpaceService(serviceBaseProps).listWorkspaces();
-    this.setState({
-      workspaceList: workspaceList
-    });
-  }
-
-  constructor(props, context) {
-    super(props, context);
-
-    let appContext = appContextDefaults;
-    appContext.serviceBaseProps.getToken = function(){
-      return this.state.token;
-    }.bind(this);
-
-    this.state = {
-      listItems: [],
-      token: "",
-      subscriptionList: null,
-      workspaceList: null,
-      appContext: appContext
-    };
-    
-    this.updateData();
-  }
-
-  componentDidMount() {
+  async componentDidMount(){
+    /*
+    await this.updateState({
+      token: await AuthenticationService.getToken()
+    });*/
+    //await this.updateWorkspaceList();
     this.setState({
       listItems: [
         {
@@ -92,6 +61,73 @@ export default class App extends React.Component<AppProps, AppState> {
         }
       ]
     });
+  }
+  async updateState(newState){
+    return new Promise((resolve, reject) => {
+      this.setState(newState, () => resolve());
+    });
+  }
+  async updateSubscriptionList(){
+    let subscriptionList = await new SubscriptionService(this.state.appContext.serviceBaseProps).listSubscriptions();
+    await this.updateState({
+      appContext: {
+        ...this.state.appContext,
+        subscriptionList: subscriptionList
+      }
+    });
+  }
+  async updateWorkspaceList(){
+    await this.updateSubscriptionList();
+
+    let newWorkspaceList: AzureMachineLearningWorkspacesModels.Workspace[] = [];
+    console.log(this.state.appContext.subscriptionList);
+
+    for(var i = 0; i < this.state.appContext.subscriptionList.length; i++){
+      let subscription = this.state.appContext.subscriptionList[i];
+      let subscriptionId = subscription.subscriptionId;
+      let serviceBaseProps = {
+        ...this.state.appContext.serviceBaseProps,
+        subscriptionId: subscriptionId
+      }
+      let toPush = await new WorkSpaceService(serviceBaseProps).listWorkspaces();
+      toPush.forEach(item => newWorkspaceList.push(item));
+    }
+
+    await this.updateState({
+      appContext: {
+        ...this.state.appContext,
+        workspaceList: newWorkspaceList
+      }
+    });
+
+    console.log('New workspace list:')
+    console.log(this.state.appContext.workspaceList);
+  }
+
+  constructor(props, context) {
+    super(props, context);
+
+    let appContext = appContextDefaults;
+    
+    appContext.serviceBaseProps.getToken = function(){
+      return this.state.token;
+    }.bind(this);
+
+    appContext.setToken = function(token: string){
+      this.setState({
+        token: token
+      });
+    }.bind(this);
+
+    appContext.updateSubscriptionList = this.updateSubscriptionList.bind(this);
+    appContext.updateWorkspaceList = this.updateWorkspaceList.bind(this);
+
+    this.state = {
+      listItems: [],
+      token: "",
+      appContext: appContext
+    };
+    
   }
 
 
@@ -162,7 +198,6 @@ export default class App extends React.Component<AppProps, AppState> {
     let Navbar = withRouter((props) => {
       const data = {
         '/train': {
-          title: 'Create and Train New Model',
           index: 0
         },
         '/run': {
@@ -199,16 +234,25 @@ export default class App extends React.Component<AppProps, AppState> {
         return <></>;
       }
     })
-
     return (
-      <AppContext.Provider value={this.state.appContext}>
+      <AppContext.Provider value={{...this.state.appContext}}>
         
         <BrowserRouter basename="/taskpane">
           <Navbar />
           <Switch>
             <Route path="/train" component={Train}></Route>
-            <Route path="/run" component={Run}></Route>
+            <Route exact path="/run" component={Run}></Route>
             <Route exact path='/' component={Welcome}></Route>
+            <Route path='/login' component={Login}></Route>
+            <Route path='/auth' component={AuthHandler}></Route>
+            <Route path='/topcontributors' component={TopContributors}></Route>
+            <Route path='/modelanalysis' component={ModelAnalysis}></Route>
+            <Route path='/training' component={Training}></Route>
+            <Route path="/tutorialtrain1" component={TutorialTrain1}></Route>
+            <Route path="/tutorialtrain2" component={TutorialTrain2}></Route>
+            <Route path="/tutorialimportdata" component={TutorialImportData}></Route>
+            <Route path="/tutorialtraining" component={TutorialTraining}></Route>
+            <Route path="/dialogopen" component={DialogOpen}></Route>
           </Switch>
         </BrowserRouter>
         {RenderPage}

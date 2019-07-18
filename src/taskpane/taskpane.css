@@ -130,3 +130,28 @@ b {
 .ms-train__header_block {
     background-color: #0078d4;
 }
+
+.ms-welcome__main > h2 {
+    width: 100%;
+    text-align: center;
+}
+ 
+.ms-model__analysis_keyStats {
+    color: white;
+    background-color: rgb(66, 130, 190);
+    text-align: left;
+    margin-top: 0px;
+    line-height: 4pt;
+    padding-top: 4px;
+    
+ }
+
+.ms-model__analysis_barChart {
+    color: white;
+    background-color: rgb(128, 176, 221);
+    text-align: left;
+    margin-top: 0px;
+    line-height: 4pt;
+    padding-top: 4px;
+    
+}

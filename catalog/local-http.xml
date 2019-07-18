@@ -11,6 +11,9 @@
   <SupportUrl DefaultValue="https://www.microsoft.com"/>
   <AppDomains>
     <AppDomain>microsoft.com</AppDomain>
+    <AppDomain>localhost</AppDomain>
+    <AppDomain>microsoftonline.com</AppDomain>
+    <AppDomain>login.microsoftonline.com</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Workbook"/>

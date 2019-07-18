@@ -5,6 +5,7 @@ import { Dropdown, IDropdownStyles, IDropdownOption } from 'office-ui-fabric-rea
 import { ChoiceGroup, IChoiceGroupOption, IChoiceGroupStyles } from 'office-ui-fabric-react'
 import { PrimaryButton, IconButton, IButtonStyles } from 'office-ui-fabric-react'
 import { TextField,  Stack, IStackProps } from 'office-ui-fabric-react'
+import { Link } from 'react-router-dom'
 
 export interface AppProps {
 }
@@ -104,7 +105,6 @@ export default class Train extends React.Component<AppProps, AppState> {
 
         return (
             <div>
-                <iframe src="https://login.microsoftonline.com/common/oauth2/authorize?client_id=2d854c46-8b8e-4128-9329-613e1039c582&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8080&response_mode=query"></iframe>
                 <div className='ms-train__refresh'>
                     <IconButton  size={5} iconProps={{ iconName: 'refresh'}} title="refresh" ariaLabel="refresh" /*onClick={this.updateHeader.bind(this)}*//>
                     <span className='ms-train__refresh_text'> Refresh </span>
@@ -116,6 +116,14 @@ export default class Train extends React.Component<AppProps, AppState> {
                     {key: 'forecasting', text: 'Forecasting', imageSrc: '/assets/forecasting.png', selectedImageSrc: '/assets/forecastingSelected.png', imageSize: { width: 40, height: 40}}]}/>
                 { forecastContent }
                 <PrimaryButton styles={trainButtonStyles} data-automation-id="train" allowDisabledFocus={true} text="Train" />
+                <Link to="/modelanalysis">Model Analysis</Link><br />
+                <Link to="/training">Training</Link><br />
+                <Link to="/login">Login</Link><br />
+                
+                <Link to='/tutorialimportdata'>Tutorial: Prepare Data</Link><br></br>
+                <Link to='/tutorialtrain1'>Tutorial1: Create New Model</Link><br></br>
+                <Link to='/tutorialtrain2'>Tutorial2: Create New Model</Link><br></br>
+                <Link to='/tutorialtraining'>Tutorial: Trainig in Progress</Link><br></br>
             </div>
         );
     }
