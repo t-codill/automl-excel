@@ -94,7 +94,11 @@ b {
     color: #2f2f2f;
 }
 
-.two_column_layout:after {
+.row {
+    margin-top: 10px;
+}
+
+.row:after {
     content: "";
     display: table;
     clear: both;
@@ -105,9 +109,32 @@ b {
     width: 50%;
 }
 
+.column-combined {
+    float: left;
+    width: 100%;
+}
 
+.training-text-big {
+    display: block;
+    font-size: 1.3em;
+    margin-top: 0.3em;
+    margin-bottom: 0em;
+    margin-left: 20px;
+    font-weight: 600;
+}
 
+.training-text-small {
+    display: block;
+    font-size: 0.9em;
+    margin-top: 0em;
+    margin-bottom: 0em;
+    margin-left: 20px;
+    font-weight: 600;
+}
  
+
+
+
 .ms-model__analysis_keyStats {
     color: white;
     background-color: rgb(66, 130, 190);
