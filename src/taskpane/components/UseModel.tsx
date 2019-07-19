@@ -45,9 +45,9 @@ export default class UseModel extends React.Component<SEMProps, SEMState> {
 
         return (
             <div>          
-                <div style={{position: 'relative', height: 35, textAlign: 'center'}} className="header_block">
+                <div className="header">
                     <Link style={{position: 'absolute', left: 0}} to="/" >
-                    <IconButton styles={backButtonStyle} iconProps={{ iconName: 'ChromeBack'}} ariaLabel="back"/></Link>
+                    <IconButton styles={backButtonStyle} iconProps={{ iconName: 'ChromeBack'}}/></Link>
                     <span className='header_text'> Use Existing Model </span>
                 </div>
                 <div>

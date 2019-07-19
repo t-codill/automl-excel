@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { IconButton, IButtonStyles } from 'office-ui-fabric-react';
+import { IconButton, IButtonStyles, CommandBarButton } from 'office-ui-fabric-react';
 import { ProgressIndicator, IProgressIndicatorStyles } from 'office-ui-fabric-react';
+import { Callout, DirectionalHint } from 'office-ui-fabric-react'
 import { Link } from 'react-router-dom';
 import { Async } from '@uifabric/utilities';
 
@@ -15,21 +16,23 @@ export interface AppState {
     outputField: string;
     modelSummary: boolean;
     trainingStatus: boolean;
+    inputFieldView: boolean;
 }
 
 const progressIndicatorStyle: Partial<IProgressIndicatorStyles> = {
-    root: { paddingLeft: '3px',
-            paddingRight: '3px',
+    root: { paddingLeft: '5px',
+            paddingRight: '5px',
             paddingTop: '6px',
             paddingBottom: '10px' }
 }
 
 const windowButtonStyle: Partial<IButtonStyles> = {
-    root: { color: 'grey', 
+    root: { color: 'black', 
             display: 'inline-block', 
-            width: '25px', 
-            height: '15px',
-            paddingTop: '7px' }   
+            height: '30px',
+            paddingTop: '7px',
+            paddingBottom: '2px',
+            backgroundColor: '#ffffff' }   
 }
 
 const backButtonStyle: Partial<IButtonStyles> = {
@@ -47,18 +50,25 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
 
     private _interval: number;
     private _async: Async;
+    private modelSummaryWindow;
+    private trainingStatusWindow;
+    private inputFields;
   
     constructor(props, context) {
         super(props, context);
         this._async = new Async(this);
+        this.modelSummaryWindow = React.createRef();
+        this.trainingStatusWindow = React.createRef();
+        this.inputFields = React.createRef();
         this.state = {
             nIteration: 50,
             nCompletedIteration: 13,
             percentComplete: 0,
             modelName: 'Sample Model Name',
             outputField: 'Sample Output',
-            modelSummary: false,
-            trainingStatus: true
+            modelSummary: true,
+            trainingStatus: true,
+            inputFieldView: false
         }
         this._startProgress = this._startProgress.bind(this)
         console.log(this.state.modelSummary)
@@ -98,60 +108,52 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
         this.setState({
             modelSummary: !this.state.modelSummary 
         })
-        console.log(this.state.modelSummary)
+        const content = this.modelSummaryWindow.current;
+        if (this.state.modelSummary) {
+            content.style.height = '135px'
+            setTimeout(() => content.style.height = 'auto', 301)
+        } else {
+            content.style.height = '135px'
+            setTimeout(() => content.style.height = '0', 10)
+        }
     }
 
     private _iconStatusClicked(): void {
         this.setState({
             trainingStatus: !this.state.trainingStatus 
         })
-        console.log(this.state.trainingStatus)
+        const content = this.trainingStatusWindow.current;
+        if (this.state.trainingStatus) {
+            content.style.height = '95px'
+            setTimeout(() => content.style.height = 'auto', 301)
+        } else {
+            content.style.height = '95px'
+            setTimeout(() => content.style.height = '0', 10)
+        }
+    }
+
+    private _inputFieldClicked(): void {
+        this.setState({
+            inputFieldView: !this.state.inputFieldView
+        })
+        console.log('A')
+        console.log(this.state.inputFieldView)
+    }
+    private _onCalloutDismiss = (): void => {
+        this.setState({
+            inputFieldView: false
+        })
+        console.log('B')
+        console.log(this.state.inputFieldView)
     }
 
     render() {
-        const modelSummaryView = this.state.modelSummary 
-            ?   <div className="row">
-                    <div className='column-combined'>
-                        <p className='training-text-big'>{this.state.modelName}</p>
-                        <p className='training-text-small'>Model Name</p>
-                    </div>
-                    <div className='column'>
-                        <p className='training-text-big'>{this.state.outputField}</p>
-                        <p className='training-text-small'>Output Field</p>
-                        <p className='training-text-big'>7</p>
-                        <p className='training-text-small'>Input Fields</p>
-                    </div>
-                    <div className='column'>
-                        <p className='training-text-big'>Classification</p>
-                        <p className='training-text-small'>Type of Problem</p>
-                        <p className='training-text-big'>12k</p>
-                        <p className='training-text-small'>Rows</p>
-                    </div>
-                </div>
-            :   null;
-
-        const trainingStatusView = this.state.trainingStatus
-            ?   <div className="row">
-                    <div className='column'>
-                        <p className='training-text-big'>Running</p>
-                        <p className='training-text-small'>Status</p>
-                        <p className='training-text-big'>23</p>
-                        <p className='training-text-small'>Iterations Completed</p>
-                    </div>
-                    <div className='column'>
-                        <p className='training-text-big'>93.6%</p>
-                        <p className='training-text-small'>Best Performance</p>
-                        <p className='training-text-big'>40</p>
-                        <p className='training-text-small'>Total Iterations</p>
-                    </div>
-                </div>
-            :   null;
-
         return (
             <div>
                 <div className="header">
-                    <Link style={{position: 'absolute', left: 0}} to="/tutorial/typeofproblem">
-                    <IconButton styles={backButtonStyle} iconProps={{ iconName: 'ChromeBack'}}/></Link>
+                    <Link style={{position: 'absolute', left: 0}} to="/createmodel">
+                        <IconButton styles={backButtonStyle} iconProps={{ iconName: 'ChromeBack'}}/>
+                    </Link>
                     <span className='header_text'> Model Training </span>
                 </div>
             
@@ -161,15 +163,61 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
                     percentComplete={this.state.percentComplete}
                     styles={progressIndicatorStyle} />
  
-                <IconButton styles={windowButtonStyle} iconProps={{ iconName: (this.state.modelSummary ? 'ChevronUp' : 'ChevronDown')}} onClick={this._iconSummaryClicked.bind(this)}/>
-                <span className='text'> Model Summary </span>
-                { modelSummaryView }
-                <br></br>
-                <IconButton styles={windowButtonStyle} iconProps={{ iconName: (this.state.trainingStatus ? 'ChevronUp' : 'ChevronDown')}} onClick={this._iconStatusClicked.bind(this)}/>
-                <span className='text'> Training Status </span>
-                { trainingStatusView }
-                <p className='text'> TODO: provide status bar and short summary of model </p>
-                <p className='text'> TODO: provide # of iteration completed / # of total iterations and best metric score overall </p>
+                <div className='training-window'>
+                    <CommandBarButton 
+                        styles={windowButtonStyle} 
+                        iconProps={{ iconName: (this.state.modelSummary ? 'ChevronUp' : 'ChevronDown')}} 
+                        onClick={this._iconSummaryClicked.bind(this)}
+                        text="Model Summary"/>
+                    <div className="row" ref={this.modelSummaryWindow}>
+                        <div className='column-combined'>
+                            <p className='training-text-big'>{this.state.modelName}</p>
+                            <p className='training-text-small'>Model Name</p>
+                        </div>
+                        <div className='column'>
+                            <p className='training-text-big'>{this.state.outputField}</p>
+                            <p className='training-text-small'>Output Field</p>
+                            <p className='training-text-big' onClick={this._inputFieldClicked.bind(this)}>7</p>
+                            <p className='training-text-small-last' 
+                               ref={this.inputFields}
+                               onClick={this._inputFieldClicked.bind(this)}>Input Fields</p>
+                            <Callout
+                                target={this.inputFields.current}    
+                                onDismiss={this._onCalloutDismiss}
+                                hidden={!this.state.inputFieldView}
+                                directionalHint={DirectionalHint.rightCenter}>
+                                <p className='callout-text'> input1, input2, input3 </p>
+                            </Callout>
+                        </div>
+                        <div className='column'>
+                            <p className='training-text-big'>Classification</p>
+                            <p className='training-text-small'>Type of Problem</p>
+                            <p className='training-text-big'>12k</p>
+                            <p className='training-text-small-last'>Rows</p>
+                       </div>
+                    </div>
+                </div>
+                <div className='training-window'>
+                    <CommandBarButton 
+                        styles={windowButtonStyle} 
+                        iconProps={{ iconName: (this.state.trainingStatus ? 'ChevronUp' : 'ChevronDown')}} 
+                        onClick={this._iconStatusClicked.bind(this)}
+                        text="Training Status"/>
+                    <div className="row" ref={this.trainingStatusWindow}>
+                        <div className='column'>
+                            <p className='training-text-big'>Running</p>
+                            <p className='training-text-small'>Status</p>
+                            <p className='training-text-big'>23</p>
+                            <p className='training-text-small-last'>Iterations Completed</p>
+                        </div>
+                        <div className='column'>
+                            <p className='training-text-big'>93.6%</p>
+                            <p className='training-text-small'>Best Performance</p>
+                            <p className='training-text-big'>40</p>
+                            <p className='training-text-small-last'>Total Iterations</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         );
     }

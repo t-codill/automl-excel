@@ -4,7 +4,7 @@ import { ResponsiveMode } from 'office-ui-fabric-react'
 import { Dropdown, IDropdownStyles, IDropdownOption } from 'office-ui-fabric-react'
 import { ChoiceGroup, IChoiceGroupOption, IChoiceGroupStyles } from 'office-ui-fabric-react'
 import { PrimaryButton, IconButton, IButtonStyles } from 'office-ui-fabric-react'
-import { TextField,  Stack, IStackProps } from 'office-ui-fabric-react'
+import { TextField, Stack, IStackProps } from 'office-ui-fabric-react'
 import { Link } from 'react-router-dom'
 
 export interface AppProps {
@@ -151,15 +151,19 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                         }
                     ]}/>
                 { forecastContent }
-                <PrimaryButton styles={trainButtonStyle} text="train" />
-                
-                <Link to='/createmodel'>Create Model</Link><br></br>
-                <Link to='/modeltraining'>Model Training</Link><br></br>
-                <Link to='/usemodel'>Use Model</Link><br></br>
-                <Link to='/tutorial/importdata'>Tutorial: Prepare Data</Link><br></br>
-                <Link to='/tutorial/outputfield'>Tutorial: Create New Model</Link><br></br>
-                <Link to='/tutorial/modeltraining'>Tutorial: Model Training</Link><br></br>
-                <Link to='/ModelAnalysis'>Model Analysis</Link><br></br>
+                <Link style={{position: 'absolute', left: 0}} to="/modeltraining">
+                    <PrimaryButton styles={trainButtonStyle} text="train" />
+                </Link>
+                <div>
+                    <br></br> <br></br> <br></br> <br></br> <br></br>
+                    <Link to='/createmodel'>Create Model</Link><br></br>
+                    <Link to='/modeltraining'>Model Training</Link><br></br>
+                    <Link to='/usemodel'>Use Model</Link><br></br>
+                    <Link to='/tutorial/importdata'>Tutorial: Prepare Data</Link><br></br>
+                    <Link to='/tutorial/outputfield'>Tutorial: Create New Model</Link><br></br>
+                    <Link to='/tutorial/modeltraining'>Tutorial: Model Training</Link><br></br>
+                    <Link to='/ModelAnalysis'>Model Analysis</Link><br></br>
+                </div>
             </div>
         );
     }

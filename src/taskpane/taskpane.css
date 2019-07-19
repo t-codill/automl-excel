@@ -63,10 +63,6 @@ b {
     text-align: right
 }
 
-.header_block {
-    background-color: #0078d4;
-}
-
 .tutorial_text {
     margin-left: 5px;
     margin-right: 5px;
@@ -92,10 +88,22 @@ b {
     font-family: 'Segoe UI';
     font-size: 14px;
     color: #2f2f2f;
+    font-weight: 600;
+}
+
+.callout-text {
+    margin-left: 5px;
+    margin-right: 5px;
+    margin-top: 5px;
+    margin-bottom: 5px;
 }
 
 .row {
-    margin-top: 10px;
+    display: block;
+    height: 0;
+    overflow: hidden;
+    transition: height 500ms;
+    background-color: #ebf6ff;
 }
 
 .row:after {
@@ -116,7 +124,7 @@ b {
 
 .training-text-big {
     display: block;
-    font-size: 1.3em;
+    font-size: 16px;
     margin-top: 0.3em;
     margin-bottom: 0em;
     margin-left: 20px;
@@ -125,11 +133,25 @@ b {
 
 .training-text-small {
     display: block;
-    font-size: 0.9em;
+    font-size: 13px;
     margin-top: 0em;
     margin-bottom: 0em;
     margin-left: 20px;
-    font-weight: 600;
+    font-weight: 500;
+}
+
+.training-text-small-last {
+    display: block;
+    font-size: 13px;
+    margin-top: 0em;
+    margin-bottom: 7px;
+    margin-left: 20px;
+    font-weight: 500;
+    width: 70px
+}
+
+.training-window {
+    margin-bottom: 10px;
 }
  
 
