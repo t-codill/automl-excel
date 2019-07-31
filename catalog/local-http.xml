@@ -87,13 +87,13 @@
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
         <bt:Url id="Commands.Url" DefaultValue="http://localhost:8080/commands.html"/>
         <bt:Url id="Taskpane.Url" DefaultValue="http://localhost:8080/taskpane/createmodel"/>
-        <bt:Url id="RunButton.Url" DefaultValue="http://localhost:8080/taskpane/usemodel"/>
+        <bt:Url id="RunButton.Url" DefaultValue="http://localhost:8080/taskpane/applymodel"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GetStarted.Title" DefaultValue="Welcome to Automated Machine Learning! 🧠"/>
         <bt:String id="CommandsGroup.Label" DefaultValue="Automated Machine Learning"/>
-        <bt:String id="TrainButton.Label" DefaultValue="Create ML Model"/>
-        <bt:String id="RunButton.Label" DefaultValue="Use ML Model"/>
+        <bt:String id="TrainButton.Label" DefaultValue="Create Model"/>
+        <bt:String id="RunButton.Label" DefaultValue="Use Model"/>
       </bt:ShortStrings>
       <bt:LongStrings>
         <bt:String id="GetStarted.Description" DefaultValue="Click 'Create ML Model' or 'Use ML Model' to get started!"/>

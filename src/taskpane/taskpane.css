@@ -21,20 +21,68 @@
      padding: 0;
  }
 
-.ms-Button.ms-Button--hero .ms-Button-label {
-  color: #0078d7;
-}
+.underline {text-decoration:underline !important;}
 
-.ms-Button.ms-Button--hero:hover .ms-Button-label,
-.ms-Button.ms-Button--hero:focus .ms-Button-label{
-  color: #005a9e;
-  cursor: pointer;
-}
+a {text-decoration:none}
+a:link {text-decoration:none;}
+a:visited {text-decoration:none;}
+a:hover {text-decoration:none;}
+a:active {text-decoration:none;}
 
 b {
     font-weight: bold;
 }
 
+.welcome-header {
+    padding: 20px;
+    padding-bottom: 15px;
+    padding-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+ }
+
+.welcome-title {
+    text-align: center;
+    font-weight: 600;
+    margin-top: 10px;
+    margin-bottom: 0px;
+    font-size: 22px;
+    color:#0078d4;
+}
+
+.progress-title {
+    text-align: center;
+    font-weight: 600;
+    margin-block-start: 10px;
+    margin-block-end: 7px;
+    font-size: 22px;
+    color:#0078d4;
+}
+
+.welcome-text {
+    margin-left: 20px;
+    margin-right: 20px;
+    font-family: 'Segoe UI';
+    font-size: 14px;
+    color: #2f2f2f;
+    font-weight: 400;
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.herolist-main {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+    flex: 1 0 0;
+}
+ 
+.herolist-text {
+    position: relative;
+    margin-top: -3px;
+}
 .header {
     position: relative;
     height: 35px;
@@ -50,22 +98,9 @@ b {
     color: white;
 }
 
-.refresh {
-    text-align: right
-}
-
-.refresh_text {
-    position: relative;
-    top: 5px;
-    margin-right: 10px;
-    font-size: 13px;
-    font-family: "Arial";
-    text-align: right
-}
-
 .tutorial_text {
-    margin-left: 5px;
-    margin-right: 5px;
+    margin-left: 7px;
+    margin-right: 7px;
     font-family: 'Arial';
     font-size: 13px;
     line-height: 1.4;
@@ -76,34 +111,67 @@ b {
 }
 
 .tutorial_title {
-    margin-left: 5px;
+    margin-left: 7px;
     font-family: 'Arial';
     font-size: 15px;
     font-weight: 600;
 }
 
+.title-text {
+    display: block;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    font-family: 'Segoe UI';
+    font-size: 15px;
+    color: #2f2f2f;
+    font-weight: 500;
+}
+
 .text {
-    margin-left: 3px;
-    margin-right: 3px;
+    margin-left: 7px;
+    margin-right: 7px;
     font-family: 'Segoe UI';
     font-size: 14px;
     color: #2f2f2f;
     font-weight: 600;
 }
 
-.callout-text {
-    margin-left: 5px;
-    margin-right: 5px;
-    margin-top: 5px;
-    margin-bottom: 5px;
+.training-text {
+    margin-top: 0px;
+    margin-bottom: 0px;
+    margin-left: 7px;
+    margin-right: 7px;
+    font-family: 'Segoe UI';
+    font-size: 13px;
+    color: #2f2f2f;
+    font-weight: 500;
+}
+
+.center {
+    text-align: center;
 }
 
 .row {
     display: block;
-    height: 0;
+    height: auto;
     overflow: hidden;
     transition: height 500ms;
-    background-color: #ebf6ff;
+    /* background-color: #ebf6ff; */
+}
+
+.row-hide {
+    display: block;
+    height: 0px;
+    overflow: hidden;
+    transition: height 500ms;
+    /* background-color: #ebf6ff; */
+}
+
+.row-hide:after {
+    content: "";
+    display: table;
+    clear: both;
 }
 
 .row:after {
@@ -122,83 +190,42 @@ b {
     width: 100%;
 }
 
-.training-text-big {
+.column-unbalanced-left {
+    float: left;
+    width: 23%;
+}
+
+.column-unbalanced-right {
+    float: left;
+    width: 73%;
+}
+
+.text-big {
     display: block;
-    font-size: 16px;
+    font-size: 19px;
     margin-top: 0.3em;
     margin-bottom: 0em;
     margin-left: 20px;
     font-weight: 600;
 }
 
-.training-text-small {
+.text-small {
     display: block;
     font-size: 13px;
     margin-top: 0em;
     margin-bottom: 0em;
     margin-left: 20px;
-    font-weight: 500;
+    font-weight: 600;
 }
 
-.training-text-small-last {
-    display: block;
-    font-size: 13px;
-    margin-top: 0em;
-    margin-bottom: 7px;
-    margin-left: 20px;
-    font-weight: 500;
-    width: 70px
-}
-
-.training-window {
+.window {
     margin-bottom: 10px;
 }
- 
 
-
-
-.ms-model__analysis_keyStats {
-    color: white;
-    background-color: rgb(66, 130, 190);
-     text-align: left;
-     margin-top: 0px;
-     line-height: 4pt;
-     padding-top: 1px;
-     
- }
-
- .ms-model__analysis_barChart {
-    color: white;
-     background-color: rgb(66, 130, 190);
-    text-align: left;
-    margin-top: 0px;
-    line-height: 4pt;
-    padding-top: 4px;
-    
+.fields {
+    white-space: pre-line;
+    margin-left: 20px;
+    font-size: 14px;
+    line-height: 1.45;
 }
-
- .ms-model__anlaysis_binaryClassification {
-     color: white;
-     background-color: rgb(66, 130, 190);
-     text-align: left;
-     margin-top: 0px;
-     line-height: 4pt;
-     padding-top: 4px;
- }
- .ms-model__analysis_actionItems {
-    color: white;
-    background-color: rgb(66, 130, 190);
-    text-align: middle;
-    margin-top: 0px;
-    line-height: 4pt;
-    padding-top: 4px;
- }
-
- .ms-model__analysis_applyModel {
-    color: white;
-    background-color: rgb(240, 161, 42);
-    text-align: middle;
-    margin-top: 0px;
-    line-height: 4pt;
-    padding-top: 4px;
- }
+ 

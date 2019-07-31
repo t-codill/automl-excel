@@ -23,14 +23,14 @@ const backButtonStyle: Partial<IButtonStyles> = {
 }
 
 const dropdownStyle: Partial<IDropdownStyles> = {
-    root: { paddingLeft: '3px',
-            paddingRight: '3px',
+    root: { paddingLeft: '8px',
+            paddingRight: '8px',
             paddingTop: '6px'}
 };
 
 const columnProps: Partial<IStackProps> = {
-    styles: { root: { marginLeft: '3px',
-                      marginRight: '3px',
+    styles: { root: { marginLeft: '8px',
+                      marginRight: '8px',
                       marginTop: '6px',
                       paddingBottom: '10px'}
             }
@@ -38,7 +38,7 @@ const columnProps: Partial<IStackProps> = {
 
 const choiceGroupStyle: Partial<IChoiceGroupStyles> = {
     root: { paddingTop: '4px',
-            paddingLeft: '3px',
+            paddingLeft: '8px',
             paddingBottom: '4px' }
 }
 
@@ -119,21 +119,14 @@ export default class TypeOfProblem extends React.Component<AppProps, AppState> {
                     <span className='header_text'> Tutorial: Create New Model </span>
                 </div>
                 
-                <Dropdown 
-                    label='What value do you want to predict?' 
-                    options={this.state.options} 
-                    responsiveMode={ResponsiveMode.xLarge} 
-                    defaultSelectedKey={'Survived'}
-                    disabled={true}
-                    styles={dropdownStyle}/>
                 <p className='tutorial_text'> In this step, we need to specify the <b> type of problem </b> for our model. There are three types of problems. </p>
-                <p className='tutorial_text'> 1) <b>Classification models</b> are used to categorize data into multiple groups. <br></br>
+                <p className='tutorial_text'> <b>Classification models</b> are used to categorize data into multiple groups. <br></br>
                 ex) filtering reviews as positive, neutral, or negative. </p>
-                <p className='tutorial_text'> 2) <b>Regression models</b> are used to predict a value. <br></br>
-                ex) predicting automobile prices or sales deal revenue. </p>
-                <p className='tutorial_text'> 3) <b>Forecasting models</b> use past observation to predict future observations. <br></br> 
-                ex) predicting electricity consumption of a household over 2 years. </p>
-                <p className='tutorial_text'> Our task is to predict whether passangers survived or not, so it would be a classification problem. </p>
+                <p className='tutorial_text'> <b>Regression models</b> are used to predict a value. <br></br>
+                ex) predicting automobile prices or sales revenue. </p>
+                <p className='tutorial_text'>  <b>Forecasting models</b> use past observation to predict future observations. <br></br> 
+                ex) predicting electricity consumption of a household. </p>
+                <p className='tutorial_text'> Our task is to predict whether passangers survived or not, so it would be a <b>classification</b> problem. </p>
                 
                 <div className='tutorial-block'>
                     <ChoiceGroup 

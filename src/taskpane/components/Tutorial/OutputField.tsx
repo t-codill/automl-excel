@@ -13,8 +13,8 @@ export interface AppState {
 }
 
 const dropdownStyle: Partial<IDropdownStyles> = {
-    root: { paddingLeft: '3px',
-            paddingRight: '3px',
+    root: { paddingLeft: '8px',
+            paddingRight: '8px',
             paddingTop: '3px',
             paddingBottom: '10px'}
 };

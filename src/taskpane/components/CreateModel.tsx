@@ -13,24 +13,25 @@ export interface AppProps {
 export interface AppState {
     algorithm: string
     options: IDropdownOption[]
+    headers: string[]
 }
 
 const dropdownStyle: Partial<IDropdownStyles> = {
-    root: { paddingLeft: '3px',
-            paddingRight: '3px',
+    root: { paddingLeft: '8px',
+            paddingRight: '8px',
             paddingTop: '6px'}
 };
 
 const columnProps: Partial<IStackProps> = {
-    styles: { root: { marginLeft: '3px',
-                      marginRight: '3px',
+    styles: { root: { marginLeft: '8px',
+                      marginRight: '8px',
                       marginTop: '6px'}
             }
 }
 
 const choiceGroupStyle: Partial<IChoiceGroupStyles> = {
     root: { paddingTop: '6px',
-            paddingLeft: '3px' }
+            paddingLeft: '8px' }
 }
 
 const backButtonStyle: Partial<IButtonStyles> = {
@@ -52,25 +53,38 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         super(props, context);
         this.state = {
             algorithm: 'classification', 
-            options: []
+            options: [],
+            headers: []
         };
-        // this.updateHeader();
+        this.updateHeader = this.updateHeader.bind(this);
+        this.createEventListener();
+        this.updateHeader(0);
     };
 
-    // private updateHeader() {
-    //     Excel.run(async context => {
-    //         var sheet = context.workbook.worksheets.getActiveWorksheet();
-    //         var range = sheet.getUsedRange();
-    //         range.load("values")
+    private createEventListener() {
+        Excel.run(async context => {
+            var worksheet = context.workbook.worksheets.getActiveWorksheet();
+            worksheet.onChanged.add(this.updateHeader);
+            await context.sync()
+        });
+    }
 
-    //         await context.sync();
-    //         this.setState ({
-    //             options: range.values[0].map(x => {
-    //                 return{'key': x, 'text': x};
-    //             })
-    //         })   
-    //     });
-    // }
+    private updateHeader(event) {
+        return Excel.run(async function(context) {
+            var sheet = context.workbook.worksheets.getActiveWorksheet();
+            var range = sheet.getUsedRange();
+            range.load("values")
+
+            return context.sync()
+                .then(function() {
+                    this.setState ({
+                        headers: range.values[0],
+                        options: range.values[0].map(x => {return{'key': x, 'text': x};})
+                    }) 
+                    console.log(this.state.headers)
+                }.bind(this))
+        }.bind(this))
+    }
 
     //@ts-ignore
     private _onImageChoiceGroupChange(ev: React.SyntheticEvent<HTMLElement>, option: IChoiceGroupOption) {
@@ -85,7 +99,6 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
     }
     
     render() {
-        // additional components (time series column, forecast horizon) for forecasting
         const forecastContent = this.state.algorithm === 'forecasting' 
             ?   <div>
                     <Dropdown 
@@ -110,12 +123,6 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                         <IconButton styles={backButtonStyle} iconProps={{ iconName: 'ChromeBack'}}/> 
                     </Link>
                     <span className='header_text'> Create New Model </span>
-                </div>
-                <div className='refresh'>
-                    <IconButton  
-                        iconProps={{ iconName: 'refresh'}} 
-                        /*onClick={this.updateHeader.bind(this)}*//>
-                    <span className='refresh_text'> refresh </span>
                 </div>
                 <Dropdown 
                     placeholder="Select the output field" 
@@ -151,10 +158,10 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                         }
                     ]}/>
                 { forecastContent }
-                <Link style={{position: 'absolute', left: 0}} to="/modeltraining">
-                    <PrimaryButton styles={trainButtonStyle} text="train" />
+                <Link to="/modeltraining">
+                    <PrimaryButton styles={trainButtonStyle} text="create" />
                 </Link>
-                <div>
+                {/* <div>
                     <br></br> <br></br> <br></br> <br></br> <br></br>
                     <Link to='/createmodel'>Create Model</Link><br></br>
                     <Link to='/modeltraining'>Model Training</Link><br></br>
@@ -163,7 +170,8 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                     <Link to='/tutorial/outputfield'>Tutorial: Create New Model</Link><br></br>
                     <Link to='/tutorial/modeltraining'>Tutorial: Model Training</Link><br></br>
                     <Link to='/ModelAnalysis'>Model Analysis</Link><br></br>
-                </div>
+                    <Link to='/Analysis'>Analysis</Link>
+                </div> */}
             </div>
         );
     }

@@ -9,13 +9,14 @@ import { AppContext, IAppContextProps, appContextDefaults } from './AppContext';
 import "office-ui-fabric-react/dist/css/fabric.css"
 import CreateModel from './createModel';
 import Welcome from './Welcome';
-import UseModel from './UseModel';
+import ApplyModel from './ApplyModel';
 import ModelTraining from './ModelTraining';
 import ImportData from './Tutorial/ImportData'
 import OutputField from './Tutorial/OutputField';
 import TypeOfProblem from './Tutorial/TypeOfProblem';
 import TutorialModelTraining from './Tutorial/ModelTraining';
 import ModelAnalysis from './ModelAnalysis';
+import Analysis from './Analysis'
 
 export interface AppProps {
   title: string;
@@ -120,13 +121,14 @@ export default class App extends React.Component<AppProps, AppState> {
         <BrowserRouter basename="/taskpane">
           <Switch>
             <Route path="/createmodel" component={CreateModel}></Route>
-            <Route path="/usemodel" component={UseModel}></Route>
+            <Route path="/applymodel" component={ApplyModel}></Route>
             <Route path="/modeltraining" component={ModelTraining}></Route>
             <Route path="/tutorial/outputfield" component={OutputField}></Route>
             <Route path="/tutorial/typeofproblem" component={TypeOfProblem}></Route>
             <Route path="/tutorial/importdata" component={ImportData}></Route>
             <Route path="/tutorial/modeltraining" component={TutorialModelTraining}></Route>
             <Route path = "/ModelAnalysis" component={ModelAnalysis}></Route>
+            <Route path = "/Analysis" component={Analysis}></Route>
             <Route exact path='/' component={Welcome}></Route>
           </Switch>
         </BrowserRouter>

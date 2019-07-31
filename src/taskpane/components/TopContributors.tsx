@@ -1,9 +1,5 @@
 import * as React from 'react';
-import {
-    XYPlot,
-    VerticalBarSeries,
-    LabelSeries
-} from 'react-vis';
+import { XYPlot, VerticalBarSeries, XAxis } from 'react-vis';
 
 class TopContributors extends React.Component {
     
@@ -11,11 +7,9 @@ class TopContributors extends React.Component {
     render() {
         const data = this.props.data;
         const chartWidth = 300;
-        const chartHeight = 100;
+        const chartHeight = 110;
         const chartDomain = [0, chartHeight];
         return (
-            <div style = {{height: 130}} className = "ms-model__analysis_barChart" >
-                <h3>&nbsp;&nbsp;Top Contributors</h3>
             <XYPlot 
                xType="ordinal" 
                width={chartWidth} 
@@ -24,19 +18,10 @@ class TopContributors extends React.Component {
              >
                 <VerticalBarSeries
                     data={data}
-                    color = "white"
+                    color="#0078d4"
                 />
-                 <LabelSeries
-                    color = "#4282BE"
-                    data={data.map(obj => {
-                        return { ...obj, label: obj.x.toString()}
-                    })}
-                    
-                    labelAnchorX="middle"
-                    labelAnchorY="text-after-edge"
-                />
+                <XAxis />
             </XYPlot>
-            </div>
         );
     }
 }
