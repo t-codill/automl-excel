@@ -82,10 +82,7 @@
     "url-polyfill": "^1.1.5",
     "uuid": "^3.3.2",
     "webpack": "^4.34.0",
-<<<<<<< HEAD
-=======
     "webpack-cli": "^3.3.6",
->>>>>>> fe7c7a64064e5afd681dd4d91a7c64014998dbd4
     "webpack-dev-server": "^3.7.2",
     "write-file-atomic": "^3.0.0"
   },
