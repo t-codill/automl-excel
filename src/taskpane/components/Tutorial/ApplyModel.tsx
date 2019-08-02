@@ -205,7 +205,7 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
         return (
             <div>          
                 <div className="header">
-                    <Link style={{position: 'absolute', left: 0}} to="/" >
+                    <Link style={{position: 'absolute', left: 0}} to="/tutorial/analysis" >
                     <IconButton styles={backButtonStyle} iconProps={{ iconName: 'ChromeBack'}}/></Link>
                     <span className='header_text'> Tutorial: Apply Existing Model </span>
                 </div>
