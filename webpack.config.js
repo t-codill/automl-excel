@@ -1,22 +1,24 @@
-//const devCerts = require("office-addin-dev-certs");
+const devCerts = require("office-addin-dev-certs");
 //const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 //const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
 const path = require('path');
+const fs = require('fs');
 
 module.exports = async (env, options)  => {
   const dev = options.mode === "development";
   const config = {
     devtool: "source-map",
     entry: {
+      /*
       vendor: [
         'react',
         'react-dom',
         'core-js',
         'office-ui-fabric-react'
-    ],
+    ],*/
     taskpane: [
         'react-hot-loader/patch',
         './src/taskpane/index.tsx',
@@ -50,7 +52,10 @@ module.exports = async (env, options)  => {
               }  
             }   
           ]
-    },    
+    },
+    output: {
+      publicPath: "/"
+    },
     plugins: [
       //new CleanWebpackPlugin(),
       new CopyWebpackPlugin([
@@ -68,7 +73,7 @@ module.exports = async (env, options)  => {
       new HtmlWebpackPlugin({
           filename: "commands.html",
           template: "./src/commands/commands.html",
-          chunks: ["commands"]
+          chunks: ["commands"],
       }),
       new CopyWebpackPlugin([
           {
@@ -87,6 +92,16 @@ module.exports = async (env, options)  => {
       },
       contentBase: path.join(__dirname, 'dist'),
       //https: await devCerts.getHttpsServerOptions(),
+      
+      https: {
+        key: fs.readFileSync('local.key'),
+        cert: fs.readFileSync('local.crt')
+      },
+
+      proxy: {
+        "/api": {target: "https://localhost:3000/api", secure: true}
+      },
+      
       port: 8080,
       historyApiFallback: {
         index: 'taskpane/index.html'

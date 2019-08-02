@@ -2,24 +2,27 @@
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
   <Id>559ee975-c6db-4bb1-9c7b-2ae353de3e36</Id>
   <Version>1.0.0.0</Version>
-  <ProviderName>Contoso</ProviderName>
+  <ProviderName>Microsoft</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="automl-excel-local"/>
+  <DisplayName DefaultValue="Automated Machine Learning (Local)"/>
   <Description DefaultValue="A template to get started."/>
   <IconUrl DefaultValue="https://localhost:8080/assets/icon-32.png"/>
   <HighResolutionIconUrl DefaultValue="https://localhost:8080/assets/icon-80.png"/>
-  <SupportUrl DefaultValue="https://www.contoso.com/help"/>
+  <SupportUrl DefaultValue="https://www.microsoft.com"/>
   <AppDomains>
-    <AppDomain>contoso.com</AppDomain>
+    <AppDomain>microsoft.com</AppDomain>
+    <AppDomain>localhost</AppDomain>
+    <AppDomain>microsoftonline.com</AppDomain>
+    <AppDomain>login.microsoftonline.com</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Workbook"/>
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://localhost:8080/taskpane.html"/>
+    <SourceLocation DefaultValue="https://localhost:8080/taskpane"/>
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
-  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+  <VersionOverrides xmlns="https://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
     <Hosts>
       <Host xsi:type="Workbook">
         <DesktopFormFactor>
@@ -38,11 +41,11 @@
                   <bt:Image size="32" resid="Icon.32x32"/>
                   <bt:Image size="80" resid="Icon.80x80"/>
                 </Icon>
-                <Control xsi:type="Button" id="TaskpaneButton">
-                  <Label resid="TaskpaneButton.Label"/>
+                <Control xsi:type="Button" id="TrainButton">
+                  <Label resid="TrainButton.Label"/>
                   <Supertip>
-                    <Title resid="TaskpaneButton.Label"/>
-                    <Description resid="TaskpaneButton.Tooltip"/>
+                    <Title resid="TrainButton.Label"/>
+                    <Description resid="TrainButton.Tooltip"/>
                   </Supertip>
                   <Icon>
                     <bt:Image size="16" resid="Icon.16x16"/>
@@ -52,6 +55,23 @@
                   <Action xsi:type="ShowTaskpane">
                     <TaskpaneId>ButtonId1</TaskpaneId>
                     <SourceLocation resid="Taskpane.Url"/>
+                  </Action>
+                </Control>
+                
+                <Control xsi:type="Button" id="RunButton">
+                  <Label resid="RunButton.Label"/>
+                  <Supertip>
+                    <Title resid="RunButton.Label"/>
+                    <Description resid="RunButton.Tooltip"/>
+                  </Supertip>
+                  <Icon>
+                    <bt:Image size="16" resid="Icon.16x16"/>
+                    <bt:Image size="32" resid="Icon.32x32"/>
+                    <bt:Image size="80" resid="Icon.80x80"/>
+                  </Icon>
+                  <Action xsi:type="ShowTaskpane">
+                    <TaskpaneId>ButtonId2</TaskpaneId>
+                    <SourceLocation resid="RunButton.Url"/>
                   </Action>
                 </Control>
               </Group>
@@ -69,17 +89,32 @@
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
         <bt:Url id="Commands.Url" DefaultValue="https://localhost:8080/commands.html"/>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:8080/taskpane.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:8080/taskpane/train"/>
+        <bt:Url id="RunButton.Url" DefaultValue="https://localhost:8080/taskpane/run"/>
       </bt:Urls>
       <bt:ShortStrings>
-        <bt:String id="GetStarted.Title" DefaultValue="Get started with your sample add-in!"/>
-        <bt:String id="CommandsGroup.Label" DefaultValue="Commands Group"/>
-        <bt:String id="TaskpaneButton.Label" DefaultValue="Show Taskpane"/>
+        <bt:String id="GetStarted.Title" DefaultValue="Welcome to Automated Machine Learning! 🧠"/>
+        <bt:String id="CommandsGroup.Label" DefaultValue="Automated Machine Learning"/>
+        <bt:String id="TrainButton.Label" DefaultValue="Create ML Model"/>
+        <bt:String id="RunButton.Label" DefaultValue="Use ML Model"/>
       </bt:ShortStrings>
       <bt:LongStrings>
-        <bt:String id="GetStarted.Description" DefaultValue="Your sample add-in loaded succesfully. Go to the HOME tab and click the 'Show Taskpane' button to get started."/>
-        <bt:String id="TaskpaneButton.Tooltip" DefaultValue="Click to Show a Taskpane"/>
+        <bt:String id="GetStarted.Description" DefaultValue="Click 'Create ML Model' or 'Use ML Model' to get started!"/>
+        <bt:String id="TrainButton.Tooltip" DefaultValue="Create new machine learning model with Automated Machine Learning"/>
+        <bt:String id="RunButton.Tooltip" DefaultValue="Use existing machine learning model with Automated Machine Learning"/>
       </bt:LongStrings>
     </Resources>
+    <WebApplicationInfo>
+      <Id>2d854c46-8b8e-4128-9329-613e1039c582</Id>
+      <Resource>api://localhost:8080/2d854c46-8b8e-4128-9329-613e1039c582</Resource>
+      <Scopes>
+        <Scope>Files.Read.All</Scope>
+        <Scope>offline_access</Scope>
+        <Scope>openid</Scope>
+        <Scope>user.read</Scope>
+        <Scope>files.read</Scope>
+        <Scope>profile</Scope>
+      </Scopes>
+    </WebApplicationInfo>
   </VersionOverrides>
 </OfficeApp>
