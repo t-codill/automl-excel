@@ -6,11 +6,11 @@
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=Edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Contoso Task Pane Add-in</title>
+    <title>Automated Machine Learning</title>
 
     <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/es6-promise@4/dist/es6-promise.auto.js"></script>
-    <!--<script src="https://unpkg.com/unfetch/polyfill"></script>-->
+    <script src="https://unpkg.com/unfetch/polyfill"></script>
 
     <!-- Office JavaScript API -->
     <script>
@@ -18,7 +18,7 @@
         var oldReplaceState = window.history.replaceState;
         var blankFunc = function(){};
     </script>
-    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/1.1/hosted/office.js"></script>
+    <script type="text/javascript" src="https://appsforoffice.microsoft.com/lib/beta/hosted/office.js"></script>
     <script>
         window.history.pushState = blankFunc;
         window.history.replaceState = blankFunc;

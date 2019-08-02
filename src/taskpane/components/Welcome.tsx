@@ -1,74 +1,67 @@
 import * as React from 'react';
-import Header from "./Header";
-import { PrimaryButton } from 'office-ui-fabric-react';
+import { DefaultButton, PrimaryButton, IButtonStyles } from 'office-ui-fabric-react';
+import { Separator, ISeparatorStyles } from 'office-ui-fabric-react';
 import { Link } from 'react-router-dom';
 
-       
-    interface WelcomeProps {
+
+export interface HeaderProps {
+    logo: string;
+    message1: string;
+    message2: string;
+}
+
+class Header extends React.Component<HeaderProps> {
+    render() {
+        const {
+            logo,
+            message1,
+            message2
+        } = this.props;
+
+        return (
+            <section className='welcome-header ms-bgColor-neutral ms-u-fadeIn500'>
+                <img width='175' height='175' src={logo} />
+                <h1 className='welcome-title'>{message1}<br/>{message2}</h1>
+            </section>
+        );
     }
-    interface WelcomeState {
-        names:Array<string>;
-        officeToken: string;
-    } 
+}
 
-export default class Welcome extends React.Component<WelcomeProps, WelcomeState> {
 
-    constructor(props){
-        super(props);
-        /*
-        let context: any = Office.context;
-        context.auth.getAccessTokenAsync({forceconsent: false},
-            function(result){
-                console.log("access token:");
-                console.log(result)
-            })*/
-        console.log("Hello world")
-        
-    }
+const buttonStyle: Partial<IButtonStyles> = {
+    root: { display: 'block',
+            marginTop: '10px',
+            width: '94%',
+            marginLeft: 'auto',
+            marginRight: 'auto' }
+}
 
-    click = async () => {
-        try {
-          await Excel.run(async context => {
-            /**
-             * Insert your Excel code here
-             */
-            const range = context.workbook.getSelectedRange();
-    
-            // Read the range address
-            range.load("address");
-    
-            await context.sync();
-            console.log(`The range address was ${range.address}.`);
-          });
-        } catch (error) {
-          console.error(error);
-        }
-      }
+const SeparatorStyle: Partial<ISeparatorStyles> = {
+    root: { marginTop: '10px' }
+};
 
+export default class Welcome extends React.Component {
 
     render() {
 
-        const buttonStyle = {
-            marginLeft: 5,
-            marginRight: 5
-        };
-
         return (
-            <div className = 'welcome'>
-                <Header logo='/assets/azuremachinelearninglogo.png' title={"Logo"} message='Automated Machine Learning' />
-                <div className="center">
-                    <h2>Welcome.</h2>
-                    <h5>Select Train Model to train a new model, or Use Model to use an existing model!</h5>
-                    <Link to='/tutorialimportdata'><PrimaryButton style={buttonStyle}>Tutorial</PrimaryButton></Link> <br></br>
-                    <Link to='/train'><PrimaryButton style={buttonStyle}>Train Model</PrimaryButton></Link>
-                    <Link to='/run'><PrimaryButton style={buttonStyle}>Use Model</PrimaryButton></Link>
-                    
+            <div>
+                <Header  
+                    logo='/assets/azuremachinelearninglogo.png' 
+                    message1='Azure'
+                    message2='Automated Machine Learning'/>
+                <div>
+                    <p className='welcome-text'> New to automated machine learning? Start with a tutorial with step-by-step insturctions. </p>
+                    <Link to='/tutorial/importdata'>
+                        <DefaultButton styles={buttonStyle}>Start Tutorial</DefaultButton></Link>
+                    <Separator styles={SeparatorStyle}/>
+                    <p className='welcome-text'> Create a model using your data, and apply your model to generate predictions. </p>
+                    <Link to='/createmodel'>
+                        <PrimaryButton styles={buttonStyle}>Create Model</PrimaryButton></Link>
+                    <Link to='/applymodel'>
+                        <PrimaryButton styles={buttonStyle}>Apply Model</PrimaryButton></Link>
                 </div>
             </div>
         );
     }
-
 }
-
-
-//<Link to='/login'><PrimaryButton style={buttonStyle}>Login</PrimaryButton></Link>

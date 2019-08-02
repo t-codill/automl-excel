@@ -1,21 +1,10 @@
-import { AzureMachineLearningWorkspacesModels } from '@azure/arm-machinelearningservices';
-import { SubscriptionModels } from "@azure/arm-subscriptions";
-//import { createMemoryHistory } from 'history';
-import { IconButton, Pivot, PivotItem, IPivotStyles } from 'office-ui-fabric-react';
+//import { IconButton, Pivot, PivotItem, IPivotStyles } from 'office-ui-fabric-react';
 import * as React from 'react';
-import { Link, Redirect, Route, Switch, withRouter, BrowserRouter } from "react-router-dom";
-import { SubscriptionService } from '../../automl/services/SubscriptionService';
-import { WorkSpaceService } from '../../automl/services/WorkSpaceService';
-import { AuthenticationService } from "../AuthenticationService";
+import { Route, Switch, BrowserRouter } from "react-router-dom";
 import { AppContext, IAppContextProps, appContextDefaults } from './AppContext';
-import { HeroListItem } from './HeroList';
-//import Test from './Test';
 import "office-ui-fabric-react/dist/css/fabric.css"
-import Train from './Train';
 import Welcome from './Welcome';
-import Run from './Run';
 import Login from './Login';
-import AuthHandler from './AuthHandler';
 import TopContributors from './TopContributors';
 import ModelAnalysis from './ModelAnalysis';
 import Training from './Training';
@@ -23,9 +12,33 @@ import TutorialTrain1 from './TutorialTrain1';
 import TutorialTrain2 from './TutorialTrain2';
 import TutorialImportData from './TutorialImportData'
 import TutorialTraining from './TutorialTraining';
-import { DialogOpen } from './login/Dialog';
+import { Dialog } from './login/Dialog';
+import { SubscriptionChooser } from './SubscriptionChooser';
+import CreateModel from './CreateModel';
+import ApplyModel from './ApplyModel';
 
-//const memoryHistory = createMemoryHistory();
+
+class PrivateRoute extends Route{
+  static contextType = AppContext;
+  constructor(props){
+    super(props);
+    console.log("PrivateRoute constructor");
+  }
+
+  render(){
+
+    let token = this.context.getToken();
+    if(token === null || token === ""){
+      return <Login></Login>
+    }
+
+    if(this.context.subscriptionId === null){
+      return <SubscriptionChooser></SubscriptionChooser>;
+    }
+    
+    return super.render();
+  }
+}
 
 export interface AppProps {
   title: string;
@@ -33,168 +46,39 @@ export interface AppProps {
 }
 
 export interface AppState {
-  listItems: HeroListItem[];
-  token: string;
   appContext: IAppContextProps;
 }
 
 export default class App extends React.Component<AppProps, AppState> {
-  async componentDidMount(){
-    /*
-    await this.updateState({
-      token: await AuthenticationService.getToken()
-    });*/
-    //await this.updateWorkspaceList();
-    this.setState({
-      listItems: [
-        {
-          icon: 'Ribbon',
-          primaryText: 'Achieve more with Office integration'
-        },
-        {
-          icon: 'Unlock',
-          primaryText: 'Unlock features and functionality'
-        },
-        {
-          icon: 'Design',
-          primaryText: 'Create and visualize like a pro'
-        }
-      ]
-    });
-  }
-  async updateState(newState){
-    return new Promise((resolve, reject) => {
-      this.setState(newState, () => resolve());
-    });
-  }
-  async updateSubscriptionList(){
-    let subscriptionList = await new SubscriptionService(this.state.appContext.serviceBaseProps).listSubscriptions();
-    await this.updateState({
-      appContext: {
-        ...this.state.appContext,
-        subscriptionList: subscriptionList
-      }
-    });
-  }
-  async updateWorkspaceList(){
-    await this.updateSubscriptionList();
-
-    let newWorkspaceList: AzureMachineLearningWorkspacesModels.Workspace[] = [];
-    console.log(this.state.appContext.subscriptionList);
-
-    for(var i = 0; i < this.state.appContext.subscriptionList.length; i++){
-      let subscription = this.state.appContext.subscriptionList[i];
-      let subscriptionId = subscription.subscriptionId;
-      let serviceBaseProps = {
-        ...this.state.appContext.serviceBaseProps,
-        subscriptionId: subscriptionId
-      }
-      let toPush = await new WorkSpaceService(serviceBaseProps).listWorkspaces();
-      toPush.forEach(item => newWorkspaceList.push(item));
-    }
-
-    await this.updateState({
-      appContext: {
-        ...this.state.appContext,
-        workspaceList: newWorkspaceList
-      }
-    });
-
-    console.log('New workspace list:')
-    console.log(this.state.appContext.workspaceList);
-  }
 
   constructor(props, context) {
     super(props, context);
+    console.log("App constructor");
 
     let appContext = appContextDefaults;
-    
-    appContext.serviceBaseProps.getToken = function(){
-      return this.state.token;
-    }.bind(this);
-
-    appContext.setToken = function(token: string){
-      this.setState({
-        token: token
-      });
-    }.bind(this);
-
-    appContext.updateSubscriptionList = this.updateSubscriptionList.bind(this);
-    appContext.updateWorkspaceList = this.updateWorkspaceList.bind(this);
+    appContext.update = this.updateContext.bind(this);
 
     this.state = {
-      listItems: [],
-      token: "",
       appContext: appContext
     };
     
   }
 
+  async updateContext(newContext: IAppContextProps){
+    await this.updateState({
+      appContext: Object.assign(this.state.appContext, newContext)
+    })
+    return this.state.appContext;
+  }
 
-  updateToken = async () => {
-    this.setState({
-      token: await AuthenticationService.getToken()
+  async updateState(newState){
+    return new Promise((resolve, reject) => {
+      this.setState(newState, () => resolve());
     });
   }
 
-  click = async () => {
-    try {
-      await Excel.run(async context => {
-        /**
-         * Insert your Excel code here
-         */
-        const range = context.workbook.getSelectedRange();
-
-        // Read the range address
-        range.load("address");
-
-        // Update the fill color
-        range.format.fill.color = "yellow";
-
-        await context.sync();
-        console.log(`The range address was ${range.address}.`);
-      });
-    } catch (error) {
-      console.error(error);
-    }
-  }
-
   render(){
-
-    const showLists = false;
-
-    function renderPage(props){
-      let subList;
-      if(this.state.subscriptionList === null){
-        subList = <p>Waiting for subscription list...</p>;
-      }else{
-        subList = [];
-        this.state.subscriptionList.forEach((subscription: SubscriptionModels.Subscription) => {
-          subList.push(<p key={subscription.id}>{subscription.displayName} - {subscription.id} - {subscription.subscriptionId}</p>);
-        });
-      }
-
-      let workspaceList: JSX.Element[];
-      if(this.state.workspaceList === null){
-        workspaceList = [<p key="">Waiting for workspace list...</p>];
-      }else{
-        workspaceList = []
-        this.state.workspaceList.forEach((workspace: AzureMachineLearningWorkspacesModels.Workspace) => {
-          workspaceList.push(<p key={workspace.id}>{workspace.name} - {workspace.friendlyName}</p>);
-        });
-      }
-
-      return (
-        <div>
-          {subList}
-          <br />
-          {workspaceList}
-        </div>
-      )
-    }
-
-    let RenderPage = showLists ? renderPage.bind(this)({}): <></>;
-
+    /*
     let Navbar = withRouter((props) => {
       const data = {
         '/train': {
@@ -234,28 +118,27 @@ export default class App extends React.Component<AppProps, AppState> {
         return <></>;
       }
     })
+    */
+    
+
     return (
-      <AppContext.Provider value={{...this.state.appContext}}>
-        
+      <AppContext.Provider value={this.state.appContext}>
         <BrowserRouter basename="/taskpane">
-          <Navbar />
           <Switch>
-            <Route path="/train" component={Train}></Route>
-            <Route exact path="/run" component={Run}></Route>
+            <PrivateRoute path="/createmodel" component={CreateModel}></PrivateRoute>
+            <PrivateRoute exact path="/applymodel" component={ApplyModel}></PrivateRoute>
             <Route exact path='/' component={Welcome}></Route>
-            <Route path='/login' component={Login}></Route>
-            <Route path='/auth' component={AuthHandler}></Route>
-            <Route path='/topcontributors' component={TopContributors}></Route>
-            <Route path='/modelanalysis' component={ModelAnalysis}></Route>
-            <Route path='/training' component={Training}></Route>
+            <PrivateRoute path='/topcontributors' component={TopContributors}></PrivateRoute>
+            <PrivateRoute path='/modelanalysis' component={ModelAnalysis}></PrivateRoute>
+            <PrivateRoute path='/training' component={Training}></PrivateRoute>
             <Route path="/tutorialtrain1" component={TutorialTrain1}></Route>
             <Route path="/tutorialtrain2" component={TutorialTrain2}></Route>
             <Route path="/tutorialimportdata" component={TutorialImportData}></Route>
             <Route path="/tutorialtraining" component={TutorialTraining}></Route>
-            <Route path="/dialogopen" component={DialogOpen}></Route>
+            <Route path="/logindialog" component={Dialog}></Route>
+            <PrivateRoute path="/subscription_chooser" component={SubscriptionChooser}></PrivateRoute>
           </Switch>
         </BrowserRouter>
-        {RenderPage}
       </AppContext.Provider>
     )
   }

@@ -131,7 +131,6 @@ export abstract class ServiceBase<TClient extends IServiceClient> {
     }
 
     protected async send<T>(action: (c: TClient, signal: AbortSignal) => Promise<T>, resetAbortController = true): Promise<T | undefined> {
-        console.log('sending')
         const value = this.baseSend(action, resetAbortController, false);
         return value;
     }

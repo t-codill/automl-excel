@@ -1,11 +1,57 @@
 import * as React from 'react'
 import {AppContext} from './AppContext'
-import { Spinner } from 'office-ui-fabric-react';
 import { updateState } from './util';
-import { Redirect } from 'react-router';
+import {polyfill} from 'es6-promise'
+import { authMethod } from '../../../config';
+import { apiUrl } from '../util';
+import { PageLoad } from './PageLoad';
 
-//const clientId = "2d854c46-8b8e-4128-9329-613e1039c582";
+polyfill();
+
 const clientId = "2d854c46-8b8e-4128-9329-613e1039c582";
+
+function makeRequest (url, method?) {
+    return new Promise(function (resolve, reject) {
+        
+        method = method || 'GET';
+
+        var xhr = new XMLHttpRequest();
+        xhr.open(method, url);
+        xhr.onload = function () {
+        if (this.status >= 200 && this.status < 300) {
+            resolve(xhr.response);
+        } else {
+            reject({
+            status: this.status,
+            statusText: xhr.statusText
+            });
+        }
+        };
+        xhr.onerror = function () {
+        reject({
+            status: this.status,
+            statusText: xhr.statusText
+        });
+        };
+        xhr.send();
+    });
+}
+
+async function getCliToken(): Promise<string | undefined> {
+    let responsePromise = makeRequest(apiUrl + "/cli_token")
+    return responsePromise.then(async (response: string) => {
+        /*
+        const json = await response.json();
+        return json.accessToken;
+        */
+        let json = JSON.parse(response);
+        return json.accessToken;
+    }).catch(async (error) => {
+        console.log(JSON.stringify(error))
+        return undefined;
+    });
+}
+
 
 interface LoginState{
     authorizationCode: string;
@@ -14,36 +60,53 @@ interface LoginState{
 
 export default class Login extends React.Component<{}, LoginState>{
     static contextType = AppContext;
-    iframeRef: React.RefObject<HTMLIFrameElement>;
-    url: string = "";
+
     constructor(props, context){
         super(props, context);
-        
+
         this.state = {
             authorizationCode: "",
             token: ""
         }
 
-        this.url = `https://login.microsoftonline.com/common/oauth2/authorize?client_id=${clientId}&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8080/taskpane/auth&response_mode=query`;
-        let dialogUrl = "https:/localhost:8080/dialogopen";
-        console.log('url = ');
-        console.log(dialogUrl);
-        Office.context.ui.displayDialogAsync(dialogUrl, {}, (result) => {
-            console.log("result:")
-            console.log(result);
-        });
-
-        window.addEventListener("message", async (event) => {
-            if(!event.data.hasOwnProperty('code')) return;
-            await updateState(this, {
-                authorizationCode: event.data.code
+        if(authMethod === "dialog"){
+        
+            let dialogUrl = "https://localhost:8080/taskpane/logindialog";
+            
+            Office.context.ui.displayDialogAsync(dialogUrl, {width: 50, height: 50}, (result) => {
+                let dialog = result.value;
+                dialog.addEventHandler(Office.EventType.DialogMessageReceived, async (arg) => {
+                    dialog.close();
+                    await updateState(this, {
+                        authorizationCode: arg.message
+                    });
+                    this.requestToken();
+                })
+            });
+        }else if(authMethod === "office"){
+            Office.context.auth.getAccessTokenAsync(function(result){
+                if(result.status === Office.AsyncResultStatus.Succeeded){
+                    let ssoToken = result.value;
+                    console.log(ssoToken);
+                }else{
+                    if(result.error.code === 13003){
+                    }else{
+                        console.log(result.error);
+                    }
+                }
             })
-            this.requestToken();
-        });
+        }else if(authMethod === "cli"){
+            getCliToken().then(token => {
+                this.context.setToken(token);
+            })
+        }else{
+            console.log("Invalid authentication method ".concat(authMethod).concat("!"));
+        }
     };
 
     async requestToken(){
-        let url = `http://${window.location.hostname}:3000/api/token`;
+        console.log("Requesting token...");
+        let url = `/api/token`;
         let body = {
             clientId: clientId,
             code: this.state.authorizationCode,
@@ -63,26 +126,13 @@ export default class Login extends React.Component<{}, LoginState>{
             this.setState({
                 token: tokenData.access_token
             })
+            this.context.setToken(tokenData.access_token);
         }catch(error){
             console.log(error);
         }
     }
-
+    
     render(){
-
-        if(this.state.authorizationCode === ""){
-            return <p>View popup</p>;
-
-            //return <iframe style={{width: '100%', height: '100%', borderWidth: 0}} src={url} ref={this.iframeRef} ></iframe>;
-        }else if(this.state.token != ""){
-            return <>
-                <p>Got token. Redirecting to page.<br /> {this.state.token}</p>
-                <Spinner></Spinner>
-                <Redirect to="/"></Redirect>
-            </>
-        }{
-            return <><p>Getting token...</p><Spinner></Spinner></>
-        }
-
+        return <PageLoad text="Logging in" />
     }
 }

@@ -104,5 +104,17 @@
         <bt:String id="RunButton.Tooltip" DefaultValue="Use existing machine learning model with Automated Machine Learning"/>
       </bt:LongStrings>
     </Resources>
+    <WebApplicationInfo>
+      <Id>2d854c46-8b8e-4128-9329-613e1039c582</Id>
+      <Resource>api://localhost:8080/2d854c46-8b8e-4128-9329-613e1039c582</Resource>
+      <Scopes>
+        <Scope>Files.Read.All</Scope>
+        <Scope>offline_access</Scope>
+        <Scope>openid</Scope>
+        <Scope>user.read</Scope>
+        <Scope>files.read</Scope>
+        <Scope>profile</Scope>
+      </Scopes>
+    </WebApplicationInfo>
   </VersionOverrides>
 </OfficeApp>

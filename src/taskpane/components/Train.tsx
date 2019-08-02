@@ -6,6 +6,9 @@ import { ChoiceGroup, IChoiceGroupOption, IChoiceGroupStyles } from 'office-ui-f
 import { PrimaryButton, IconButton, IButtonStyles } from 'office-ui-fabric-react'
 import { TextField,  Stack, IStackProps } from 'office-ui-fabric-react'
 import { Link } from 'react-router-dom'
+import { AppContext } from './AppContext';
+import { AzureMachineLearningWorkspacesModels } from '@azure/arm-machinelearningservices';
+import { PageLoad } from './PageLoad';
 
 export interface AppProps {
 }
@@ -54,6 +57,8 @@ const trainButtonStyles: Partial<IButtonStyles> = {
 }
 
 export default class Train extends React.Component<AppProps, AppState> {
+    static contextType = AppContext;
+
     constructor(props, context) {
         super(props, context);
         this.state = {
@@ -63,6 +68,12 @@ export default class Train extends React.Component<AppProps, AppState> {
         };
         //window.location.replace("https://login.microsoftonline.com/common/oauth2/authorize?client_id=2d854c46-8b8e-4128-9329-613e1039c582&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8080&response_mode=query");
     };
+    
+    async componentDidMount(){
+        if(this.context.workspaceList === null)
+            this.context.updateWorkspaceList();
+    }
+    
 
     updateHeader() {
         Excel.run(async context => {
@@ -94,6 +105,17 @@ export default class Train extends React.Component<AppProps, AppState> {
     }
     
     render() {
+        
+        if(this.context.workspaceList === null){
+            return <PageLoad text="Waiting for workspace list" />;
+        }
+
+        this.context.workspaceList.map((workspace: AzureMachineLearningWorkspacesModels.Workspace) => { return {
+            key: workspace.id,
+            value: workspace.friendlyName,
+            text: workspace.friendlyName
+        }});
+
         const forecastContent = this.state.algorithm === 'forecasting' 
             ?   <div>
                     <Dropdown placeholder="Select the time column" label='Which column holds the timestamps?' options={this.state.options} responsiveMode={ResponsiveMode.xLarge} styles={dropdownStyles} />

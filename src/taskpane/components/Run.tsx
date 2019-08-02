@@ -11,7 +11,7 @@ export interface SEMState {
 } 
 
 export default class Run extends React.Component<SEMProps, SEMState> {
-    //contextType = AppContext;
+    contextType = AppContext;
 
     public state: SEMState = {
         selectedItem: undefined
@@ -19,7 +19,12 @@ export default class Run extends React.Component<SEMProps, SEMState> {
 
     constructor(props, context){
       super(props, context);
-      console.log("AYY LMAO")
+      
+    }
+
+    componentDidMount(){
+      if(this.context.workspaceList === null)
+        this.context.updateWorkspaceList();
     }
 
     updateState(newState): Promise<void>{
@@ -30,30 +35,14 @@ export default class Run extends React.Component<SEMProps, SEMState> {
       })
     }
 
-
-    async componentDidMount(){
-      await this.context.updateWorkspaceList();
-    }
-
     render() {
         const { selectedItem } = this.state;
-
-        //let workspaceList = this.context.workspaceList;
-        console.log('render triggered!!!')
-        /*const options = [
-          { key: 'apple', text: 'Apple' },
-          { key: 'banana', text: 'Banana' },
-          { key: 'grape', text: 'Grape' },
-          { key: 'broccoli', text: 'Broccoli' },
-          { key: 'carrot', text: 'Carrot' },
-          { key: 'lettuce', text: 'Lettuce' }
-        ];*/
 
         if(this.context.workspaceList == null){
           return <Spinner style={{marginTop: 100}}></Spinner>
         }
 
-        
+        console.log(this.context.workspaceList);
         const options = this.context.workspaceList.map((workspace: AzureMachineLearningWorkspacesModels.Workspace) => {
           return {key: workspace.id, text: workspace.name};
         })
