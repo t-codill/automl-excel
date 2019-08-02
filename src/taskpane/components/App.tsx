@@ -82,7 +82,7 @@ export default class App extends React.Component<AppProps, AppState> {
       <AppContext.Provider value={this.state.appContext}>
         <BrowserRouter basename="/taskpane">
           <Switch>
-            <Route path="/createmodel" component={CreateModel}></Route>
+            <PrivateRoute path="/createmodel" component={CreateModel}></PrivateRoute>
             <Route path="/applymodel" component={ApplyModel}></Route>
             <Route path="/modeltraining" component={ModelTraining}></Route>
             <Route path="/tutorial/outputfield" component={OutputField}></Route>

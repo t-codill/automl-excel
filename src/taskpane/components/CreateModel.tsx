@@ -364,7 +364,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                     ]}/>
                 { forecastContent }
                 <Link to="/modeltraining">
-                    <PrimaryButton styles={trainButtonStyle} text="create" />
+                    <PrimaryButton styles={trainButtonStyle} onClick={this.onCreateModel.bind(this)} text="create" />
                 </Link>
                 {/* <div>
                     <br></br> <br></br> <br></br> <br></br> <br></br>
