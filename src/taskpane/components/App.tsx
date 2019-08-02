@@ -15,8 +15,9 @@ import ImportData from './Tutorial/ImportData'
 import OutputField from './Tutorial/OutputField';
 import TypeOfProblem from './Tutorial/TypeOfProblem';
 import TutorialModelTraining from './Tutorial/ModelTraining';
-import ModelAnalysis from './ModelAnalysis';
-import Analysis from './Analysis'
+import TutorialAnalysis from './Tutorial/Analysis';
+import TutorialApplyModel from './Tutorial/ApplyModel';
+import Analysis from './Analysis';
 
 export interface AppProps {
   title: string;
@@ -127,7 +128,8 @@ export default class App extends React.Component<AppProps, AppState> {
             <Route path="/tutorial/typeofproblem" component={TypeOfProblem}></Route>
             <Route path="/tutorial/importdata" component={ImportData}></Route>
             <Route path="/tutorial/modeltraining" component={TutorialModelTraining}></Route>
-            <Route path = "/ModelAnalysis" component={ModelAnalysis}></Route>
+            <Route path="/tutorial/analysis" component={TutorialAnalysis}></Route>
+            <Route path="/tutorial/applymodel" component={TutorialApplyModel}></Route>
             <Route path = "/Analysis" component={Analysis}></Route>
             <Route exact path='/' component={Welcome}></Route>
           </Switch>

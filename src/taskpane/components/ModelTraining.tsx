@@ -1,5 +1,5 @@
 import * as React from 'react';
-import { PrimaryButton, DefaultButton, IconButton, IButtonStyles, CommandBarButton, PanelType } from 'office-ui-fabric-react';
+import { PrimaryButton, IconButton, IButtonStyles, CommandBarButton, PanelType } from 'office-ui-fabric-react';
 import { ProgressIndicator, IProgressIndicatorStyles } from 'office-ui-fabric-react';
 import { Panel } from 'office-ui-fabric-react'
 import { Link } from 'react-router-dom';
@@ -12,7 +12,10 @@ export interface AppState {
     nIteration: number;
     nCompletedIteration: number;
     percentComplete: number;
+    bestMetric: number;
     modelName: string;
+    description: string;
+    inputFields: string[];
     outputField: string;
     modelSummaryView: boolean;
     trainingStatusView: boolean;
@@ -20,12 +23,13 @@ export interface AppState {
 }
 
 const progressIndicatorStyle: Partial<IProgressIndicatorStyles> = {
-    root: { paddingLeft: '7px',
-            paddingRight: '7px',
+    root: { paddingLeft: '5px',
+            paddingRight: '5px',
             paddingTop: '6px',
             paddingBottom: '10px' },
     itemName: { fontSize: '16px',
-                fontWeight: '600' },
+                fontWeight: '600',
+                paddingBottom: '3px' },
     itemDescription: { fontSize: '14px' }
 }
 
@@ -45,16 +49,9 @@ const backButtonStyle: Partial<IButtonStyles> = {
             paddingTop: '7px' }   
 }
 
-const homeButtonStyle: Partial<IButtonStyles> = {
-    root: { display: 'block',
-            marginTop: '20px',
-            marginLeft: 'auto',
-            marginRight: 'auto' }
-}
-
 const buttonStyle: Partial<IButtonStyles> = {
     root: { display: 'inline-block',
-            marginTop: '10px',
+            marginTop: '13px',
             marginBottom: '8px',
             marginRight: '10px',
             paddingLeft: '10px',
@@ -78,9 +75,12 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
         this.trainingStatusWindow = React.createRef();
         this.state = {
             nIteration: 50,
-            nCompletedIteration: 13,
+            nCompletedIteration: 50,
             percentComplete: 0,
+            bestMetric: 0,
             modelName: 'Sample Model Name',
+            description: 'Complete',
+            inputFields: ['input1', 'input2', 'input3'],
             outputField: 'Sample Output',
             modelSummaryView: true,
             trainingStatusView: true,
@@ -96,20 +96,17 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
     public componentWillUnmount(): void {
         this._async.dispose();
     }
-    
-    private _startProgress(): void {
-        this.setState({
-            percentComplete: 0
-        });
 
+
+    private _startProgress(): void {
         this._interval = this._async.setInterval(() => {
             let percentComplete = this.state.percentComplete + INTERVAL_INCREMENT;
             // let percentComplete = this.state.nCompletedIteration / this.state.nIteration
-    
+
             if (percentComplete <= 1.1) {
                 this.setState({
                     percentComplete: percentComplete
-                });    
+                })
             }
         }, INTERVAL_DELAY);
     }
@@ -154,21 +151,6 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
     }
 
     render() {
-        const trainingComplete = this.state.percentComplete >= 1
-            ?   <div>
-                    <p className='training-text'> The model was successfully created. You may now view the performance summary and apply the model to generate predictions. </p>
-                    <div className='center'>
-                        <Link to="/analysis">
-                                <PrimaryButton styles={buttonStyle} text="Training Report" />
-                        </Link>
-                        <Link to="/applymodel">
-                                <PrimaryButton styles={buttonStyle} text="Apply Model" />
-                        </Link>
-
-                    </div>
-                </div>
-            :   null;
-
         return (
             <div>
                 <div className="header">
@@ -180,10 +162,9 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
             
                 <ProgressIndicator 
                     label={this.state.modelName}
-                    description="Running" 
+                    description={this.state.description}
                     percentComplete={this.state.percentComplete}
                     styles={progressIndicatorStyle} />
-                { trainingComplete }
                 <div className='window'>
                     <CommandBarButton 
                         styles={windowButtonStyle} 
@@ -194,7 +175,7 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
                         <div className='column'>
                             <p className='text-big'>{this.state.outputField}</p>
                             <p className='text-small'>Output Field</p>
-                            <p className='text-big' onClick={this._inputFieldClicked.bind(this)}>7</p>
+                            <p className='text-big' onClick={this._inputFieldClicked.bind(this)}>{this.state.inputFields.length}</p>
                             <p className='text-small' onClick={this._inputFieldClicked.bind(this)}>Input Fields</p>
                             <Panel
                                 isOpen={this.state.inputFieldView}    
@@ -218,25 +199,34 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
                         styles={windowButtonStyle} 
                         iconProps={{ iconName: (this.state.trainingStatusView ? 'ChevronDown' : 'ChevronUp')}} 
                         onClick={this._trainingStatusClicked.bind(this)}
-                        text="Training Status"/>
+                        text="Run Status"/>
                     <div className="row" ref={this.trainingStatusWindow}>
                         <div className='column'>
-                            <p className='text-big'>Running</p>
+                            <p className='text-big'>{this.state.description}</p>
                             <p className='text-small'>Status</p>
-                            <p className='text-big'>23</p>
+                            <p className='text-big'>{this.state.nCompletedIteration}</p>
                             <p className='text-small'>Iterations Completed</p>
                         </div>
                         <div className='column'>
-                            <p className='text-big'>93.6%</p>
+                            <p className='text-big'>{this.state.bestMetric + '%'}</p>
                             <p className='text-small'>Best Performance</p>
-                            <p className='text-big'>40</p>
+                            <p className='text-big'>{this.state.nIteration}</p>
                             <p className='text-small'>Total Iterations</p>
                         </div>
                     </div>
                 </div>
-                <div>
-                    <Link to="/">
-                            <DefaultButton styles={homeButtonStyle} text="Return to Home" />
+                <div className='center'>
+                    {/* <Link to="/analysis">
+                        <PrimaryButton 
+                            styles={buttonStyle} 
+                            text="Peformance Summary" 
+                            disabled={this.state.nCompletedIteration === this.state.nIteration ? false : true} />
+                    </Link> */}
+                    <Link to="/applymodel">
+                        <PrimaryButton 
+                            styles={buttonStyle} 
+                            text="Apply Model" 
+                            disabled={this.state.nCompletedIteration === this.state.nIteration ? false : true} />
                     </Link>
                 </div>
             </div>

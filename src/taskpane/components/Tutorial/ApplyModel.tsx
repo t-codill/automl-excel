@@ -1,6 +1,7 @@
 import * as React from 'react';
-import { Dropdown, IDropdownStyles, IDropdownOption, ResponsiveMode } from 'office-ui-fabric-react';
+import { Dropdown, IDropdownStyles } from 'office-ui-fabric-react';
 import { PrimaryButton, IconButton, IIconStyles, IButtonStyles, CommandBarButton } from 'office-ui-fabric-react';
+import { MessageBar, MessageBarType, IMessageBarStyles} from 'office-ui-fabric-react';
 import { Stack, TextField, IStackProps } from 'office-ui-fabric-react';
 import { Link } from 'react-router-dom';
 
@@ -12,8 +13,18 @@ interface AppState {
     outputField: string
     inputFieldsView: boolean
     outputFieldView: boolean
-    selectedRange: string
+    selectedRange: string,
+    showError: boolean
 } 
+
+const options = [
+    { key: 'Titanic Passenger Survival', text: 'Titanic Passenger Survival' },
+];
+
+const messageBarStyle: Partial<IMessageBarStyles> = {
+    innerText: { position: 'relative',
+                 marginTop: '-1px' }
+}
 
 const windowButtonStyle: Partial<IButtonStyles> = {
     root: { color: 'black', 
@@ -23,12 +34,6 @@ const windowButtonStyle: Partial<IButtonStyles> = {
             paddingBottom: '2px',
             backgroundColor: '#ffffff',
             paddingLeft: '5px' }   
-}
-
-const backButtonStyle: Partial<IButtonStyles> = {
-    root: { color: 'white', 
-            display: 'inline-block', 
-            paddingTop: '7px' }   
 }
 
 const rangeButtonStyle: Partial<IButtonStyles> = {
@@ -49,6 +54,13 @@ const columnProps: Partial<IStackProps> = {
                       marginRight: '43px',
                       marginTop: '6px'}
             }
+}
+
+const backButtonStyle: Partial<IButtonStyles> = {
+    root: { color: 'white', 
+            display: 'inline-block', 
+            width: '30px', 
+            paddingTop: '7px' }   
 }
 
 const dropdownStyle: Partial<IDropdownStyles> = {
@@ -75,11 +87,12 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
         this.inputFieldsWindow = React.createRef();
         this.outputFieldWindow = React.createRef();
         this.state = {
-            inputFields: [],
-            outputField: '',
+            inputFields: ["passenger class", "name", "sex", "age", "sibling/spouse", "parent/child", "ticket", "fare", "embarked", "home"],
+            outputField: 'survived',
             inputFieldsView: false,
             outputFieldView: false,
-            selectedRange: 'Select the range and click on the table button on the right'
+            selectedRange: 'Select the range and click on the table button on the right',
+            showError: false,
         }
     }
 
@@ -113,23 +126,60 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
         }
     }
 
-    //@ts-ignore
-    private _onDropdownChange = (event: React.FormEvent<HTMLDivElement>, item: IDropdownOption): void => {
-        if (item.key === 'Titanic Passanger Survival' ) {
-            this.setState ({
-                inputFields: ['Sex', 'Age', 'Sibling/Spouse', 'Parent/Child', 'Fare Price', 'Port Embarkation'],
-                outputField: 'Survived'
-            })
-        } else if (item.key === 'Apple') {
-            this.setState ({
-                inputFields: ['Color', 'Area', 'Sugar', 'Type'],
-                outputField: 'Price'
-            })
-        }  else if (item.key === 'Car') {
-            this.setState ({
-                inputFields: ['Company', 'Model', 'Year', 'Type', 'Engine', 'Wheel'],
-                outputField: 'Price'
-            })
+    click = async () => {
+        try {
+            await Excel.run(async context => {
+                const range = context.workbook.worksheets.getActiveWorksheet().getRange(this.state.selectedRange)
+                range.load('columnCount, values')
+
+                await context.sync();
+                const nCol = range.columnCount;
+                if (nCol !== 11 && nCol !== 10) {
+                    this.setState({
+                        showError: true
+                    })
+                    return 
+                }
+                
+                const nLastCol = this.state.selectedRange.split(':')[1][0]
+                console.log('nCol: ' + nCol + ' LastCol: ' + nLastCol)
+                if ((nCol == 10 && nLastCol == 'J') || (nCol == 11 && nLastCol == 'K')) {
+                    const lastCol = nCol === 10 ? range.getColumnsAfter(1) : range.getLastColumn();
+                    const newCol = lastCol.getColumnsAfter(1);
+                    const colHeader = context.workbook.worksheets.getActiveWorksheet().getRange('L1')
+                    lastCol.load('values');
+                    newCol.load("rowCount, values, address");
+                    colHeader.load('values')
+
+                    await context.sync();
+                    const nRows = newCol.rowCount;
+                    const prediction = []
+                    for (var i = 0; i < nRows; i++) {
+                        if (newCol.values[i][0] == '') {
+                            if (range.values[i][3] !== '') {
+                                var original = lastCol.values[i][0];
+                                prediction.push([Math.random() > 0.3 ? original : 1 - original]);
+                            } else {
+                                prediction.push([''])
+                            }
+                        } else {
+                            prediction.push([newCol.values[i][0]])
+                        }
+                    }
+                    newCol.values = prediction
+                    colHeader.values = [['predicted-survived']]
+                    newCol.format.autofitColumns();
+                    this.setState({
+                        showError: false
+                    })
+                } else {
+                    this.setState({
+                        showError: true
+                    })
+                }
+            });
+        } catch (error) {
+            console.error(error);
         }
     }
 
@@ -146,26 +196,27 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
     }
 
     render() {
-        const options = [
-          { key: 'Titanic Passanger Survival', text: 'Titanic Passanger Survival' },
-          { key: 'Apple', text: 'Apple' },
-          { key: 'Car', text: 'Car' }
-        ];
+        const error = this.state.showError 
+            ? <MessageBar 
+                messageBarType={MessageBarType.error}
+                styles={messageBarStyle}> The selected range does not include all input fields of the model </MessageBar>
+            : null
 
         return (
             <div>          
                 <div className="header">
                     <Link style={{position: 'absolute', left: 0}} to="/" >
-                        <IconButton styles={backButtonStyle} iconProps={{ iconName: 'ChromeBack'}}/></Link>
-                    <span className='header_text'> Apply Existing Model </span>
+                    <IconButton styles={backButtonStyle} iconProps={{ iconName: 'ChromeBack'}}/></Link>
+                    <span className='header_text'> Tutorial: Apply Existing Model </span>
                 </div>
+                {error}
+                <p className='training-text-with-margin'> To generate predictions, you need to specify the <b>range for predictions</b>. The range must contain all input columns of the model. </p>
                 <Dropdown
                     label="Which model would you like to use?"
-                    placeholder="Select model to use"
+                    defaultSelectedKey='Titanic Passenger Survival'
                     options={options}
                     styles={dropdownStyle}
-                    responsiveMode={ResponsiveMode.xLarge}
-                    onChange={this._onDropdownChange.bind(this)} />    
+                    disabled={true}/>    
                 <div className='window'>
                     <CommandBarButton 
                         styles={windowButtonStyle} 
@@ -200,7 +251,7 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
                     styles={rangeButtonStyle}
                     iconProps={{ iconName: 'Table', styles: {...tableIconStyle}}}
                     onClick={this._onClick.bind(this)}/>
-                <PrimaryButton styles={buttonStyle} text="Generate Predictions" />
+                <PrimaryButton styles={buttonStyle} onClick={this.click.bind(this)} text="Generate Predictions" />
             </div>
         );
     }

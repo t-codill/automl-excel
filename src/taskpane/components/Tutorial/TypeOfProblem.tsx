@@ -23,14 +23,14 @@ const backButtonStyle: Partial<IButtonStyles> = {
 }
 
 const dropdownStyle: Partial<IDropdownStyles> = {
-    root: { paddingLeft: '8px',
-            paddingRight: '8px',
+    root: { paddingLeft: '5px',
+            paddingRight: '5px',
             paddingTop: '6px'}
 };
 
 const columnProps: Partial<IStackProps> = {
-    styles: { root: { marginLeft: '8px',
-                      marginRight: '8px',
+    styles: { root: { marginLeft: '5px',
+                      marginRight: '5px',
                       marginTop: '6px',
                       paddingBottom: '10px'}
             }
@@ -38,7 +38,7 @@ const columnProps: Partial<IStackProps> = {
 
 const choiceGroupStyle: Partial<IChoiceGroupStyles> = {
     root: { paddingTop: '4px',
-            paddingLeft: '8px',
+            paddingLeft: '5px',
             paddingBottom: '4px' }
 }
 
@@ -119,12 +119,12 @@ export default class TypeOfProblem extends React.Component<AppProps, AppState> {
                     <span className='header_text'> Tutorial: Create New Model </span>
                 </div>
                 
-                <p className='tutorial_text'> In this step, we need to specify the <b> type of problem </b> for our model. There are three types of problems. </p>
+                <p className='tutorial_text'> Now, we need to specify the <b> type of problem </b> for our model. There are three types of problems. </p>
                 <p className='tutorial_text'> <b>Classification models</b> are used to categorize data into multiple groups. <br></br>
-                ex) filtering reviews as positive, neutral, or negative. </p>
+                ex) filtering reviews as positive/neutral/negative. </p>
                 <p className='tutorial_text'> <b>Regression models</b> are used to predict a value. <br></br>
                 ex) predicting automobile prices or sales revenue. </p>
-                <p className='tutorial_text'>  <b>Forecasting models</b> use past observation to predict future observations. <br></br> 
+                <p className='tutorial_text'> <b>Forecasting models</b> use past observation to predict future observations. <br></br> 
                 ex) predicting electricity consumption of a household. </p>
                 <p className='tutorial_text'> Our task is to predict whether passangers survived or not, so it would be a <b>classification</b> problem. </p>
                 
@@ -146,14 +146,14 @@ export default class TypeOfProblem extends React.Component<AppProps, AppState> {
                                 text: 'Regression', 
                                 imageSrc: '/assets/regression.png', 
                                 selectedImageSrc: '/assets/regressionSelected.png', 
-                                imageSize: { width: 36, height: 38}
+                                imageSize: { width: 34, height: 38}
                             },
                             {
                                 key: 'forecasting', 
                                 text: 'Forecasting', 
                                 imageSrc: '/assets/forecasting.png', 
                                 selectedImageSrc: '/assets/forecastingSelected.png', 
-                                imageSize: { width: 36, height: 38}
+                                imageSize: { width: 35, height: 38}
                             }
                         ]}/>
                     { forecastContent }

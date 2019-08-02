@@ -13,8 +13,8 @@ export interface AppState {
 }
 
 const dropdownStyle: Partial<IDropdownStyles> = {
-    root: { paddingLeft: '8px',
-            paddingRight: '8px',
+    root: { paddingLeft: '5px',
+            paddingRight: '5px',
             paddingTop: '3px',
             paddingBottom: '10px'}
 };
@@ -38,20 +38,23 @@ export default class OutputField extends React.Component<AppProps, AppState> {
         super(props, context);
         this.state = {
             nextDisabled: true,
-            options: [{ key: 'Passenger Class', text: 'Passenger Class' },
-            { key: 'Sex', text: 'Sex' },
-            { key: 'Age', text: 'Age' },
-            { key: 'Sibling/Spouse', text: 'Sibling/Spouse' },
-            { key: 'Parent/Child', text: 'Parent/Child' },
-            { key: 'lettFarePriceuce', text: 'FarePrice' },
-            { key: 'Port Embarkation', text: 'Port Embarkation' },
-            { key: 'Survived', text: 'Survived' }]
+            options: [{ key: 'passenger class', text: 'passenger class' },
+            { key: 'name', text: 'name' },
+            { key: 'sex', text: 'sex' },
+            { key: 'age', text: 'age' },
+            { key: 'sibling/spouse', text: 'sibling/spouse' },
+            { key: 'parent/child', text: 'parent/child' },
+            { key: 'ticket', text: 'ticket' },
+            { key: 'fare', text: 'fare' },
+            { key: 'embarked', text: 'embarked' },
+            { key: 'home', text: 'home' },
+            { key: 'survived', text: 'survived' }]
         };
     };
     
     //@ts-ignore
     private _onDropDownChange(ev: React.SyntheticEvent<HTMLElement>, option: IDropDownOption): void {
-        if (option.key === 'Survived') {
+        if (option.key === 'survived') {
             this.setState({
                 nextDisabled: false
             });
@@ -68,7 +71,7 @@ export default class OutputField extends React.Component<AppProps, AppState> {
                     <span className='header_text'> Tutorial: Create New Model </span>
                 </div>
                 <p className='tutorial_text'> Now, we will start creating a model. </p>
-                <p className='tutorial_text'> First, specify the <b>output field</b>, the value we are trying to predict. In this case, the <b>Survived</b> column. </p>
+                <p className='tutorial_text'> First, specify the <b>output field</b>, the value we are trying to predict. In this case, the <b>survived</b> column. </p>
                 <div className='tutorial-block'>
                     <Dropdown 
                         placeholder="Select the output field" 
