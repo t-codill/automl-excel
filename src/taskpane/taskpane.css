@@ -222,6 +222,15 @@ b {
     font-weight: 600;
 }
 
+.text-big-with-margin {
+    display: block;
+    font-size: 19px;
+    margin-top: 11px;
+    margin-bottom: 0em;
+    margin-left: 20px;
+    font-weight: 600;
+}
+
 .text-big-underline {
     display: block;
     font-size: 19px;
@@ -236,6 +245,15 @@ b {
     display: block;
     font-size: 13px;
     margin-top: 0em;
+    margin-bottom: 0em;
+    margin-left: 20px;
+    font-weight: 600;
+}
+
+.text-small-with-margin {
+    display: block;
+    font-size: 13px;
+    margin-top: 8px;
     margin-bottom: 0em;
     margin-left: 20px;
     font-weight: 600;

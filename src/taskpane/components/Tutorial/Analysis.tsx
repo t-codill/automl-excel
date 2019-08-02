@@ -74,16 +74,16 @@ export default class ModelAnalysis extends React.Component<ModelAnalysisProps, M
                             <p className='text-small'>Precision</p>
                         </div>
                         <div className='column-unbalanced-right'>
-                            <p className='text-small'>of records predicted as survived are likely to actually be survived</p>
+                            <p className='text-small-with-margin'>of records predicted as survived are likely to actually be survived</p>
                         </div>
                     </div> 
                     <div className='row'>   
                         <div className='column-unbalanced-left'>
-                            <p className='text-big'>90.5%</p>
+                            <p className='text-big-with-margin'>90.5%</p>
                             <p className='text-small'>Recall</p>
                         </div>
                         <div className='column-unbalanced-right'>
-                            <p className='text-small'>of records that are actually survived} are likely to be predicted as survived</p>
+                            <p className='text-small-with-margin'>of records that are actually survived} are likely to be predicted as survived</p>
                         </div>
                     </div> 
                 </div>

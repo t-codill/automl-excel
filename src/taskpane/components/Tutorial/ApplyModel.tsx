@@ -40,7 +40,7 @@ const rangeButtonStyle: Partial<IButtonStyles> = {
     root: { display: 'inline-block',
             float: 'right',
             marginRight: '5px',
-            marginTop: '-32px',
+            marginTop: '-39px',
             backgroundColor: '#eeeeee' }   
 }
 
@@ -52,7 +52,8 @@ const tableIconStyle: Partial<IIconStyles> = {
 const columnProps: Partial<IStackProps> = {
     styles: { root: { marginLeft: '5px',
                       marginRight: '43px',
-                      marginTop: '6px'}
+                      marginTop: '6px',
+                      paddingBottom: '7px' }
             }
 }
 
@@ -241,12 +242,14 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
                         </div>
                     </div>  
                 </div>
-                <Stack {...columnProps}>
-                    <TextField 
-                        label="Select the range to generate predictions" 
-                        readOnly
-                        value={this.state.selectedRange}/>
-                </Stack>
+                <div className='tutorial-block'>
+                    <Stack {...columnProps}>
+                        <TextField 
+                            label="Select the range to generate predictions" 
+                            readOnly
+                            value={this.state.selectedRange}/>
+                    </Stack>
+                </div>
                 <IconButton 
                     styles={rangeButtonStyle}
                     iconProps={{ iconName: 'Table', styles: {...tableIconStyle}}}

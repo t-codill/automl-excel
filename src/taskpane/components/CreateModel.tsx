@@ -55,35 +55,35 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
             options: [],
             headers: []
         };
-        // this.updateHeader = this.updateHeader.bind(this);
-        // this.createEventListener();
-        // this.updateHeader(0);
+        this.updateHeader = this.updateHeader.bind(this);
+        this.createEventListener();
+        this.updateHeader(0);
     };
 
-    // private createEventListener() {
-    //     Excel.run(async context => {
-    //         var worksheet = context.workbook.worksheets.getActiveWorksheet();
-    //         worksheet.onChanged.add(this.updateHeader);
-    //         await context.sync()
-    //     });
-    // }
+    private createEventListener() {
+        Excel.run(async context => {
+            var worksheet = context.workbook.worksheets.getActiveWorksheet();
+            worksheet.onChanged.add(this.updateHeader);
+            await context.sync()
+        });
+    }
 
-    // private updateHeader(event) {
-    //     return Excel.run(async function(context) {
-    //         var sheet = context.workbook.worksheets.getActiveWorksheet();
-    //         var range = sheet.getUsedRange();
-    //         range.load("values")
+    private updateHeader(event) {
+        return Excel.run(async function(context) {
+            var sheet = context.workbook.worksheets.getActiveWorksheet();
+            var range = sheet.getUsedRange();
+            range.load("values")
 
-    //         return context.sync()
-    //             .then(function() {
-    //                 this.setState ({
-    //                     headers: range.values[0],
-    //                     options: range.values[0].map(x => {return{'key': x, 'text': x};})
-    //                 }) 
-    //                 console.log(this.state.headers)
-    //             }.bind(this))
-    //     }.bind(this))
-    // }
+            return context.sync()
+                .then(function() {
+                    this.setState ({
+                        headers: range.values[0],
+                        options: range.values[0].map(x => {return{'key': x, 'text': x};})
+                    }) 
+                    console.log(this.state.headers)
+                }.bind(this))
+        }.bind(this))
+    }
 
     //@ts-ignore
     private _onImageChoiceGroupChange(ev: React.SyntheticEvent<HTMLElement>, option: IChoiceGroupOption) {
@@ -160,7 +160,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                 <Link to="/modeltraining">
                     <PrimaryButton styles={trainButtonStyle} text="create" />
                 </Link>
-                <div>
+                {/* <div>
                     <br></br> <br></br> <br></br> <br></br> <br></br>
                     <Link to='/createmodel'>Create Model</Link><br></br>
                     <Link to='/modeltraining'>Model Training</Link><br></br>
@@ -170,7 +170,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                     <Link to='/tutorial/modeltraining'>Tutorial: Model Training</Link><br></br>
                     <Link to='/tutorial/analysis'>Tutorial: Analysis</Link><br/>
                     <Link to='/Analysis'>Analysis</Link>
-                </div>
+                </div> */}
             </div>
         );
     }
