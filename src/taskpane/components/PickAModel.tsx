@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { ChoiceGroup, IChoiceGroupOption } from 'office-ui-fabric-react/lib/ChoiceGroup';
 import {Link} from 'react-router-dom';
-import { Button } from 'office-ui-fabric-react';
+import { Button, MessageBar } from 'office-ui-fabric-react';
        
     interface PickAModelProps {
     }
@@ -29,7 +29,9 @@ export default class PickAModel extends React.Component<PickAModelProps, PickAMo
 
         return (
            <div className = "ms-PickAModel">
-               Which model would you like to use?
+              <h1>Model Selection</h1>>
+           
+            
 
                <ChoiceGroup
           className="defaultChoiceGroup"
@@ -56,10 +58,13 @@ export default class PickAModel extends React.Component<PickAModelProps, PickAMo
             }
           ]}
           onChange={this._onChange}
-          label="Pick one"
+          label="Choose a model to proceed."
           required={true}
         />
-
+        <br></br>
+            <MessageBar >
+        Don't see your model? <Link to = "/CreateNewModel">Create a New Model</Link> or <Link to = "/">Launch the Azure Portal</Link>
+             </MessageBar>
 
         <Link to = "/ModelAnalysis">
           <Button style = {{width: 250, height: 30}} disabled = {this.state.buttonBool}>

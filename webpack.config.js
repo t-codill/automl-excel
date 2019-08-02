@@ -2,6 +2,7 @@
 //const CleanWebpackPlugin = require("clean-webpack-plugin");
 const CopyWebpackPlugin = require("copy-webpack-plugin");
 //const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const CustomFunctionsMetadataPlugin = require("custom-functions-metadata-plugin");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
 const path = require('path');
@@ -21,6 +22,7 @@ module.exports = async (env, options)  => {
         'react-hot-loader/patch',
         './src/taskpane/index.tsx',
     ],
+    functions: "./src/functions/functions.ts",
     commands: './src/commands/commands.ts'
     },
     resolve: {
@@ -59,6 +61,10 @@ module.exports = async (env, options)  => {
           from: "./src/taskpane/taskpane.css"
         }
       ]),
+      new CustomFunctionsMetadataPlugin({
+        output: "functions.json",
+        input: "./src/functions/functions.ts"
+      }),
       //new ExtractTextPlugin('[name].[hash].css'),
       new HtmlWebpackPlugin({
         filename: "taskpane.html",
@@ -81,6 +87,7 @@ module.exports = async (env, options)  => {
         Promise: ["es6-promise", "Promise"]
       })
     ],
+    
     devServer: {
       headers: {
       "Access-Control-Allow-Origin": "*"

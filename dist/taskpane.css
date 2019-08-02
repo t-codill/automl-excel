@@ -49,24 +49,91 @@
 }
  
  .ms-model__analysis_keyStats {
-     color: white;
-     background-color: rgb(66, 130, 190);
+    color: white;
+    background-color: rgb(66, 130, 190);
      text-align: left;
      margin-top: 0px;
      line-height: 4pt;
-     padding-top: 4px;
+     padding-top: 1px;
      
  }
 
  .ms-model__analysis_barChart {
     color: white;
-    background-color: rgb(128, 176, 221);
+     background-color: rgb(66, 130, 190);
     text-align: left;
     margin-top: 0px;
     line-height: 4pt;
     padding-top: 4px;
     
 }
+
+ .ms-model__anlaysis_binaryClassification {
+     color: white;
+     background-color: rgb(66, 130, 190);
+     text-align: left;
+     margin-top: 0px;
+     line-height: 4pt;
+     padding-top: 4px;
+ }
+ .ms-model__analysis_actionItems {
+    color: white;
+    background-color: rgb(66, 130, 190);
+    text-align: middle;
+    margin-top: 0px;
+    line-height: 4pt;
+    padding-top: 4px;
+ }
+
+ .ms-model__analysis_applyModel {
+    color: white;
+    background-color: rgb(240, 161, 42);
+    text-align: middle;
+    margin-top: 0px;
+    line-height: 4pt;
+    padding-top: 4px;
+ }
+
+ .ms-training {
+    color: rgb(66, 130, 190);
+    background-color: white;
+    text-align: left;
+    margin-top: 0px;
+    line-height: 4pt;
+    padding-top: 1px;
+ }
+
+ .ms-training-accuracy {
+    color: rgb(84, 204, 110);
+    font-size: 30px;
+    text-align: left;
+ }
+
+ .ms-training-buttons {
+    color: white;
+    text-align: middle;
+    margin-top: 0px;
+    line-height: 4pt;
+    padding-top: 4px;
+ }
+
+ .ms-PickAModel {
+    text-align: left;
+    padding-top: 0px;
+    padding-left: 8px;
+    padding-right: 8px;
+ }
+
+ .ms-data-selection {
+    text-align: left;
+    padding-top: 4px;
+ }
+
+ .ms-training__Header {
+     text-align: left;
+     font-size: 20px;
+ }
+
  .ms-welcome__features {
      list-style-type: none;
      margin-top: 20px;
@@ -89,6 +156,10 @@
 .ms-Button.ms-Button--hero .ms-Button-label {
   color: #0078d7;
 }
+
+.ms-Button.ms-Button--applyModel .ms-Button-label {
+    color: #e4ab31;
+  }
 
 .ms-Button.ms-Button--hero:hover .ms-Button-label,
 .ms-Button.ms-Button--hero:focus .ms-Button-label{

@@ -37,3 +37,4 @@ const g = getGlobal() as any;
 
 // the add-in command functions need to be available in global scope
 g.action = action;
+
