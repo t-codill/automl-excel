@@ -40,7 +40,7 @@ app.use(function(req, res, next) {
 
 
 app.get("/api/cli_token", async (req, res, next) => {
-    console.log("something happened!");
+    console.log(`Received request from ${req.connection.remoteAddress}`);
     res.status(200);
     res.send(getCliToken());
     res.end();

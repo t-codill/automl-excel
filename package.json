@@ -19,7 +19,7 @@
   },
   "homepage": "https://github.com/t-codill/automl-excel#readme",
   "dependencies": {
-    "@azure/arm-authorization": "^8.3.1",
+    "@azure/arm-authorization": "8.3.1",
     "@azure/arm-compute": "^10.0.0",
     "@azure/arm-machinelearningservices": "file:azure-arm-machinelearningservices-0.1.0.tgz",
     "@azure/arm-resources": "^1.1.0",
