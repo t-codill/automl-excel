@@ -31,6 +31,20 @@
   <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
     <Hosts>
       <Host xsi:type="Workbook">
+      <AllFormFactors>
+       <ExtensionPoint xsi:type="CustomFunctions">
+            <Script>
+              <SourceLocation resid="Functions.Script.Url"/>
+            </Script>
+            <Page>
+              <SourceLocation resid="Functions.Page.Url"/>
+            </Page>
+            <Metadata>
+              <SourceLocation resid="Functions.Metadata.Url"/>
+            </Metadata>
+            <Namespace resid="Functions.Namespace"/>
+          </ExtensionPoint>
+      </AllFormFactors>
         <DesktopFormFactor>
           <GetStarted>
             <Title resid="GetStarted.Title"/>
@@ -65,19 +79,6 @@
                 </Control>
               </Group>
             </OfficeTab>
-          </ExtensionPoint>
-
-          <ExtensionPoint xsi:type="CustomFunctions">
-            <Script>
-              <SourceLocation resid="Functions.Script.Url"/>
-            </Script>
-            <Page>
-              <SourceLocation resid="Functions.Page.Url"/>
-            </Page>
-            <Metadata>
-              <SourceLocation resid="Functions.Metadata.Url"/>
-            </Metadata>
-            <Namespace resid="Functions.Namespace"/>
           </ExtensionPoint>
         </DesktopFormFactor>
       </Host>
