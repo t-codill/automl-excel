@@ -1,32 +1,14 @@
 import * as React from 'react';
+import Header from "./Header";
 import { DefaultButton, PrimaryButton, IButtonStyles } from 'office-ui-fabric-react';
 import { Separator, ISeparatorStyles } from 'office-ui-fabric-react';
 import { Link } from 'react-router-dom';
 
-
-export interface HeaderProps {
-    logo: string;
-    message1: string;
-    message2: string;
+interface WelcomeProps {
 }
 
-class Header extends React.Component<HeaderProps> {
-    render() {
-        const {
-            logo,
-            message1,
-            message2
-        } = this.props;
-
-        return (
-            <section className='welcome-header ms-bgColor-neutral ms-u-fadeIn500'>
-                <img width='175' height='175' src={logo} />
-                <h1 className='welcome-title'>{message1}<br/>{message2}</h1>
-            </section>
-        );
-    }
-}
-
+interface WelcomeState {
+} 
 
 const buttonStyle: Partial<IButtonStyles> = {
     root: { display: 'block',
@@ -40,7 +22,7 @@ const SeparatorStyle: Partial<ISeparatorStyles> = {
     root: { marginTop: '10px' }
 };
 
-export default class Welcome extends React.Component {
+export default class Welcome extends React.Component<WelcomeProps, WelcomeState> {
 
     render() {
 

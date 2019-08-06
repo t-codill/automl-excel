@@ -137,6 +137,7 @@
     "tslint": "^5.18.0",
     "typescript": "^3.5.2",
     "webdriverio": "^5.10.7",
+    "webpack-cli": "^3.3.5",
     "yarn": "^1.16.0"
   }
 }

@@ -41,27 +41,26 @@ export interface AppState {
 }
 
 const dropdownStyle: Partial<IDropdownStyles> = {
-    root: { paddingLeft: '8px',
-            paddingRight: '8px',
+    root: { paddingLeft: '5px',
+            paddingRight: '5px',
             paddingTop: '6px'}
 };
 
 const columnProps: Partial<IStackProps> = {
-    styles: { root: { marginLeft: '8px',
-                      marginRight: '8px',
+    styles: { root: { marginLeft: '5px',
+                      marginRight: '5px',
                       marginTop: '6px'}
             }
 }
 
 const choiceGroupStyle: Partial<IChoiceGroupStyles> = {
     root: { paddingTop: '6px',
-            paddingLeft: '8px' }
+            paddingLeft: '5px' }
 }
 
 const backButtonStyle: Partial<IButtonStyles> = {
     root: { color: 'white', 
             display: 'inline-block', 
-            width: '30px', 
             paddingTop: '7px' }   
 }
 
@@ -488,18 +487,19 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                             text: 'Regression', 
                             imageSrc: '/assets/regression.png', 
                             selectedImageSrc: '/assets/regressionSelected.png', 
-                            imageSize: { width: 36, height: 38}
+                            imageSize: { width: 34, height: 38}
                         },
                         {
                             key: 'forecasting', 
                             text: 'Forecasting', 
                             imageSrc: '/assets/forecasting.png', 
                             selectedImageSrc: '/assets/forecastingSelected.png', 
-                            imageSize: { width: 36, height: 38}
+                            imageSize: { width: 35, height: 38}
                         }
                     ]}/>
                 { forecastContent }
-                <PrimaryButton styles={trainButtonStyle} text="Create Model" onClick={this.onCreateModel.bind(this)} />
+                <Link to="/modeltraining"><PrimaryButton styles={trainButtonStyle} text="Create" onClick={this.onCreateModel.bind(this)} /></Link>
+
                 { this.state.trainingRuns.length > 0 ? <p>Training Runs:</p> : <></> }
                 {
                     this.state.trainingRuns.map((run: IRunDtoWithExperimentName) => {
