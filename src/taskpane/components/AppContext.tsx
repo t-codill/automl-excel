@@ -18,19 +18,18 @@ import { ModelManagementService } from '../../automl/services/ModelManagementSer
 import { ResourceService } from '../../automl/services/ResourceService';
 import { SubscriptionService } from '../../automl/services/SubscriptionService';
 
-const availableServiceTypes = [
-    JasmineService,
-    WorkSpaceService,
-    DataStoreService,
-    StorageService,
-    RunHistoryService,
-    ModelManagementService,
-    ResourceService,
-    SubscriptionService
-];
 
 /* Singleton global state for app */
 export class AppContextState{
+
+    jasmineService: JasmineService;
+    workspaceService: WorkSpaceService;
+    dataStoreService: DataStoreService;
+    storageService: StorageService;
+    runHistoryService: RunHistoryService;
+    modelManagementService: ModelManagementService;
+    resourceService: ResourceService;
+    subscriptionService: SubscriptionService;
 
     /* Current selected subscription ID */
     subscriptionId: string = localStorage.getItem("subscriptionId") || null;
@@ -46,9 +45,6 @@ export class AppContextState{
 
     /* Current selected workspace. Shared between create model and use model */
     workspace: AzureMachineLearningWorkspacesModels.Workspace = null;
-
-    /* String to Jasmine services map */
-    services: any = {};
 
     /* Method to update context state while triggering update to app state */
     update: (newContext: Partial<AppContextState>) => Promise<AppContextState>;
@@ -89,37 +85,56 @@ export class AppContextState{
     };
 
     async createServices(){
-        let services = {}
+
+        console.log("SErvices")
+
+        let serviceTypes = {
+            jasmineService: JasmineService,
+            workspaceService: WorkSpaceService,
+            dataStoreService: DataStoreService,
+            storageService: StorageService,
+            runHistoryService: RunHistoryService,
+            modelManagementService: ModelManagementService,
+            resourceService: ResourceService,
+            subscriptionService: SubscriptionService
+        }
+
         
         let serviceBaseProps: IServiceBaseProps = this.getServiceBaseProps();
-
-        availableServiceTypes.forEach(serviceClass => {
+        for(var serviceName in serviceTypes){
             try{
-                services[serviceClass.name] = new serviceClass(serviceBaseProps);
+                this[serviceName] = new (serviceTypes[serviceName])(serviceBaseProps);
             }catch(err){
-                console.log(`Error creating service ${serviceClass.name}:`);
+                console.log("Error making ".concat(serviceName));
                 console.error(err);
             }
-        });
-        return services;
+        }
+
+        console.log("services:")
+        console.log(this.subscriptionService)
+
     };
 
     async setToken(token){
         console.log('Setting token to '.concat(token));
+        this.token = token;
+        await this.createServices();
+        try{
         await this.update({token: token});
-        await this.update({services: await this.createServices()})
+        }catch(err){console.error(err)}
+
     };
 
     async setSubscriptionId(subscriptionId: string){
         console.log("Setting subscription id to ".concat(subscriptionId));
         await this.update({subscriptionId: subscriptionId, workspaceList: null});
-        await this.update({services: await this.createServices()});
+        await this.createServices();
         localStorage.setItem("subscriptionId", subscriptionId);
     }
     
     async setWorkspace(workspace: AzureMachineLearningWorkspacesModels.Workspace){
         await this.update({workspace});
-        await this.update({services: await this.createServices()})
+        await this.createServices();
     }
 
     async listRunsWithStatuses(statuses?: string[]): Promise<IRunDtoWithExperimentName[]>{
@@ -146,7 +161,7 @@ export class AppContextState{
     }
 
     async listLatestRuns(): Promise<IRunDtoWithExperimentName[]>{
-        let runService: RunHistoryService = this.services[RunHistoryService.name];
+        let runService: RunHistoryService = this.runHistoryService;
 
         let experimentMap = {};
         let runs = await runService.getRunList();
@@ -173,14 +188,15 @@ export class AppContextState{
     async createWorkspace(workspaceName: string, resourceGroupName: string, location?: string): Promise<ResourceManagementModels.DeploymentExtended | undefined>{
         if(!location) location = "eastus";
         
-        let resourceService: ResourceService = this.services[ResourceService.name];
+        let resourceService: ResourceService = this.resourceService;
         return await resourceService.createWorkspace(workspaceName, resourceGroupName, location);
     }
 
     async updateSubscriptionList(){
-        let subscriptionService: SubscriptionService = this.services[SubscriptionService.name];
+        console.log(`Subscription service = ${this.subscriptionService}`)
+        let subscriptionService: SubscriptionService = this.subscriptionService
         let subscriptionList = await subscriptionService.listSubscriptions();
-
+        subscriptionList = orderBy(subscriptionList, (subscription => subscription.displayName));
         try{
             await this.update({
                 subscriptionList: subscriptionList

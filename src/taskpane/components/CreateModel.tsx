@@ -149,15 +149,6 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         await updateState(this, {
             resourceGroupOptions: resourceGroupOptions
         });
-        console.log("Trained Runs:");
-        try{
-            console.log(await this.context.listTrainedRuns());
-        }catch(err){console.log(err)};
-        console.log("Training Runs:");
-        try{
-            console.log(await this.context.listTrainingRuns());
-        }catch(err){console.log(err)};
-        
     }
 
     private createEventListener() {
@@ -307,14 +298,12 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
             let compute = computes[0];
             console.log("Chose compute:");
             console.log(compute);
-            console.log("Services:");
-            console.log(this.context.services);
-            let dataStoreService: DataStoreService = this.context.services[DataStoreService.name];
+            let dataStoreService: DataStoreService = this.context.dataStoreService
 
             let dataStore = await dataStoreService.getDefault();
             console.log("Data store:");
             console.log(dataStore);
-            let storageService: StorageService = this.context.services[StorageService.name];
+            let storageService: StorageService = this.context.storageService;
             console.log("Storage service:");
             console.log(storageService);
             console.log("Resource Group:");
@@ -359,7 +348,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                 console.log(uploadResult);
             }
             console.log("Jasmine Service:")
-            let jasmineService: JasmineService = this.context.services[JasmineService.name]
+            let jasmineService: JasmineService = this.context.jasmineService;
             console.log(jasmineService);
 
             console.log("Advanced Settings:");
@@ -438,7 +427,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                 </div>
                 <Dropdown
                     placeholder="Select workspace"
-                    defaultSelectedKey={context.workspace.id}
+                    defaultSelectedKey={context.workspace ? context.workspace.id : null}
                     label="Which workspace do you want to use?"
                     options={this.state.workspaceOptions}
                     responsiveMode={ResponsiveMode.xLarge}

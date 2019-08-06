@@ -146,12 +146,15 @@ export abstract class ServiceBase<TClient extends IServiceClient> {
                 return undefined;
             }
             if (resetAbortController) {
+                
                 this.reset();
             }
             if (this.client && this.client.credentials && (this.client.credentials as TokenCredentials).token) {
                 (this.client.credentials as TokenCredentials).token = this.props.getToken();
             }
+            try{
             return await action(this.client, this.controller.signal);
+            }catch(err){console.log("action");console.error(err); return null;}
         }
         catch (err) {
             if (err.code === "REQUEST_ABORTED_ERROR") {

@@ -39,7 +39,8 @@ export class SubscriptionChooser extends React.Component<{}, ISubscriptionChoose
     }
 
     public render(){
-        if(this.context.subscriptionList === null){
+        console.log(`subscription list = ${this.context.subscriptionList}`);
+        if(!this.context.subscriptionList){
             return <PageLoad text="Loading subscription list" />
         }
 

@@ -28,10 +28,10 @@ function makeRequest (url, method?) {
         }
         };
         xhr.onerror = function () {
-        reject({
-            status: this.status,
-            statusText: xhr.statusText
-        });
+            reject({
+                status: this.status,
+                statusText: xhr.statusText
+            });
         };
         xhr.send();
     });

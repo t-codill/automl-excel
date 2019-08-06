@@ -11,15 +11,14 @@ class TopContributors extends React.Component {
         const chartDomain = [0, chartHeight];
         return (
             <XYPlot 
-               xType="ordinal" 
-               width={chartWidth} 
-               height={chartHeight} 
-               yDomain={chartDomain}
-             >
+                xType="ordinal" 
+                width={chartWidth} 
+                height={chartHeight} 
+                yDomain={chartDomain}>
+
                 <VerticalBarSeries
                     data={data}
-                    color="#0078d4"
-                />
+                    color="#0078d4"/>
                 <XAxis />
             </XYPlot>
         );

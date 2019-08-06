@@ -16,6 +16,7 @@ import Analysis from './Analysis';
 import { Dialog } from './login/Dialog';
 import { SubscriptionChooser } from './SubscriptionChooser';
 import Login from './Login';
+import 'string-polyfills';
 
 
 class PrivateRoute extends Route{
@@ -28,6 +29,7 @@ class PrivateRoute extends Route{
   render(){
 
     let token = this.context.token;
+    console.log(token)
     if(token === null || token === ""){
       return <Login></Login>
     }
@@ -65,8 +67,12 @@ export default class App extends React.Component<AppProps, AppState> {
   }
 
   async updateContext(newContext: AppContextState){
+    for(var key in newContext){
+      this.state.appContext[key] = newContext[key];
+    }
+
     await this.updateState({
-      appContext: Object.assign(this.state.appContext, newContext)
+      appContext: this.state.appContext
     })
     return this.state.appContext;
   }

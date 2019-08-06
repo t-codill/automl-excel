@@ -60,7 +60,7 @@ const nextButtonStyle: Partial<IButtonStyles> = {
     root: { display: 'block',
             marginTop: '20px',
             marginLeft: 'auto',
-            marginRight: '5px' }
+            marginRight: 'auto' }
 }
   
 const INTERVAL_DELAY = 100;
@@ -280,10 +280,10 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
                         </div>
                     </div>
                 </div>
-                <Link to="/tutorial/analysis">
+                <Link to="/tutorial/applymodel">
                     <PrimaryButton 
                         styles={nextButtonStyle} 
-                        text="next"
+                        text="Apply Model"
                         disabled={this.state.nCompletedIteration === this.state.nIteration ? false : true} />
                 </Link>
             </div>

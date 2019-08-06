@@ -20,7 +20,7 @@ const nextButtonStyle: Partial<IButtonStyles> = {
     root: { display: 'block',
             marginTop: '20px',
             marginLeft: 'auto',
-            marginRight: '5px' }
+            marginRight: 'auto' }
 }
 
 export default class ModelAnalysis extends React.Component<ModelAnalysisProps, ModelAnalysisState> {
@@ -95,6 +95,4 @@ export default class ModelAnalysis extends React.Component<ModelAnalysisProps, M
             </div>
         );
     }
-
 }
-
