@@ -2,15 +2,19 @@ import * as React from 'react';
 import { Dropdown, IDropdownStyles, IDropdownOption, ResponsiveMode } from 'office-ui-fabric-react/lib/Dropdown';
 import { PrimaryButton, IconButton, IButtonStyles, CommandBarButton } from 'office-ui-fabric-react';
 import { Link } from 'react-router-dom';
+import { AppContextState, AppContext } from './AppContext';
+import { updateState } from './util';
+import { IRunDtoWithExperimentName } from '../../automl/services/RunHistoryService';
 
 interface AppProps {
 }
 
 interface AppState {
-    inputFields: string[]
-    outputField: string
-    inputFieldsView: boolean
-    outputFieldView: boolean
+    inputFields: string[];
+    outputField: string;
+    inputFieldsView: boolean;
+    outputFieldView: boolean;
+    trainedRuns: IRunDtoWithExperimentName[];
 } 
 
 const windowButtonStyle: Partial<IButtonStyles> = {
@@ -45,6 +49,7 @@ const buttonStyle: Partial<IButtonStyles> = {
 }
 
 export default class ApplyModel extends React.Component<AppProps, AppState> {
+    static contextType = AppContext;
     
     private inputFieldsWindow;
     private outputFieldWindow;
@@ -57,8 +62,27 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
             inputFields: [],
             outputField: '',
             inputFieldsView: false,
-            outputFieldView: false
+            outputFieldView: false,
+            trainedRuns: []
         }
+
+    }
+
+    async componentDidMount(){
+        
+        try{
+            await this.reloadTrainedRuns();
+            }catch(err){console.log(err)}
+    }
+
+    private async reloadTrainedRuns(){
+        let context: AppContextState = this.context;
+        console.log("Trained runs:")
+        let trainedRuns = await context.listTrainedRuns();
+        console.log(trainedRuns);
+        await updateState(this, {
+            trainedRuns
+        });
     }
 
     private _inputFieldsClicked(): void {
@@ -160,6 +184,14 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
                     <Link to = "/welcome">
                         <PrimaryButton styles={buttonStyle} text="Generate Predictions" />
                     </Link>
+                    <p>Trained models:</p>
+                    {
+                        this.state.trainedRuns.map((run: IRunDtoWithExperimentName) => {
+                            console.log("a run:");
+                            console.log(run);
+                            return <p>{run.experimentName} - {run.status}</p>
+                        })
+                    }
                 </div>
             </div>
         );

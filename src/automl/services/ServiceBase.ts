@@ -19,11 +19,9 @@ export abstract class ServiceBase<TClient extends IServiceClient> {
     private controller: AbortController;
     private disposed = false;
     constructor(props: IServiceBaseProps, client: TClient) {
-        console.log('super super called');
         this.client = client;
         this.props = props;
         this.controller = new AbortController();
-        console.log('super super done')
     }
 
     public dispose(): void {

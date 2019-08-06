@@ -35,11 +35,7 @@ export class SubscriptionChooser extends React.Component<{}, ISubscriptionChoose
     }
 
     public onSubmit(){
-        
-        this.context.update({
-            subscriptionId: this.state.subscriptionId,
-            workspaceList: null
-        });
+        this.context.setSubscriptionId(this.state.subscriptionId);
     }
 
     public render(){

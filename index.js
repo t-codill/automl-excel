@@ -2,9 +2,10 @@ var express = require('express');
 var bodyParser = require('body-parser');
 const fetch = require("node-fetch");
 const https = require("https");
+const http = require("http");
 const fs = require("fs");
 const path = require("path");
-const { port, useTls } = require("./config")
+const { apiPortWhenDeveloping, useTls } = require("./config")
 const { execSync } = require("child_process");
 
 
@@ -52,7 +53,7 @@ app.post('/api/token', async (req, res, next) => {
     let body = "grant_type=authorization_code" +
     "&client_id=" + clientId +
     "&code=" + code +
-    "&redirect_uri=https%3A%2F%2Flocalhost%3A8080/taskpane/logindialog" +
+    "&redirect_uri=https%3A%2F%2Flocalhost%3A3000/taskpane/logindialog" +
     "&resource=https%3A%2F%2Fmanagement.core.windows.net%2F" +
     //"&resource=api%3A%2F%2F2d854c46-8b8e-4128-9329-613e1039c582" +
     //"&client_secret=automl";
@@ -88,9 +89,12 @@ app.get('/taskpane/*', (req, res) => {
     res.sendFile(path.join(__dirname, "dist/taskpane/index.html"));
 })
 
-https.createServer({
-    key: fs.readFileSync('local.key'),
-    cert: fs.readFileSync('local.crt')
-}, app).listen(port, () => console.log('Listening on '.concat(port)))
-
+if(useTls){
+    https.createServer({
+        key: fs.readFileSync('local.key'),
+        cert: fs.readFileSync('local.crt')
+    }, app).listen(apiPortWhenDeveloping, () => console.log('Listening (https) on '.concat(apiPortWhenDeveloping)))
+}else{
+    http.createServer(app).listen(apiPortWhenDeveloping, () => console.log('Listening (http) on '.concat(apiPortWhenDeveloping)))
+}
 

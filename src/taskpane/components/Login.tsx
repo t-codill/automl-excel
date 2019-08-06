@@ -71,7 +71,7 @@ export default class Login extends React.Component<{}, LoginState>{
 
         if(authMethod === "dialog"){
         
-            let dialogUrl = "https://localhost:8080/taskpane/logindialog";
+            let dialogUrl = "https://localhost:3000/taskpane/logindialog";
             
             Office.context.ui.displayDialogAsync(dialogUrl, {width: 50, height: 50}, (result) => {
                 let dialog = result.value;

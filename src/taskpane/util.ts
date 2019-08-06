@@ -1,2 +1,3 @@
+import { useTls, apiPortWhenDeveloping } from "../../config";
 
-export const apiUrl = "https://localhost:3000/api";
+export const apiUrl = (useTls ? "https" : "http") + "://localhost:" + apiPortWhenDeveloping + "/api";

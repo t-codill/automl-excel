@@ -1,161 +1,199 @@
 import * as React from 'react';
-import { SubscriptionModels, SubscriptionClient } from "@azure/arm-subscriptions";
-//import { SubscriptionService } from "../../automl/services/SubscriptionService";
+import { SubscriptionModels } from "@azure/arm-subscriptions";
 import { TokenCredentials } from "@azure/ms-rest-js";
 import { AzureMachineLearningWorkspaces, AzureMachineLearningWorkspacesModels } from "@azure/arm-machinelearningservices";
 import { uniqBy, orderBy } from 'lodash';
 import { ResourceManagementClient, ResourceManagementModels } from '@azure/arm-resources';
 import { ResourceGroup } from '@azure/arm-resources/esm/models';
+import { IServiceBaseProps } from '../../automl/services/ServiceBase';
+import { WorkspaceFlight } from '../../automl/common/context/WorkspaceFlight';
+import { JasmineService } from '../../automl/services/JasmineService';
+import { WorkSpaceService } from '../../automl/services/WorkSpaceService';
+import { DataStoreService } from '../../automl/services/DataStoreService';
+import { PageNames } from '../../automl/common/PageNames';
+import { Logger } from '../../automl/common/utils/logger';
+import { StorageService } from '../../automl/services/StorageService';
+import { RunHistoryService, IRunDtoWithExperimentName } from '../../automl/services/RunHistoryService';
+import { ModelManagementService } from '../../automl/services/ModelManagementService';
+import { ResourceService } from '../../automl/services/ResourceService';
+import { SubscriptionService } from '../../automl/services/SubscriptionService';
 
+const availableServiceTypes = [
+    JasmineService,
+    WorkSpaceService,
+    DataStoreService,
+    StorageService,
+    RunHistoryService,
+    ModelManagementService,
+    ResourceService,
+    SubscriptionService
+];
 
-export interface IAppContextProps{
-    subscriptionId: string;
-    subscriptionList: SubscriptionModels.Subscription[];
-    workspaceList: AzureMachineLearningWorkspacesModels.Workspace[];
-    token: string,
-    getToken: () => string;
-    setToken: (token: string) => void;
-    updateToken: () => void;
-    createWorkspace: (workspaceName: string, resourceGroupName: string, location?: string, subscriptionId?: string) => Promise<ResourceManagementModels.DeploymentExtended | undefined>;
-    getResourceGroupsBySubscription(subscriptionId: string): Promise<ResourceGroup[]>;
-    getWorkspace(resourceGroupName: string, workspaceName: string): Promise<AzureMachineLearningWorkspacesModels.Workspace>;
-    getWorkspacesBySubscription(subscriptionId: string): Promise<AzureMachineLearningWorkspacesModels.Workspace[]>;
-    updateSubscriptionList: () => Promise<void>;
-    updateWorkspaceList: () => Promise<void>;
-    update: (newContext: Partial<IAppContextProps>) => Promise<IAppContextProps>;
-}
+/* Singleton global state for app */
+export class AppContextState{
 
-export const appContextDefaults: IAppContextProps = {
-    subscriptionId: null,
-    subscriptionList: null,
-    workspaceList: null,
-    token: null,
-    getToken(){
-        return this.token;
-    },
-    setToken(token){
+    /* Current selected subscription ID */
+    subscriptionId: string = localStorage.getItem("subscriptionId") || null;
+
+    /* List of available subscriptions */
+    subscriptionList: SubscriptionModels.Subscription[] = null;
+
+    /* List of available workspaces */
+    workspaceList: AzureMachineLearningWorkspacesModels.Workspace[] = null;
+
+    /* Azure API token */
+    token: string = null;
+
+    /* Current selected workspace. Shared between create model and use model */
+    workspace: AzureMachineLearningWorkspacesModels.Workspace = null;
+
+    /* String to Jasmine services map */
+    services: any = {};
+
+    /* Method to update context state while triggering update to app state */
+    update: (newContext: Partial<AppContextState>) => Promise<AppContextState>;
+
+    resourceGroupName(): string{
+        return this.workspace.id.split("resourceGroups/")[1].split("/")[0];
+    }
+
+    getServiceBaseProps(): IServiceBaseProps{
+        let context = appContextDefaults;
+        let location = context.workspace !== null ? context.workspace.location : "eastus";
+
+        let props: IServiceBaseProps = {
+            logger: new Logger("development"),
+            onError(err){
+                console.log("Error:");
+                console.log(err);
+            },
+            discoverUrls: {
+                history: "https://" + location + ".experiments.azureml.net"
+            },
+            location: context.workspace !== null ? context.workspace.location : "eastus",
+            pageName: PageNames.Unknown,
+            flight: new WorkspaceFlight(""),
+            theme: "",
+            getToken: () => {
+                return context.token;
+            },
+            setPageName(){
+                return null;
+            },
+            subscriptionId: context.subscriptionId,
+            resourceGroupName: context.workspace !== null ? context.resourceGroupName() : "",
+            workspaceName: context.workspace !== null ? context.workspace.name : ""
+        };
+
+        return props;
+    };
+
+    async createServices(){
+        let services = {}
+        
+        let serviceBaseProps: IServiceBaseProps = this.getServiceBaseProps();
+
+        availableServiceTypes.forEach(serviceClass => {
+            try{
+                services[serviceClass.name] = new serviceClass(serviceBaseProps);
+            }catch(err){
+                console.log(`Error creating service ${serviceClass.name}:`);
+                console.error(err);
+            }
+        });
+        return services;
+    };
+
+    async setToken(token){
         console.log('Setting token to '.concat(token));
-        this.update({token: token});
-    },
-    updateToken(){},
-    async createWorkspace(workspaceName: string, resourceGroupName: string, location?: string, subscriptionId?: string){
+        await this.update({token: token});
+        await this.update({services: await this.createServices()})
+    };
+
+    async setSubscriptionId(subscriptionId: string){
+        console.log("Setting subscription id to ".concat(subscriptionId));
+        await this.update({subscriptionId: subscriptionId, workspaceList: null});
+        await this.update({services: await this.createServices()});
+        localStorage.setItem("subscriptionId", subscriptionId);
+    }
+    
+    async setWorkspace(workspace: AzureMachineLearningWorkspacesModels.Workspace){
+        await this.update({workspace});
+        await this.update({services: await this.createServices()})
+    }
+
+    async listRunsWithStatuses(statuses?: string[]): Promise<IRunDtoWithExperimentName[]>{
+        /*
+        let runService: RunHistoryService = this.services[RunHistoryService.name];
+
+        let experimentMap = {};
+        let runs = await runService.getRunList();
+        
+        for(var coleman = 0; coleman < runs.length; coleman++){
+            let run = runs[coleman];
+            let previous = experimentMap[run.experimentId];
+            if((statuses === undefined || statuses.includes(run.status)) && run.runType === "automl" && (previous === undefined || previous.startTimeUtc.getTime() < run.startTimeUtc.getTime())){
+                experimentMap[run.experimentId] = run;
+            }
+        }
+
+        return Object.values(experimentMap);
+        */
+
+        return (await this.listLatestRuns()).filter((run: IRunDtoWithExperimentName) => {
+            return statuses.includes(run.status);
+        });
+    }
+
+    async listLatestRuns(): Promise<IRunDtoWithExperimentName[]>{
+        let runService: RunHistoryService = this.services[RunHistoryService.name];
+
+        let experimentMap = {};
+        let runs = await runService.getRunList();
+        
+        for(var coleman = 0; coleman < runs.length; coleman++){
+            let run = runs[coleman];
+            let previous = experimentMap[run.experimentId];
+            if(run.runType === "automl" && (previous === undefined || previous.startTimeUtc.getTime() < run.startTimeUtc.getTime())){
+                experimentMap[run.experimentId] = run;
+            }
+        }
+
+        return Object.values(experimentMap);
+    }
+
+    async listTrainedRuns(): Promise<IRunDtoWithExperimentName[]>{
+        return await this.listRunsWithStatuses(["Completed"]);
+    }
+
+    async listTrainingRuns(): Promise<IRunDtoWithExperimentName[]>{
+        return await this.listRunsWithStatuses(["Queued", "Preparing", "Running"]);
+    }
+
+    async createWorkspace(workspaceName: string, resourceGroupName: string, location?: string): Promise<ResourceManagementModels.DeploymentExtended | undefined>{
         if(!location) location = "eastus";
-        if(!subscriptionId) subscriptionId = this.subscriptionId;
-        let resourceClient = new ResourceManagementClient(new TokenCredentials(this.getToken()), subscriptionId);
-        const letterName = workspaceName.replace(/\W/g, "")
-            .toLowerCase();
-        const keyVaultName = `${letterName}k`;
-        const storageName = `${letterName}s`;
-        const registriesName = `${letterName}r`;
-        const insightsName = `${letterName}i`;
+        
+        let resourceService: ResourceService = this.services[ResourceService.name];
+        return await resourceService.createWorkspace(workspaceName, resourceGroupName, location);
+    }
 
-        return await resourceClient.deployments.createOrUpdate(resourceGroupName, workspaceName,
-            {
-                properties:
-                {
-                    template:
-                    {
-                        $schema: "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
-                        contentVersion: "1.0.0.0",
-                        parameters: {},
-                        variables: {},
-                        resources: [
-                            {
-                                type: "Microsoft.KeyVault/vaults",
-                                name: keyVaultName,
-                                apiVersion: "2015-06-01",
-                                location,
-                                dependsOn: [],
-                                properties:
-                                {
-                                    enabledForDeployment: "true",
-                                    enabledForTemplateDeployment: "true",
-                                    enabledForVolumeEncryption: "true",
-                                    tenantId: "72f988bf-86f1-41af-91ab-2d7cd011db47",
-                                    accessPolicies: [],
-                                    sku: { name: "Standard", family: "A" }
-                                }
-                            },
-                            {
-                                type: "Microsoft.Storage/storageAccounts",
-                                name: storageName,
-                                apiVersion: "2016-12-01",
-                                location,
-                                sku: { name: "Standard_LRS" },
-                                kind: "Storage",
-                                dependsOn: [],
-                                properties: {
-                                    encryption: {
-                                        services: { blob: { enabled: "true" } },
-                                        keySource: "Microsoft.Storage"
-                                    },
-                                    supportsHttpsTrafficOnly: true
-                                }
-                            },
-                            {
-                                type: "Microsoft.ContainerRegistry/registries",
-                                name: registriesName,
-                                apiVersion: "2017-10-01",
-                                location,
-                                sku: { name: "Standard", tier: "Standard" },
-                                properties: { adminUserEnabled: "true" }
-                            },
-                            {
-                                type: "microsoft.insights/components",
-                                name: insightsName,
-                                kind: "web",
-                                apiVersion: "2015-05-01",
-                                location: "eastus",
-                                properties: { Application_Type: "web" }
-                            },
-                            {
-                                type: "Microsoft.MachineLearningServices/workspaces",
-                                name: workspaceName,
-                                apiVersion: "2018-11-19",
-                                identity: { type: "systemAssigned" },
-                                location,
-                                resources: [],
-                                dependsOn: [
-                                    `[resourceId('Microsoft.KeyVault/vaults', '${keyVaultName}')]`,
-                                    `[resourceId('Microsoft.Storage/storageAccounts', '${storageName}')]`,
-                                    `[resourceId('Microsoft.ContainerRegistry/registries', '${registriesName}')]`,
-                                    `[resourceId('microsoft.insights/components', '${insightsName}')]`
-                                ],
-                                properties: {
-                                    containerRegistry: `/subscriptions/${
-                                        subscriptionId
-                                        }/resourceGroups/${
-                                        resourceGroupName
-                                        }/providers/Microsoft.ContainerRegistry/registries/${registriesName}`,
-                                    keyVault: `/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.KeyVault/vaults/${keyVaultName}`,
-                                    applicationInsights: `/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/microsoft.insights/components/${insightsName}`,
-                                    friendlyName: workspaceName,
-                                    storageAccount: `/subscriptions/${subscriptionId}/resourceGroups/${resourceGroupName}/providers/Microsoft.Storage/storageAccounts/${storageName}`
-                                }
-
-                            }]
-                    },
-                    parameters: {},
-                    mode: "Incremental"
-                }
-            });
-    },
     async updateSubscriptionList(){
-        console.log("Updating subscription list")
-        let subscriptionClient = new SubscriptionClient(new TokenCredentials(this.getToken()));
-        let subscriptionList = await subscriptionClient.subscriptions.list();
+        let subscriptionService: SubscriptionService = this.services[SubscriptionService.name];
+        let subscriptionList = await subscriptionService.listSubscriptions();
+
         try{
             await this.update({
                 subscriptionList: subscriptionList
             });
 
         }catch(err){
-            console.log("Error when subscription list did things:");
+            console.log("Error when updating subscription list:");
             console.log(err);
         }
-    },
+    }
+
     async getResourceGroupsBySubscription(subscriptionId){
-        let resourceClient = new ResourceManagementClient(new TokenCredentials(this.getToken()), subscriptionId);
+        let resourceClient = new ResourceManagementClient(new TokenCredentials(this.token), subscriptionId);
         
         let currentList = await resourceClient.resourceGroups.list();
         let fullList: ResourceGroup[] = currentList; 
@@ -163,18 +201,18 @@ export const appContextDefaults: IAppContextProps = {
             currentList = await resourceClient.resourceGroups.listNext(currentList.nextLink);
             fullList = [...fullList, ...currentList];
         }
-        console.log("Full list");
-        console.log(fullList)
         return fullList;
-    },
-    async getWorkspace(resourceGroupName, workspaceName){
-        let client = new AzureMachineLearningWorkspaces(new TokenCredentials(this.getToken()), this.subscriptionId);
+    }
+
+    async getWorkspace(resourceGroupName, workspaceName): Promise<AzureMachineLearningWorkspacesModels.Workspace>{
+        let client = new AzureMachineLearningWorkspaces(new TokenCredentials(this.token), this.subscriptionId);
         return (await client.workspaces.get(resourceGroupName, workspaceName));
-    },
-    async getWorkspacesBySubscription(subscriptionId){
+    }
+
+    async getWorkspacesBySubscription(subscriptionId): Promise<AzureMachineLearningWorkspacesModels.Workspace[]>{
         if(subscriptionId === null) return [];
 
-        let workspaceClient = new AzureMachineLearningWorkspaces(new TokenCredentials(this.getToken()), subscriptionId);
+        let workspaceClient = new AzureMachineLearningWorkspaces(new TokenCredentials(this.token), subscriptionId);
         
         let currentList = (await workspaceClient.workspaces.listBySubscription());
         let fullList: AzureMachineLearningWorkspacesModels.Workspace[] = currentList;
@@ -187,16 +225,28 @@ export const appContextDefaults: IAppContextProps = {
         let nonEmpty = unique.filter((workspace => workspace.friendlyName != ""));
         let ordered = orderBy(nonEmpty, (workspace => workspace.friendlyName));
         return ordered;
-    },
-    async updateWorkspaceList(){
+    }
 
+    async updateWorkspaceList(){
         await this.update({
             workspaceList: await this.getWorkspacesBySubscription(this.subscriptionId)
         });
-    },
-    async update(newContext: Partial<IAppContextProps>){
-        return this;
+        
+        /* Default to automl-workspace if it exists and no workspace has been chosen yet */
+        if(this.workspace === null){
+            let filtered: AzureMachineLearningWorkspacesModels.Workspace[] = this.workspaceList.filter((workspace: AzureMachineLearningWorkspacesModels.Workspace) => workspace.friendlyName === "automl-excel");
+
+            console.log("filtered:");
+            console.log(filtered);
+            
+            if(filtered.length > 0){
+                console.log("setting default to ");
+                console.log(filtered[0]);
+                await this.setWorkspace(filtered[0]);
+            }
+            
+        }
     }
 }
-
-export const AppContext = React.createContext<IAppContextProps>(appContextDefaults);
+export const appContextDefaults = new AppContextState();
+export const AppContext = React.createContext<AppContextState>(appContextDefaults);

@@ -66,7 +66,6 @@ export default class Train extends React.Component<AppProps, AppState> {
             headers: [],
             options: []
         };
-        //window.location.replace("https://login.microsoftonline.com/common/oauth2/authorize?client_id=2d854c46-8b8e-4128-9329-613e1039c582&response_type=code&redirect_uri=http%3A%2F%2Flocalhost%3A8080&response_mode=query");
     };
     
     async componentDidMount(){

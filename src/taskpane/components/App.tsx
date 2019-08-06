@@ -1,7 +1,7 @@
 //import { IconButton, Pivot, PivotItem, IPivotStyles } from 'office-ui-fabric-react';
 import * as React from 'react';
 import { Route, Switch, BrowserRouter } from "react-router-dom";
-import { AppContext, IAppContextProps, appContextDefaults } from './AppContext';
+import { AppContext, AppContextState, appContextDefaults } from './AppContext';
 import "office-ui-fabric-react/dist/css/fabric.css"
 import Welcome from './Welcome';
 import Login from './Login';
@@ -27,7 +27,7 @@ class PrivateRoute extends Route{
 
   render(){
 
-    let token = this.context.getToken();
+    let token = this.context.token;
     if(token === null || token === ""){
       return <Login></Login>
     }
@@ -46,7 +46,7 @@ export interface AppProps {
 }
 
 export interface AppState {
-  appContext: IAppContextProps;
+  appContext: AppContextState;
 }
 
 export default class App extends React.Component<AppProps, AppState> {
@@ -64,7 +64,7 @@ export default class App extends React.Component<AppProps, AppState> {
     
   }
 
-  async updateContext(newContext: IAppContextProps){
+  async updateContext(newContext: AppContextState){
     await this.updateState({
       appContext: Object.assign(this.state.appContext, newContext)
     })

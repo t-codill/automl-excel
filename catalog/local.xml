@@ -6,20 +6,21 @@
   <DefaultLocale>en-US</DefaultLocale>
   <DisplayName DefaultValue="Automated Machine Learning (Local)"/>
   <Description DefaultValue="A template to get started."/>
-  <IconUrl DefaultValue="https://localhost:8080/assets/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="https://localhost:8080/assets/icon-80.png"/>
+  <IconUrl DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="https://localhost:3000/assets/icon-80.png"/>
   <SupportUrl DefaultValue="https://www.microsoft.com"/>
   <AppDomains>
     <AppDomain>microsoft.com</AppDomain>
     <AppDomain>localhost</AppDomain>
     <AppDomain>microsoftonline.com</AppDomain>
     <AppDomain>login.microsoftonline.com</AppDomain>
+    <AppDomain>eastus.experiments.azureml.net</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Workbook"/>
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="https://localhost:8080/taskpane"/>
+    <SourceLocation DefaultValue="https://localhost:3000/taskpane"/>
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
   <VersionOverrides xmlns="https://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
@@ -82,15 +83,15 @@
     </Hosts>
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:8080/assets/icon-16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:8080/assets/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:8080/assets/icon-80.png"/>
+        <bt:Image id="Icon.16x16" DefaultValue="https://localhost:3000/assets/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="https://localhost:3000/assets/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="https://localhost:3000/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
-        <bt:Url id="Commands.Url" DefaultValue="https://localhost:8080/commands.html"/>
-        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:8080/taskpane/train"/>
-        <bt:Url id="RunButton.Url" DefaultValue="https://localhost:8080/taskpane/run"/>
+        <bt:Url id="Commands.Url" DefaultValue="https://localhost:3000/commands.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="https://localhost:3000/taskpane/train"/>
+        <bt:Url id="RunButton.Url" DefaultValue="https://localhost:3000/taskpane/run"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GetStarted.Title" DefaultValue="Welcome to Automated Machine Learning! 🧠"/>
@@ -106,7 +107,7 @@
     </Resources>
     <WebApplicationInfo>
       <Id>2d854c46-8b8e-4128-9329-613e1039c582</Id>
-      <Resource>api://localhost:8080/2d854c46-8b8e-4128-9329-613e1039c582</Resource>
+      <Resource>api://localhost:3000/2d854c46-8b8e-4128-9329-613e1039c582</Resource>
       <Scopes>
         <Scope>Files.Read.All</Scope>
         <Scope>offline_access</Scope>

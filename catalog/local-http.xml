@@ -1,28 +1,29 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <OfficeApp xmlns="http://schemas.microsoft.com/office/appforoffice/1.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:bt="http://schemas.microsoft.com/office/officeappbasictypes/1.0" xmlns:ov="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="TaskPaneApp">
-  <Id>559ee975-c6db-4bb1-9c7b-2ae353de3e39</Id>
+  <Id>559ee975-c6db-4bb1-9c7b-2ae353de3e84</Id>
   <Version>1.0.0.0</Version>
   <ProviderName>Microsoft</ProviderName>
   <DefaultLocale>en-US</DefaultLocale>
-  <DisplayName DefaultValue="automl-excel-local-http"/>
+  <DisplayName DefaultValue="Local HTTP - Automated Machine Learning"/>
   <Description DefaultValue="A template to get started."/>
-  <IconUrl DefaultValue="http://localhost:8080/assets/icon-32.png"/>
-  <HighResolutionIconUrl DefaultValue="http://localhost:8080/assets/icon-80.png"/>
+  <IconUrl DefaultValue="http://localhost:3000/assets/icon-32.png"/>
+  <HighResolutionIconUrl DefaultValue="http://localhost:3000/assets/icon-80.png"/>
   <SupportUrl DefaultValue="https://www.microsoft.com"/>
   <AppDomains>
     <AppDomain>microsoft.com</AppDomain>
     <AppDomain>localhost</AppDomain>
     <AppDomain>microsoftonline.com</AppDomain>
     <AppDomain>login.microsoftonline.com</AppDomain>
+    <AppDomain>eastus.experiments.azureml.net</AppDomain>
   </AppDomains>
   <Hosts>
     <Host Name="Workbook"/>
   </Hosts>
   <DefaultSettings>
-    <SourceLocation DefaultValue="http://localhost:8080/taskpane"/>
+    <SourceLocation DefaultValue="http://localhost:3000/taskpane"/>
   </DefaultSettings>
   <Permissions>ReadWriteDocument</Permissions>
-  <VersionOverrides xmlns="http://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
+  <VersionOverrides xmlns="https://schemas.microsoft.com/office/taskpaneappversionoverrides" xsi:type="VersionOverridesV1_0">
     <Hosts>
       <Host xsi:type="Workbook">
         <DesktopFormFactor>
@@ -82,15 +83,15 @@
     </Hosts>
     <Resources>
       <bt:Images>
-        <bt:Image id="Icon.16x16" DefaultValue="http://localhost:8080/assets/icon-16.png"/>
-        <bt:Image id="Icon.32x32" DefaultValue="http://localhost:8080/assets/icon-32.png"/>
-        <bt:Image id="Icon.80x80" DefaultValue="http://localhost:8080/assets/icon-80.png"/>
+        <bt:Image id="Icon.16x16" DefaultValue="http://localhost:3000/assets/icon-16.png"/>
+        <bt:Image id="Icon.32x32" DefaultValue="http://localhost:3000/assets/icon-32.png"/>
+        <bt:Image id="Icon.80x80" DefaultValue="http://localhost:3000/assets/icon-80.png"/>
       </bt:Images>
       <bt:Urls>
         <bt:Url id="GetStarted.LearnMoreUrl" DefaultValue="https://go.microsoft.com/fwlink/?LinkId=276812"/>
-        <bt:Url id="Commands.Url" DefaultValue="http://localhost:8080/commands.html"/>
-        <bt:Url id="Taskpane.Url" DefaultValue="http://localhost:8080/taskpane/train"/>
-        <bt:Url id="RunButton.Url" DefaultValue="http://localhost:8080/taskpane/run"/>
+        <bt:Url id="Commands.Url" DefaultValue="http://localhost:3000/commands.html"/>
+        <bt:Url id="Taskpane.Url" DefaultValue="http://localhost:3000/taskpane/train"/>
+        <bt:Url id="RunButton.Url" DefaultValue="http://localhost:3000/taskpane/run"/>
       </bt:Urls>
       <bt:ShortStrings>
         <bt:String id="GetStarted.Title" DefaultValue="Welcome to Automated Machine Learning! 🧠"/>
@@ -104,5 +105,17 @@
         <bt:String id="RunButton.Tooltip" DefaultValue="Use existing machine learning model with Automated Machine Learning"/>
       </bt:LongStrings>
     </Resources>
+    <WebApplicationInfo>
+      <Id>2d854c46-8b8e-4128-9329-613e1039c582</Id>
+      <Resource>api://localhost:3000/2d854c46-8b8e-4128-9329-613e1039c582</Resource>
+      <Scopes>
+        <Scope>Files.Read.All</Scope>
+        <Scope>offline_access</Scope>
+        <Scope>openid</Scope>
+        <Scope>user.read</Scope>
+        <Scope>files.read</Scope>
+        <Scope>profile</Scope>
+      </Scopes>
+    </WebApplicationInfo>
   </VersionOverrides>
 </OfficeApp>

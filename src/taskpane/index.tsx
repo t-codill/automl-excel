@@ -43,3 +43,5 @@ if ((module as any).hot) {
         render(NextApp);
     });
 }
+
+console.log("Loaded page!");

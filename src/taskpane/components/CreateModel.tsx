@@ -7,28 +7,37 @@ import { PrimaryButton, IconButton, IButtonStyles } from 'office-ui-fabric-react
 import { TextField, Stack, IStackProps } from 'office-ui-fabric-react'
 import { Link } from 'react-router-dom'
 import { AzureMachineLearningWorkspacesModels, AzureMachineLearningWorkspaces } from '@azure/arm-machinelearningservices';
-import { AppContext } from './AppContext';
+import { AppContext, AppContextState } from './AppContext';
 import { PageLoad } from './PageLoad';
 import { updateState } from './util';
 import { ResourceGroup } from '@azure/arm-resources/esm/models';
 import { ResourceManagementModels } from '@azure/arm-resources';
 import { TokenCredentials } from '@azure/ms-rest-js';
 import { MachineLearningComputeCreateOrUpdateResponse } from '@azure/arm-machinelearningservices/esm/models';
+import { DataStoreService } from '../../automl/services/DataStoreService';
+import { StorageService } from '../../automl/services/StorageService';
+import { BlockBlobService } from '../../automl/services/BlockBlobService';
+import { JasmineService } from '../../automl/services/JasmineService';
+import { AdvancedSetting } from '../../automl/services/AdvancedSetting';
+import { RunType } from '../../automl/services/constants/RunType';
+import { IRunDtoWithExperimentName } from '../../automl/services/RunHistoryService';
 
 export interface AppProps {
 }
 
 export interface AppState {
     algorithm: string
-    options: IDropdownOption[]
     headers: string[],
-    defaultSelectedWorkspaceOption: any,
     workspaceOptions: IDropdownOption[],
-    workspaceChoice: AzureMachineLearningWorkspacesModels.Workspace,
     createNewWorkspace: boolean,
     resourceGroupOptions: IDropdownOption[],
     resourceGroupChoice: string,
-    newWorkspaceName: string
+    newWorkspaceName: string,
+    columnNames: string[],
+    outputColumn: string,
+    timeColumn: string,
+    newModelName: string,
+    trainingRuns: IRunDtoWithExperimentName[]
 }
 
 const dropdownStyle: Partial<IDropdownStyles> = {
@@ -65,20 +74,23 @@ const trainButtonStyle: Partial<IButtonStyles> = {
 
 export default class CreateModel extends React.Component<AppProps, AppState> {
     static contextType = AppContext;
+    csvString: string;
 
     constructor(props, context) {
         super(props, context);
         this.state = {
             algorithm: 'classification', 
-            options: [],
             headers: [],
-            defaultSelectedWorkspaceOption: {},
             workspaceOptions: null,
-            workspaceChoice: null,
             createNewWorkspace: false,
             resourceGroupOptions: [],
             resourceGroupChoice: null,
-            newWorkspaceName: null
+            newWorkspaceName: null,
+            columnNames: [],
+            outputColumn: null,
+            timeColumn: null,
+            newModelName: null,
+            trainingRuns: []
         };
         this.updateHeader = this.updateHeader.bind(this);
         this.createEventListener();
@@ -87,6 +99,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
 
     //@ts-ignore
     private async makeCsv(values){
+        console.log("Making csv:");
         let csv = ""
         for(var i = 0; i < values.length; i++){
             for(var j = 0; j < values[i].length; j++){
@@ -94,15 +107,21 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
             }
             csv += "\n";
         }
-        console.log("CSV:");
-        console.log(csv);
+        this.csvString = csv;
+        console.log("CSV!!!! :")
+        console.log(csv.length);
     }
 
     async onWorkspaceChoose(){
 
     }
 
+    async reloadTrainingRuns(){
+
+    }
+
     async componentDidMount(){
+        let context: AppContextState = this.context;
         if(this.context.workspaceList === null)
             await this.context.updateWorkspaceList();
         
@@ -112,26 +131,12 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
             data: workspace
         }});
 
-        let filtered: AzureMachineLearningWorkspacesModels.Workspace[] = this.context.workspaceList.filter((workspace: AzureMachineLearningWorkspacesModels.Workspace) => workspace.friendlyName === "automl-excel");
-        //let filtered = workspaceOptions.filter(workspaceOption => workspaceOptions.value === "automl-excel");
-
-        let defaultSelectedWorkspaceOption: AzureMachineLearningWorkspacesModels.Workspace = undefined;
-        let createNewWorkspace = false;
-        if(filtered.length > 0){
-            //automl-excel exists
-            defaultSelectedWorkspaceOption = filtered[0];
-            createNewWorkspace = false;
-        }else{
-            //automl-excel doesn't exist
-            createNewWorkspace = true;
-        }
-
+        
+        let createNewWorkspace = context.workspace === null;
         
         await updateState(this, {
-            defaultSelectedWorkspaceOption: defaultSelectedWorkspaceOption,
-            workspaceChoice: defaultSelectedWorkspaceOption,
-            workspaceOptions: workspaceOptions,
-            createNewWorkspace: createNewWorkspace
+            workspaceOptions,
+            createNewWorkspace
         });
 
         let resourceGroups = await this.context.getResourceGroupsBySubscription(this.context.subscriptionId);
@@ -144,7 +149,16 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         });
         await updateState(this, {
             resourceGroupOptions: resourceGroupOptions
-        })
+        });
+        console.log("Trained Runs:");
+        try{
+            console.log(await this.context.listTrainedRuns());
+        }catch(err){console.log(err)};
+        console.log("Training Runs:");
+        try{
+            console.log(await this.context.listTrainingRuns());
+        }catch(err){console.log(err)};
+        
     }
 
     private createEventListener() {
@@ -162,13 +176,12 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
             range.load("values")
 
             await context.sync()
-            console.log("VAlues:")
-            this.makeCsv(range.values);
             this.setState ({
                 headers: range.values[0],
-                options: range.values[0].map(x => {return{'key': x, 'text': x};})
+                columnNames: range.values[0]
             })
             console.log(this.state.headers)
+            this.makeCsv(range.values)
         }.bind(this))
     }
 
@@ -202,12 +215,16 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
     ): Promise<MachineLearningComputeCreateOrUpdateResponse> {
 
         if(!options.computeName) options.computeName = "automl-excel";
-        if(!options.vmSize) options.vmSize = "STANDARD_DS12_V2";
+        if(!options.vmSize) options.vmSize = "Standard_DS12_V2";
         if(!options.minNodeCount) options.minNodeCount = 0;
         if(!options.maxNodeCount) options.maxNodeCount = 6;
         if(!options.location) options.location = "eastus";
 
-        let client = new AzureMachineLearningWorkspaces(new TokenCredentials(this.context.getToken()), this.context.subscriptionId)
+        console.log("Options:");
+        console.log(options);
+
+        let client = new AzureMachineLearningWorkspaces(new TokenCredentials(this.context.token), this.context.subscriptionId);
+        try{
         return client.machineLearningCompute.createOrUpdate(options.resourceGroupName, options.workspaceName,
             options.computeName,
             {
@@ -228,11 +245,12 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                 timeout: 600000
             }
         );
+        }catch(err){console.log("Error:"); console.log(err); return null;}
 
     }
 
     private async listComputes(resourceGroupNames: string, workspaceName: string){
-        let client = new AzureMachineLearningWorkspaces(new TokenCredentials(this.context.getToken()), this.context.subscriptionId);
+        let client = new AzureMachineLearningWorkspaces(new TokenCredentials(this.context.token), this.context.subscriptionId);
 
         let current = await client.machineLearningCompute.listByWorkspace(resourceGroupNames, workspaceName);
         let fullList = [...current];
@@ -245,46 +263,161 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         return fullList;
     }
 
+    //@ts-ignore
+    private async createParentRun(){
+        
+    }
+
     private async onCreateModel(){
+        let context: AppContextState = this.context
         let resourceGroupName: string;
         let workspace: AzureMachineLearningWorkspacesModels.Workspace;
-        if(this.state.createNewWorkspace){
-            console.log("Make workspace with resource group ".concat(this.state.resourceGroupChoice).concat(" and name ").concat(this.state.newWorkspaceName))
-            try{
+        
+        try{
+            if(this.state.createNewWorkspace){
+                console.log("Make workspace with resource group ".concat(this.state.resourceGroupChoice).concat(" and name ").concat(this.state.newWorkspaceName))
                 let result: ResourceManagementModels.DeploymentExtended = await this.context.createWorkspace(this.state.newWorkspaceName, this.state.resourceGroupChoice);
                 console.log(result);
-            }catch(err){
-                console.error(err);
+                resourceGroupName = this.state.resourceGroupChoice;
+                workspace = this.context.getWorkspace(resourceGroupName, this.state.newWorkspaceName);
+                await this.context.setWorkspace(workspace)
+            }else{
+                workspace = context.workspace;
+                resourceGroupName = workspace.id.split("resourceGroups/")[1].split("/")[0];
+                console.log("Resource group:");
+                console.log(resourceGroupName);
+                await this.context.setWorkspace(workspace);
             }
 
-            resourceGroupName = this.state.resourceGroupChoice;
-            workspace = this.context.getWorkspace(resourceGroupName, this.state.newWorkspaceName);
-        }else{
-            workspace = this.state.workspaceChoice;
-            resourceGroupName = workspace.id.split("resourceGroups/")[1].split("/")[0];
-            console.log("Resource group:");
-            console.log(resourceGroupName);
-        }
+            let computes = await this.listComputes(resourceGroupName, workspace.name);
+            console.log("Computes:");
+            console.log(computes);
+            
+            if(computes.length === 0){
+                console.log("Creating new compute");
+                let response = await this.createCompute({
+                    workspaceName: workspace.name,
+                    resourceGroupName,
+                    computeName: "automl-excel"
+                });
+                console.log(response);
+                console.log("Computes after creation:")
+                computes = await this.listComputes(resourceGroupName, workspace.name);
+                console.log(computes);
+            }
+            let compute = computes[0];
+            console.log("Chose compute:");
+            console.log(compute);
+            console.log("Services:");
+            console.log(this.context.services);
+            let dataStoreService: DataStoreService = this.context.services[DataStoreService.name];
 
-        let computes = await this.listComputes(resourceGroupName, workspace.name);
-        console.log("Computes:");
-        console.log(computes);
-        
+            let dataStore = await dataStoreService.getDefault();
+            console.log("Data store:");
+            console.log(dataStore);
+            let storageService: StorageService = this.context.services[StorageService.name];
+            console.log("Storage service:");
+            console.log(storageService);
+            console.log("Resource Group:");
+            console.log((storageService as any).props.resourceGroupName);
+            let storageAccount = await storageService.getAccount((storageService as any).props.resourceGroupName, dataStore.azureStorageSection.accountName);
+            console.log("Account:");
+            console.log(storageAccount);
+            let containers = await storageService.listContainer(storageAccount);
+            let container = containers.value[0];
+            console.log("Containers")
+            console.log(containers)
+            console.log("Container")
+            console.log(container)
+            let sasToken = await storageService.getSasToken(storageAccount);
+            let blob = {
+                name: "dataset.csv",
+                deleted: false,
+                snapshot: "sampleSnapShot",
+                properties: {
+                    lastModified: new Date(),
+                    etag: "sampleEtag",
+                    contentLength: 1000
+                }
+            };
+            console.log("File:")
+            let blobObj: any = new Blob([this.csvString]);
+            blobObj.name = "dataset.csv";
+            let file = blobObj as File;
+            console.log(file)
+            let blockBlobService = new BlockBlobService((storageService as any).props, {
+                container,
+                account: storageAccount,
+                sasToken: sasToken.accountSasToken,
+                blob
+            });
+            let skipUpload = false;
+            console.log("Blob Service");
+            console.log(blockBlobService);
+            if(!skipUpload){
+                let uploadResult = await blockBlobService.uploadBlob(file, (percent: number) => {console.log("Uploading " + percent + " percent done!")});
+                console.log("Upload Result:");
+                console.log(uploadResult);
+            }
+            console.log("Jasmine Service:")
+            let jasmineService: JasmineService = this.context.services[JasmineService.name]
+            console.log(jasmineService);
+
+            console.log("Advanced Settings:");
+
+            let advancedSettings: AdvancedSetting = {
+                jobType: this.state.algorithm as RunType,
+                column: this.state.outputColumn,
+                experimentTimeoutMinutes: 60,
+                metric: "accuracy",
+                maxIteration: 100,
+                experimentExitScore: null,
+                maxConcurrent: 1,
+                maxCores: null,
+                preprocess: true,
+                nCrossValidations: 5,
+                blacklistAlgos: null,
+                validationSize: null,
+                timeSeriesColumn: this.state.algorithm === "forecasting" ? this.state.timeColumn : null,
+                maxHorizon: null,
+                grainColumns: null
+            };
+
+            console.log(advancedSettings);
+            let features = this.state.columnNames.filter((columnName) => columnName !== this.state.outputColumn);
+            console.log("Features");
+            console.log(features);
+            let previewData = {
+                data: [],
+                delimiter: ",",
+                hasHeader: true,
+                header: []
+            }
+            console.log("Run ID:");
+            let runId = await jasmineService.createRun(features, previewData, this.state.newModelName, compute, dataStore.name, "dataset.csv", advancedSettings);
+            console.log(runId);
+            console.log("Run Status:");
+            let runStatus = await jasmineService.startRun(runId, this.state.newModelName, compute);
+            console.log(runStatus);
+        }catch(err){console.log(err)};
     }
     
     render() {
+        let context: AppContextState = this.context;
 
         if(this.state.workspaceOptions === null){
             return <PageLoad text="Loading workspace list" />;
         }
 
+        let columnOptions = this.state.columnNames.map(feature => {return {key: feature, text: feature}})
 
         const forecastContent = this.state.algorithm === 'forecasting' 
             ?   <div>
                     <Dropdown 
                         placeholder="Select the time column" 
                         label='Which column holds the timestamps?' 
-                        options={this.state.options} 
+                        onChange={(event, option) => this.setState({timeColumn: option.text})}
+                        options={columnOptions} 
                         responsiveMode={ResponsiveMode.xLarge} 
                         styles={dropdownStyle} />
                     <Stack {...columnProps}>
@@ -306,13 +439,14 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                 </div>
                 <Dropdown
                     placeholder="Select workspace"
-                    defaultSelectedKey={this.state.defaultSelectedWorkspaceOption}
+                    defaultSelectedKey={context.workspace.id}
                     label="Which workspace do you want to use?"
                     options={this.state.workspaceOptions}
                     responsiveMode={ResponsiveMode.xLarge}
                     styles={dropdownStyle}
                     disabled={this.state.createNewWorkspace}
-                    onChange={(event, option?) => {this.setState({ workspaceChoice: option.data })}} />
+                    onChange={(event, option?) => {context.setWorkspace(option.data)}} />
+                <TextField label="New Model Name" placeholder="automl-excel" onChange={(e, newVal) => {this.setState({newModelName: newVal})}} />
                 <Stack {...columnProps} >
                     <Checkbox defaultChecked={this.state.createNewWorkspace} label="Create new workspace" onChange={(ev?, checked?) => this.setState({createNewWorkspace: checked})} />
 
@@ -333,7 +467,8 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                 <Dropdown 
                     placeholder="Select the output field" 
                     label='What value do you want to predict?' 
-                    options={this.state.options} 
+                    options={columnOptions} 
+                    onChange={(event, option) => this.setState({outputColumn: option.text})}
                     responsiveMode={ResponsiveMode.xLarge} 
                     styles={dropdownStyle} />
                 <ChoiceGroup 
@@ -365,6 +500,12 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                     ]}/>
                 { forecastContent }
                 <PrimaryButton styles={trainButtonStyle} text="Create Model" onClick={this.onCreateModel.bind(this)} />
+                { this.state.trainingRuns.length > 0 ? <p>Training Runs:</p> : <></> }
+                {
+                    this.state.trainingRuns.map((run: IRunDtoWithExperimentName) => {
+                        return <p>{run.experimentName} - {run.startTimeUtc} - {run.status}</p>
+                    })
+                }  
             </div>
         );
     }

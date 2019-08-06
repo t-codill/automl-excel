@@ -6,6 +6,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const webpack = require('webpack');
 const path = require('path');
 const fs = require('fs');
+const {port, apiPortWhenDeveloping, useTls} = require("./config");
 
 module.exports = async (env, options)  => {
   const dev = options.mode === "development";
@@ -93,16 +94,16 @@ module.exports = async (env, options)  => {
       contentBase: path.join(__dirname, 'dist'),
       //https: await devCerts.getHttpsServerOptions(),
       
-      https: {
+      https: useTls ? {
         key: fs.readFileSync('local.key'),
         cert: fs.readFileSync('local.crt')
-      },
+      } : undefined,
 
       proxy: {
-        "/api": {target: "https://localhost:3000/api", secure: true}
+        "/api": {target: (useTls ? "https" : "http") + "://localhost:" + apiPortWhenDeveloping + "/api", secure: true}
       },
       
-      port: 8080,
+      port: port,
       historyApiFallback: {
         index: 'taskpane/index.html'
       }
