@@ -22,6 +22,8 @@ import { SubscriptionService } from '../../automl/services/SubscriptionService';
 /* Singleton global state for app */
 export class AppContextState{
 
+    settingCompleted: boolean = false;
+
     jasmineService: JasmineService;
     workspaceService: WorkSpaceService;
     dataStoreService: DataStoreService;
@@ -48,6 +50,10 @@ export class AppContextState{
 
     /* Method to update context state while triggering update to app state */
     update: (newContext: Partial<AppContextState>) => Promise<AppContextState>;
+
+    settingComplete(): void {
+        this.settingCompleted = true;
+    }
 
     resourceGroupName(): string{
         return this.workspace.id.split("resourceGroups/")[1].split("/")[0];
@@ -249,19 +255,7 @@ export class AppContextState{
         });
         
         /* Default to automl-workspace if it exists and no workspace has been chosen yet */
-        if(this.workspace === null){
-            let filtered: AzureMachineLearningWorkspacesModels.Workspace[] = this.workspaceList.filter((workspace: AzureMachineLearningWorkspacesModels.Workspace) => workspace.friendlyName === "automl-excel");
-
-            console.log("filtered:");
-            console.log(filtered);
-            
-            if(filtered.length > 0){
-                console.log("setting default to ");
-                console.log(filtered[0]);
-                await this.setWorkspace(filtered[0]);
-            }
-            
-        }
+        
     }
 }
 export const appContextDefaults = new AppContextState();

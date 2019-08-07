@@ -1,17 +1,13 @@
 import * as React from 'react'
 import '../taskpane.css'
-import { ResponsiveMode, Checkbox } from 'office-ui-fabric-react'
-import { Dropdown, IDropdownStyles, IDropdownOption } from 'office-ui-fabric-react'
+import { ResponsiveMode } from 'office-ui-fabric-react'
+import { Dropdown, IDropdownStyles } from 'office-ui-fabric-react'
 import { ChoiceGroup, IChoiceGroupOption, IChoiceGroupStyles } from 'office-ui-fabric-react'
 import { PrimaryButton, IconButton, IButtonStyles } from 'office-ui-fabric-react'
 import { TextField, Stack, IStackProps } from 'office-ui-fabric-react'
 import { Link } from 'react-router-dom'
 import { AzureMachineLearningWorkspacesModels, AzureMachineLearningWorkspaces } from '@azure/arm-machinelearningservices';
-import { AppContext, AppContextState } from './AppContext';
-import { PageLoad } from './PageLoad';
-import { updateState } from './util';
-import { ResourceGroup } from '@azure/arm-resources/esm/models';
-import { ResourceManagementModels } from '@azure/arm-resources';
+import { AppContext } from './AppContext';
 import { TokenCredentials } from '@azure/ms-rest-js';
 import { MachineLearningComputeCreateOrUpdateResponse } from '@azure/arm-machinelearningservices/esm/models';
 import { DataStoreService } from '../../automl/services/DataStoreService';
@@ -28,11 +24,6 @@ export interface AppProps {
 export interface AppState {
     algorithm: string
     headers: string[],
-    workspaceOptions: IDropdownOption[],
-    createNewWorkspace: boolean,
-    resourceGroupOptions: IDropdownOption[],
-    resourceGroupChoice: string,
-    newWorkspaceName: string,
     columnNames: string[],
     outputColumn: string,
     timeColumn: string,
@@ -80,11 +71,6 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         this.state = {
             algorithm: 'classification', 
             headers: [],
-            workspaceOptions: null,
-            createNewWorkspace: false,
-            resourceGroupOptions: [],
-            resourceGroupChoice: null,
-            newWorkspaceName: null,
             columnNames: [],
             outputColumn: null,
             timeColumn: null,
@@ -120,35 +106,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
     }
 
     async componentDidMount(){
-        let context: AppContextState = this.context;
-        if(this.context.workspaceList === null)
-            await this.context.updateWorkspaceList();
-        
-        let workspaceOptions = this.context.workspaceList.map((workspace: AzureMachineLearningWorkspacesModels.Workspace): IDropdownOption => { return {
-            key: workspace.id,
-            text: workspace.friendlyName,
-            data: workspace
-        }});
 
-        
-        let createNewWorkspace = context.workspace === null;
-        
-        await updateState(this, {
-            workspaceOptions,
-            createNewWorkspace
-        });
-
-        let resourceGroups = await this.context.getResourceGroupsBySubscription(this.context.subscriptionId);
-        let resourceGroupOptions = resourceGroups.map((resourceGroup: ResourceGroup): IDropdownOption => {
-            return {
-                text: resourceGroup.name,
-                key: resourceGroup.name,
-                data: resourceGroup
-            }
-        });
-        await updateState(this, {
-            resourceGroupOptions: resourceGroupOptions
-        });
     }
 
     private createEventListener() {
@@ -259,26 +217,10 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
     }
 
     private async onCreateModel(){
-        let context: AppContextState = this.context
-        let resourceGroupName: string;
-        let workspace: AzureMachineLearningWorkspacesModels.Workspace;
-        
-        try{
-            if(this.state.createNewWorkspace){
-                console.log("Make workspace with resource group ".concat(this.state.resourceGroupChoice).concat(" and name ").concat(this.state.newWorkspaceName))
-                let result: ResourceManagementModels.DeploymentExtended = await this.context.createWorkspace(this.state.newWorkspaceName, this.state.resourceGroupChoice);
-                console.log(result);
-                resourceGroupName = this.state.resourceGroupChoice;
-                workspace = this.context.getWorkspace(resourceGroupName, this.state.newWorkspaceName);
-                await this.context.setWorkspace(workspace)
-            }else{
-                workspace = context.workspace;
-                resourceGroupName = workspace.id.split("resourceGroups/")[1].split("/")[0];
-                console.log("Resource group:");
-                console.log(resourceGroupName);
-                await this.context.setWorkspace(workspace);
-            }
+        let workspace: AzureMachineLearningWorkspacesModels.Workspace = this.context.workspace;
+        let resourceGroupName: string = this.context.resourceGroupName();
 
+        try{
             let computes = await this.listComputes(resourceGroupName, workspace.name);
             console.log("Computes:");
             console.log(computes);
@@ -391,11 +333,6 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
     }
     
     render() {
-        let context: AppContextState = this.context;
-
-        if(this.state.workspaceOptions === null){
-            return <PageLoad text="Loading workspace list" />;
-        }
 
         let columnOptions = this.state.columnNames.map(feature => {return {key: feature, text: feature}})
 
@@ -425,32 +362,11 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                     </Link>
                     <span className='header_text'> Create New Model </span>
                 </div>
-                <Dropdown
-                    placeholder="Select workspace"
-                    defaultSelectedKey={context.workspace ? context.workspace.id : null}
-                    label="Which workspace do you want to use?"
-                    options={this.state.workspaceOptions}
-                    responsiveMode={ResponsiveMode.xLarge}
-                    styles={dropdownStyle}
-                    disabled={this.state.createNewWorkspace}
-                    onChange={(event, option?) => {context.setWorkspace(option.data)}} />
-                <TextField label="New Model Name" placeholder="automl-excel" onChange={(e, newVal) => {this.setState({newModelName: newVal})}} />
-                <Stack {...columnProps} >
-                    <Checkbox defaultChecked={this.state.createNewWorkspace} label="Create new workspace" onChange={(ev?, checked?) => this.setState({createNewWorkspace: checked})} />
-
-                    {
-                        this.state.createNewWorkspace ?
-                        <>
-                            <Dropdown
-                            placeholder="Select resource group"
-                            options={this.state.resourceGroupOptions}
-                            onChange={(event, option?) => this.setState({ resourceGroupChoice: option.key as string })} />
-                            <TextField label="New Workspace Name" placeholder="automl-excel" onChange={(e, newVal) => {this.setState({ newWorkspaceName: newVal })}} />
-                            
-                        </>
-                        :
-                        <></>
-                    }
+                <Stack {...columnProps}>
+                    <TextField 
+                        label="Model Name" 
+                        placeholder="Enter model name" 
+                        onChange={(e, newVal) => {this.setState({newModelName: newVal})}} />
                 </Stack>
                 <Dropdown 
                     placeholder="Select the output field" 

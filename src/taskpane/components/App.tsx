@@ -33,11 +33,9 @@ class PrivateRoute extends Route{
     if(token === null || token === ""){
       return <Login></Login>
     }
-
-    if(this.context.subscriptionId === null){
+    if (!this.context.settingCompleted) {
       return <SubscriptionChooser></SubscriptionChooser>;
     }
-    
     return super.render();
   }
 }
