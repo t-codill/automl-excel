@@ -22,10 +22,15 @@ export default class ImportData extends React.Component {
         super(props, context);
         this._createTable();
     }
+
+    //creates a new sheet names 'Titanic' and imports titanic passenger survival data
     private _createTable() {
         Excel.run(async context => {
-            var currentWorksheet = context.workbook.worksheets.getActiveWorksheet();
-            var titanicTable = currentWorksheet.tables.add("A1:K1", true /*hasHeaders*/);
+            var sheets = context.workbook.worksheets;
+            var sheet = sheets.add('Titanic')
+            sheet.activate();
+
+            var titanicTable = sheet.tables.add("A1:K1", true /*hasHeaders*/);
             titanicTable.name = "table";
     
             titanicTable.getHeaderRowRange().values =

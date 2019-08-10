@@ -224,7 +224,10 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
                     styles={rangeButtonStyle}
                     iconProps={{ iconName: 'Table', styles: {...tableIconStyle}}}
                     onClick={this._onClick.bind(this)}/>
-                <PrimaryButton styles={buttonStyle} text="Generate Predictions" />
+                <PrimaryButton 
+                    disabled={this.state.selectedRange === ''}
+                    styles={buttonStyle} 
+                    text="Generate Predictions" />
                 
                 <p>Trained models:</p>
                     {

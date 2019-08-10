@@ -67,6 +67,7 @@ export default class TypeOfProblem extends React.Component<AppProps, AppState> {
     }
 
     //@ts-ignore
+    //next button is disabled unless classification is selected as type of problem
     private _onImageChoiceGroupChange(ev: React.SyntheticEvent<HTMLElement>, option: IChoiceGroupOption): void {
         if (option.key === 'classification') {
             this.setState({
@@ -86,9 +87,10 @@ export default class TypeOfProblem extends React.Component<AppProps, AppState> {
         }
     }
 
+    //forecast horizon must be a positive integer
     private _getErrorMessage(value: string): string {
         var n = Math.floor(Number(value));
-        return value === '' || (String(n) === value && n >= 0) ? '' : 'Input must be a positive integer';
+        return (String(n) === value && n >= 0) ? '' : 'Input must be a positive integer';
     }
      
     render() {

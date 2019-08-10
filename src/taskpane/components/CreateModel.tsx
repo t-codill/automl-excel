@@ -27,7 +27,9 @@ export interface AppState {
     columnNames: string[],
     outputColumn: string,
     timeColumn: string,
+    forecastHorizon: number,
     newModelName: string,
+    invalidModelName: boolean,
     trainingRuns: IRunDtoWithExperimentName[]
 }
 
@@ -74,8 +76,10 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
             columnNames: [],
             outputColumn: null,
             timeColumn: null,
+            forecastHorizon: 0,
             newModelName: null,
-            trainingRuns: []
+            trainingRuns: [],
+            invalidModelName: true
         };
         this.updateHeader = this.updateHeader.bind(this);
         this.createEventListener();
@@ -138,6 +142,14 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         this.setState({
             algorithm: option.key
         });
+    }
+
+    //@ts-ignore
+    private _getMethodNameErrorMessage(value: string) {
+        if (this.state.invalidModelName) {
+            return 'Name must be between 3 and 36 characters, start with an alphanumeric character, and only include alphanumeric characters, \-, and \_';
+        }
+        return '';
     }
 
     private _getErrorMessage(value: string) {
@@ -214,6 +226,20 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
     //@ts-ignore
     private async createParentRun(){
         
+    }
+
+    private onModelNameChange(e, newVal) {
+        var condition = /^[A-z0-9]([A-z0-9]|-|_){2,35}$/
+        if (newVal.match(condition)) {
+            this.setState({
+                invalidModelName: false,
+                newModelName: newVal
+            })                
+        } else {
+            this.setState({
+                invalidModelName: true
+            })
+        }
     }
 
     private async onCreateModel(){
@@ -309,7 +335,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                 blacklistAlgos: null,
                 validationSize: null,
                 timeSeriesColumn: this.state.algorithm === "forecasting" ? this.state.timeColumn : null,
-                maxHorizon: null,
+                maxHorizon: this.state.algorithm === 'forecasting' ? this.state.forecastHorizon : null,
                 grainColumns: null
             };
 
@@ -332,6 +358,14 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         }catch(err){console.log(err)};
     }
     
+    private _disableButton() : boolean {
+        if (this.state.algorithm === 'forecasting') {
+            return this.state.invalidModelName || this.state.outputColumn  === null || this.state.timeColumn  === null || this.state.forecastHorizon === 0
+        } else {
+            return this.state.invalidModelName || this.state.outputColumn === null
+        }
+    }
+
     render() {
 
         let columnOptions = this.state.columnNames.map(feature => {return {key: feature, text: feature}})
@@ -366,7 +400,8 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                     <TextField 
                         label="Model Name" 
                         placeholder="Enter model name" 
-                        onChange={(e, newVal) => {this.setState({newModelName: newVal})}} />
+                        onGetErrorMessage={this._getMethodNameErrorMessage}
+                        onChange={this.onModelNameChange.bind(this)} />
                 </Stack>
                 <Dropdown 
                     placeholder="Select the output field" 
@@ -403,7 +438,12 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                         }
                     ]}/>
                 { forecastContent }
-                <Link to="/modeltraining"><PrimaryButton styles={trainButtonStyle} text="Create" onClick={this.onCreateModel.bind(this)} /></Link>
+                <Link to="/modeltraining">
+                    <PrimaryButton 
+                        styles={trainButtonStyle} 
+                        text="Create" 
+                        disabled={this._disableButton()}
+                        onClick={this.onCreateModel.bind(this)} /></Link>
 
                 { this.state.trainingRuns.length > 0 ? <p>Training Runs:</p> : <></> }
                 {

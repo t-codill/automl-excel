@@ -15,7 +15,8 @@ interface ISubscriptionChooserState {
     createNewWorkspace: boolean,
     resourceGroupOptions: IDropdownOption[],
     resourceGroupChoice: string,
-    newWorkspaceName: string
+    newWorkspaceName: string,
+    invalidWorkspaceName: boolean
 }
 
 const SeparatorStyle: Partial<ISeparatorStyles> = {
@@ -68,6 +69,7 @@ export class SubscriptionChooser extends React.Component<{}, ISubscriptionChoose
             resourceGroupOptions: [],
             resourceGroupChoice: null,
             newWorkspaceName: null,
+            invalidWorkspaceName: true
         }        
     }
 
@@ -110,7 +112,7 @@ export class SubscriptionChooser extends React.Component<{}, ISubscriptionChoose
         if (this.state.createNewWorkspace) {
             console.log("Make workspace with resource group ".concat(this.state.resourceGroupChoice).concat(" and name ").concat(this.state.newWorkspaceName))
             let result: ResourceManagementModels.DeploymentExtended = await this.context.createWorkspace(this.state.newWorkspaceName, this.state.resourceGroupChoice);
-            console.log(result);
+            console.log('Result: ' + result);
             resourceGroupName = this.state.resourceGroupChoice;
             workspace = this.context.getWorkspace(resourceGroupName, this.state.newWorkspaceName);
             await this.context.setWorkspace(workspace)
@@ -121,19 +123,37 @@ export class SubscriptionChooser extends React.Component<{}, ISubscriptionChoose
             console.log(resourceGroupName);
             await this.context.setWorkspace(workspace);
         }
-        context.settingComplete();
+        context.update({settingCompleted: true})
     }
 
     buttonDisabled(): boolean {
-        if (this.state.createNewWorkspace 
-            && (this.state.newWorkspaceName !== null) 
-            && (this.state.resourceGroupChoice !== null)) {
-            return false
+        if (this.state.createNewWorkspace) {
+            return this.state.invalidWorkspaceName || this.state.resourceGroupChoice === null
+        } else {
+            return this.context.workspace === null
         }
-        if (!this.state.createNewWorkspace && this.context.workspace !== null) {
-            return false
+    }
+
+    onWorkspaceNameChange(e, newVal) {
+        var condition = /^[A-z0-9][A-z0-9-]{2,32}$/
+        if (newVal.match(condition)) {
+            this.setState({
+                newWorkspaceName: newVal,
+                invalidWorkspaceName: false
+            })
+        } else {
+            this.setState({
+                newWorkspaceName: null,
+                invalidWorkspaceName: true
+            })
         }
-        return true
+    }
+
+    _getWorkspaceErrorMessage(value: string) {
+        if (this.state.invalidWorkspaceName) {
+            return 'Name must be between 3 and 33 characters, start with an alphanumeric character, and only include alphanumeric characters and \-';
+        }
+        return ''
     }
 
     public render(){
@@ -186,7 +206,8 @@ export class SubscriptionChooser extends React.Component<{}, ISubscriptionChoose
                                 <TextField 
                                     label="Enter a new workspace name" 
                                     placeholder="excel-automl" 
-                                    onChange={(e, newVal) => {this.setState({ newWorkspaceName: newVal })}} />
+                                    onGetErrorMessage={this._getWorkspaceErrorMessage.bind(this)} 
+                                    onChange={this.onWorkspaceNameChange.bind(this)} />
                             </Stack>    
                             <Dropdown
                                     label="Select resource group to use"

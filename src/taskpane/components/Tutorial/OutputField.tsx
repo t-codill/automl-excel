@@ -53,6 +53,7 @@ export default class OutputField extends React.Component<AppProps, AppState> {
     };
     
     //@ts-ignore
+    //next button is disabled unless survived column is selected as the output field
     private _onDropDownChange(ev: React.SyntheticEvent<HTMLElement>, option: IDropDownOption): void {
         if (option.key === 'survived') {
             this.setState({

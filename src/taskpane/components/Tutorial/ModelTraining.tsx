@@ -105,6 +105,7 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
         this._async.dispose();
     }
 
+    //starts running after preparing
     private _triggerStartProgress(): void {
         this.setState({
             prepareRun: true
@@ -114,9 +115,12 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
     private _startProgress(): void {
         this._interval = this._async.setInterval(() => {
 
+            //start running if prepare has been processed for RESTART_DELAY amount of time
             if (!this.state.prepareRun) {
                 this._async.setTimeout(this._triggerStartProgress, RESTART_DELAY);
             } else {            
+                //percent complete is proportional to completed iterations
+                //TODO: percent complete should depend on number of completed iterations
                 let percentComplete = this.state.percentComplete + INTERVAL_INCREMENT;
                 // let percentComplete = this.state.nCompletedIteration / this.state.nIteration
 
@@ -197,6 +201,7 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
         }
     }
 
+    //control input penel view
     private _inputFieldClicked(): void {
         this.setState({
             inputFieldView: !this.state.inputFieldView
