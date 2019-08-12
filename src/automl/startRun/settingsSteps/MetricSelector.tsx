@@ -36,7 +36,7 @@ export class MetricSelector extends React.Component<IMetricSelectorProps, IMetri
         return <>
             <LabelWithCallout required={true} htmlFor={dropdownId} labelText="Primary metric">
                 Select the type of metric that the machine learning algorithm will be measure by. Each training job type has a different set of metrics to choose from.&nbsp;
-                    <Link className="ms-CalloutExample-link" href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics" target="_blank">
+                    <Link className="ms-CalloutExample-link" href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#primary-metric" target="_blank">
                     Learn more <Icon iconName="NavigateExternalInline" />
                 </Link>.
             </LabelWithCallout>

@@ -35,15 +35,39 @@ describe("MaxNodeInput", () => {
             .toBe("Max Node must be greater than or equal to min node");
     });
 
-    it("should not trigger validate if min node is not provided", () => {
+    it("should error if zero", () => {
         const tree = shallow(
-            <MaxNodeInput minNodeCount={undefined} />
+            <MaxNodeInput minNodeCount={"0"} />
         );
         expect(validate(
             "0",
             tree
                 .find(FormTextInput)
                 .prop("validators")))
+            .toBe("Max Node must be greater than 0");
+    });
+
+    it("should not trigger validate if min node is not provided", () => {
+        const tree = shallow(
+            <MaxNodeInput minNodeCount={undefined} />
+        );
+        expect(validate(
+            "1",
+            tree
+                .find(FormTextInput)
+                .prop("validators")))
             .toBeUndefined();
+    });
+
+    it("should error if max node is not provided", () => {
+        const tree = shallow(
+            <MaxNodeInput minNodeCount={"0"} />
+        );
+        expect(validate(
+            undefined,
+            tree
+                .find(FormTextInput)
+                .prop("validators")))
+            .toBe("Max node is required");
     });
 });

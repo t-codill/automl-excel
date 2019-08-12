@@ -1,4 +1,4 @@
-import { SkylineChart } from "@vienna/chart-lib";
+//import { SkylineChart } from "@mlworkspace/charts";
 import { map } from "lodash";
 import { MessageBar } from "office-ui-fabric-react";
 import * as React from "react";
@@ -31,13 +31,14 @@ export class ParentRunSkylineChart extends BaseComponent<IParentRunData, {}, {}>
 
         const min = safeParseJson(this.props.run.properties.AMLSettingsJsonString).metric_operation === "minimize";
         const names = map(this.props.childRuns, generateRunName);
+        //@ts-ignore
         const skylineChartInput = {
             metrics: this.props.childRunMetrics,
             names,
             primaryMetricName: this.props.run.properties.primary_metric,
             min
         };
-        return (<SkylineChart
+        return null /*(<SkylineChart
             metric={skylineChartInput}
             theme={this.context.theme}
             configOverride={{
@@ -53,6 +54,6 @@ export class ParentRunSkylineChart extends BaseComponent<IParentRunData, {}, {}>
                 config: {
                     displayModeBar: false
                 }
-            }} />);
+            }} />)*/;
     }
 }

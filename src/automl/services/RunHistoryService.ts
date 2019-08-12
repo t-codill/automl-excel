@@ -1,6 +1,6 @@
 import { RunHistoryAPIs, RunHistoryAPIsModels } from "@vienna/runhistory";
 
-import { flatMap, mergeWith, reduce } from "lodash";
+import { flatMap, mergeWith, reduce, sortBy } from "lodash";
 import { BasicTypes } from "../common/BasicTypes";
 import { IDictionary } from "../common/IDictionary";
 import { isRunCompleted } from "../common/utils/run";
@@ -137,13 +137,17 @@ export class RunHistoryService extends ServiceBaseNonArm<RunHistoryAPIs> {
     }
 
     public async getChildRuns(runId: string, experimentName: string): Promise<RunHistoryAPIsModels.MicrosoftMachineLearningRunHistoryContractsRunDto[] | undefined> {
-        return this.getAllValuesWithContinuationToken(async (client, abortSignal, continuationtoken) => {
+        const runs = await this.getAllValuesWithContinuationToken(async (client, abortSignal, continuationtoken) => {
             return client.getChildRuns(this.props.subscriptionId, this.props.resourceGroupName, this.props.workspaceName, experimentName, runId,
                 {
                     abortSignal,
                     continuationtoken
                 });
         });
+        if (!runs) {
+            return undefined;
+        }
+        return sortBy(runs, (run) => run.properties ? parseInt(run.properties.iteration, 10) : undefined);
     }
 
     public async getChildRunMetrics(
@@ -156,7 +160,7 @@ export class RunHistoryService extends ServiceBaseNonArm<RunHistoryAPIs> {
         }
 
         const completedRuns = childRuns
-            .filter((childRun) => isRunCompleted(childRun.status));
+            .filter(isRunCompleted);
         if (completedRuns.length < 1) {
             return childRuns.map(() => this.mergeMetrics([], [], []));
         }
@@ -256,6 +260,39 @@ export class RunHistoryService extends ServiceBaseNonArm<RunHistoryAPIs> {
             }
             const tags = { ...run.tags };
             tags[name] = value;
+            return client.addOrModifyRun(
+                this.props.subscriptionId,
+                this.props.resourceGroupName,
+                this.props.workspaceName,
+                experimentName,
+                run.runId,
+                {
+                    createRunDto: {
+                        runId: run.runId,
+                        tags
+                    },
+                    abortSignal
+                });
+        });
+    }
+
+    public async updateTags(
+        run: RunHistoryAPIsModels.MicrosoftMachineLearningRunHistoryContractsRunDetailsDto,
+        experimentName: string,
+        names: string[],
+        values: string[]
+    ): Promise<RunHistoryAPIsModels.MicrosoftMachineLearningRunHistoryContractsRunDto | undefined> {
+        if (!names || !values || names.length !== values.length) {
+            return undefined;
+        }
+        return this.send(async (client, abortSignal) => {
+            if (!run.runId) {
+                return undefined;
+            }
+            const tags = { ...run.tags };
+            for (let i = 0; i < names.length; i++) {
+                tags[names[i]] = values[i];
+            }
             return client.addOrModifyRun(
                 this.props.subscriptionId,
                 this.props.resourceGroupName,

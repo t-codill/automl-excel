@@ -16,6 +16,7 @@ export class MaxNodeInput extends React.PureComponent<IMaxNodeInputProps> {
                 [
                     Validators.required("Max node is required"),
                     Validators.isInteger("Max node must be an integer"),
+                    Validators.minValue(1, () => "Max Node must be greater than 0"),
                     this.minNodeValidate
                 ]
             }

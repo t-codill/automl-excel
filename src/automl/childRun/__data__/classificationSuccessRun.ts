@@ -21,6 +21,5 @@ export const classificationSuccessRun: NotNullableProperties<IChildRunData> = {
         accuracy_table: {},
         confusion_matrix: {}
     },
-    modelUri: "sampleModelUri",
     experimentName: "classificationSuccess"
 };

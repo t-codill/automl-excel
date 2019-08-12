@@ -40,6 +40,8 @@ exports[`Cross Validation Number Input should render 1`] = `
         Array [
           [Function],
           [Function],
+          [Function],
+          [Function],
         ]
       }
     />

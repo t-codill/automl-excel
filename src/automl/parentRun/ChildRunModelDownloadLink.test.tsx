@@ -7,7 +7,7 @@ import { ArtifactService } from "../services/ArtifactService";
 import { ChildRunModelDownloadLink } from "./ChildRunModelDownloadLink";
 
 jest.mock("../services/ArtifactService");
-let asGetModelUrl: jest.SpyInstance<ReturnType<ArtifactService["getModelUrl"]>>;
+let asGetModelUrl: jest.SpyInstance<ReturnType<ArtifactService["getModelUri"]>>;
 
 describe("Child Run Model Download Link", () => {
     const completedRunData = {
@@ -21,7 +21,7 @@ describe("Child Run Model Download Link", () => {
         status: "Failed"
     };
     beforeEach(() => {
-        asGetModelUrl = jest.spyOn(ArtifactService.prototype, "getModelUrl");
+        asGetModelUrl = jest.spyOn(ArtifactService.prototype, "getModelUri");
     });
     describe("completed run", () => {
         const props = {

@@ -102,7 +102,7 @@ export class ParentRun extends BasePage<
         const run = this.state.run;
         const parentRunGridProps = {
             ...this.state,
-            onModelRegister: this.refresh.bind(this)
+            onModelDeploy: this.refresh.bind(this)
         };
         return <>
             <RunStatus run={run} experimentName={this.props.experimentName} />
@@ -176,7 +176,7 @@ export class ParentRun extends BasePage<
             return button.key === "cancelRun";
         });
         if (cancelButton) {
-            cancelButton.disabled = !isAutoRefreshStatus(this.state.run && this.state.run.status) || run.target === "local";
+            cancelButton.disabled = !isAutoRefreshStatus(this.state.run && this.state.run.status) || run.target === "local" || !run.target;
         }
         this.refreshButtons();
     }

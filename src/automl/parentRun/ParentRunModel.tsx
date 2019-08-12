@@ -1,33 +1,23 @@
 import { RunHistoryAPIsModels } from "@vienna/runhistory";
 import { isEqual, orderBy } from "lodash";
-import { Icon, Link } from "office-ui-fabric-react";
 import * as React from "react";
 import { PageNames } from "../common/PageNames";
-import { generateRunName } from "../common/utils/generateRunName";
+import { isRunCompleted } from "../common/utils/run";
 import { safeParseJson } from "../common/utils/safeParseJson";
-import { BaseComponent } from "../components/Base/BaseComponent";
-import { ModelDeploy } from "../components/ModelDownloadDeploy/ModelDeploy";
-import { ModelDownload } from "../components/ModelDownloadDeploy/ModelDownload";
+import { ModelSection } from "../components/ModelDownloadDeploy/ModelSection";
 import { PageLoadingSpinner } from "../components/Progress/PageLoadingSpinner";
-import { ArtifactService } from "../services/ArtifactService";
 import { IParentRunData } from "./ParentRun";
 import { IParentRunGridProps } from "./ParentRunGrid";
 
 export interface IParentRunModelState {
-    modelName: string | undefined;
-    uri: string | undefined;
     bestRun: RunHistoryAPIsModels.MicrosoftMachineLearningRunHistoryContractsRunDto | undefined;
 }
 
-export class ParentRunModel extends BaseComponent<IParentRunGridProps, IParentRunModelState, { artifactService: ArtifactService }> {
-
-    protected serviceConstructors = { artifactService: ArtifactService };
+export class ParentRunModel extends React.PureComponent<IParentRunGridProps, IParentRunModelState> {
     constructor(props: IParentRunGridProps) {
         super(props);
         this.state = {
-            modelName: undefined,
-            uri: undefined,
-            bestRun: undefined
+            bestRun: this.getBestRun()
         };
     }
 
@@ -35,53 +25,28 @@ export class ParentRunModel extends BaseComponent<IParentRunGridProps, IParentRu
         if (isEqual(this.props.childRuns, prevProps.childRuns)) {
             return;
         }
-        await this.refresh();
+        this.setState({
+            bestRun: this.getBestRun()
+        });
     }
 
     public readonly render = (): React.ReactNode => {
-        if (!this.props || !this.props.run || !this.props.childRuns) {
+        if (!this.state.bestRun || !this.props.run || !this.props.experimentName) {
             return <PageLoadingSpinner />;
         }
 
-        return <>
-            <div style={{
-                display: "flex",
-                justifyContent: "space-between"
-            }}>
-                <ModelDownload
-                    pageName={PageNames.ParentRun}
-                    experimentName={this.props.experimentName}
-                    run={this.state.bestRun}
-                    modelName={this.state.modelName}
-                    modelUri={this.state.uri} />
-                <ModelDeploy
-                    pageName={PageNames.ParentRun}
-                    experimentName={this.props.experimentName}
-                    run={this.state.bestRun}
-                    parentRun={this.props.run}
-                    modelName={this.state.modelName}
-                    modelUri={this.state.uri}
-                    modelId={this.state.bestRun && this.state.bestRun.tags && this.state.bestRun.tags.model_id}
-                    onModelRegister={this.props.onModelRegister} />
-            </div>
-            <div style={{
-                textAlign: "right",
-                marginBottom: "1em"
-            }}>
-                <Link target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-portal-experiments#deploy-model">
-                    Learn more about deploying models <Icon iconName="NavigateExternalInline" />
-                </Link>
-            </div>
-        </>;
+        return <ModelSection
+            experimentName={this.props.experimentName}
+            pageName={PageNames.ParentRun}
+            parentRun={this.props.run}
+            run={this.state.bestRun}
+            onModelDeploy={this.props.onModelDeploy}
+        />;
     }
-    protected readonly getData = async () => {
+
+    private readonly getBestRun = () => {
         if (!this.props.childRuns || !this.props.run || !this.props.run.properties) {
-            this.setState({
-                bestRun: undefined,
-                modelName: undefined,
-                uri: undefined
-            });
-            return;
+            return undefined;
         }
         const min = safeParseJson(this.props.run.properties.AMLSettingsJsonString).metric_operation === "minimize";
         const scoredRuns = this.props.childRuns.map((r) => ({
@@ -94,28 +59,11 @@ export class ParentRunModel extends BaseComponent<IParentRunGridProps, IParentRu
 
         const sortedRuns = orderBy(scoredRuns, ["score"], [min ? "asc" : "desc"]);
         for (const bestRun of sortedRuns) {
-            if (bestRun.score === undefined || isNaN(bestRun.score)) {
+            if (bestRun.score === undefined || isNaN(bestRun.score) || !isRunCompleted(bestRun)) {
                 continue;
             }
-            const uri = await this.services.artifactService.getModelUrl({
-                runId: bestRun.runId,
-                parentRunId: bestRun.parentRunId,
-                status: bestRun.status
-            });
-            if (!uri) {
-                continue;
-            }
-            this.setState({
-                bestRun,
-                modelName: generateRunName(bestRun),
-                uri
-            });
-            return;
+            return bestRun;
         }
-        this.setState({
-            bestRun: undefined,
-            modelName: undefined,
-            uri: undefined
-        });
+        return undefined;
     }
 }

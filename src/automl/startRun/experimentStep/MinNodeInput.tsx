@@ -20,7 +20,7 @@ const minNodeInput: React.FunctionComponent = () => {
                 [
                     Validators.required("Min node is required"),
                     Validators.isInteger("Min node must be an integer"),
-                    Validators.minValue(1, () => "Min node has to be a positive number"),
+                    Validators.minValue(0, () => "Min node cannot be negative"),
                 ]
             }
             defaultFormValue="0"

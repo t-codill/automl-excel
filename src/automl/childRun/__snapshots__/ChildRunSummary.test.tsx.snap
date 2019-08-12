@@ -10,6 +10,7 @@ exports[`Child Run Summary should render success data with download link 1`] = `
       "Run Algorithm": "GradientBoosting",
       "Run Id": "AutoML_003",
       "Run Preprocessor": "StandardScalerWrapper",
+      "Sdk Version": "",
       "Status": "Completed",
     }
   }
@@ -26,6 +27,7 @@ exports[`Child Run Summary should render success data without download link 1`] 
       "Run Algorithm": "Ensemble",
       "Run Id": "AutoML_001",
       "Run Preprocessor": "rpp1",
+      "Sdk Version": "",
       "Status": "Completed",
     }
   }

@@ -61,7 +61,7 @@ describe("run", () => {
         it.each([
             "Completed",
         ])("should return true for %s", (status) => {
-            expect(isRunCompleted(status))
+            expect(isRunCompleted({ status }))
                 .toBe(true);
         });
 
@@ -76,7 +76,7 @@ describe("run", () => {
             "Starting",
             "Finalizing"
         ])("should return true for %s", (status) => {
-            expect(isRunCompleted(status))
+            expect(isRunCompleted({ status }))
                 .toBe(false);
         });
     });

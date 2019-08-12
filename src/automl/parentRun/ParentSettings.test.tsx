@@ -1,7 +1,7 @@
 import { shallow } from "enzyme";
 import * as React from "react";
 import { parentFailureRun } from "./__data__/parentFailureRun";
-import { parentSuccessRun } from "./__data__/parentSuccessRun";
+import { parentSuccessRun, parentSuccessRunWithMaximumCore } from "./__data__/parentSuccessRun";
 import { ParentSettings } from "./ParentSettings";
 
 describe("Parent Settings", () => {
@@ -11,8 +11,12 @@ describe("Parent Settings", () => {
         expect(tree)
             .toMatchInlineSnapshot("<pageLoadingSpinner />");
     });
-    it("should render Run Settings table when successful run", () => {
-        const tree = shallow(<ParentSettings {...parentSuccessRun} />);
+    it.each`
+    data | scenario
+    ${parentSuccessRun} | ${"non-max cores"}
+    ${parentSuccessRunWithMaximumCore} | ${"max cores"}
+    `("should render Run Settings table when successful run has $scenario", async ({ data }) => {
+        const tree = shallow(<ParentSettings {...data} />);
         expect(tree)
             .toMatchSnapshot();
     });

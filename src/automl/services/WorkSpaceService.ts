@@ -2,7 +2,6 @@ import { AzureMachineLearningWorkspaces, AzureMachineLearningWorkspacesModels } 
 import { uniqBy } from "lodash";
 import { IServiceBaseProps } from "./ServiceBase";
 import { ServiceBaseArm } from "./ServiceBaseArm";
-import { MachineLearningComputeCreateOrUpdateResponse } from "@azure/arm-machinelearningservices/esm/models";
 
 export interface IVMSizeResult { amlCompute?: AzureMachineLearningWorkspacesModels.VirtualMachineSize[]; }
 
@@ -75,17 +74,11 @@ export class WorkSpaceService extends ServiceBaseArm<AzureMachineLearningWorkspa
     }
 
     public async createCompute(
-        computeName?: string,
-        vmSize?: string,
-        minNodeCount?: number,
-        maxNodeCount?: number
-    ): Promise<MachineLearningComputeCreateOrUpdateResponse> {
-
-        if(!computeName) computeName = "automl-excel";
-        if(!vmSize) vmSize = "STANDARD_DS12_V2";
-        if(!minNodeCount) minNodeCount = 0;
-        if(!maxNodeCount) maxNodeCount = 6;
-
+        computeName: string,
+        vmSize: string,
+        minNodeCount: number,
+        maxNodeCount: number
+    ): Promise<AzureMachineLearningWorkspacesModels.ComputeResource | undefined> {
         return this.send(
             async (client, abortSignal) => {
                 return client.machineLearningCompute.createOrUpdate(this.props.resourceGroupName, this.props.workspaceName,

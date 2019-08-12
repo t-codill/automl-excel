@@ -21,7 +21,7 @@ export class ParentSettings extends React.Component<{
                 "Compute Target": amlSettings.compute_target,
                 "Data Script": amlSettings.data_script,
                 "N Cross Validations": amlSettings.n_cross_validations,
-                "Max Cores Per Iteration": amlSettings.max_cores_per_iteration,
+                "Max Cores Per Iteration": amlSettings.max_cores_per_iteration === -1 ? "Maximum" : amlSettings.max_cores_per_iteration,
                 "Primary Metric": amlSettings.primary_metric,
                 "Metric Operation": amlSettings.metric_operation,
                 "Blacklisted Algorithms": amlSettings.blacklist_algos

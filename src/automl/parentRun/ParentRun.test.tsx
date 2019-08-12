@@ -145,6 +145,19 @@ describe("Parent Run", () => {
                 .toBe(true);
         });
 
+        it("should disable cancel button if target is not set", async () => {
+            rhsGetRun.mockReturnValue(Promise.resolve({ ...parentSuccessRun.run, status: "Running", target: undefined }));
+            shallow<ParentRun>(<ParentRun {...routeProps} />);
+            await Promise.resolve(undefined);
+            const cancel = buttons.find((b) => b.key === "cancelRun");
+            let disabled: boolean | undefined;
+            if (cancel) {
+                disabled = cancel.disabled;
+            }
+            expect(disabled)
+                .toBe(true);
+        });
+
         it("should touch cancel button if cancel run button missing", async () => {
             rhsGetRun.mockImplementation(async () => {
                 const cancelButton = buttons.find((b) => b.key === "cancelRun");

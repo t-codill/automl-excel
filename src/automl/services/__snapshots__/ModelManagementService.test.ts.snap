@@ -27,6 +27,28 @@ Object {
 }
 `;
 
+exports[`ModelManagementService should getDeployStatus 1`] = `
+Object {
+  "_mockParameters": Array [
+    "testOperationId",
+    "1.0",
+    "00000000-0000-0000-0000-000000000000",
+    "testResource",
+    "testWorkSpace",
+    Object {
+      "abortSignal": Object {},
+    },
+  ],
+  "createdTime": 2019-02-11T05:45:00.000Z,
+  "endTime": 2019-02-11T05:55:00.000Z,
+  "id": "2d700ed6-148b-4378-a1d7-d8e79c628244",
+  "operationLog": "abc",
+  "operationType": "AciService",
+  "resourceLocation": "test",
+  "state": "Succeeded",
+}
+`;
+
 exports[`ModelManagementService should registerModel 1`] = `
 Object {
   "_mockParameters": Array [

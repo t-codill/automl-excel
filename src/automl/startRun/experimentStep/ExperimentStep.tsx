@@ -102,7 +102,7 @@ export class ExperimentStep
                 {!this.props.readOnly &&
                     <div className="form-footer">
                         <DefaultButton text="Cancel" onClick={this.showCancelDialog} />
-                        <PrimaryButton type="submit" text="Next" />
+                        <PrimaryButton type="submit" text="Next" data-automation-id="nextButton" />
                     </div>
                 }
             </Form>

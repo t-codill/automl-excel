@@ -25,7 +25,7 @@ exports[`Child run page should cancel run 1`] = `
     goBack={false}
     goToLog={false}
     hideCancelDialog={false}
-    onModelRegister={[Function]}
+    onModelDeploy={[Function]}
     run={
       Object {
         "endTimeUtc": 2019-02-01T08:20:30.000Z,
@@ -38,6 +38,15 @@ exports[`Child run page should cancel run 1`] = `
         "runId": "AutoML_001",
         "startTimeUtc": 2019-02-01T08:20:00.000Z,
         "status": "Completed",
+      }
+    }
+    runMetrics={
+      Object {
+        "accuracy_table": Object {},
+        "confusion_matrix": Object {},
+        "scalarMet1": "1",
+        "scalarMet2": "2",
+        "scalarMet3": "3",
       }
     }
   />
@@ -76,7 +85,7 @@ exports[`Child run page should not cancel run when experiment name is undefined 
     goBack={false}
     goToLog={false}
     hideCancelDialog={false}
-    onModelRegister={[Function]}
+    onModelDeploy={[Function]}
     run={
       Object {
         "endTimeUtc": 2019-02-01T08:20:30.000Z,
@@ -91,6 +100,15 @@ exports[`Child run page should not cancel run when experiment name is undefined 
         "status": "Completed",
       }
     }
+    runMetrics={
+      Object {
+        "accuracy_table": Object {},
+        "confusion_matrix": Object {},
+        "scalarMet1": "1",
+        "scalarMet2": "2",
+        "scalarMet3": "3",
+      }
+    }
   />
   <ConfirmationDialog
     hidden={false}
@@ -102,7 +120,7 @@ exports[`Child run page should not cancel run when experiment name is undefined 
 </Fragment>
 `;
 
-exports[`Child run page should render grid and status bar without model url 1`] = `
+exports[`Child run page should render 1`] = `
 <Fragment>
   <RunStatus
     experimentName="experimentName"
@@ -127,7 +145,7 @@ exports[`Child run page should render grid and status bar without model url 1`] 
     goBack={false}
     goToLog={false}
     hideCancelDialog={true}
-    onModelRegister={[Function]}
+    onModelDeploy={[Function]}
     run={
       Object {
         "endTimeUtc": 2019-02-01T08:20:30.000Z,
@@ -140,6 +158,15 @@ exports[`Child run page should render grid and status bar without model url 1`] 
         "runId": "AutoML_001",
         "startTimeUtc": 2019-02-01T08:20:00.000Z,
         "status": "Completed",
+      }
+    }
+    runMetrics={
+      Object {
+        "accuracy_table": Object {},
+        "confusion_matrix": Object {},
+        "scalarMet1": "1",
+        "scalarMet2": "2",
+        "scalarMet3": "3",
       }
     }
   />
@@ -178,7 +205,7 @@ exports[`Child run page should render grid when no run metrics 1`] = `
     goBack={false}
     goToLog={false}
     hideCancelDialog={true}
-    onModelRegister={[Function]}
+    onModelDeploy={[Function]}
     run={
       Object {
         "endTimeUtc": 2019-02-01T08:20:30.000Z,
@@ -229,58 +256,7 @@ exports[`Child run page should render grid when run artifact contents are undefi
     goBack={false}
     goToLog={false}
     hideCancelDialog={true}
-    onModelRegister={[Function]}
-    run={
-      Object {
-        "endTimeUtc": 2019-02-01T08:20:30.000Z,
-        "parentRunId": "AutoML_000",
-        "properties": Object {
-          "iteration": "9",
-          "run_algorithm": "Ensemble",
-          "run_preprocessor": "rpp1",
-        },
-        "runId": "AutoML_001",
-        "startTimeUtc": 2019-02-01T08:20:00.000Z,
-        "status": "Completed",
-      }
-    }
-  />
-  <ConfirmationDialog
-    hidden={true}
-    onClose={[Function]}
-    onConfirm={[Function]}
-    subText="Are you sure you want to cancel run: AutoML_001"
-    title="Cancel Run?"
-  />
-</Fragment>
-`;
-
-exports[`Child run page should render grid with model url 1`] = `
-<Fragment>
-  <RunStatus
-    experimentName="experimentName"
-    run={
-      Object {
-        "endTimeUtc": 2019-02-01T08:20:30.000Z,
-        "parentRunId": "AutoML_000",
-        "properties": Object {
-          "iteration": "9",
-          "run_algorithm": "Ensemble",
-          "run_preprocessor": "rpp1",
-        },
-        "runId": "AutoML_001",
-        "startTimeUtc": 2019-02-01T08:20:00.000Z,
-        "status": "Completed",
-      }
-    }
-  />
-  <ChildRunGrid
-    canceling={false}
-    experimentName="experimentName"
-    goBack={false}
-    goToLog={false}
-    hideCancelDialog={true}
-    onModelRegister={[Function]}
+    onModelDeploy={[Function]}
     run={
       Object {
         "endTimeUtc": 2019-02-01T08:20:30.000Z,

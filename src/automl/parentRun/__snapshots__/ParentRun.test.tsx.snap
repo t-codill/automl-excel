@@ -26,7 +26,7 @@ exports[`Parent Run cancel run should not cancel if experiment name is undefined
     goBack={false}
     goToLog={false}
     hideCancelDialog={false}
-    onModelRegister={[Function]}
+    onModelDeploy={[Function]}
     run={
       Object {
         "endTimeUtc": 2019-02-01T08:30:00.000Z,
@@ -79,7 +79,7 @@ exports[`Parent Run cancel run should not remove cancel dialog if JOS call fails
     goBack={false}
     goToLog={false}
     hideCancelDialog={false}
-    onModelRegister={[Function]}
+    onModelDeploy={[Function]}
     run={
       Object {
         "endTimeUtc": 2019-02-01T08:30:00.000Z,
@@ -132,7 +132,7 @@ exports[`Parent Run cancel run should successfully cancel 1`] = `
     goBack={false}
     goToLog={false}
     hideCancelDialog={false}
-    onModelRegister={[Function]}
+    onModelDeploy={[Function]}
     run={
       Object {
         "endTimeUtc": 2019-02-01T08:30:00.000Z,
@@ -185,7 +185,7 @@ exports[`Parent Run should not setup logs render without setup run id 1`] = `
     goBack={false}
     goToLog={false}
     hideCancelDialog={true}
-    onModelRegister={[Function]}
+    onModelDeploy={[Function]}
     run={
       Object {
         "endTimeUtc": 2019-02-01T08:30:00.000Z,
@@ -238,7 +238,7 @@ exports[`Parent Run should render grid when child runs are undefined 1`] = `
     goBack={false}
     goToLog={false}
     hideCancelDialog={true}
-    onModelRegister={[Function]}
+    onModelDeploy={[Function]}
     run={
       Object {
         "endTimeUtc": 2019-02-01T08:30:00.000Z,
@@ -289,7 +289,7 @@ exports[`Parent Run should render grid when run has no properties 1`] = `
     goBack={false}
     goToLog={false}
     hideCancelDialog={true}
-    onModelRegister={[Function]}
+    onModelDeploy={[Function]}
     run={
       Object {
         "endTimeUtc": 2019-02-01T08:30:00.000Z,
@@ -441,7 +441,7 @@ exports[`Parent Run should render parent run grid with success run 1`] = `
     goBack={false}
     goToLog={false}
     hideCancelDialog={true}
-    onModelRegister={[Function]}
+    onModelDeploy={[Function]}
     run={
       Object {
         "endTimeUtc": 2019-02-01T08:30:00.000Z,
@@ -493,7 +493,7 @@ exports[`Parent Run should return if child run 1`] = `
     goBack={false}
     goToLog={false}
     hideCancelDialog={true}
-    onModelRegister={[Function]}
+    onModelDeploy={[Function]}
     run={
       Object {
         "endTimeUtc": 2019-02-01T08:20:30.000Z,

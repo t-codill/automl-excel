@@ -47,6 +47,39 @@ export abstract class ServiceBase<TClient extends IServiceClient> {
         return this.getAllWithContinuationToken(true, getFunc, (res) => res.value);
     }
 
+    protected async parallelTryGetAllValues<T, TData>(
+        data: TData[],
+        getFunc: (
+            d: TData,
+            client: TClient,
+            abortSignal: AbortSignal
+        ) => Promise<T>,
+        concurrent = 7
+    ): Promise<Array<T | null> | undefined> {
+        let cancelled = false;
+        const allRuns = await parallelCall(
+            map(data,
+                (d: TData) => {
+                    return async () => {
+                        const response = await this.trySend(async (client: TClient, abortSignal: AbortSignal) => {
+                            return getFunc(d, client, abortSignal);
+                        }, false);
+
+                        if (response === undefined) {
+                            cancelled = true;
+                            return null;
+                        }
+                        return response;
+                    };
+                }
+            ),
+            concurrent);
+        if (cancelled) {
+            return undefined;
+        }
+        return allRuns;
+    }
+
     protected async parallelGetAllValues<T, TData>(
         data: TData[],
         getFunc: (
@@ -146,15 +179,12 @@ export abstract class ServiceBase<TClient extends IServiceClient> {
                 return undefined;
             }
             if (resetAbortController) {
-                
                 this.reset();
             }
             if (this.client && this.client.credentials && (this.client.credentials as TokenCredentials).token) {
                 (this.client.credentials as TokenCredentials).token = this.props.getToken();
             }
-            try{
             return await action(this.client, this.controller.signal);
-            }catch(err){console.log("action");console.error(err); return null;}
         }
         catch (err) {
             if (err.code === "REQUEST_ABORTED_ERROR") {

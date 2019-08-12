@@ -25,6 +25,8 @@ const crossValidationNumberInput: React.FunctionComponent = () => {
                 validators={[
                     Validators.required("Number of Cross Validation is required"),
                     Validators.isInteger("Number of Cross Validation should be an integer"),
+                    Validators.minValue(2, () => "Number of Cross Validation should not be less than 2"),
+                    Validators.maxValue(1000, () => "Number of Cross Validation should not exceed 1000")
                 ]}
                 defaultFormValue="5"
             />

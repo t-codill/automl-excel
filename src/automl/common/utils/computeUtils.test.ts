@@ -161,6 +161,20 @@ describe("computeUtils", () => {
                 }))
                     .toBe(false);
             });
+            it("should return false when maxNodeCount is 0", () => {
+                expect(computeUtils.isComputeUsable({
+                    properties: {
+                        computeType: "AmlCompute",
+                        properties: {
+                            scaleSettings: {
+                                minNodeCount: 0,
+                                maxNodeCount: 0
+                            }
+                        }
+                    }
+                }))
+                    .toBe(false);
+            });
         });
     });
 });

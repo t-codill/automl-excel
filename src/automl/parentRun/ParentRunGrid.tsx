@@ -9,7 +9,7 @@ import { ParentRunSummary } from "./ParentRunSummary";
 import { ParentSettings } from "./ParentSettings";
 
 export interface IParentRunGridProps extends IParentRunData {
-    onModelRegister(): void;
+    onModelDeploy(): void;
 }
 export class ParentRunGrid extends React.Component<IParentRunGridProps> {
     public readonly render = (): React.ReactNode => {

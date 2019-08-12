@@ -18,6 +18,5 @@ export const regressionSuccessRun: NotNullableProperties<IChildRunData> = {
         residuals: {},
         predicted_true: {}
     },
-    modelUri: "sampleModelUri",
     experimentName: "regressionSuccess"
 };

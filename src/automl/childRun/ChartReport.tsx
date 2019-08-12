@@ -1,4 +1,4 @@
-import {
+/*import {
     CalibrationChart,
     ConfusionMatrixChart,
     GainsChart,
@@ -11,16 +11,16 @@ import {
     PredictedTrueChart,
     ResidualChart,
     ROCChart
-} from "@vienna/chart-lib";
+} from "@mlworkspace/charts";*/
 import { RunHistoryAPIsModels } from "@vienna/runhistory";
-import { assign, forOwn, isEmpty, size } from "lodash";
-import { MessageBar } from "office-ui-fabric-react";
+//import { assign, forOwn, isEmpty, size } from "lodash";
+//import { MessageBar } from "office-ui-fabric-react";
 import * as React from "react";
 import { IDictionary } from "../common/IDictionary";
 import { BaseComponent } from "../components/Base/BaseComponent";
-import { GridWrapper } from "../components/Grid/GridWrapper";
-import { IGridElementProps } from "../components/Grid/IGridElementProps";
-import { PageLoadingSpinner } from "../components/Progress/PageLoadingSpinner";
+//import { GridWrapper } from "../components/Grid/GridWrapper";
+//import { IGridElementProps } from "../components/Grid/IGridElementProps";
+//import { PageLoadingSpinner } from "../components/Progress/PageLoadingSpinner";
 import { RunMetricType } from "../services/RunHistoryService";
 
 import "./ChartReport.scss";
@@ -33,6 +33,8 @@ export class ChartReport extends BaseComponent<{
     protected getData = undefined;
 
     public readonly render = (): React.ReactNode => {
+        return <></>
+        /*
         if (!this.props.run || !this.props.runMetrics) {
             return <PageLoadingSpinner />;
         }
@@ -118,5 +120,6 @@ export class ChartReport extends BaseComponent<{
             ctr++;
             gPList.push(element);
         });
+        */
     }
 }

@@ -1,5 +1,9 @@
 import { getJsonDefinition, SDKFlight } from "./JasmineServiceJsonDefinition";
 
+jest.mock("../common/defaultSdkVersion", () => ({
+    defaultSdkVersion: "1.1.1"
+}));
+
 describe("JasmineServiceJsonDefinition", () => {
     it("should generate:", () => {
         const result = getJsonDefinition({ name: "sampleCompute" }, undefined, undefined);

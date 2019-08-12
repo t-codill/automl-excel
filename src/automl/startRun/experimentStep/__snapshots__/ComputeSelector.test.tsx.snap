@@ -6257,6 +6257,47 @@ exports[`Compute Selector For empty options Add a new compute and it should get 
 </Fragment>
 `;
 
+exports[`Compute Selector For empty options Add a new notebook VM compute and it should not be added to dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="experimentStepComputeSelector"
+    labelText="Select a training compute"
+    required={true}
+  >
+    A cloud compute resource is required to run the experiment in Azure. You can use your existing Azure ML compute resource, or create a new one. Note that compute resource has its own costs, refer to the  
+    <StyledLinkBase
+      className="ms-CalloutExample-link"
+      href="https://azure.microsoft.com/en-us/pricing/details/machine-learning-service/"
+      target="_blank"
+    >
+      pricing details 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+     for more information. Computes marked "profiling enabled" support additional data profiling capabilities.
+  </LabelWithCallout>
+  <FormDropdown
+    buttonIconProps={
+      Object {
+        "iconName": "Edit",
+      }
+    }
+    field="computeId"
+    id="experimentStepComputeSelector"
+    onClick={[MockFunction]}
+    options={Array []}
+    placeholder="Select a Compute..."
+    required={true}
+    validators={
+      Array [
+        [Function],
+      ]
+    }
+  />
+</Fragment>
+`;
+
 exports[`Compute Selector For empty options should render 1`] = `
 <Fragment>
   <LabelWithCallout

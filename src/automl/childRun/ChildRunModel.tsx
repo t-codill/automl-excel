@@ -1,21 +1,19 @@
 import { RunHistoryAPIsModels } from "@vienna/runhistory";
-import { Icon, Link } from "office-ui-fabric-react";
 import React from "react";
 import { PageNames } from "../common/PageNames";
-import { generateRunName } from "../common/utils/generateRunName";
 import { BaseComponent } from "../components/Base/BaseComponent";
-import { ModelDeploy } from "../components/ModelDownloadDeploy/ModelDeploy";
-import { ModelDownload } from "../components/ModelDownloadDeploy/ModelDownload";
+import { ModelSection } from "../components/ModelDownloadDeploy/ModelSection";
+import { PageLoadingSpinner } from "../components/Progress/PageLoadingSpinner";
 import { RunHistoryService } from "../services/RunHistoryService";
 
 export interface IChildRunModelProps {
-    modelUri: string | undefined;
     experimentName: string | undefined;
     run: RunHistoryAPIsModels.MicrosoftMachineLearningRunHistoryContractsRunDto | undefined;
-    onModelRegister(): void;
+    onModelDeploy(): void;
 }
 
 export interface IChildRunModelState {
+    modelId: string | undefined;
     parentRun: RunHistoryAPIsModels.MicrosoftMachineLearningRunHistoryContractsRunDto | undefined;
 }
 
@@ -24,40 +22,21 @@ export class ChildRunModel extends BaseComponent<IChildRunModelProps, IChildRunM
     public constructor(props: IChildRunModelProps) {
         super(props);
         this.state = {
+            modelId: this.props.run && this.props.run.tags && this.props.run.tags.model_id,
             parentRun: undefined
         };
     }
     public readonly render = (): React.ReactNode => {
-        return <>
-            <div style={{
-                display: "flex",
-                justifyContent: "space-between"
-            }}>
-                <ModelDownload
-                    pageName={PageNames.ChildRun}
-                    experimentName={this.props.experimentName}
-                    run={this.props.run}
-                    modelName={generateRunName(this.props.run)}
-                    modelUri={this.props.modelUri} />
-                <ModelDeploy
-                    pageName={PageNames.ChildRun}
-                    experimentName={this.props.experimentName}
-                    modelName={generateRunName(this.props.run)}
-                    run={this.props.run}
-                    parentRun={this.state.parentRun}
-                    modelUri={this.props.modelUri}
-                    modelId={this.props.run && this.props.run.tags && this.props.run.tags.model_id}
-                    onModelRegister={this.props.onModelRegister} />
-            </div>
-            <div style={{
-                textAlign: "right",
-                marginBottom: "1em"
-            }}>
-                <Link target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-portal-experiments#deploy-model">
-                    Learn more about deploying models <Icon iconName="NavigateExternalInline" />
-                </Link>
-            </div>
-        </>;
+        if (!this.state.parentRun || !this.props.experimentName || !this.props.run) {
+            return <PageLoadingSpinner />;
+        }
+        return <ModelSection
+            run={this.props.run}
+            experimentName={this.props.experimentName}
+            parentRun={this.state.parentRun}
+            onModelDeploy={this.props.onModelDeploy}
+            pageName={PageNames.ChildRun}
+        />;
     }
     protected readonly getData = async () => {
         if (!this.props.run || !this.props.experimentName || !this.props.run.parentRunId) {

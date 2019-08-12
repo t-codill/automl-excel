@@ -33,10 +33,7 @@ export class RunHistoryService {
     }
 
     public async getRunMetrics(): Promise<RunHistoryAPIsModels.MicrosoftMachineLearningRunHistoryContractsRunMetricDto[] | undefined> {
-        if (classificationSuccessRun.runMetrics) {
-            return [classificationSuccessRun.runMetrics];
-        }
-        return undefined;
+        return [classificationSuccessRun.runMetrics];
     }
 
     public async getChildRuns(): Promise<RunHistoryAPIsModels.MicrosoftMachineLearningRunHistoryContractsRunDto[] | undefined> {
@@ -79,6 +76,10 @@ export class RunHistoryService {
     }
 
     public async updateTag(): Promise<RunHistoryAPIsModels.MicrosoftMachineLearningRunHistoryContractsRunDto | undefined> {
+        return parentSuccessRun.run;
+    }
+
+    public async updateTags(): Promise<RunHistoryAPIsModels.MicrosoftMachineLearningRunHistoryContractsRunDto | undefined> {
         return parentSuccessRun.run;
     }
 

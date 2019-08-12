@@ -26,7 +26,6 @@ export class ArtifactService {
         contentUri: "contentUri",
         path: "path"
     };
-    private readonly getModelUrlResult = "getModelUrl";
     private readonly getModelUrlsResult = ["getModelUrls1", "getModelUrls2"];
 
     public async tryGetContentForRun(): Promise<string | null | undefined> {
@@ -57,12 +56,24 @@ export class ArtifactService {
         return this.tryGetArtifactUrlResult;
     }
 
-    public async getModelUrl(): Promise<string | undefined> {
-        return this.getModelUrlResult;
+    public async getDeployUri(): Promise<{
+        modelUri?: string;
+        condaUri?: string;
+        scoringUri?: string;
+    } | undefined> {
+        return {
+            modelUri: "modelUri",
+            condaUri: "condaUri",
+            scoringUri: "scoringUri"
+        };
     }
 
-    public async getModelUrls(): Promise<Array<string | null> | undefined> {
+    public async getModelUri(): Promise<Array<string | null> | undefined> {
         return this.getModelUrlsResult;
+    }
+
+    public async uploadArtifact(_container: string, _path: string, _content: string): Promise<string | undefined> {
+        return "mockArtifactId";
     }
 
     public dispose(): void {

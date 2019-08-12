@@ -1,4 +1,4 @@
-import { RunHistoryChart } from "@vienna/chart-lib";
+//import { RunHistoryChart } from "@mlworkspace/charts";
 import { countBy, Dictionary, includes, map, uniq } from "lodash";
 import moment from "moment";
 import { ICommandBarItemProps } from "office-ui-fabric-react";
@@ -85,7 +85,7 @@ export class RunList extends BasePage<{}, IRunListState,
                         onStatusFilterChange={this.handleStatusFilterChange} />
                 </div>
                 <div className="run-status-chart-container">
-                    {
+                    {<></> /*
                         <RunHistoryChart
                             metric={this.state.runHistoryChartData}
                             theme={this.context.theme}
@@ -103,7 +103,7 @@ export class RunList extends BasePage<{}, IRunListState,
                                     displayModeBar: false
                                 }
                             }} />
-                    }
+                        */}
                 </div>
             </div>
             <DataTable

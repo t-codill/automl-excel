@@ -10,7 +10,7 @@ exports[`MetricSelector should render when different from previous props 1`] = `
     Select the type of metric that the machine learning algorithm will be measure by. Each training job type has a different set of metrics to choose from. 
     <StyledLinkBase
       className="ms-CalloutExample-link"
-      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics"
+      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#primary-metric"
       target="_blank"
     >
       Learn more 
@@ -76,7 +76,7 @@ exports[`MetricSelector should render with classification type props 1`] = `
     Select the type of metric that the machine learning algorithm will be measure by. Each training job type has a different set of metrics to choose from. 
     <StyledLinkBase
       className="ms-CalloutExample-link"
-      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics"
+      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#primary-metric"
       target="_blank"
     >
       Learn more 
@@ -142,7 +142,7 @@ exports[`MetricSelector should render with forecasting type props 1`] = `
     Select the type of metric that the machine learning algorithm will be measure by. Each training job type has a different set of metrics to choose from. 
     <StyledLinkBase
       className="ms-CalloutExample-link"
-      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics"
+      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#primary-metric"
       target="_blank"
     >
       Learn more 
@@ -203,7 +203,7 @@ exports[`MetricSelector should render with regression type props 1`] = `
     Select the type of metric that the machine learning algorithm will be measure by. Each training job type has a different set of metrics to choose from. 
     <StyledLinkBase
       className="ms-CalloutExample-link"
-      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics"
+      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#primary-metric"
       target="_blank"
     >
       Learn more 
@@ -264,7 +264,7 @@ exports[`MetricSelector should render with undefined props 1`] = `
     Select the type of metric that the machine learning algorithm will be measure by. Each training job type has a different set of metrics to choose from. 
     <StyledLinkBase
       className="ms-CalloutExample-link"
-      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#explore-model-metrics"
+      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-configure-auto-train#primary-metric"
       target="_blank"
     >
       Learn more 

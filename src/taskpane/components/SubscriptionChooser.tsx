@@ -72,16 +72,18 @@ export class SubscriptionChooser extends React.Component<{}, ISubscriptionChoose
     }
 
     componentDidMount(){
+        let context: AppContextState = this.context;
         if(this.context.subscriptionList === null){
             this.context.updateSubscriptionList();
-        } 
+        }else{
+            context.updateWorkspaceList();
+        }
     }
 
     async onChange(event: React.FormEvent<HTMLDivElement>, option?: IDropdownOption){
         let context: AppContextState = this.context;
         context.setSubscriptionId(option.data)
-        if(this.context.workspaceList === null)
-            await this.context.updateWorkspaceList();
+        await this.context.updateWorkspaceList();
 
         // let createNewWorkspace = context.workspace === null;
         
@@ -121,7 +123,9 @@ export class SubscriptionChooser extends React.Component<{}, ISubscriptionChoose
             console.log(resourceGroupName);
             await this.context.setWorkspace(workspace);
         }
-        context.settingComplete();
+        context.update({
+            settingCompleted: true
+        });
     }
 
     buttonDisabled(): boolean {
@@ -145,25 +149,12 @@ export class SubscriptionChooser extends React.Component<{}, ISubscriptionChoose
         let workspaceChooser = null;
 
         if(context.workspaceList !== null){
-
-            let defaultSelectedKey: string = undefined;
-
-            let filtered: AzureMachineLearningWorkspacesModels.Workspace[] = context.workspaceList.filter((workspace: AzureMachineLearningWorkspacesModels.Workspace) => workspace.friendlyName === "automl-excel");
-
-            console.log("filtered:");
-            console.log(filtered);
             
-            if(filtered.length > 0){
-                console.log("setting default to ");
-                console.log(filtered[0]);
-                defaultSelectedKey = filtered[0].id
-            }
-                
             workspaceChooser = <>
                     <Separator styles={SeparatorStyle}/>
                     <Dropdown
                         placeholder="Select workspace"
-                        defaultSelectedKey={defaultSelectedKey}
+                        defaultSelectedKey={context.workspace === null ? undefined : context.workspace.id}
                         label="Select workspace to use"
                         options={this.context.workspaceList.map((workspace: AzureMachineLearningWorkspacesModels.Workspace): IDropdownOption => { return {
                                 key: workspace.id,

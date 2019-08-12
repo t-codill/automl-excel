@@ -8,12 +8,12 @@ import { ChildRunModel } from "./ChildRunModel";
 import { ChildRunSummary } from "./ChildRunSummary";
 
 export interface IChildRunGridProps extends IChildRunData {
-    onModelRegister(): void;
+    onModelDeploy(): void;
 }
 
 export class ChildRunGrid extends React.Component<IChildRunGridProps> {
     public readonly render = (): React.ReactNode => {
-        const modelVisible = isRunCompleted(this.props.run && this.props.run.status);
+        const modelVisible = isRunCompleted(this.props.run);
         return (
             <div className="ms-Grid" dir="ltr">
                 <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 ms-xl9">
@@ -24,16 +24,14 @@ export class ChildRunGrid extends React.Component<IChildRunGridProps> {
                     </GridItem>
                 </div>
                 <div className="ms-Grid-col ms-sm12 ms-md12 ms-lg12 ms-xl3">
-                    {modelVisible && <ChildRunModel modelUri={this.props.modelUri}
+                    {modelVisible && <ChildRunModel
                         experimentName={this.props.experimentName}
                         run={this.props.run}
-                        onModelRegister={this.props.onModelRegister} />}
+                        onModelDeploy={this.props.onModelDeploy} />}
                     <GridItem title="Run Summary">
                         <ChildRunSummary
                             experimentName={this.props.experimentName}
                             run={this.props.run}
-                            modelUri={this.props.modelUri}
-                            modelId={this.props.run && this.props.run.tags && this.props.run.tags.model_id}
                         />
                     </GridItem>
                     <GridItem title="Run Metrics">

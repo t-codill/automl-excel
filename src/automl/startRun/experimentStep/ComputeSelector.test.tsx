@@ -125,6 +125,18 @@ describe("Compute Selector", () => {
                 .toMatchSnapshot();
         });
 
+        it("Add a new notebook VM compute and it should not be added to dropdown", async () => {
+            const newCompute = {
+                name: "NewNBVMCompute1", id: "NewNBVMComputeId1", properties: {
+                    computeType: "VirtualMachine", provisioningState: "Succeeded",
+                    properties: { isNotebookInstanceCompute: true }
+                }
+            };
+            tree.setProps({ computes: [newCompute] });
+            expect(tree)
+                .toMatchSnapshot();
+        });
+
         it("on click should invoke onEditClickMock()", () => {
             const onDropDownClick = tree.find(FormDropdown)
                 .prop("onClick");

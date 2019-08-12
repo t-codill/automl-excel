@@ -1,11 +1,14 @@
 import { ArtifactAPI, ArtifactAPIModels } from "@vienna/artifact";
+import { v4 as uuid4 } from "uuid";
 import { blob2string } from "../common/utils/blob2string";
+import { getServiceCommonUrl } from "../common/utils/getServiceCommonUrl";
+import { isRunCompleted } from "../common/utils/run";
+import { ArtifactServicePath } from "./constants/ArtifactServicePath";
 import { IServiceBaseProps } from "./ServiceBase";
 import { ServiceBaseNonArm } from "./ServiceBaseNonArm";
 
 const artifactClientApiVersion = "1.0";
 const runOrigin = "ExperimentRun";
-const modelPath = "outputs/model.pkl";
 
 export interface IArtifact {
     origin: string;
@@ -26,10 +29,17 @@ async function getArtifactContent(artifact: ArtifactAPIModels.GetArtifactContent
     }
     return undefined;
 }
+
+function getContentUri(res: ArtifactAPIModels.ArtifactContentInformationDto | null): string | undefined {
+    return res ? res.contentUri : undefined;
+}
+
 export class ArtifactService extends ServiceBaseNonArm<ArtifactAPI> {
+
     constructor(props: IServiceBaseProps) {
         super(props, ArtifactAPI, props.discoverUrls.history);
     }
+
     public async tryGetContentForRun(runId: string, path: string): Promise<string | null | undefined> {
         return this.tryGetContent({ origin: runOrigin, container: runId, path });
     }
@@ -112,7 +122,7 @@ export class ArtifactService extends ServiceBaseNonArm<ArtifactAPI> {
         });
     }
 
-    public async tryGetArtifactUrl(artifact: IArtifact): Promise<ArtifactAPIModels.GetArtifactContentInformation2Response | null | undefined> {
+    public async tryGetArtifactContentInfo(artifact: IArtifact): Promise<ArtifactAPIModels.GetArtifactContentInformation2Response | null | undefined> {
         return this.trySend(async (client, abortSignal) => {
             return client.getArtifactContentInformation2(
                 this.props.subscriptionId,
@@ -127,11 +137,24 @@ export class ArtifactService extends ServiceBaseNonArm<ArtifactAPI> {
         });
     }
 
-    public async getModelUrl(run: IRunDataForArtifact): Promise<string | null | undefined> {
-        if (!run || !run.runId || !run.parentRunId || run.status !== "Completed") {
+    public async getModelUri(run: IRunDataForArtifact): Promise<string | null | undefined> {
+        if (!run || !run.runId || !run.parentRunId || !isRunCompleted(run)) {
             return null;
         }
-        const result = await this.tryGetArtifactUrl({ container: run.runId, origin: runOrigin, path: modelPath });
+        const container = run.runId;
+        const result = await this.trySend(
+            async (client, abortSignal) => {
+                return client.getArtifactContentInformation2(
+                    this.props.subscriptionId,
+                    this.props.resourceGroupName,
+                    this.props.workspaceName,
+                    runOrigin,
+                    container,
+                    artifactClientApiVersion, {
+                        abortSignal,
+                        path: ArtifactServicePath.Model
+                    });
+            });
         if (result === undefined) {
             return undefined;
         }
@@ -139,5 +162,72 @@ export class ArtifactService extends ServiceBaseNonArm<ArtifactAPI> {
             return null;
         }
         return result.contentUri;
+    }
+
+    public async getDeployUri(run: IRunDataForArtifact): Promise<{
+        modelUri?: string;
+        condaUri?: string;
+        scoringUri?: string;
+    } | undefined> {
+        if (!run || !run.runId || !run.parentRunId || !isRunCompleted(run)) {
+            return {};
+        }
+        const container = run.runId;
+        const result = await this.parallelTryGetAllValues(
+            [
+                ArtifactServicePath.Model,
+                ArtifactServicePath.Conda,
+                ArtifactServicePath.Scoring
+            ],
+            async (path, client, abortSignal) => {
+                return client.getArtifactContentInformation2(
+                    this.props.subscriptionId,
+                    this.props.resourceGroupName,
+                    this.props.workspaceName,
+                    runOrigin,
+                    container,
+                    artifactClientApiVersion, {
+                        abortSignal,
+                        path
+                    });
+            });
+        if (!result) {
+            return undefined;
+        }
+        return {
+            modelUri: getContentUri(result[0]),
+            condaUri: getContentUri(result[1]),
+            scoringUri: getContentUri(result[2])
+        };
+    }
+
+    public async uploadArtifact(container: string, path: string, content: string): Promise<string | undefined> {
+        return this.send(async (_client, abortSignal) => {
+            const baseUrl = this.geBaseUrl();
+            const artifactId = `${runOrigin}/${container}/${path}`;
+            const url = `${baseUrl}/artifacts/content/${artifactId}?allowOverwrite=true`;
+            const response = await window.fetch(new Request(url, {
+                method: "POST",
+                signal: abortSignal,
+                body: new Blob([content]),
+                headers: {
+                    authorization: `Bearer ${this.props.getToken()}`,
+                    "content-type": "application/octet-stream",
+                    "x-ms-client-user-type": "AutoML WebUser",
+                    "x-ms-client-request-id": uuid4(),
+                    "x-ms-client-session-id": this.props.logger.getSessionId()
+                }
+            }));
+            if (response.status === 200) {
+                return artifactId;
+            }
+            return undefined;
+        });
+    }
+
+    private geBaseUrl(): string {
+        const prefix = `${this.props.discoverUrls.api}/artifact/v2.0`;
+        const commonUrl = getServiceCommonUrl(this.props.subscriptionId, this.props.resourceGroupName, this.props.workspaceName);
+        return `${prefix}${commonUrl}`;
     }
 }

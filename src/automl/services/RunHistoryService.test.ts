@@ -29,22 +29,75 @@ describe("RunHistoryService", () => {
         expect(result)
             .toMatchSnapshot();
     });
+    it("getChildRuns should sort by iteration", async () => {
+        jest.spyOn(RunHistoryAPIs.prototype, "getChildRuns")
+            .mockImplementationOnce(async () => ({
+                value: [
+                    {
+                        runId: "AutoML_001",
+                        properties: { iteration: "23" }
+                    },
+                    {
+                        runId: "AutoML_000",
+                        properties: { iteration: "9" }
+                    }
+                ]
+            }));
+        const result = await service.getChildRuns("00000000-0000-0000-0000-000000000000", "sampleExperimentName");
+        expect(result)
+            .toEqual([
+                {
+                    runId: "AutoML_000",
+                    properties: { iteration: "9" }
+                },
+                {
+                    runId: "AutoML_001",
+                    properties: { iteration: "23" }
+                }
+            ]
+            );
+    });
+    it("getChildRuns should return undefined if canceled", async () => {
+        jest.spyOn(RunHistoryAPIs.prototype, "getChildRuns")
+            .mockImplementationOnce(async () => { throw restCanceledError; });
+        const result = await service.getChildRuns("00000000-0000-0000-0000-000000000000", "sampleExperimentName");
+        expect(result)
+            .toBeUndefined();
+    });
     it("should listExperiments", async () => {
         const result = await service.listExperiments();
         expect(result)
             .toMatchSnapshot();
     });
-    it("should update tags", async () => {
+    it("should update tag", async () => {
         const result = await service.updateTag(parentSuccessRun.run,
             parentSuccessRun.experimentName, "test tag", "test value");
         expect(result)
             .toMatchSnapshot();
     });
-    it("should not update tags without run id", async () => {
+    it("should not update tag without run id", async () => {
         const result = await service.updateTag({ ...parentSuccessRun.run, runId: undefined },
             parentSuccessRun.experimentName, "test tag", "test value");
         expect(result)
             .toBeUndefined();
+    });
+    it("should update tags", async () => {
+        const result = await service.updateTags(parentSuccessRun.run,
+            parentSuccessRun.experimentName, ["test tag1", "test tag2", "test tag3"], ["test value1", "test value2", "test value3"]);
+        expect(result)
+            .toMatchSnapshot();
+    });
+    it("should not update tags without run id", async () => {
+        const result = await service.updateTags({ ...parentSuccessRun.run, runId: undefined },
+            parentSuccessRun.experimentName, ["test tag1", "test tag2", "test tag3"], ["test value1", "test value2", "test value3"]);
+        expect(result)
+            .toBeUndefined();
+    });
+    it("should not update tag without invalid key-value pair", async () => {
+        const result = await service.updateTags(parentSuccessRun.run,
+            parentSuccessRun.experimentName, ["test tag1", "test tag2", "test tag3"], ["test value1", "test value2"]);
+        expect(result)
+            .toMatchSnapshot();
     });
     describe("getChildRunMetrics", () => {
         it("should be empty without child run", async () => {
