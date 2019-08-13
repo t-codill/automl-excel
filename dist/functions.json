@@ -1,0 +1,50 @@
+{
+    "functions": [
+        {
+            "description": "Adds two numbers",
+            "id": "ADDNUMBERS",
+            "name": "ADDNUMBERS",
+            "parameters": [
+                {
+                    "description": "First number",
+                    "name": "first",
+                    "type": "number"
+                },
+                {
+                    "description": "Second number",
+                    "name": "second",
+                    "type": "number"
+                }
+            ],
+            "result": {
+                "dimensionality": "scalar"
+            }
+        },
+        {
+            "description": "evaluate model",
+            "helpUrl": "https://microsoft.com",
+            "id": "EVALMODEL",
+            "name": "EVALMODEL",
+            "parameters": [
+                {
+                "name": "a",
+                "dimensionality": "scalar",
+                "description": "",
+                "type": "any",
+                "optional": false,
+                "repeating": false
+                }
+            ],
+            "result": {
+                "type": "any",
+                "dimensionality": "scalar"
+            },
+            "options": {
+                "cancelable": false,
+                "requiresAddress": false,
+                "stream": false,
+                "volatile": false
+            }
+        }
+    ]
+}
