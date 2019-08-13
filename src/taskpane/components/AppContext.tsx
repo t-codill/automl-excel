@@ -19,6 +19,7 @@ import { ResourceService } from '../../automl/services/ResourceService';
 import { SubscriptionService } from '../../automl/services/SubscriptionService';
 import { ArtifactService } from '../../automl/services/ArtifactService';
 import { DiscoveryService } from '../../automl/services/DiscoveryService';
+import { defaultRegion } from "../../../config";
 
 
 /* Singleton global state for app */
@@ -60,7 +61,7 @@ export class AppContextState{
 
     async getServiceBaseProps(): Promise<IServiceBaseProps>{
         let context = appContextDefaults;
-        let location = context.workspace !== null ? context.workspace.location : "eastus";
+        let location = context.workspace !== null ? context.workspace.location : defaultRegion;
 
         let props: IServiceBaseProps = {
             logger: new Logger("development"),
@@ -71,7 +72,7 @@ export class AppContextState{
             discoverUrls: {
                 history: "https://" + location + ".experiments.azureml.net"
             },
-            location: context.workspace !== null ? context.workspace.location : "eastus",
+            location: context.workspace !== null ? context.workspace.location : defaultRegion,
             pageName: PageNames.Unknown,
             flight: new WorkspaceFlight(""),
             theme: "",
@@ -140,7 +141,9 @@ export class AppContextState{
         console.log("Setting subscription id to ".concat(subscriptionId));
         await this.update({subscriptionId: subscriptionId, workspaceList: null});
         await this.createServices();
+        
         localStorage.setItem("subscriptionId", subscriptionId);
+        await OfficeRuntime.storage.setItem("subscriptionId", subscriptionId);
     }
     
     async setWorkspace(workspace: AzureMachineLearningWorkspacesModels.Workspace){
@@ -197,7 +200,7 @@ export class AppContextState{
     }
 
     async createWorkspace(workspaceName: string, resourceGroupName: string, location?: string): Promise<ResourceManagementModels.DeploymentExtended | undefined>{
-        if(!location) location = "eastus";
+        if(!location) location = defaultRegion;
         
         let resourceService: ResourceService = this.resourceService;
         return await resourceService.createWorkspace(workspaceName, resourceGroupName, location);

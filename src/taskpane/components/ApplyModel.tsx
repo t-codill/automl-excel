@@ -8,8 +8,13 @@ import { AppContextState, AppContext } from './AppContext';
 import { updateState } from './util';
 import { IRunDtoWithExperimentName } from '../../automl/services/RunHistoryService';
 import { MicrosoftMachineLearningRunHistoryContractsRunDto } from '@vienna/runhistory/esm/models';
-import { getCondaFileFromTemplate } from '../../automl/common/utils/deployment/getCondaFileFromTemplate';
-import { getScoringFileFromTemplate } from '../../automl/common/utils/deployment/getScoringFileFromTemplate';
+//import { getCondaFileFromTemplate } from '../../automl/common/utils/deployment/getCondaFileFromTemplate';
+//import { getScoringFileFromTemplate } from '../../automl/common/utils/deployment/getScoringFileFromTemplate';
+import { ArtifactDto } from '@vienna/artifact/esm/models';
+import { AsyncOperationStatus } from '@vienna/model-management/esm/models';
+import { IArtifact } from '../../automl/services/__mocks__/ArtifactService';
+//import { tunnelRequest } from '../util';
+
 
 interface AppProps {
 }
@@ -27,15 +32,6 @@ const s: Partial<IButtonStyles> = {
     root: { marginTop: '-5px'}
 }
 
-// const windowButtonStyle: Partial<IButtonStyles> = {
-//     root: { color: 'black', 
-//             display: 'inline-block', 
-//             height: '30px',
-//             paddingTop: '7px',
-//             paddingBottom: '2px',
-//             backgroundColor: '#ffffff',
-//             paddingLeft: '5px' }   
-// }
 
 const backButtonStyle: Partial<IButtonStyles> = {
     root: { color: 'white', 
@@ -63,13 +59,6 @@ const columnProps: Partial<IStackProps> = {
             }
 }
 
-// const dropdownStyle: Partial<IDropdownStyles> = {
-//     root: { paddingLeft: '5px',
-//             paddingRight: '5px',
-//             paddingTop: '6px',
-//             paddingBottom: '10px' }
-// };
-
 const buttonStyle: Partial<IButtonStyles> = {
     root: { display: 'block',
             marginTop: '20px',
@@ -79,16 +68,12 @@ const buttonStyle: Partial<IButtonStyles> = {
 
 export default class ApplyModel extends React.Component<AppProps, AppState> {
     static contextType = AppContext;
-    
-    // private inputFieldsWindow;
-    // private outputFieldWindow;
 
     private shouldRefresh: boolean = true;
 
     constructor(props, context) {
         super(props, context);
-        // this.inputFieldsWindow = React.createRef();
-        // this.outputFieldWindow = React.createRef();
+
         this.state = {
             inputFields: [],
             outputField: '',
@@ -105,12 +90,10 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
     }
 
     async componentDidMount(){
-        
         try{
             await this.reloadTrainedRuns();
         }catch(err){console.log(err)}
     }
-    
 
     private async getBestChildRun(parentRun: IRunDtoWithExperimentName): Promise<MicrosoftMachineLearningRunHistoryContractsRunDto>{
         let context: AppContextState = this.context;
@@ -142,10 +125,21 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
             console.log("Existing deployments:")
             let deployments = [];
             let deployed = false;
+
             try{
                 deployments = await context.modelManagementService.getDeployListByRunId(bestChildRun.runId);
                 console.log(deployments);
-                deployed = deployments.length > 0;
+                if(deployments.length > 0){
+                    deployed = true;
+                    let deployment = deployments[0];
+                    console.log("Status:")
+                    let status: AsyncOperationStatus = await context.modelManagementService.getDeployStatus(deployment.operationId)
+                    console.log(status);
+                    console.log("Logs:");
+                    let logs = await context.modelManagementService.getDeployLogs(deployment.id);
+                    console.log(logs);
+                }
+                
             }catch(err){
                 console.error(err);
             };
@@ -167,7 +161,7 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
     }
 
 
-    private async registerModel(bestChildRun: MicrosoftMachineLearningRunHistoryContractsRunDto, experimentName: string){
+    private async registerModel(bestChildRun: MicrosoftMachineLearningRunHistoryContractsRunDto, experimentName: string, modelName: string){
         let context: AppContextState = this.context;
         console.log("Model URI:");
         console.log({
@@ -184,7 +178,7 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
 
         console.log("Asset:");
         let asset = await context.modelManagementService.createAsset(
-            experimentName,
+            modelName,
             `${bestChildRun.runId}_Model`,
             `${modelUri}`
         );
@@ -192,7 +186,7 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
 
         console.log("Model:");
         let model = await context.modelManagementService.registerModel(
-            experimentName,
+            modelName,
             `${bestChildRun.runId}_Model`,
             asset.id,
             "application/json",
@@ -217,34 +211,53 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
             let bestChildRun = await this.getBestChildRun(parentRun);
             console.log(bestChildRun);
 
-            let model = await this.registerModel(bestChildRun, parentRun.experimentName);
+            
+            console.log("Getting artifacts:")
+            let artifactsResponse = await context.artifactService.getAllArtifactsForRuns([bestChildRun.runId]);
+            console.log(artifactsResponse)
+
+            let artifacts = artifactsResponse[0];
+            console.log(artifacts);
+
+            let scoringFileArtifact = artifacts.filter((artifact: ArtifactDto) => artifact.path.includes("scoring_file"))[0];
+            console.log("Scoring code:")
+            let scoringCode = await context.artifactService.getContent(scoringFileArtifact as IArtifact);
+            let modelName = scoringCode.split("model_name = '")[1].split("')")[0];
+            let condaFileArtifact = artifacts.filter((artifact: ArtifactDto) => artifact.path.includes("conda_env"))[0];
+            console.log(scoringFileArtifact);
+            console.log(condaFileArtifact);
+
+            let scoringArtifactLocation = this.getArtifactUrl(scoringFileArtifact.artifactId);
+            let condaArtifactLocation = this.getArtifactUrl(condaFileArtifact.artifactId);
+            console.log(scoringArtifactLocation);
+            console.log(condaArtifactLocation);
+
+            const scoringFileName = scoringArtifactLocation.substring(scoringArtifactLocation.lastIndexOf("/") + 1);
+
+            
+            let model = await this.registerModel(bestChildRun, parentRun.experimentName, modelName);
             
             console.log("updating parent tag")
             await context.runHistoryService.updateTag(parentRun, parentRun.experimentName, "model_id", model.id);
             console.log("updating child tag");
             await context.runHistoryService.updateTag(bestChildRun, parentRun.experimentName, "model_id", model.id);
-            
-            console.log("Conda File:");
-            let condaFileContent = getCondaFileFromTemplate(bestChildRun);
-            console.log(condaFileContent);
 
-            const condaFilePath = "ModelDeploy/condaEnv.yml";
-            const condaArtifactId = await context.artifactService.uploadArtifact(`dcid.${bestChildRun.runId}`, condaFilePath, condaFileContent);
-            const condaArtifactLocation = this.getArtifactUrl(condaArtifactId);
+            let name = parentRun.experimentName;
+            if(name.length > 16){
+                name = name.substring(0, 15);
+            }
 
-            console.log("Scoring File:");
-            let scoringFileContent = getScoringFileFromTemplate(parentRun, bestChildRun.runId);
-            console.log(scoringFileContent)
-
-            const scoringFilePath = "ModelDeploy/scoring.py";
-            const scoringArtifactId = await context.artifactService.uploadArtifact(`dcid.${bestChildRun.runId}`, scoringFilePath, scoringFileContent);
-            const scoringArtifactLocation = this.getArtifactUrl(scoringArtifactId);
-
-            const scoringFileName = scoringArtifactLocation.substring(scoringArtifactLocation.lastIndexOf("/") + 1);
-
+            console.log("Request:");
+            console.log([name,
+                "",
+                bestChildRun.runId,
+                model.id,
+                condaArtifactLocation,
+                scoringFileName,
+                scoringArtifactLocation])
             console.log("Response:");
-            const response = await context.modelManagementService.createDeployment(
-                parentRun.experimentName,
+            await context.modelManagementService.createDeployment(
+                name,
                 "",
                 bestChildRun.runId,
                 model.id,
@@ -252,7 +265,6 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
                 scoringFileName,
                 scoringArtifactLocation
             );
-            console.log(response);
 
         }catch(err){
             console.log("Error when deploying model:");

@@ -55,9 +55,6 @@ app.post('/api/token', async (req, res, next) => {
     "&code=" + code +
     "&redirect_uri=https%3A%2F%2Flocalhost%3A3000/taskpane/logindialog" +
     "&resource=https%3A%2F%2Fmanagement.core.windows.net%2F" +
-    //"&resource=api%3A%2F%2F2d854c46-8b8e-4128-9329-613e1039c582" +
-    //"&client_secret=automl";
-    //"&client_secret=p+pWrAN?tt+mPgGXF2_Z6sOxcVYNep48";
     "&client_secret=p%2BpWrAN%3Ftt%2BmPgGXF2_Z6sOxcVYNep48";
     console.log(req);
 
@@ -82,6 +79,17 @@ app.post('/api/token', async (req, res, next) => {
         next();
     }
 });
+
+app.post('/api/tunnel', async (req, res, next) => {
+    console.log(req.body);
+    let { url, options } = req.body;
+    let response = await fetch(url, options);
+    let jsonObj = await response.json();
+    console.log(jsonObj);
+    res.status(200);
+    res.end(JSON.stringify(jsonObj));
+
+})
 
 app.use(express.static('./dist'))
 app.get('/taskpane/*', (req, res) => {

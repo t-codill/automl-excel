@@ -17,6 +17,7 @@ import { JasmineService } from '../../automl/services/JasmineService';
 import { AdvancedSetting } from '../../automl/services/AdvancedSetting';
 import { RunType } from '../../automl/services/constants/RunType';
 import { IRunDtoWithExperimentName } from '../../automl/services/RunHistoryService';
+import { defaultRegion } from "../../../config";
 
 export interface AppProps {
 }
@@ -178,7 +179,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         if(!options.vmSize) options.vmSize = "Standard_DS12_V2";
         if(!options.minNodeCount) options.minNodeCount = 0;
         if(!options.maxNodeCount) options.maxNodeCount = 6;
-        if(!options.location) options.location = "eastus";
+        if(!options.location) options.location = defaultRegion;
 
         console.log("Options:");
         console.log(options);
