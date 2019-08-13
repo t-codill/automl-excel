@@ -96,7 +96,8 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
             showError: false,
         }
     }
-
+    
+    //window controller for input fields
     private _inputFieldsClicked(): void {
         this.setState({
             inputFieldsView: !this.state.inputFieldsView 
@@ -112,6 +113,7 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
         }
     }
 
+    //window controller for output fields
     private _outputFieldClicked(): void {
         this.setState({
             outputFieldView: !this.state.outputFieldView 
@@ -127,6 +129,7 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
         }
     }
 
+    //generates predictions on selected range (based on existing survival column) - for viewing purposes
     click = async () => {
         try {
             await Excel.run(async context => {
@@ -184,6 +187,7 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
         }
     }
 
+    //reads on address of selected range
     private _onClick = async() => {
         await Excel.run(async context => {
             var range = context.workbook.getSelectedRange();

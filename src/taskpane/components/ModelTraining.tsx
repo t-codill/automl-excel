@@ -98,6 +98,7 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
     }
 
 
+    //progress bar updated in respect to the number of completed iterations
     private _startProgress(): void {
         this._interval = this._async.setInterval(() => {
             let percentComplete = this.state.percentComplete + INTERVAL_INCREMENT;
@@ -111,6 +112,7 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
         }, INTERVAL_DELAY);
     }
 
+    //window controller for model summary
     private _modelSummaryClicked(): void {
         this.setState({
             modelSummaryView: !this.state.modelSummaryView 
@@ -125,6 +127,7 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
         }
     }
 
+    //window controller for training status
     private _trainingStatusClicked(): void {
         this.setState({
             trainingStatusView: !this.state.trainingStatusView 
@@ -139,11 +142,13 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
         }
     }
 
+    //when input field is clicked (in the model summary), panel with all the input fields shows up
     private _inputFieldClicked(): void {
         this.setState({
             inputFieldView: !this.state.inputFieldView
         })
     }
+
     private _onCalloutDismiss = (): void => {
         this.setState({
             inputFieldView: false
@@ -159,7 +164,6 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
                     </Link>
                     <span className='header_text'> Create New Model </span>
                 </div>
-            
                 <ProgressIndicator 
                     label={this.state.modelName}
                     description={this.state.description}

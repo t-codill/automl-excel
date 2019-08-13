@@ -173,6 +173,7 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
         }, INTERVAL_DELAY);
     }
 
+    //window controller for model summary
     private _modelSummaryClicked(): void {
         this.setState({
             modelSummaryView: !this.state.modelSummaryView 
@@ -187,6 +188,7 @@ export default class ModelTraining extends React.Component<AppProps, AppState> {
         }
     }
 
+    //window controller for training status
     private _trainingStatusClicked(): void {
         this.setState({
             trainingStatusView: !this.state.trainingStatusView 

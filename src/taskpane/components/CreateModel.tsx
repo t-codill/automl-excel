@@ -86,6 +86,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         this.updateHeader(0);
     };
 
+    //creates a csv file with used ramge
     //@ts-ignore
     private async makeCsv(values){
         console.log("Making csv:");
@@ -113,6 +114,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
 
     }
 
+    //calls updatedHeader() whenever a change is made on the active worksheet
     private createEventListener() {
         Excel.run(async context => {
             var worksheet = context.workbook.worksheets.getActiveWorksheet();
@@ -121,6 +123,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         });
     }
 
+    //reads in the used range, update header values for the dropdown menu, and creates a csv
     private updateHeader(event) {
         return Excel.run(async function(context) {
             var sheet = context.workbook.worksheets.getActiveWorksheet();
@@ -144,7 +147,6 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         });
     }
 
-    //@ts-ignore
     private _getMethodNameErrorMessage(value: string) {
         if (this.state.invalidModelName) {
             return 'Name must be between 3 and 36 characters, start with an alphanumeric character, and only include alphanumeric characters, \-, and \_';
@@ -157,10 +159,10 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         return value === '' || (String(n) === value && n >= 0) ? '' : 'Input must be a positive integer';
     }
 
-
     public async getComputeName(workspaceName){
     }
 
+    //creates a compute with the info specified in SubscriptionChoose
     public async createCompute(
         options:
         {
@@ -206,7 +208,6 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
             }
         );
         }catch(err){console.log("Error:"); console.log(err); return null;}
-
     }
 
     private async listComputes(resourceGroupNames: string, workspaceName: string){
@@ -242,6 +243,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         }
     }
 
+    //when user clicks on create: compute is chosen (or made), csv gets uploaded th blob storage, and run is initiated 
     private async onCreateModel(){
         let workspace: AzureMachineLearningWorkspacesModels.Workspace = this.context.workspace;
         let resourceGroupName: string = this.context.resourceGroupName();
@@ -358,6 +360,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         }catch(err){console.log(err)};
     }
     
+    //condition to move on to the next page
     private _disableButton() : boolean {
         if (this.state.algorithm === 'forecasting') {
             return this.state.invalidModelName || this.state.outputColumn  === null || this.state.timeColumn  === null || this.state.forecastHorizon === 0

@@ -66,8 +66,8 @@ export default class TypeOfProblem extends React.Component<AppProps, AppState> {
         };
     }
 
-    //@ts-ignore
     //next button is disabled unless classification is selected as type of problem
+    //@ts-ignore
     private _onImageChoiceGroupChange(ev: React.SyntheticEvent<HTMLElement>, option: IChoiceGroupOption): void {
         if (option.key === 'classification') {
             this.setState({

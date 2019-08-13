@@ -90,8 +90,8 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
 
     }
 
+    //loads runs that are completed in the specified workspace
     async componentDidMount(){
-        
         try{
             await this.reloadTrainedRuns();
             }catch(err){console.log(err)}
@@ -107,6 +107,7 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
         });
     }
 
+    //window controller for input fields
     private _inputFieldsClicked(): void {
         this.setState({
             inputFieldsView: !this.state.inputFieldsView 
@@ -122,6 +123,7 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
         }
     }
 
+    //window controller for output field
     private _outputFieldClicked(): void {
         this.setState({
             outputFieldView: !this.state.outputFieldView 
@@ -231,6 +233,7 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
                 
                 <p>Trained models:</p>
                     {
+                        //list of training status
                         this.state.trainedRuns.map((run: IRunDtoWithExperimentName) => {
                             console.log("a run:");
                             console.log(run);
