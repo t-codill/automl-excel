@@ -38,8 +38,23 @@ export function makeCsv(values): string{
     return csv;
 }
 
-export async function score(scoreUrl: string, data){
-    
+export async function score(scoreUrl: string, bearer: string, data: any){
+    let response = await fetch(apiUrl + '/score', {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": "Bearer " + bearer,
+        },
+        body: JSON.stringify({
+            url: scoreUrl,
+            data: data,
+            bearer: bearer
+        })
+    });
+    let jsonObj = await response.json();
+    return jsonObj;
 }
 
 export async function getSwagger(deploymentObj: any){

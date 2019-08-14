@@ -13,7 +13,7 @@ import { MicrosoftMachineLearningRunHistoryContractsRunDto } from '@vienna/runhi
 import { ArtifactDto } from '@vienna/artifact/esm/models';
 import { AsyncOperationStatus } from '@vienna/model-management/esm/models';
 import { IArtifact } from '../../automl/services/__mocks__/ArtifactService';
-import { getSwagger } from '../util';
+import { getSwagger, score } from '../util';
 //import { tunnelRequest } from '../util';
 
 
@@ -344,11 +344,13 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
-                    "Authorization": "Bearer" + context.token,
+                    "Authorization": "Bearer " + context.token,
                 },
                 body: JSON.stringify(data)
             }
 
+            let scoreResult = await score(runData.deployment.scoringUri, context.token, data);
+            console.log(scoreResult);
             console.log("Scoring Response")
             let response = await fetch(runData.deployment.scoringUri, options);
             console.log(response);

@@ -38,6 +38,7 @@
     "src/automl/components/*",
     "src/automl/logDetails/LogDetails.test.tsx",
     "src/automl/runList/RunList.test.tsx",
+    "src/automl-old-2",
     "**.test.tsx"
   ],
   "compileOnSave": false,
