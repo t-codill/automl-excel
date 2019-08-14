@@ -256,7 +256,7 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
                 scoringFileName,
                 scoringArtifactLocation])
             console.log("Response:");
-            await context.modelManagementService.createDeployment(
+            let createDeploymentResponse = await context.modelManagementService.createDeployment(
                 name,
                 "",
                 bestChildRun.runId,
@@ -265,6 +265,14 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
                 scoringFileName,
                 scoringArtifactLocation
             );
+            console.log(createDeploymentResponse)
+
+            let deployStatus: AsyncOperationStatus;
+            do{
+                console.log("Deploy status:")
+                deployStatus = await context.modelManagementService.getDeployStatus(createDeploymentResponse.operationId)
+                console.log(status);
+            }while(deployStatus.state == "NotStarted" || deployStatus.state == "Running");
 
         }catch(err){
             console.log("Error when deploying model:");
@@ -345,9 +353,9 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
     public async onRunClick(runData){
         if(!runData.deployed){
             await this.deployModel(runData.parentRun);
-        }else{
-            console.log("Using model!")
         }
+
+        
     }
 
     render() {

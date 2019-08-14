@@ -20,3 +20,20 @@ export async function tunnelRequest(url: string, options?: RequestInit){
     console.log(jsonObj)
     return jsonObj;
 }
+
+export function makeCsv(values): string{
+    let csv = ""
+    for(var i = 0; i < values.length; i++){
+        for(var j = 0; j < values[i].length; j++){
+            let value = values[i][j];
+            try{
+                if((typeof value === 'string' || value instanceof String) && value.includes(",")){
+                    value = '"' + value + '"';
+                }
+                csv += value + ", ";
+            }catch(err){console.log(err);}
+        }
+        csv += "\n";
+    }
+    return csv;
+}
