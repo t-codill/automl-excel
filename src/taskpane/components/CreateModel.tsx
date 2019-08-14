@@ -455,7 +455,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                     <TextField 
                         label="Model Name" 
                         placeholder="Enter model name" 
-                        onGetErrorMessage={this._getMethodNameErrorMessage}
+                        onGetErrorMessage={this._getMethodNameErrorMessage.bind(this)}
                         onChange={this.onModelNameChange.bind(this)} />
                 </Stack>
                 <Dropdown 
@@ -497,7 +497,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                     <PrimaryButton 
                         styles={trainButtonStyle} 
                         text="Create" 
-                        disabled={this._disableButton()}
+                        disabled={this._disableButton.bind(this)}
                         onClick={this.onCreateModel.bind(this)} /></Link>
 
                 { this.state.trainingRuns.length > 0 ? <p>Training Runs:</p> : <></> }
