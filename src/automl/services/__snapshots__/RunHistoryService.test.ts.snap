@@ -87,7 +87,9 @@ Array [
 ]
 `;
 
-exports[`RunHistoryService should update tags 1`] = `
+exports[`RunHistoryService should not update tag without invalid key-value pair 1`] = `undefined`;
+
+exports[`RunHistoryService should update tag 1`] = `
 Object {
   "_mockParameters": Array [
     "00000000-0000-0000-0000-000000000000",
@@ -102,6 +104,31 @@ Object {
         "tags": Object {
           "iterations": "2",
           "test tag": "test value",
+        },
+      },
+    },
+  ],
+  "runId": "AutoML_000",
+}
+`;
+
+exports[`RunHistoryService should update tags 1`] = `
+Object {
+  "_mockParameters": Array [
+    "00000000-0000-0000-0000-000000000000",
+    "testResource",
+    "testWorkSpace",
+    "Test",
+    "AutoML_000",
+    Object {
+      "abortSignal": Object {},
+      "createRunDto": Object {
+        "runId": "AutoML_000",
+        "tags": Object {
+          "iterations": "2",
+          "test tag1": "test value1",
+          "test tag2": "test value2",
+          "test tag3": "test value3",
         },
       },
     },

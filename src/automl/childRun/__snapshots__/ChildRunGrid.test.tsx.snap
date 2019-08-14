@@ -25,7 +25,6 @@ exports[`Child Run Grid Classification Success should render graphs, run metrics
     >
       <ChildRunSummary
         experimentName="foo"
-        modelUri="test model Uri"
         run={Object {}}
       />
     </GridItem>

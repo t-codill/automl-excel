@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getScoringFileFromTemplate should return valid scoring file with valid DataPrepJsonString 1`] = `
+"
+import pickle
+import json
+import azureml.train.automl
+import pandas as pd
+from sklearn.externals import joblib
+from azureml.core.model import Model
+
+def init():
+    global model
+    model_path = Model.get_model_path(model_name='foo')
+    model = joblib.load(model_path)
+
+def run(rawdata):
+    try:
+        data = json.loads(rawdata)['data']
+        df = pd.DataFrame(data,columns=[\\"timeStamp\\",\\"precip\\",\\"temp\\"])
+        result = model.predict(df)
+    except Exception as e:
+        result = str(e)
+        return json.dumps({\\"error\\": result})
+    return json.dumps({\\"result\\": result.tolist()})
+"
+`;

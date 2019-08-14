@@ -10,7 +10,7 @@ describe("Parent Run Grid", () => {
         run: {},
         childRuns: [],
         childRunMetrics: [],
-        onModelRegister: jest.fn()
+        onModelDeploy: jest.fn()
     };
     describe("Classification Success", () => {
         it("should render graphs, run metrics and run summary in grid", async () => {

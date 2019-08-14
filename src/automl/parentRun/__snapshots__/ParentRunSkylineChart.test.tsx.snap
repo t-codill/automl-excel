@@ -7,7 +7,7 @@ exports[`Parent Run Skyline Chart should render No Data when no run 1`] = `
 `;
 
 exports[`Parent Run Skyline Chart should render chart when successful run 1`] = `
-<e
+<SkylineChart
   configOverride={
     Object {
       "config": Object {

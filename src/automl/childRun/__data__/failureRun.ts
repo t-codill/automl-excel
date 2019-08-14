@@ -11,6 +11,5 @@ export const failureRun: NotNullableProperties<IChildRunData> = {
         properties: undefined
     },
     runMetrics: {},
-    modelUri: "sampleModelUri",
     experimentName: ""
 };

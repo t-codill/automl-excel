@@ -7,7 +7,7 @@ import { PrimaryButton, IconButton, IButtonStyles } from 'office-ui-fabric-react
 import { TextField, Stack, IStackProps } from 'office-ui-fabric-react'
 import { Link } from 'react-router-dom'
 import { AzureMachineLearningWorkspacesModels, AzureMachineLearningWorkspaces } from '@azure/arm-machinelearningservices';
-import { AppContext } from './AppContext';
+import { AppContext, AppContextState } from './AppContext';
 import { TokenCredentials } from '@azure/ms-rest-js';
 import { MachineLearningComputeCreateOrUpdateResponse } from '@azure/arm-machinelearningservices/esm/models';
 import { DataStoreService } from '../../automl/services/DataStoreService';
@@ -17,6 +17,7 @@ import { JasmineService } from '../../automl/services/JasmineService';
 import { AdvancedSetting } from '../../automl/services/AdvancedSetting';
 import { RunType } from '../../automl/services/constants/RunType';
 import { IRunDtoWithExperimentName } from '../../automl/services/RunHistoryService';
+import { defaultRegion } from "../../../config";
 
 export interface AppProps {
 }
@@ -93,7 +94,14 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         let csv = ""
         for(var i = 0; i < values.length; i++){
             for(var j = 0; j < values[i].length; j++){
-                csv += values[i][j] + ", ";
+                let value = values[i][j];
+                try{
+                    if((typeof value === 'string' || value instanceof String) && value.includes(",")){
+                        console.log("enclosing in quotes");
+                        value = '"' + value + '"';
+                    }
+                    csv += value + ", ";
+                }catch(err){console.log(err);}
             }
             csv += "\n";
         }
@@ -107,14 +115,18 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
     }
 
     async reloadTrainingRuns(){
-
+        //@ts-ignore
+        let context: AppContextState = this.context;
     }
 
     async componentDidMount(){
 
     }
 
-    //calls updatedHeader() whenever a change is made on the active worksheet
+    async componentWillUnmount(){
+
+    }
+
     private createEventListener() {
         Excel.run(async context => {
             var worksheet = context.workbook.worksheets.getActiveWorksheet();
@@ -180,7 +192,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         if(!options.vmSize) options.vmSize = "Standard_DS12_V2";
         if(!options.minNodeCount) options.minNodeCount = 0;
         if(!options.maxNodeCount) options.maxNodeCount = 6;
-        if(!options.location) options.location = "eastus";
+        if(!options.location) options.location = defaultRegion;
 
         console.log("Options:");
         console.log(options);
@@ -322,7 +334,68 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
             console.log(jasmineService);
 
             console.log("Advanced Settings:");
-
+            //@ts-ignore
+            /*
+            let b = {
+                "name":"trained-through-portal",
+                "path":"./sample_projects/trained-through-portal",
+                "subscription_id":"381b38e9-9840-4719-a5a0-61d9585e1e91",
+                "resource_group":"colemansresourcegroup",
+                "workspace_name":"automl-excel",
+                "region":"eastus",
+                "iterations":100,
+                "primary_metric":"accuracy",
+                "data_script":null,
+                "compute_target":"automl-excel",
+                "task_type":"classification",
+                "validation_size":null,
+                "n_cross_validations":5,
+                "y_min":null,"y_max":null,
+                "num_classes":null,
+                "preprocess":true,
+                "lag_length":0,
+                "max_cores_per_iteration":24,
+                "max_concurrent_iterations":6,
+                "iteration_timeout_minutes":60,
+                "mem_in_mb":null,
+                "enforce_time_on_windows":true,
+                "experiment_timeout_minutes":60,
+                "experiment_exit_score":null,
+                "whitelist_models":null,
+                "auto_blacklist":false,
+                "blacklist_samples_reached":false,
+                "exclude_nan_labels":true,
+                "verbosity":20,
+                "debug_log":"automl_errors.log",
+                "show_warnings":false,
+                "model_explainability":false,
+                "service_url":null,
+                "sdk_url":null,
+                "sdk_packages":null,
+                "telemetry_verbosity":"INFO",
+                "send_telemetry":true,
+                "spark_service":null,
+                "metrics":null,
+                "enable_ensembling":true,
+                "ensemble_iterations":15,
+                "enable_tf":false,
+                "enable_cache":true,
+                "enable_subsampling":false,
+                "subsample_seed":null,
+                "cost_mode":0,
+                "metric_operation":"maximize",
+                "is_timeseries":false,
+                "time_column_name":null,
+                "max_horizon":null,
+                "enable_onnx_compatible_models":false,
+                "enable_voting_ensemble":true,
+                "enable_stack_ensemble":true,
+                "enable_stack_ensembling":false,
+                "enable_early_stopping":false,
+                "early_stopping_n_iters":10,
+                "enable_feature_sweeping":false
+            }
+            */
             let advancedSettings: AdvancedSetting = {
                 jobType: this.state.algorithm as RunType,
                 column: this.state.outputColumn,

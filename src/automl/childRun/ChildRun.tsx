@@ -28,7 +28,6 @@ export interface IChildRunRouteProps {
 export interface IChildRunData {
     run: RunHistoryAPIsModels.MicrosoftMachineLearningRunHistoryContractsRunDetailsDto | undefined;
     runMetrics: IDictionary<RunMetricType> | undefined;
-    modelUri: string | undefined;
     experimentName: string;
 }
 
@@ -85,7 +84,6 @@ export class ChildRun extends BasePage<
             goBack: false,
             hideCancelDialog: true,
             canceling: false,
-            modelUri: undefined,
             run: undefined,
             runMetrics: undefined,
             goToLog: false,
@@ -123,7 +121,7 @@ export class ChildRun extends BasePage<
         }
         const childRunGridProps = {
             ...this.state,
-            onModelRegister: this.refresh.bind(this)
+            onModelDeploy: this.refresh.bind(this)
         };
         return (<>
             <RunStatus run={this.state.run} experimentName={this.props.experimentName} />
@@ -148,7 +146,6 @@ export class ChildRun extends BasePage<
     protected readonly getData = async () => {
         await this.getRunDetail();
         await this.getRunMetrics();
-        await this.getModelUri();
     }
 
     private readonly goToLog = async () => {
@@ -194,25 +191,6 @@ export class ChildRun extends BasePage<
         this.setState({ runMetrics: this.services.runHistoryService.mergeMetrics(rawMetrics, artifactNames.map((a) => a[0]), artifactContents) });
     }
 
-    private readonly getModelUri = async () => {
-        if (!this.state || !this.state.run || !this.state.run.runId) {
-            return;
-        }
-        if (!this.state.run.parentRunId) {
-            // parent run does not have model
-            return;
-        }
-        const modelUri = await this.services.artifactService.getModelUrl({
-            runId: this.state.run.runId,
-            parentRunId: this.state.run.parentRunId,
-            status: this.state.run.status,
-        });
-        if (!modelUri) {
-            return;
-        }
-        this.setState({ modelUri });
-    }
-
     private readonly getRunDetail = async () => {
         const run = await this.services.runHistoryService.getRun(this.props.runId, this.props.experimentName);
         if (!run || !run.runId) {
@@ -226,7 +204,7 @@ export class ChildRun extends BasePage<
             return button.key === "cancelRun";
         });
         if (cancelButton) {
-            cancelButton.disabled = !isAutoRefreshStatus(this.state.run && this.state.run.status) || run.target === "local";
+            cancelButton.disabled = !isAutoRefreshStatus(this.state.run && this.state.run.status) || run.target === "local" || !run.target;
         }
         this.refreshButtons();
     }

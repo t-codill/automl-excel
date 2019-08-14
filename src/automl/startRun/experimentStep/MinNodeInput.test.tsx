@@ -11,7 +11,19 @@ describe("MinNodeInput", () => {
             .toMatchSnapshot();
     });
 
-    it("should error for 0", () => {
+    it("should error for -1", () => {
+        const tree = shallow(
+            <MinNodeInput />
+        );
+        expect(validate(
+            "-1",
+            tree
+                .find(FormTextInput)
+                .prop("validators")))
+            .toBe("Min node cannot be negative");
+    });
+
+    it("should accept 0", () => {
         const tree = shallow(
             <MinNodeInput />
         );
@@ -20,6 +32,6 @@ describe("MinNodeInput", () => {
             tree
                 .find(FormTextInput)
                 .prop("validators")))
-            .toBe("Min node has to be a positive number");
+            .toBeUndefined();
     });
 });

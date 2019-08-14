@@ -14,7 +14,7 @@ Array [
   "python=3.6.2",
   Object {
     "pip": Array [
-      "azureml-train-automl==1.0.43",
+      "azureml-train-automl==1.1.1",
     ],
   },
   "numpy",
@@ -81,11 +81,14 @@ Object {
       },
       "python": Object {
         "condaDependencies": Object {
+          "channels": Array [
+            "conda-forge",
+          ],
           "dependencies": Array [
             "python=3.6.2",
             Object {
               "pip": Array [
-                "azureml-train-automl==1.0.43",
+                "azureml-train-automl==1.1.1",
               ],
             },
             "numpy",
@@ -97,17 +100,9 @@ Object {
         "userManagedDependencies": false,
       },
       "spark": Object {
-        "packages": Array [
-          Object {
-            "artifact": "mmlspark_2.11",
-            "group": "com.microsoft.ml.spark",
-            "version": "0.12",
-          },
-        ],
+        "packages": Array [],
         "precachePackages": true,
-        "repositories": Array [
-          "https://mmlspark.azureedge.net/maven",
-        ],
+        "repositories": Array [],
       },
     },
     "framework": "python",

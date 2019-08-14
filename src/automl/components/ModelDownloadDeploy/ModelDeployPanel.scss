@@ -1,25 +1,3 @@
 .panel-header {
     padding-left: 40px;
 }
-
-.workflow {
-    padding-left: 15px;
-
-    >li {
-        font-weight: bolder;
-
-        & * {
-            font-weight: normal;
-        }
-
-        .workflow-title {
-            font-weight: bold;
-            margin-top: 35px;
-        }
-
-        .workflow-description {
-            margin-top: 5px;
-            margin-bottom: 1em;
-        }
-    }
-}

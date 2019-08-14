@@ -22,6 +22,10 @@ const isAmlComputeUsable = (amlComputeProps: AzureMachineLearningWorkspacesModel
         return false;
     }
 
+    if (!amlComputeProps.scaleSettings.maxNodeCount) {
+        return false;
+    }
+
     if (!amlComputeProps.nodeStateCounts || !amlComputeProps.nodeStateCounts.unusableNodeCount) {
         return true;
     }

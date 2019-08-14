@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getDataPrepFeatures should return valid scoring file with valid DataPrepJsonString 1`] = `
+Array [
+  "timeStamp",
+  "precip",
+  "temp",
+]
+`;

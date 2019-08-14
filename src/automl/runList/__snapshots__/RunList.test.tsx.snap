@@ -49,7 +49,7 @@ exports[`RunList should render 1`] = `
     <div
       className="run-status-chart-container"
     >
-      <e
+      <RunHistoryChart
         configOverride={
           Object {
             "config": Object {

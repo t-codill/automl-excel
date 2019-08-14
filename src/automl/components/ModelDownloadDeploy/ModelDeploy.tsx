@@ -10,9 +10,10 @@ export interface IModelDeployProps {
     run: RunHistoryAPIsModels.MicrosoftMachineLearningRunHistoryContractsRunDetailsDto | undefined;
     parentRun: RunHistoryAPIsModels.MicrosoftMachineLearningRunHistoryContractsRunDetailsDto | undefined;
     modelUri: string | undefined;
-    modelId: string | undefined;
+    scoringUri: string | undefined | null;
+    condaUri: string | undefined | null;
     modelName: string | undefined;
-    onModelRegister(): void;
+    onModelDeploy(operationId: string): void;
 }
 
 export interface IModelDeployState {
@@ -45,7 +46,7 @@ export class ModelDeploy extends React.Component<IModelDeployProps, IModelDeploy
                 <ModelDeployPanel
                     {...this.props}
                     onCancel={this.onModelDeployCancel}
-                    onModelRegister={this.props.onModelRegister}
+                    onModelDeploy={this.onModelDeploy}
                 />
             }
         </>;
@@ -53,6 +54,10 @@ export class ModelDeploy extends React.Component<IModelDeployProps, IModelDeploy
 
     private readonly onModelDeployClick = () => {
         this.setState({ showDeployPanel: true });
+    }
+    private readonly onModelDeploy = (operationId: string) => {
+        this.setState({ showDeployPanel: false });
+        this.props.onModelDeploy(operationId);
     }
     private readonly onModelDeployCancel = () => {
         this.setState({ showDeployPanel: false });

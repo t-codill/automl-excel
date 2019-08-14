@@ -83,6 +83,7 @@ exports[`ExperimentStep should render 1`] = `
         text="Cancel"
       />
       <CustomizedPrimaryButton
+        data-automation-id="nextButton"
         text="Next"
         type="submit"
       />

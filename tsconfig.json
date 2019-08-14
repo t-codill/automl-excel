@@ -31,11 +31,14 @@
     ]
   },
   "exclude": [
+    "acceptance-tests",
     "node_modules",
+    "automl-old",
     "src/automl/Main.tsx",
     "src/automl/components/*",
     "src/automl/logDetails/LogDetails.test.tsx",
-    "src/automl/runList/RunList.test.tsx"
+    "src/automl/runList/RunList.test.tsx",
+    "**.test.tsx"
   ],
   "compileOnSave": false,
   "buildOnSave": false

@@ -7,22 +7,22 @@ import { ChildRunSummary } from "./ChildRunSummary";
 
 describe("Child Run Summary", () => {
     it("should render loading image when no run metrics", async () => {
-        const tree = shallow(<ChildRunSummary run={undefined} modelUri={undefined} experimentName={""} modelId={undefined} />);
+        const tree = shallow(<ChildRunSummary run={undefined} experimentName={""} />);
         expect(tree)
             .toMatchInlineSnapshot("<pageLoadingSpinner />");
     });
     it("should render success data without download link", async () => {
-        const tree = shallow(<ChildRunSummary run={classificationSuccessRun.run} modelUri={undefined} experimentName={""} modelId={undefined} />);
+        const tree = shallow(<ChildRunSummary run={classificationSuccessRun.run} experimentName={""} />);
         expect(tree)
             .toMatchSnapshot();
     });
     it("should render success data with download link", async () => {
-        const tree = shallow(<ChildRunSummary run={regressionSuccessRun.run} modelUri={regressionSuccessRun.modelUri} experimentName={"Experiment"} modelId={undefined} />);
+        const tree = shallow(<ChildRunSummary run={regressionSuccessRun.run} experimentName={"Experiment"} />);
         expect(tree)
             .toMatchSnapshot();
     });
     it("should render page loading image without run properties", async () => {
-        const tree = shallow(<ChildRunSummary run={failureRun.run} modelUri={failureRun.modelUri} experimentName={"Experiment"} modelId={undefined} />);
+        const tree = shallow(<ChildRunSummary run={failureRun.run} experimentName={"Experiment"} />);
         expect(tree)
             .toMatchInlineSnapshot("<pageLoadingSpinner />");
     });

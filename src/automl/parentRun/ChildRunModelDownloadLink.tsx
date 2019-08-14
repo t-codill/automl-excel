@@ -1,6 +1,7 @@
 import { Icon, Link, Spinner, SpinnerSize } from "office-ui-fabric-react";
 import * as React from "react";
 import { download } from "../common/utils/download";
+import { isRunCompleted } from "../common/utils/run";
 import { BaseComponent } from "../components/Base/BaseComponent";
 import { ArtifactService, IRunDataForArtifact } from "../services/ArtifactService";
 
@@ -10,9 +11,7 @@ interface IChildRunModelDownloadLinkProps {
 
 export class ChildRunModelDownloadLink extends BaseComponent<
     IChildRunModelDownloadLinkProps,
-    {
-        downloading: boolean;
-    },
+    { downloading: boolean },
     { artifactService: ArtifactService }
     > {
     protected readonly serviceConstructors = { artifactService: ArtifactService };
@@ -24,7 +23,7 @@ export class ChildRunModelDownloadLink extends BaseComponent<
         };
     }
     public render(): React.ReactNode {
-        if (this.props.run.status !== "Completed") {
+        if (!isRunCompleted(this.props.run)) {
             return <></>;
         }
         if (this.state.downloading) {
@@ -38,7 +37,7 @@ export class ChildRunModelDownloadLink extends BaseComponent<
 
     private readonly onClick = async () => {
         this.setState({ downloading: true });
-        const uri = await this.services.artifactService.getModelUrl(this.props.run);
+        const uri = await this.services.artifactService.getModelUri(this.props.run);
         if (uri === undefined) {
             return;
         }

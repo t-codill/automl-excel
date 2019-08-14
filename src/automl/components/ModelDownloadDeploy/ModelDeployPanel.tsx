@@ -1,96 +1,67 @@
 import { RunHistoryAPIsModels } from "@vienna/runhistory";
-import { Icon, IPanelProps, Link, Panel, PanelType, ProgressIndicator } from "office-ui-fabric-react";
+import { DefaultButton, Icon, IPanelProps, Link, MessageBar, MessageBarType, Panel, PanelType, PrimaryButton, ProgressIndicator } from "office-ui-fabric-react";
 import * as React from "react";
 import { PageNames } from "../../common/PageNames";
-import { safeParseJson } from "../../common/utils/safeParseJson";
-import { saveAs } from "../../common/utils/saveAs";
+import { getCondaFileFromTemplate } from "../../common/utils/deployment/getCondaFileFromTemplate";
+import { getScoringFileFromTemplate } from "../../common/utils/deployment/getScoringFileFromTemplate";
+import { hasDefaultScoring } from "../../common/utils/deployment/hasDefaultScoring";
+import { getModelNameFromRunId } from "../../common/utils/getModelNameFromRunId";
 import { getThemeNeutralPrimary } from "../../common/utils/theme/getThemeNeutralPrimary";
-import { defaultSdkVersion } from "../../services/JasmineServiceJsonDefinition";
+import { ArtifactService } from "../../services/ArtifactService";
 import { ModelManagementService } from "../../services/ModelManagementService";
-import { RunHistoryService } from "../../services/RunHistoryService";
 import { BaseComponent } from "../Base/BaseComponent";
+import { Form } from "../Form/Form";
+import { FormTextInput } from "../Form/FormTextInput";
+import { Validators } from "../Form/Validators";
+import { CondaFileSelector } from "./CondaFileSelector";
+import { IDeployModelParams } from "./IDeployModelParams";
+import { ScoringScriptSelector } from "./ScoringScriptSelector";
 
 import "./ModelDeployPanel.scss";
 
-const scoringTemplate = `
-import pickle
-import json
-import azureml.train.automl
-import pandas as pd
-from sklearn.externals import joblib
-from azureml.core.model import Model
-
-
-def init():
-    global model
-    model_path = Model.get_model_path(model_name='##modelid##')
-    model = joblib.load(model_path)
-
-def run(rawdata):
-    try:
-        data = json.loads(rawdata)['data']
-        df = pd.DataFrame(data,columns=##featureColumns##)
-        result = model.predict(df)
-    except Exception as e:
-        result = str(e)
-        return json.dumps({"error": result})
-    return json.dumps({"result": result.tolist()})
-`;
-
-const condaEnvTemplate = `
-# Conda environment specification. The dependencies defined in this file will
-# be automatically provisioned for runs with userManagedDependencies=False.
-# Details about the Conda environment file format:
-# https://conda.io/docs/user-guide/tasks/manage-environments.html#create-env-file-manually
-
-
-name: project_environment
-dependencies:
-  # The python interpreter version.
-  # Currently Azure ML only supports 3.5.2 and later.
-- python=3.6.2
-
-- pip:
-  - azureml-sdk[automl]==##sdkVersion##
-- numpy
-- scikit-learn
-- py-xgboost<=0.80
-`;
-
 export interface IModelDeployPanelProps {
+    pageName: PageNames;
     experimentName: string | undefined;
     run: RunHistoryAPIsModels.MicrosoftMachineLearningRunHistoryContractsRunDetailsDto | undefined;
     parentRun: RunHistoryAPIsModels.MicrosoftMachineLearningRunHistoryContractsRunDetailsDto | undefined;
     modelUri: string | undefined;
-    modelId: string | undefined;
+    scoringUri: string | undefined | null;
+    condaUri: string | undefined | null;
     onCancel(): void;
-    onModelRegister(): void;
+    onModelDeploy(operationId: string): void;
 }
 
 export interface IModelDeployPanelState {
-    registering: boolean;
+    deploying: boolean;
     modelId: string | undefined;
     primaryMetric: string | undefined;
+    autoGenerateScoringFile: boolean;
+    autoGenerateCondaFile: boolean;
+    errorMessage: string | undefined;
 }
 
 export class ModelDeployPanel extends BaseComponent<IModelDeployPanelProps, IModelDeployPanelState, {
     modelManagementService: ModelManagementService;
-    runHistoryService: RunHistoryService;
+    artifactService: ArtifactService;
 }> {
     protected serviceConstructors = {
         modelManagementService: ModelManagementService,
-        runHistoryService: RunHistoryService
+        artifactService: ArtifactService
     };
     protected getData = undefined;
 
     constructor(props: IModelDeployPanelProps) {
         super(props);
         this.state = {
-            registering: false,
-            modelId: this.props.modelId,
-            primaryMetric: this.props.parentRun && this.props.parentRun.properties && this.props.parentRun.properties.primary_metric
+            deploying: false,
+            modelId: undefined,
+            primaryMetric: this.props.parentRun && this.props.parentRun.properties && this.props.parentRun.properties.primary_metric,
+            autoGenerateScoringFile: true,
+            autoGenerateCondaFile: true,
+            errorMessage: undefined
         };
     }
+
     public readonly render = (): React.ReactNode => {
         return <>
             <Panel
@@ -100,133 +71,79 @@ export class ModelDeployPanel extends BaseComponent<IModelDeployPanelProps, IMod
                 isHiddenOnDismiss={true}
                 onRenderHeader={this.renderHeader}
                 closeButtonAriaLabel="Close">
-                <ol className="workflow">
-                    <li>
-                        <h3 className="workflow-title">Register Model</h3>
-                        <p className="workflow-description">
-                            First step in deployment is to register the model in Azure machine learning service model registry.
-                            Once registered, use the scoring script and the environment script files below to deploy.
-                        </p>
-                        {this.renderRegisterModel()}
-                    </li>
-                    <li>
-                        <h3 className="workflow-title">Download Scoring Script</h3>
-                        <p className="workflow-description">
-                            The scoring script is required to generate the image for deployment. It contains the code to do the predictions on input data.
-                        </p>
-                        <Link key="scoring" disabled={!this.state.modelId} onClick={this.downloadScoringFile}>Download Scoring Script</Link>
-                    </li>
-                    <li>
-                        <h3 className="workflow-title">Download Environment Script</h3>
-                        <p className="workflow-description">
-                            The environment script is required to generate the image for deployment. It contains the Conda dependencies required to run the web service.
-                        </p>
-                        <Link key="environment" disabled={!this.state.modelId} onClick={this.getCondaEnvFile}>Download Environment Script</Link>
-                    </li>
-                    <li>
-                        <h3 className="workflow-title">Deploy Model</h3>
-                        <p className="workflow-description">
-                            After the model is registered and you have downloaded the scoring and the environment scripts, you can deploy the model.
-                        </p>
-                        <Link key="help" target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-portal-experiments#deploy-model">
-                            Learn more about deploying models <Icon iconName="NavigateExternalInline" />
-                        </Link>
-                    </li>
-                </ol>
+                <Form onSubmit={this.deployModel}>
+                    {this.state.errorMessage ? <MessageBar messageBarType={MessageBarType.error}>{this.state.errorMessage}</MessageBar> : <></>}
+                    <FormTextInput<IDeployModelParams, "name">
+                        field="name"
+                        required={true}
+                        label="Deployment name"
+                        placeholder="Deployment name"
+                        ariaLabel="Please enter deployment name here"
+                        validators={[
+                            Validators.required("Model name is required"),
+                            Validators.regex(/^[a-z][a-z0-9-]{1,15}$/,
+                                "Model name should start with a lower case letter, be between 2 and 16 character, and only include letters (a-z), numbers (0-9) and '-'")]}
+                    />
+
+                    <FormTextInput<IDeployModelParams, "description">
+                        field="description"
+                        required={false}
+                        multiline={true}
+                        label="Deployment description"
+                        placeholder="Deployment description"
+                        ariaLabel="Please enter deployment description here"
+                    />
+
+                    <p>Target: Only Azure Container Instance(ACI) is supported</p>
+                    <ScoringScriptSelector onToggle={this.handleScoringToggle} hasDefaultOption={hasDefaultScoring(this.props.parentRun, this.props.scoringUri)} />
+                    <CondaFileSelector onToggle={this.handleCondaToggle} />
+                    {this.state.deploying ?
+                        <ProgressIndicator description="Deploying Model..." /> : undefined}
+                    <div className="form-footer">
+                        <DefaultButton text="Cancel" onClick={this.props.onCancel} />
+                        <PrimaryButton text="Deploy" disabled={this.state.deploying} type="submit" />
+                    </div>
+                </Form>
             </Panel>
         </>;
     }
 
-    private readonly renderRegisterModel = () => {
-        if (this.state.registering) {
-            return <ProgressIndicator description="Registering Model..." />;
-        }
-        if (this.state.modelId) {
-            return <div>Model has been registered</div>;
-        }
-
-        return <Link key="register" onClick={this.registerModel}>Register Model</Link>;
-    }
-
-    private readonly downloadScoringFile = async () => {
-        if (!this.state.modelId) {
-            return;
-        }
-        this.logUserAction("DownloadScoringFile",
-            { modelId: this.state.modelId, experimentName: this.props.experimentName, runId: this.props.run && this.props.run.runId });
-        const dataPrepJson = this.props.parentRun && this.props.parentRun.properties && this.props.parentRun.properties.DataPrepJsonString;
-        if (!dataPrepJson) {
-            return;
-        }
-        const featureColumns = JSON.stringify(safeParseJson(safeParseJson(`"${dataPrepJson}"`)).features);
-        const content = scoringTemplate.replace("##modelid##", this.state.modelId)
-            .replace("##featureColumns##", featureColumns);
-        saveAs(new Blob([content]), "scoring.py");
-    }
-
-    private readonly registerModel = async () => {
-        if (!this.props.run || !this.props.modelUri || !this.props.experimentName) {
-            return;
-        }
-        this.setState({ registering: true });
+    private readonly registerModel = async (run: RunHistoryAPIsModels.MicrosoftMachineLearningRunHistoryContractsRunDetailsDto,
+        modelUri: string, experimentName: string) => {
         const asset = await this.services.modelManagementService.createAsset(
-            `${this.props.experimentName}`,
-            `${this.props.run.runId}_Model`,
-            this.props.modelUri
+            experimentName,
+            `${run.runId}_Model`,
+            modelUri
         );
         this.logUserAction("RegisterModel",
-            { modelId: this.state.modelId, experimentName: this.props.experimentName, runId: this.props.run.runId });
-        if (!asset || !asset.id) {
+            { modelId: this.state.modelId, experimentName: this.props.experimentName, runId: run.runId });
+        if (!asset || !asset.id || !run.runId) {
             return;
         }
         const model = await this.services.modelManagementService.registerModel(
-            `${this.props.experimentName}`,
-            `${this.props.run.runId}_Model`,
+            getModelNameFromRunId(run.runId),
+            `${run.runId}_Model`,
             asset.id,
             "application/json",
-            this.props.run.runId,
-            this.props.experimentName
+            run.runId,
+            experimentName
         );
         if (!model) {
-            this.setState({ registering: false });
+            this.setState({ errorMessage: "Register Model Failed. Please check logs" });
             return;
         }
-        const modelId = model.name;
-        const updateResult = await this.services.runHistoryService.updateTag(this.props.run, this.props.experimentName, "model_id", modelId);
-        if (!updateResult) {
-            this.setState({ registering: false });
+        const modelId = model.id;
+        if (!modelId) {
+            this.setState({ errorMessage: "Model Id is invalid. Please check logs" });
             return;
         }
-        this.props.onModelRegister();
-        this.setState({ registering: false, modelId });
-    }
-
-    private readonly getCondaEnvFile = () => {
-        const content = condaEnvTemplate.replace("##sdkVersion##", this.getSdkVersion());
-        this.logUserAction("DownloadCondaFile",
-            { experimentName: this.props.experimentName, runId: this.props.run && this.props.run.runId });
-        saveAs(new Blob([content]), "condaEnv.yml");
-    }
-
-    private readonly getSdkVersion = () => {
-        if (!this.props.run
-            || !this.props.run.properties
-            || !this.props.run.properties.dependencies_versions) {
-            return defaultSdkVersion;
-        }
-        const dependenciesVersions = safeParseJson(this.props.run.properties.dependencies_versions);
-        if (!dependenciesVersions
-            || !dependenciesVersions["azureml-train-automl"]) {
-            return defaultSdkVersion;
-        }
-        return dependenciesVersions["azureml-train-automl"];
+        this.setState({ modelId });
     }
 
     private readonly renderHeader = (props?: IPanelProps) => {
         const color = getThemeNeutralPrimary(props);
-
         return (
-            this.context.pageName === PageNames.ParentRun ?
+            this.props.pageName === PageNames.ParentRun ?
                 <div className="panel-header" style={{
                     color
                 }}>
@@ -237,8 +154,115 @@ export class ModelDeployPanel extends BaseComponent<IModelDeployPanelProps, IMod
                     color
                 }}>
                     <h2>Deploy Model</h2>
+                    <p>Deploy the model to a web service which can then be used to predict on new data. &nbsp;
+                        <Link target="_blank" href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-portal-experiments#deploy-model">
+                            Learn more <Icon iconName="NavigationExternalInline" />
+                        </Link>
+                    </p>
                 </div>
         );
     }
+    private readonly handleCondaToggle = () => {
+        this.setState((prev) => {
+            return {
+                autoGenerateCondaFile: !prev.autoGenerateCondaFile,
+            };
+        });
+    }
 
+    private readonly handleScoringToggle = () => {
+        this.setState((prev) => {
+            return {
+                autoGenerateScoringFile: !prev.autoGenerateScoringFile,
+            };
+        });
+    }
+
+    private readonly readOrUploadCondaFile = async (runId: string, data: IDeployModelParams): Promise<string | undefined> => {
+        const condaFilePath = "ModelDeploy/condaEnv.yml";
+        if (this.state.autoGenerateCondaFile
+            && this.props.run
+            && this.props.run.properties
+            && this.props.run.properties.conda_env_data_location) {
+            return this.props.run.properties.conda_env_data_location;
+        }
+        const condaFileContent = this.state.autoGenerateCondaFile ? getCondaFileFromTemplate(this.props.run) : data.condaFile;
+        if (!condaFileContent) {
+            return undefined;
+        }
+        const condaArtifactId = await this.services.artifactService.uploadArtifact(`dcid.${runId}`, condaFilePath, condaFileContent);
+        if (!condaArtifactId) {
+            return undefined;
+        }
+        return this.getArtifactUrl(condaArtifactId);
+    }
+
+    private readonly readOrUploadScoringFile = async (runId: string, data: IDeployModelParams): Promise<string | undefined> => {
+        const scoringFilePath = "ModelDeploy/scoring.py";
+        if (this.state.autoGenerateScoringFile
+            && this.props.run
+            && this.props.run.properties
+            && this.props.run.properties.scoring_data_location) {
+            return this.props.run.properties.scoring_data_location;
+        }
+        const scoringFileContent = this.state.autoGenerateScoringFile ? getScoringFileFromTemplate(this.props.parentRun, runId) : data.scoringFile;
+        if (!scoringFileContent) {
+            return undefined;
+        }
+        const scoringArtifactId = await this.services.artifactService.uploadArtifact(`dcid.${runId}`, scoringFilePath, scoringFileContent);
+        if (!scoringArtifactId) {
+            return undefined;
+        }
+        return this.getArtifactUrl(scoringArtifactId);
+    }
+
+    private readonly getArtifactUrl = (artifactId: string): string => {
+        return `aml://artifact/${artifactId}`;
+    }
+
+    // tslint:disable-next-line: cyclomatic-complexity
+    private readonly deployModel = async (data: IDeployModelParams) => {
+        const runId = this.props.run && this.props.run.runId;
+        if (!this.props.run || !this.props.run.runId || !runId || !this.props.experimentName || !this.props.modelUri) {
+            this.setState({ deploying: false });
+            return;
+        }
+        this.setState({ deploying: true });
+        this.logUserAction("DeployModel",
+            { deployName: data.name, autoGenerateCondaFile: this.state.autoGenerateCondaFile, autoGenerateScoringFile: this.state.autoGenerateScoringFile });
+        await this.registerModel(this.props.run, this.props.modelUri, this.props.experimentName);
+        if (!this.state.modelId) {
+            this.setState({ deploying: false, errorMessage: "Register Model Failed" });
+            return;
+        }
+
+        const condaArtifactLocation = await this.readOrUploadCondaFile(runId, data);
+        const scoringArtifactLocation = await this.readOrUploadScoringFile(runId, data);
+        if (!condaArtifactLocation || !scoringArtifactLocation) {
+            this.setState({ deploying: false, errorMessage: "Upload File to Artifact Failed" });
+            return;
+        }
+
+        const scoringFileName = scoringArtifactLocation.substring(scoringArtifactLocation.lastIndexOf("/") + 1);
+        const response = await this.services.modelManagementService.createDeployment(data.name, data.description, runId,
+            this.state.modelId,
+            condaArtifactLocation,
+            scoringFileName,
+            scoringArtifactLocation);
+        if (response && response.status === 409) {
+            this.setState({
+                deploying: false,
+                errorMessage: `Current workspace already contains a deployment with name ${data.name}`
+            });
+            return;
+        }
+        if (!response || response.status !== 202 || !response.operationId) {
+            this.setState({
+                deploying: false,
+                errorMessage: "Create Deployment Failed"
+            });
+            return;
+        }
+        this.props.onModelDeploy(response.operationId);
+    }
 }

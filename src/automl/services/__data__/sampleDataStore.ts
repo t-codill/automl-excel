@@ -1,6 +1,7 @@
 import { AzureMachineLearningDatastoreManagementModels } from "@vienna/datastore";
+import { NotNullableProperties } from "../../common/utils/NotNullableProperties";
 
-export const sampleDataStore: Required<AzureMachineLearningDatastoreManagementModels.DataStoreDto> = {
+export const sampleDataStore: NotNullableProperties<AzureMachineLearningDatastoreManagementModels.DataStoreDto> = {
     dataStoreType: "AzureBlob",
     name: "defaultDataStore",
     azureStorageSection: {

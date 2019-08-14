@@ -2,6 +2,7 @@ import { ICommandBarItemProps } from "@uifabric/experiments";
 import { shallow } from "enzyme";
 import * as React from "react";
 import { getLogCustomEventSpy, testContext } from "../common/context/__data__/testContext";
+import { waitPromise } from "../common/utils/waitPromise";
 import { BaseComponent } from "../components/Base/BaseComponent";
 import { ConfirmationDialog } from "../components/Dialog/ConfirmationDialog";
 import { PageRedirectRender } from "../components/Redirect/PageRedirectRender";
@@ -14,52 +15,54 @@ import { ChildRun, IChildRunRouteProps } from "./ChildRun";
 
 jest.mock("../services/ArtifactService");
 jest.mock("../services/RunHistoryService");
-let rhsGetRunMetrics: jest.SpyInstance<ReturnType<RunHistoryService["getRunMetrics"]>>;
-let rhsGetRun: jest.SpyInstance<ReturnType<RunHistoryService["getRun"]>>;
-let asGetAllContents: jest.SpyInstance<ReturnType<ArtifactService["getAllContents"]>>;
-let asGetModelUrl: jest.SpyInstance<ReturnType<ArtifactService["getModelUrl"]>>;
+let getRunMetricsSpy: jest.SpyInstance<ReturnType<RunHistoryService["getRunMetrics"]>>;
+let getRunSpy: jest.SpyInstance<ReturnType<RunHistoryService["getRun"]>>;
+let getAllContentsSpy: jest.SpyInstance<ReturnType<ArtifactService["getAllContents"]>>;
 
 const childRunRouteProps = {
   experimentName: "experimentName",
   runId: "AutoML_002"
 };
 const renderChildRun = async (routeProps: IChildRunRouteProps) => {
-  return Promise.resolve(shallow<ChildRun>(<ChildRun {...routeProps} />));
+  const root = shallow<ChildRun>(<ChildRun {...routeProps} />);
+  await waitPromise(6);
+  return root;
 };
+
 describe("Child run page", () => {
   let buttons: ICommandBarItemProps[] = [];
   beforeEach(() => {
     jest.spyOn(BaseComponent.prototype.context, "setNavigationBarButtons")
       .mockImplementation((b) => { buttons = b; });
-    rhsGetRunMetrics = jest.spyOn(RunHistoryService.prototype, "getRunMetrics");
-    rhsGetRun = jest.spyOn(RunHistoryService.prototype, "getRun");
-    asGetAllContents = jest.spyOn(ArtifactService.prototype, "getAllContents");
-    asGetModelUrl = jest.spyOn(ArtifactService.prototype, "getModelUrl");
+    getRunMetricsSpy = jest.spyOn(RunHistoryService.prototype, "getRunMetrics");
+    getRunSpy = jest.spyOn(RunHistoryService.prototype, "getRun");
+    getAllContentsSpy = jest.spyOn(ArtifactService.prototype, "getAllContents");
+  });
+
+  it("should render", async () => {
+    const root = await renderChildRun(childRunRouteProps);
+    expect(root)
+      .toMatchSnapshot();
   });
 
   it("should render loading image when run is undefined", async () => {
-    rhsGetRun.mockImplementationOnce(() => Promise.resolve(undefined));
+    getRunSpy.mockReturnValueOnce(Promise.resolve(undefined));
     expect(await renderChildRun(childRunRouteProps))
       .toMatchInlineSnapshot("<pageLoadingSpinner />");
-  });
-  it("should render grid when no run metrics", async () => {
-    rhsGetRunMetrics.mockImplementationOnce(() => Promise.resolve(undefined));
-    expect(await renderChildRun(childRunRouteProps))
-      .toMatchSnapshot();
+    expect(getRunSpy)
+      .toBeCalledTimes(1);
   });
 
-  it("should render grid and status bar without model url", async () => {
-    asGetModelUrl.mockImplementationOnce(() => Promise.resolve(undefined));
+  it("should render grid when no run metrics", async () => {
+    getRunMetricsSpy.mockReturnValueOnce(Promise.resolve(undefined));
     expect(await renderChildRun(childRunRouteProps))
       .toMatchSnapshot();
-  });
-  it("should render grid with model url", async () => {
-    expect(await renderChildRun(childRunRouteProps))
-      .toMatchSnapshot();
+    expect(getRunMetricsSpy)
+      .toBeCalledTimes(1);
   });
 
   it("should render grid when run artifact contents are undefined", async () => {
-    asGetAllContents.mockImplementationOnce(() => Promise.resolve(undefined));
+    getAllContentsSpy.mockReturnValueOnce(Promise.resolve(undefined));
     expect(await renderChildRun(childRunRouteProps))
       .toMatchSnapshot();
   });
@@ -133,7 +136,7 @@ describe("Child run page", () => {
 
   it("should cancel run", async (done) => {
     const tree = await renderChildRun(childRunRouteProps);
-    rhsGetRun.mockClear();
+    getRunSpy.mockClear();
     const logSpy = getLogCustomEventSpy();
     const cancel = buttons.find((b) => b.key === "cancelRun");
     if (cancel && cancel.onClick) {
@@ -153,7 +156,7 @@ describe("Child run page", () => {
     expect(tree.state("canceling"))
       .toBe(true);
     setImmediate(() => {
-      expect(rhsGetRun)
+      expect(getRunSpy)
         .toBeCalledTimes(1);
       done();
     });
@@ -164,7 +167,7 @@ describe("Child run page", () => {
     const asCancelRun = jest.spyOn(JasmineService.prototype, "cancelRun");
     asCancelRun.mockReturnValue(Promise.resolve(undefined));
     const tree = await renderChildRun(childRunRouteProps);
-    rhsGetRun.mockClear();
+    getRunSpy.mockClear();
     const cancel = buttons.find((b) => b.key === "cancelRun");
     if (cancel && cancel.onClick) {
       cancel.onClick();
@@ -181,7 +184,7 @@ describe("Child run page", () => {
     expect(tree.state("canceling"))
       .toBe(true);
     setImmediate(() => {
-      expect(rhsGetRun)
+      expect(getRunSpy)
         .toBeCalledTimes(0);
       done();
     });
@@ -218,7 +221,23 @@ describe("Child run page", () => {
       experimentName: "",
       runId: "AutoML_002"
     };
-    rhsGetRun.mockReturnValue(Promise.resolve({ ...classificationSuccessRun.run, status: "Running", target: "local" }));
+    getRunSpy.mockReturnValue(Promise.resolve({ ...classificationSuccessRun.run, status: "Running", target: "local" }));
+    await renderChildRun(unnamedRun);
+    const cancel = buttons.find((b) => b.key === "cancelRun");
+    let disabled: boolean | undefined;
+    if (cancel) {
+      disabled = cancel.disabled;
+    }
+    expect(disabled)
+      .toBe(true);
+  });
+
+  it("should disable cancel button if target is not set", async () => {
+    const unnamedRun: IChildRunRouteProps = {
+      experimentName: "",
+      runId: "AutoML_002"
+    };
+    getRunSpy.mockReturnValue(Promise.resolve({ ...classificationSuccessRun.run, status: "Running", target: undefined }));
     await renderChildRun(unnamedRun);
     const cancel = buttons.find((b) => b.key === "cancelRun");
     let disabled: boolean | undefined;
@@ -234,7 +253,7 @@ describe("Child run page", () => {
       experimentName: "",
       runId: "AutoML_002"
     };
-    rhsGetRun.mockImplementation(async () => {
+    getRunSpy.mockImplementation(async () => {
       const cancelButton = buttons.find((b) => b.key === "cancelRun");
       if (cancelButton) {
         cancelButton.key = "cancelButtonBak";

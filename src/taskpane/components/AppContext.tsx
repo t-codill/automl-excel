@@ -17,6 +17,9 @@ import { RunHistoryService, IRunDtoWithExperimentName } from '../../automl/servi
 import { ModelManagementService } from '../../automl/services/ModelManagementService';
 import { ResourceService } from '../../automl/services/ResourceService';
 import { SubscriptionService } from '../../automl/services/SubscriptionService';
+import { ArtifactService } from '../../automl/services/ArtifactService';
+import { DiscoveryService } from '../../automl/services/DiscoveryService';
+import { defaultRegion } from "../../../config";
 
 
 /* Singleton global state for app */
@@ -32,6 +35,7 @@ export class AppContextState{
     modelManagementService: ModelManagementService;
     resourceService: ResourceService;
     subscriptionService: SubscriptionService;
+    artifactService: ArtifactService;
 
     /* Current selected subscription ID */
     subscriptionId: string = localStorage.getItem("subscriptionId") || null;
@@ -51,17 +55,13 @@ export class AppContextState{
     /* Method to update context state while triggering update to app state */
     update: (newContext: Partial<AppContextState>) => Promise<AppContextState>;
 
-    settingComplete(): void {
-        this.settingCompleted = true;
-    }
-
     resourceGroupName(): string{
         return this.workspace.id.split("resourceGroups/")[1].split("/")[0];
     }
 
-    getServiceBaseProps(): IServiceBaseProps{
+    async getServiceBaseProps(): Promise<IServiceBaseProps>{
         let context = appContextDefaults;
-        let location = context.workspace !== null ? context.workspace.location : "eastus";
+        let location = context.workspace !== null ? context.workspace.location : defaultRegion;
 
         let props: IServiceBaseProps = {
             logger: new Logger("development"),
@@ -72,7 +72,7 @@ export class AppContextState{
             discoverUrls: {
                 history: "https://" + location + ".experiments.azureml.net"
             },
-            location: context.workspace !== null ? context.workspace.location : "eastus",
+            location: context.workspace !== null ? context.workspace.location : defaultRegion,
             pageName: PageNames.Unknown,
             flight: new WorkspaceFlight(""),
             theme: "",
@@ -87,12 +87,15 @@ export class AppContextState{
             workspaceName: context.workspace !== null ? context.workspace.name : ""
         };
 
+        if(context.workspace !== null){
+            let discoveryService = new DiscoveryService(props, context.workspace.discoveryUrl);
+            (props as any).discoverUrls = await discoveryService.get();
+        }
+
         return props;
     };
 
     async createServices(){
-
-        console.log("SErvices")
 
         let serviceTypes = {
             jasmineService: JasmineService,
@@ -102,11 +105,14 @@ export class AppContextState{
             runHistoryService: RunHistoryService,
             modelManagementService: ModelManagementService,
             resourceService: ResourceService,
-            subscriptionService: SubscriptionService
+            subscriptionService: SubscriptionService,
+            artifactService: ArtifactService
         }
 
         
-        let serviceBaseProps: IServiceBaseProps = this.getServiceBaseProps();
+        let serviceBaseProps: IServiceBaseProps = await this.getServiceBaseProps();
+
+
         for(var serviceName in serviceTypes){
             try{
                 this[serviceName] = new (serviceTypes[serviceName])(serviceBaseProps);
@@ -135,7 +141,9 @@ export class AppContextState{
         console.log("Setting subscription id to ".concat(subscriptionId));
         await this.update({subscriptionId: subscriptionId, workspaceList: null});
         await this.createServices();
+        
         localStorage.setItem("subscriptionId", subscriptionId);
+        await OfficeRuntime.storage.setItem("subscriptionId", subscriptionId);
     }
     
     async setWorkspace(workspace: AzureMachineLearningWorkspacesModels.Workspace){
@@ -175,7 +183,7 @@ export class AppContextState{
         for(var coleman = 0; coleman < runs.length; coleman++){
             let run = runs[coleman];
             let previous = experimentMap[run.experimentId];
-            if(run.runType === "automl" && (previous === undefined || previous.startTimeUtc.getTime() < run.startTimeUtc.getTime())){
+            if(run.runType === "automl" && (previous === undefined || previous.createdUtc.getTime() < run.createdUtc.getTime())){
                 experimentMap[run.experimentId] = run;
             }
         }
@@ -192,7 +200,7 @@ export class AppContextState{
     }
 
     async createWorkspace(workspaceName: string, resourceGroupName: string, location?: string): Promise<ResourceManagementModels.DeploymentExtended | undefined>{
-        if(!location) location = "eastus";
+        if(!location) location = defaultRegion;
         
         let resourceService: ResourceService = this.resourceService;
         return await resourceService.createWorkspace(workspaceName, resourceGroupName, location);
@@ -255,7 +263,19 @@ export class AppContextState{
         });
         
         /* Default to automl-workspace if it exists and no workspace has been chosen yet */
-        
+        if(this.workspace === null){
+            let filtered: AzureMachineLearningWorkspacesModels.Workspace[] = this.workspaceList.filter((workspace: AzureMachineLearningWorkspacesModels.Workspace) => workspace.friendlyName === "automl-excel");
+
+            console.log("filtered:");
+            console.log(filtered);
+            
+            if(filtered.length > 0){
+                console.log("setting default to ");
+                console.log(filtered[0]);
+                await this.setWorkspace(filtered[0]);
+            }
+            
+        }
     }
 }
 export const appContextDefaults = new AppContextState();

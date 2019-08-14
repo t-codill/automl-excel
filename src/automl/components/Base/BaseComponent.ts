@@ -18,6 +18,10 @@ export abstract class BaseComponent<
         return this._autoRefreshEnabled;
     }
 
+    protected set autoRefreshEnabled(flag: boolean | undefined) {
+        this._autoRefreshEnabled = flag;
+    }
+
     protected services!: { [key in keyof TServices]: TServices[key] };
 
     protected abstract readonly serviceConstructors: { [key in keyof TServices]: (new (context: IServiceBaseProps, props: TProp) => TServices[key]) };

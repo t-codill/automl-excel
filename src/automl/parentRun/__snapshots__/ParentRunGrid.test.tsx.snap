@@ -15,7 +15,7 @@ exports[`Parent Run Grid Classification Success should render graphs, run metric
         childRunMetrics={Array []}
         childRuns={Array []}
         experimentName="foo"
-        onModelRegister={[MockFunction]}
+        onModelDeploy={[MockFunction]}
         run={Object {}}
       />
     </GridItem>
@@ -26,7 +26,7 @@ exports[`Parent Run Grid Classification Success should render graphs, run metric
         childRunMetrics={Array []}
         childRuns={Array []}
         experimentName="foo"
-        onModelRegister={[MockFunction]}
+        onModelDeploy={[MockFunction]}
         run={Object {}}
       />
     </GridItem>

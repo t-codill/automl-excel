@@ -1,6 +1,23 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Parent Settings should render Run Settings table when successful run 1`] = `
+exports[`Parent Settings should render Run Settings table when successful run has max cores 1`] = `
+<PropertyList
+  listElements={
+    Object {
+      "Best Pipeline": undefined,
+      "Blacklisted Algorithms": Array [],
+      "Compute Target": "local",
+      "Data Script": null,
+      "Max Cores Per Iteration": "Maximum",
+      "Metric Operation": undefined,
+      "N Cross Validations": 3,
+      "Primary Metric": "AUC_weighted",
+    }
+  }
+/>
+`;
+
+exports[`Parent Settings should render Run Settings table when successful run has non-max cores 1`] = `
 <PropertyList
   listElements={
     Object {

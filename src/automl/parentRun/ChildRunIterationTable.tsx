@@ -45,7 +45,7 @@ export class ChildRunIterationTable
                 createdUtc: run.createdUtc,
                 iteration: run.properties ? parseInt(run.properties.iteration, 10) : undefined,
                 run_name: generateRunName(run),
-                score: isRunCompleted(run.status) && run.properties && run.properties.score ? Number(run.properties.score) : NaN,
+                score: isRunCompleted(run) && run.properties && run.properties.score ? Number(run.properties.score) : NaN,
                 duration: calculateDuration(run.startTimeUtc, run.endTimeUtc),
                 parentRunId: run.parentRunId
             };

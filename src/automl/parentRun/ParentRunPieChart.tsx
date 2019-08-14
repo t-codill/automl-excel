@@ -1,4 +1,4 @@
-import { PieChart } from "@vienna/chart-lib";
+//import { PieChart } from "@mlworkspace/charts";
 import { RunHistoryAPIsModels } from "@vienna/runhistory";
 import { countBy } from "lodash";
 import * as React from "react";
@@ -15,10 +15,11 @@ export class ParentRunPieChart extends BaseComponent<
             return <PageLoadingSpinner />;
         }
         const originRunStatistics = countBy(this.props.childRuns, (run) => run && run.status);
+        //@ts-ignore
         const pieChartData = {
             values: Object.values(originRunStatistics),
             labels: Object.keys(originRunStatistics)
         };
-        return <PieChart metric={pieChartData} theme={this.context.theme} />;
+        return <></>/*<PieChart metric={pieChartData} theme={this.context.theme} />;*/
     }
 }

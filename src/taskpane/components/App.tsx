@@ -16,8 +16,10 @@ import Analysis from './Analysis';
 import { Dialog } from './login/Dialog';
 import { SubscriptionChooser } from './SubscriptionChooser';
 import Login from './Login';
-import 'string-polyfills';
+import { IFunction, ICustomFunctionsMetadata } from 'custom-functions-metadata';
+import { tunnelRequest } from '../util';
 
+let scoreUrl = "http://861a3e7e-a6fe-49d8-9156-fab0ed26eac7.eastus.azurecontainer.io/score";
 
 class PrivateRoute extends Route{
 	static contextType = AppContext;
@@ -64,10 +66,77 @@ export default class App extends React.Component<AppProps, AppState> {
 		
 	}
 
-	async updateContext(newContext: AppContextState){
-		for(var key in newContext){
-			this.state.appContext[key] = newContext[key];
-		}
+  async registerCustomFunction(scoreUrl: string){
+    console.log("Swagger URL:");
+    let swaggerUrl = scoreUrl.replace('/score', '/swagger.json');
+    console.log(swaggerUrl);
+    console.log("Fetching swagger url:");
+    let response = await tunnelRequest(swaggerUrl);
+    console.log(response);
+}
+
+  async componentDidMount(){
+    try{
+      await this.registerCustomFunction(scoreUrl)
+    }catch(err){console.log(err)};
+
+    //@ts-ignore
+    let code =
+    "/* @customfunction \n" +
+    " * @param a First number \n" +
+    " * @returns the square of the number \n" +
+    " */\n"
+    "function automl(a){ return a*a; }";
+    console.log("trying function")
+
+    let functionMetadata: IFunction = {
+      description: "automl",
+      helpUrl: "https://microsoft.com",
+      id: "automl",
+      name: "automl",
+      parameters: [
+        {
+          name: "a",
+          dimensionality: "scalar",
+          description: "",
+          type: "any",
+          optional: false,
+          repeating: false
+        }
+      ],
+      result: {
+        type: "any",
+        dimensionality: "scalar"
+      },
+      options: {
+        cancelable: false,
+        requiresAddress: false,
+        stream: false,
+        volatile: false
+      }
+    }
+    //@ts-ignore
+    let functionsMetadata: ICustomFunctionsMetadata = {
+      functions: [
+        functionMetadata
+      ]
+    }
+    try{
+
+    if (Office.context.requirements.isSetSupported('CustomFunctions', 1.6)) {
+      //await (Excel as any).CustomFunctionManager.register(JSON.stringify(functionsMetadata), code);
+    }
+    }catch(err){
+      console.log("error doing function")
+      console.log(err);
+    }
+    console.log("Did function!")
+  }
+
+  async updateContext(newContext: AppContextState){
+    for(var key in newContext){
+      this.state.appContext[key] = newContext[key];
+    }
 
 		await this.updateState({
 			appContext: this.state.appContext

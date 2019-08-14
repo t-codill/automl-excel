@@ -72,7 +72,10 @@ export class ComputeSelector extends React.PureComponent<IComputeSelectorProps> 
                     break;
                 }
                 case "VirtualMachine": {
-                    options.push(this.getComputeOptions(compute, true));
+                    const vmProps = computeUnion.properties as { isNotebookInstanceCompute?: boolean };
+                    if (!(vmProps && vmProps.isNotebookInstanceCompute)) {
+                        options.push(this.getComputeOptions(compute, true));
+                    }
                     break;
                 }
                 default:

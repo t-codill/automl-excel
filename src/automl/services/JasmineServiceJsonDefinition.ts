@@ -1,7 +1,7 @@
 import { AzureMachineLearningWorkspacesModels } from "@azure/arm-machinelearningservices";
+import { defaultSdkVersion } from "../common/defaultSdkVersion";
 
 export type SDKFlight = "default" | "master" | "candidate" | "preview" | "custom";
-export const defaultSdkVersion = "1.0.43";
 
 function getPipDependency(flight: SDKFlight | undefined, sdkVersion: string | undefined): string[] {
     const sdkVersionEquals = sdkVersion ? `==${sdkVersion}` : undefined;
@@ -59,6 +59,9 @@ export const getJsonDefinition = (
                     userManagedDependencies: false,
                     interpreterPath: "python",
                     condaDependencies: {
+                        channels: [
+                            "conda-forge"
+                        ],
                         name: "project_environment",
                         dependencies: [
                             "python=3.6.2",
@@ -84,16 +87,8 @@ export const getJsonDefinition = (
                     }
                 },
                 spark: {
-                    repositories: [
-                        "https://mmlspark.azureedge.net/maven"
-                    ],
-                    packages: [
-                        {
-                            group: "com.microsoft.ml.spark",
-                            artifact: "mmlspark_2.11",
-                            version: "0.12"
-                        }
-                    ],
+                    repositories: [],
+                    packages: [],
                     precachePackages: true
                 },
                 databricks: {

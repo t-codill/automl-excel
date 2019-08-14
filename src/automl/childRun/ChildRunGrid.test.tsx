@@ -11,8 +11,7 @@ describe("Child Run Grid", () => {
                 experimentName="foo"
                 run={run}
                 runMetrics={{}}
-                modelUri="test model Uri"
-                onModelRegister={jest.fn()}
+                onModelDeploy={jest.fn()}
             />);
             expect(tree)
                 .toMatchSnapshot();
@@ -21,8 +20,7 @@ describe("Child Run Grid", () => {
             const props: IChildRunGridProps = {
                 experimentName: "foo",
                 runMetrics: {},
-                modelUri: "test model Uri",
-                onModelRegister: jest.fn(),
+                onModelDeploy: jest.fn(),
                 run: {
                     status: "Completed",
                     tags: {

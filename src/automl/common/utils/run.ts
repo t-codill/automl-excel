@@ -48,8 +48,8 @@ const shouldShowParentRunModel = (status: string | undefined): boolean => {
     return allowedState.has(status);
 };
 
-const isRunCompleted = (status: string | undefined): boolean => {
-    return status === "Completed";
+const isRunCompleted = (run: { status?: string } | undefined): boolean => {
+    return !!run && run.status === "Completed";
 };
 
 export {
