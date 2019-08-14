@@ -1,0 +1,70 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deploy Failed Content if has logs should render 1`] = `
+<Fragment>
+  <StyledMessageBarBase
+    messageBarType={1}
+  >
+    <strong>
+      AAA
+    </strong>
+     failed to deploy. 
+    <br />
+    <br />
+    <StyledLinkBase
+      onClick={[Function]}
+    >
+      Download logs
+    </StyledLinkBase>
+     for details 
+    <br />
+    <br />
+    Last deployment started on 
+    test-start-time
+    .
+  </StyledMessageBarBase>
+</Fragment>
+`;
+
+exports[`Deploy Failed Content if has logs should trigger download 1`] = `
+[MockFunction] {
+  "calls": Array [
+    Array [
+      Blob {},
+      "deployLog.txt",
+    ],
+  ],
+  "results": Array [
+    Object {
+      "type": "return",
+      "value": undefined,
+    },
+  ],
+}
+`;
+
+exports[`Deploy Failed Content if no log should render 1`] = `
+<Fragment>
+  <StyledMessageBarBase
+    messageBarType={1}
+  >
+    <strong>
+      AAA
+    </strong>
+     failed to deploy. 
+    <br />
+    <br />
+    <StyledLinkBase
+      onClick={[Function]}
+    >
+      Download logs
+    </StyledLinkBase>
+     for details 
+    <br />
+    <br />
+    Last deployment started on 
+    test-start-time
+    .
+  </StyledMessageBarBase>
+</Fragment>
+`;

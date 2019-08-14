@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`FormFileInput should render 1`] = `
+<Fragment>
+  <input
+    hidden={true}
+    onChange={[Function]}
+    type="file"
+  />
+  <StyledTextFieldBase
+    field="experimentName"
+    onClick={[Function]}
+    readOnly={true}
+    required={true}
+  />
+  <CustomizedPrimaryButton
+    onClick={[Function]}
+    style={
+      Object {
+        "height": 26,
+      }
+    }
+    text="upload"
+  />
+</Fragment>
+`;

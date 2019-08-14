@@ -1,0 +1,90 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ChildRunModel should render  1`] = `
+<Fragment>
+  <div
+    style={
+      Object {
+        "display": "flex",
+        "justifyContent": "space-between",
+      }
+    }
+  >
+    <ModelDownload
+      experimentName="experimentName"
+      modelName="<N/A>"
+      modelUri="modelUri"
+      pageName="ChildRun"
+      run={
+        Object {
+          "properties": Object {
+            "DataPrepJsonString": "{\\"features\\":[\\"timeStamp\\",\\"precip\\",\\"temp\\"]}",
+          },
+          "runId": "test-run-id_1",
+        }
+      }
+    />
+    <ModelDeploy
+      condaUri="condaUri"
+      experimentName="experimentName"
+      modelName="<N/A>"
+      modelUri="modelUri"
+      onModelDeploy={[Function]}
+      pageName="ChildRun"
+      parentRun={
+        Object {
+          "properties": Object {
+            "DataPrepJsonString": "{\\"features\\":[\\"timeStamp\\",\\"precip\\",\\"temp\\"]}",
+          },
+          "runId": "test-run-id",
+        }
+      }
+      run={
+        Object {
+          "properties": Object {
+            "DataPrepJsonString": "{\\"features\\":[\\"timeStamp\\",\\"precip\\",\\"temp\\"]}",
+          },
+          "runId": "test-run-id_1",
+        }
+      }
+      scoringUri="scoringUri"
+    />
+  </div>
+  <div
+    style={
+      Object {
+        "marginTop": "1em",
+      }
+    }
+  >
+    <DeployStatus
+      run={
+        Object {
+          "properties": Object {
+            "DataPrepJsonString": "{\\"features\\":[\\"timeStamp\\",\\"precip\\",\\"temp\\"]}",
+          },
+          "runId": "test-run-id_1",
+        }
+      }
+    />
+  </div>
+  <div
+    style={
+      Object {
+        "marginBottom": "1em",
+        "textAlign": "right",
+      }
+    }
+  >
+    <StyledLinkBase
+      href="https://docs.microsoft.com/en-us/azure/machine-learning/service/how-to-create-portal-experiments#deploy-model"
+      target="_blank"
+    >
+      Learn more about deploying models 
+      <StyledIconBase
+        iconName="NavigateExternalInline"
+      />
+    </StyledLinkBase>
+  </div>
+</Fragment>
+`;

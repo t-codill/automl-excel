@@ -37,3 +37,21 @@ export function makeCsv(values): string{
     }
     return csv;
 }
+
+export async function getSwagger(deploymentObj: any){
+    let swaggerUrl = deploymentObj.scoringUri.replace("/score", "/swagger.json");
+
+    let response = await fetch(apiUrl + '/swagger', {
+        method: "POST",
+        mode: "cors",
+        cache: "no-cache",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            url: swaggerUrl,
+        })
+    });
+    let jsonObj = await response.json();
+    return jsonObj;
+}

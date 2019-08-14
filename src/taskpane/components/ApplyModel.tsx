@@ -13,6 +13,7 @@ import { MicrosoftMachineLearningRunHistoryContractsRunDto } from '@vienna/runhi
 import { ArtifactDto } from '@vienna/artifact/esm/models';
 import { AsyncOperationStatus } from '@vienna/model-management/esm/models';
 import { IArtifact } from '../../automl/services/__mocks__/ArtifactService';
+import { getSwagger } from '../util';
 //import { tunnelRequest } from '../util';
 
 
@@ -125,19 +126,24 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
             console.log("Existing deployments:")
             let deployments = [];
             let deployed = false;
-
+            let deployment = null;
             try{
                 deployments = await context.modelManagementService.getDeployListByRunId(bestChildRun.runId);
                 console.log(deployments);
                 if(deployments.length > 0){
                     deployed = true;
-                    let deployment = deployments[0];
+                    deployment = deployments[0];
+                    //console.log()
+                    /*
                     console.log("Status:")
                     let status: AsyncOperationStatus = await context.modelManagementService.getDeployStatus(deployment.operationId)
                     console.log(status);
                     console.log("Logs:");
                     let logs = await context.modelManagementService.getDeployLogs(deployment.id);
                     console.log(logs);
+                    */
+                }else{
+
                 }
                 
             }catch(err){
@@ -148,6 +154,7 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
                 parentRun,
                 bestChildRun,
                 deployments,
+                deployment,
                 deployed
             });
         }
@@ -311,50 +318,43 @@ export default class ApplyModel extends React.Component<AppProps, AppState> {
             })
         })
     }
-/*
-    private readonly registerModel = async () => {
-        let context: AppContextState = this.context;
-        
-        let experimentName = "";
-        let
-        const asset = await this.services.modelManagementService.createAsset(
-            `${this.props.experimentName}`,
-            `${this.props.run.runId}_Model`,
-            this.props.modelUri
-        );
-        this.logUserAction("RegisterModel",
-            { modelId: this.state.modelId, experimentName: this.props.experimentName, runId: this.props.run.runId });
-        if (!asset || !asset.id) {
-            return;
-        }
-        const model = await this.services.modelManagementService.registerModel(
-            `${this.props.experimentName}`,
-            `${this.props.run.runId}_Model`,
-            asset.id,
-            "application/json",
-            this.props.run.runId,
-            this.props.experimentName
-        );
-        if (!model) {
-            this.setState({ registering: false });
-            return;
-        }
-        const modelId = model.name;
-        const updateResult = await this.services.runHistoryService.updateTag(this.props.run, this.props.experimentName, "model_id", modelId);
-        if (!updateResult) {
-            this.setState({ registering: false });
-            return;
-        }
-        this.props.onModelRegister();
-        this.setState({ registering: false, modelId });
-    }
-*/
 
     public async onRunClick(runData){
+        let context: AppContextState = this.context;
+
         if(!runData.deployed){
             await this.deployModel(runData.parentRun);
         }
 
+        console.log("Getting swagger:")
+        try{
+            let swaggerObj = await getSwagger(runData.deployment);
+            console.log(swaggerObj);
+
+            let data = {
+                "Inputs": {
+                    "input1": swaggerObj.definitions.ServiceInput.example.data
+                },
+                "GlobalParameters": {}
+            }
+            console.log("Data: ")
+            console.log(data);
+
+            const options = {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": "Bearer" + context.token,
+                },
+                body: JSON.stringify(data)
+            }
+
+            console.log("Scoring Response")
+            let response = await fetch(runData.deployment.scoringUri, options);
+            console.log(response);
+        }catch(err){
+            console.error(err);
+        }
         
     }
 
