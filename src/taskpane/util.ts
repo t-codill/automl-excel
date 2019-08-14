@@ -38,6 +38,10 @@ export function makeCsv(values): string{
     return csv;
 }
 
+export async function score(scoreUrl: string, data){
+    
+}
+
 export async function getSwagger(deploymentObj: any){
     let swaggerUrl = deploymentObj.scoringUri.replace("/score", "/swagger.json");
 

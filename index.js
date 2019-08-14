@@ -80,6 +80,10 @@ app.post('/api/token', async (req, res, next) => {
     }
 });
 
+app.post('/api/score', async (req, res, next) => {
+
+});
+
 app.post('/api/swagger', async (req, res, next) => {
     console.log(req.body);
     let { url } = req.body;
