@@ -18,6 +18,8 @@ import { AdvancedSetting } from '../../automl/services/AdvancedSetting';
 import { RunType } from '../../automl/services/constants/RunType';
 import { IRunDtoWithExperimentName } from '../../automl/services/RunHistoryService';
 import { defaultRegion } from "../../../config";
+import { makeCsv } from '../util';
+
 
 export interface AppProps {
 }
@@ -87,29 +89,6 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
         this.updateHeader(0);
     };
 
-    //creates a csv file with used ramge
-    //@ts-ignore
-    private async makeCsv(values){
-        console.log("Making csv:");
-        let csv = ""
-        for(var i = 0; i < values.length; i++){
-            for(var j = 0; j < values[i].length; j++){
-                let value = values[i][j];
-                try{
-                    if((typeof value === 'string' || value instanceof String) && value.includes(",")){
-                        console.log("enclosing in quotes");
-                        value = '"' + value + '"';
-                    }
-                    csv += value + ", ";
-                }catch(err){console.log(err);}
-            }
-            csv += "\n";
-        }
-        this.csvString = csv;
-        console.log("CSV!!!! :")
-        console.log(csv.length);
-    }
-
     async onWorkspaceChoose(){
 
     }
@@ -148,7 +127,7 @@ export default class CreateModel extends React.Component<AppProps, AppState> {
                 columnNames: range.values[0]
             })
             console.log(this.state.headers)
-            this.makeCsv(range.values)
+            this.csvString = makeCsv(range.values);
         }.bind(this))
     }
 

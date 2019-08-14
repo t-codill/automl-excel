@@ -1,0 +1,19 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deploy Status Invalid Props should re-render with new operationId 1`] = `<pageLoadingSpinner />`;
+
+exports[`Deploy Status Invalid Props should read operationId from tag if not found from lastDeploy 1`] = `<pageLoadingSpinner />`;
+
+exports[`Deploy Status Invalid Props should render with empty deployList 1`] = `<pageLoadingSpinner />`;
+
+exports[`Deploy Status Invalid Props should render with invalid OpeartionId 1`] = `<Fragment />`;
+
+exports[`Deploy Status Invalid Props should render with undefined deployName 1`] = `<pageLoadingSpinner />`;
+
+exports[`Deploy Status Invalid Props should render with valid deployList and undefined deploy 1`] = `<pageLoadingSpinner />`;
+
+exports[`Deploy Status Valid Props should render with valid deployList and failed deploy 1`] = `<pageLoadingSpinner />`;
+
+exports[`Deploy Status Valid Props should render with valid deployList and running deploy 1`] = `<pageLoadingSpinner />`;
+
+exports[`Deploy Status Valid Props should render with valid deployList and success deploy 1`] = `<pageLoadingSpinner />`;

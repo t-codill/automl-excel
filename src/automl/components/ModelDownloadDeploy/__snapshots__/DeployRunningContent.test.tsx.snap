@@ -1,0 +1,26 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deploy Succeed Content should render with valid property 1`] = `
+<Fragment>
+  <StyledMessageBarBase
+    messageBarType={0}
+  >
+    Model of Iteration
+    <strong>
+       
+       
+    </strong>
+     is deploying to 
+    <strong>
+      AAA
+    </strong>
+    . This can take more than 20 minutes to complete.
+    <br />
+     
+    <br />
+    Deployment started on 
+    test-start-time
+    .
+  </StyledMessageBarBase>
+</Fragment>
+`;

@@ -17,7 +17,7 @@ import { Dialog } from './login/Dialog';
 import { SubscriptionChooser } from './SubscriptionChooser';
 import Login from './Login';
 import { IFunction, ICustomFunctionsMetadata } from 'custom-functions-metadata';
-import { tunnelRequest } from '../util';
+//import { tunnelRequest } from '../util';
 
 let scoreUrl = "http://861a3e7e-a6fe-49d8-9156-fab0ed26eac7.eastus.azurecontainer.io/score";
 
@@ -70,9 +70,6 @@ export default class App extends React.Component<AppProps, AppState> {
     console.log("Swagger URL:");
     let swaggerUrl = scoreUrl.replace('/score', '/swagger.json');
     console.log(swaggerUrl);
-    console.log("Fetching swagger url:");
-    let response = await tunnelRequest(swaggerUrl);
-    console.log(response);
 }
 
   async componentDidMount(){
