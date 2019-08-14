@@ -1,0 +1,29 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`ScoringScriptSelector Initial Render should render date selector dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="scoringScriptSelector"
+    labelText="Scoring script"
+    required={true}
+  >
+    The scoring script is required to generate the image for deployment. It contains the code to do the predictions on input data.
+  </LabelWithCallout>
+  <div
+    className="ms-Grid"
+    dir="ltr"
+  >
+    <div
+      className="ms-Grid-col ms-sm6 ms-md3 ms-lg3 ms-xl3"
+    >
+      Auto generate
+    </div>
+    <StyledToggleBase
+      className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+      defaultChecked={true}
+      disabled={false}
+      onChange={[Function]}
+    />
+  </div>
+</Fragment>
+`;

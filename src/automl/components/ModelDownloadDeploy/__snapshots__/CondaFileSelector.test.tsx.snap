@@ -1,0 +1,28 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`CondaFileSelector Initial Render should render date selector dropdown 1`] = `
+<Fragment>
+  <LabelWithCallout
+    htmlFor="environmentScriptSelector"
+    labelText="Environment script"
+    required={true}
+  >
+    The environment script is required to generate the image for deployment. It contains the Conda dependencies required to run the web service.
+  </LabelWithCallout>
+  <div
+    className="ms-Grid"
+    dir="ltr"
+  >
+    <div
+      className="ms-Grid-col ms-sm6 ms-md3 ms-lg3 ms-xl3"
+    >
+      Auto generate
+    </div>
+    <StyledToggleBase
+      className="ms-Grid-col ms-sm12 ms-md6 ms-lg6 ms-xl6"
+      defaultChecked={true}
+      onChange={[Function]}
+    />
+  </div>
+</Fragment>
+`;

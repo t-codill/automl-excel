@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Deploy Succeed Content should render when scoring url is undefined 1`] = `
+<Fragment>
+  <StyledMessageBarBase
+    messageBarType={4}
+  >
+    <strong>
+      AAA
+    </strong>
+     deployed successfully. 
+    <br />
+    <br />
+    <strong>
+      Score URI: 
+    </strong>
+     
+    <StyledLinkBase
+      target="_blank"
+    />
+     
+    <br />
+    Deployed since 
+    test-start-time
+    .
+  </StyledMessageBarBase>
+</Fragment>
+`;
+
+exports[`Deploy Succeed Content should render with valid property 1`] = `
+<Fragment>
+  <StyledMessageBarBase
+    messageBarType={4}
+  >
+    <strong>
+      AAA
+    </strong>
+     deployed successfully. 
+    <br />
+    <br />
+    <strong>
+      Score URI: 
+    </strong>
+     
+    <StyledLinkBase
+      href="testScoringUrl"
+      target="_blank"
+    >
+      testScoringUrl
+    </StyledLinkBase>
+     
+    <br />
+    Deployed since 
+    test-start-time
+    .
+  </StyledMessageBarBase>
+</Fragment>
+`;
