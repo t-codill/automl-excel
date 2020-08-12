@@ -77,7 +77,7 @@
     "react-router": "^5.0.1",
     "react-router-dom": "^5.0.1",
     "react-vis": "^1.11.7",
-    "serialize-javascript": "^1.7.0",
+    "serialize-javascript": "^4.0.0",
     "string-polyfills": "^0.9.1",
     "style-loader": "^0.23.1",
     "ts-loader": "^6.0.2",
